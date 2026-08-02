@@ -1,0 +1,1099 @@
+% =====================================================================
+%  ERS/SRS -- SIMPA: Sistema Inteligente de Mantenimiento de Palma Africana
+%  Entrega 3 (2A) -- Especificacion completa + componente empirico
+%  Equipo AHMRV -- ISR-401 -- UTEQ -- Periodo 2026-2027 PPA
+%
+%  COMPILACION (ejecutar en este orden, desde 01_ERS/):
+%     pdflatex ERS_SRS_2A_v1.0.tex
+%     bibtex   ERS_SRS_2A_v1.0
+%     pdflatex ERS_SRS_2A_v1.0.tex
+%     pdflatex ERS_SRS_2A_v1.0.tex
+%
+%  NOTA: no se usa babel-spanish para garantizar la reproducibilidad
+%  en cualquier instalacion base de TeX Live. Si el equipo tiene
+%  texlive-lang-spanish puede descomentar la linea correspondiente.
+% =====================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% \usepackage[spanish,es-tabla]{babel}   % opcional
+\renewcommand{\contentsname}{Tabla de contenido}
+\renewcommand{\listfigurename}{Índice de figuras}
+\renewcommand{\listtablename}{Índice de tablas}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+\renewcommand{\refname}{Referencias}
+
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{uteqverde}{RGB}{0,102,51}
+\definecolor{grisclaro}{RGB}{242,242,242}
+
+\newcommand{\id}[1]{\texttt{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\sloppy
+\setlength{\emergencystretch}{3em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small ERS/SRS -- SIMPA v3.0}
+\rhead{\small Equipo AHMRV -- ISR-401}
+\cfoot{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{uteqverde}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalfont\small\bfseries}{\thesubsubsection}{0.6em}{}
+
+% =====================================================================
+%  MACRO PARA REQUISITOS FUNCIONALES (plantilla de 8 atributos)
+%  Uso: \RF{ID}{Nombre}{Descripcion}{Actor/Origen}{Entradas/Salidas}
+%          {Pre/Postcondiciones}{Prioridad}{Criterio de verificacion}
+% =====================================================================
+\newcommand{\RF}[8]{%
+\begin{longtable}{|L{3.2cm}|L{12.2cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{#1 --- #2}}\\
+\hline
+\textbf{Identificador} & \id{#1} \\ \hline
+\textbf{Nombre} & #2 \\ \hline
+\textbf{Descripción} & #3 \\ \hline
+\textbf{Actor / Origen (evidencia)} & #4 \\ \hline
+\textbf{Entradas / Salidas} & #5 \\ \hline
+\textbf{Pre / Postcondiciones} & #6 \\ \hline
+\textbf{Prioridad (MoSCoW)} & #7 \\ \hline
+\textbf{Criterio de verificación} & #8 \\ \hline
+\caption{#1 --- #2}
+\end{longtable}
+\vspace{-0.3cm}
+}
+
+\begin{document}
+
+% =====================================================================
+%  PORTADA
+% =====================================================================
+\begin{titlepage}
+\centering
+\vspace*{0.8cm}
+{\Large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\par}
+\vspace{0.3cm}
+{\large Facultad de Ciencias de la Computación\par}
+{\large Carrera de Software (Rediseño)\par}
+\vspace{1.2cm}
+\rule{\textwidth}{1.2pt}\par
+\vspace{0.5cm}
+{\LARGE\bfseries\color{uteqverde} ESPECIFICACIÓN DE REQUISITOS DE SOFTWARE\par}
+\vspace{0.4cm}
+{\Large\bfseries SIMPA --- Sistema Inteligente de Mantenimiento\\[0.2cm] de Palma Africana\par}
+\vspace{0.4cm}
+{\large Entrega 3 (2A) --- Especificación completa\par}
+\vspace{0.5cm}
+\rule{\textwidth}{1.2pt}\par
+\vspace{1.0cm}
+
+{\large\bfseries Organización cliente:\par}
+{\large Palmicultora M (seudónimo)\par}
+{\normalsize Cantón El Empalme, provincia del Guayas, Ecuador\par}
+\vspace{0.8cm}
+
+{\bfseries Equipo AHMRV --- Paralelo 4to ``A''\par}
+\vspace{0.3cm}
+\begin{tabular}{ll}
+Villafuerte Rosero Allan Noe & Analista Líder \\
+Huilcapi León Denisses Fabiola & Documentadora \\
+Rizzo Vélez Edson Nagib & Verificador \\
+Macías Herrera Josthyn Esteban & Modelador \\
+Arboleda Yanza Francisco Javier & Apoyo Modelado \\
+Alcívar Vélez Anderson Adonis & Apoyo Repositorio \\
+\end{tabular}
+
+\vspace{0.9cm}
+{\bfseries Asignatura:} Ingeniería de Requerimientos (ISR-401) --- 4to Nivel\par
+{\bfseries Docente:} Ing. Gleiston Cicerón Guerrero Ulloa, PhD\par
+{\bfseries Estándar:} ISO/IEC/IEEE 29148:2018\par
+{\bfseries Versión:} 3.0 \qquad {\bfseries Fecha:} 3 de agosto de 2026\par
+
+\vspace{0.8cm}
+{\bfseries Repositorio del proyecto:}\par
+\url{https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV}
+
+\vfill
+{\small Quevedo --- Los Ríos --- Ecuador\par}
+\end{titlepage}
+
+% =====================================================================
+%  HISTORIAL DE VERSIONES
+% =====================================================================
+\section*{Historial de versiones}
+\addcontentsline{toc}{section}{Historial de versiones}
+
+\begin{longtable}{|C{1.4cm}|C{2.2cm}|L{3.0cm}|L{7.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Versión} & \textbf{Fecha} & \textbf{Autor} & \textbf{Descripción del cambio} \\
+\hline
+\endhead
+1.0 & 01/06/2026 & Equipo AHMRV & Elaboración inicial de la Entrega 1 (1A): planificación y elicitación. \\ \hline
+1.1 & 23/06/2026 & Equipo AHMRV & Incorporación de correcciones docentes de la 1A: diagrama de contexto, actas formales, trazabilidad de requisitos brutos. \\ \hline
+2.0 & 26/06/2026 & Equipo AHMRV & Entrega 2 (1B): requisitos específicos, modelado UML, priorización MoSCoW y matriz de trazabilidad parcial. \\ \hline
+\rowcolor{grisclaro}3.0 & 03/08/2026 & Equipo AHMRV & \textbf{Entrega 3 (2A).} Correcciones del informe docente de la 1B incorporadas (véase §1.6). Segunda ronda de campo con cinco nuevos participantes (EV-04 a EV-08) y una nueva organización fuente. Ampliación a 35 RF y 18 RNF sobre las nueve características de ISO/IEC 25010:2023. Incorporación del requisito de explicabilidad, del mapeo a la LOPDP, de las historias de usuario en formato Connextra con escenarios Gherkin y del modelado organizacional i*. Renumeración del catálogo de evidencias (véase §1.7). Migración del documento a \LaTeX. \\ \hline
+\caption{Historial de versiones del documento}
+\end{longtable}
+
+\vspace{0.4cm}
+\noindent\fbox{\parbox{0.97\textwidth}{%
+\small\textbf{Regla de acumulación.} Este documento contiene y reemplaza a las Entregas 1 (1A) y 2 (1B).
+Las secciones heredadas fueron revisadas e incorporan las observaciones del docente registradas en el
+informe individual de la Entrega 2 (1B), fechado el 01/07/2026. La trazabilidad de dichas correcciones
+se detalla en la sección §1.6.}}
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\listoftables
+\newpage
+
+% =====================================================================
+%  1. INTRODUCCION
+% =====================================================================
+\section{Introducción}
+
+\subsection{Propósito del documento}
+
+El presente documento especifica los requisitos funcionales, no funcionales y legales del
+\textbf{Sistema Inteligente de Mantenimiento de Palma Africana (SIMPA)}, siguiendo la estructura
+del estándar ISO/IEC/IEEE 29148:2018 \cite{iso29148}. Su propósito es establecer una comprensión
+común, verificable y sin ambigüedad de lo que el sistema debe hacer, de las restricciones bajo las
+que debe operar y de la evidencia de campo que sustenta cada decisión de especificación.
+
+El documento está dirigido a: el \textbf{cliente} (propietario y administración de la organización
+Palmicultora M), el \textbf{equipo de desarrollo} responsable del diseño e implementación, los
+\textbf{verificadores} encargados de validar el cumplimiento de cada criterio de aceptación, y los
+\textbf{revisores académicos} de la asignatura ISR-401.
+
+La redacción de los requisitos sigue los criterios de calidad de Pohl \cite{pohl2010} y de Wiegers y
+Beatty \cite{wiegers2013}, y el vocabulario del cuerpo de conocimiento SWEBOK v4.0 \cite{swebok4} y
+del sílabo CPRE \cite{ireb2023}. La atención a la verificabilidad y a la ausencia de ambigüedad
+responde a la evidencia empírica de que estos son los defectos de requisitos más costosos en la
+práctica industrial \cite{mendez2017,montgomery2022}, y de que la ambigüedad se origina con
+frecuencia en el conocimiento tácito no explicitado durante las entrevistas de elicitación
+\cite{ferrari2016}.
+
+A diferencia de las entregas anteriores, esta versión incorpora el principio de \emph{trazabilidad
+evidencial estricta}: ningún requisito de este documento se enuncia sin la referencia explícita al
+identificador de evidencia (\id{EV-XX}) que lo respalda, y toda evidencia referenciada reposa
+físicamente dentro del repositorio del proyecto.
+
+\subsection{Alcance del producto}
+
+\subsubsection{Nombre y descripción general}
+
+\textbf{SIMPA} es una aplicación móvil Android con respaldo en la nube, destinada a la gestión,
+el monitoreo y el diagnóstico asistido del cultivo de palma africana (\emph{Elaeis guineensis} y
+sus híbridos interespecíficos) en una explotación agrícola de aproximadamente cien hectáreas.
+
+El sistema centraliza información que actualmente se registra de forma manual en libretas y se
+transmite de forma informal por mensajería instantánea, e incorpora componentes de inteligencia
+artificial para el análisis de imágenes de la palma y de sus racimos.
+
+\subsubsection{Alcance de esta versión}
+
+SIMPA v1 opera sobre \textbf{una sola unidad productiva}: la finca Palmicultora M. La organización
+cliente administra además una segunda finca bajo la misma dirección técnica, cuyos documentos
+operativos se emplean en este documento como evidencia del proceso de planificación
+(\id{EV-11}); no obstante, la operación multi-finca se declara explícitamente como
+\textbf{trabajo futuro} y no forma parte del alcance de esta versión.
+
+\subsubsection{Funcionalidades principales}
+
+\begin{itemize}[nosep]
+  \item Gestión de plantaciones, lotes y variedades de palma.
+  \item Planificación semanal de labores con seguimiento de cumplimiento y arrastre de pendientes.
+  \item Registro de labores agrícolas por unidad de avance (coronas, bancos, plantas, jornales).
+  \item Registro del proceso de polinización asistida y conteo georreferenciado de flores polinizadas.
+  \item Análisis de imágenes mediante IA para detección de plagas y enfermedades, diagnóstico de
+        deficiencias nutricionales y clasificación de madurez del racimo.
+  \item Generación de alertas tempranas con explicación comprensible para personal no especializado.
+  \item Registro de la calificación de calidad emitida por la planta extractora y trazabilidad
+        del lote rechazado hasta la cuadrilla responsable.
+  \item Estimación de producción y generación de reportes diarios, semanales y anuales.
+\end{itemize}
+
+\subsubsection{Exclusiones explícitas}
+
+El sistema \textbf{no} realizará: control automático del sistema de riego; aplicación automática de
+fertilizantes o pesticidas; operación de drones o maquinaria agrícola; gestión de nómina, contabilidad
+o facturación; comercialización de la producción; ni el procesamiento industrial del fruto en la
+planta extractora.
+
+\subsection{Definiciones, acrónimos y abreviaturas}
+
+\begin{longtable}{|L{3.6cm}|L{11.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Término} & \textbf{Definición} \\
+\hline
+\endhead
+Antesis & Etapa de floración en la que la flor femenina está receptiva para la polinización; se reconoce por coloración amarilla o negra (\id{EV-03}). \\ \hline
+Banco & Unidad de superficie despejada alrededor de la base de la palma; unidad de medida de avance en labores de limpieza (\id{EV-11}). \\ \hline
+Chapia & Labor de corte de maleza en la calle del cultivo. \\ \hline
+Corona & Área circular limpia alrededor del tronco de la palma; también, la labor de mantenerla despejada. \\ \hline
+Coarí × La Mé & Híbrido interespecífico de palma aceitera, resistente a la pudrición del cogollo; variedad sembrada en Palmicultora M (\id{EV-02}). \\ \hline
+Desprendimiento & Caída espontánea de frutos del racimo; indicador operativo de madurez usado por la industria extractora (\id{EV-04}, \id{EV-08}). \\ \hline
+Estrategus & Coleóptero que perfora el suelo y daña el meristema de la palma joven (\id{EV-02}). \\ \hline
+Explicabilidad & Capacidad de un sistema con IA de comunicar a la persona usuaria las razones de una decisión automática, en términos que dicha persona pueda comprender \cite{chazette2020}. \\ \hline
+Flecha & Hoja no abierta en el ápice de la palma; su acumulación indica déficit hídrico (\id{EV-01}). \\ \hline
+Guía de remisión & Documento de transporte exigido por la normativa ecuatoriana para el traslado de mercancía; su ausencia expone al productor a sanción (\id{EV-04}). \\ \hline
+Guineensis & \emph{Elaeis guineensis}, variedad africana de palma aceitera; umbral de madurez de 3 frutos desprendidos (\id{EV-04}). \\ \hline
+Jornal & Unidad de trabajo equivalente a una jornada-persona; unidad de planificación en los documentos de la organización (\id{EV-11}). \\ \hline
+Lote & Subdivisión operativa de la plantación; unidad de asignación de labores y de trazabilidad. \\ \hline
+LOPDP & Ley Orgánica de Protección de Datos Personales del Ecuador \cite{lopdp}. \\ \hline
+Meristema & Tejido de crecimiento de la palma; su daño provoca la muerte de la planta. \\ \hline
+MoSCoW & Técnica de priorización: \emph{Must}, \emph{Should}, \emph{Could}, \emph{Won't}. \\ \hline
+Pedúnculo & Base leñosa del racimo; si supera 5 cm absorbe aceite durante la extracción (\id{EV-04}). \\ \hline
+Racimo (RFF) & Racimo de fruta fresca; unidad de cosecha y de comercialización. \\ \hline
+RNF & Requisito no funcional; criterio de calidad según ISO/IEC 25010:2023 \cite{iso25010}. \\ \hline
+Ticket de pesaje & Comprobante emitido por la extractora con peso bruto, tara, neto y calificación de calidad del lote entregado (\id{EV-04}). \\ \hline
+\caption{Glosario del dominio del problema}
+\end{longtable}
+
+\subsection{Referencias}
+
+Las referencias bibliográficas se listan al final del documento en formato IEEE y se gestionan
+íntegramente en el archivo \id{referencias.bib}. El documento cita 31 fuentes primarias, de las
+cuales 12 corresponden al período 2023--2026, conforme al mínimo exigido de 25 fuentes con al
+menos 10 recientes.
+
+\subsection{Nota sobre el uso de herramientas de asistencia en la redacción}
+
+Conforme a la advertencia global de la guía de la Entrega 3, se deja constancia de que toda
+afirmación sustantiva de este documento está anclada a evidencia primaria del repositorio o a
+referencia bibliográfica revisada por pares. El uso de modelos grandes de lenguaje se limitó a
+tareas de asistencia en la redacción y el formato. Esta delimitación es coherente con las guías
+sistemáticas de uso de estos modelos en tareas de ingeniería de requisitos
+\cite{vogelsang2024,arora2024} y con la revisión sistemática de Cheng \emph{et al.}
+\cite{cheng2026}, que constituye además el marco del componente empírico descrito en la §6.
+
+\subsection{Visión general del documento}
+
+La organización del documento sigue la estructura de ISO/IEC/IEEE 29148:2018 \cite{iso29148},
+complementada con las prácticas de especificación descritas por Sommerville \cite{sommerville2016}.
+La sección §2 describe el contexto del sistema, sus usuarios y el modelado organizacional. La §3
+especifica los requisitos funcionales, no funcionales, legales y las restricciones de diseño. La §4
+presenta el modelado UML. La §5 desarrolla la priorización y la trazabilidad extendida. La §6
+describe el prototipo funcional. Los apéndices contienen el plan de ingeniería de requisitos, las
+evidencias de campo, la clasificación completa y la matriz de trazabilidad.
+
+\subsection{Incorporación de las observaciones de la Entrega 2 (1B)}
+
+Conforme al gatekeeper G2 de la guía de la Entrega 3, este documento parte de la 1B corregida. La
+siguiente tabla traza cada observación del informe docente del 01/07/2026 con la acción adoptada.
+
+\begin{longtable}{|C{1.0cm}|L{6.6cm}|L{7.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{\#} & \textbf{Observación del docente (1B)} & \textbf{Acción adoptada en la 2A} \\
+\hline
+\endhead
+1 & Audio de la entrevista al administrador general declarado solo mediante enlace externo a YouTube, sin archivo dentro del repositorio. & Archivo de audio incorporado físicamente al repositorio mediante Git LFS; ficha técnica con duración, códec y hash SHA-256 publicada en zona pública. \\ \hline
+2 & Videos de dos entrevistas declarados solo mediante enlaces externos. & Videos incorporados como archivos dentro del contenedor cifrado \id{02\_Evidencias/00\_Restringido/}, con hash registrado en \id{checksums.sha256}. \\ \hline
+3 & Ausencia de fotografías de la aplicación real del cuestionario. & Incorporadas en \id{02\_Evidencias/Cuestionario/Fotos\_Aplicacion/}, con rostros fuera de encuadre. \\ \hline
+4 & Ausencia de documentos originales de la organización. & Incorporados los planes semanales de labores de dos unidades productivas (\id{EV-11}), anonimizados conforme a la §4.1 de la guía. \\ \hline
+5 & Archivo de evidencia fotográfica con tamaño de 2 bytes (\emph{placeholder}). & Archivo reemplazado por la imagen real y verificado mediante inspección de cabecera binaria. \\ \hline
+6 & Consentimientos publicados con cédula y firma visibles. & Copias públicas enmascaradas conforme a la §4.1; originales íntegros trasladados a la zona restringida cifrada. \\ \hline
+\caption{Trazabilidad de las correcciones de la Entrega 2 (1B)}
+\end{longtable}
+
+\subsection{Nota sobre la renumeración del catálogo de evidencias}
+
+La segunda ronda de campo incorporó cinco nuevas entrevistas. Para mantener la continuidad de las
+entrevistas de la primera ronda (\id{EV-01} a \id{EV-03}), las evidencias no-entrevista de la 1B se
+desplazaron según la siguiente equivalencia, registrada también en \id{CHANGELOG.md}:
+
+\begin{center}
+\begin{tabular}{|c|c|l|}
+\hline
+\rowcolor{grisclaro}\textbf{ID en la 1B} & \textbf{ID en la 2A} & \textbf{Contenido} \\ \hline
+\id{EV-04} & \id{EV-09} & Observación de campo \\ \hline
+\id{EV-05} & \id{EV-10} & Cuestionario, aplicación piloto ($n=4$) \\ \hline
+\end{tabular}
+\end{center}
+
+\vspace{0.3cm}
+\noindent Las referencias \id{EV-04} a \id{EV-08} corresponden ahora a las entrevistas de la segunda
+ronda. El catálogo completo se detalla en el Apéndice B.1.
+
+% =====================================================================
+%  2. DESCRIPCION GENERAL
+% =====================================================================
+\newpage
+\section{Descripción general}
+
+\subsection{Perspectiva del producto y límite del sistema}
+
+SIMPA es un sistema \textbf{nuevo}. No reemplaza a un sistema informático previo: sustituye un
+conjunto de prácticas manuales. La evidencia de campo documenta el proceso actual (AS-IS) de la
+siguiente manera:
+
+\begin{itemize}[nosep]
+  \item El registro diario de avance se anota en una libreta personal por cada trabajador y se
+        entrega verbalmente al encargado al final de la jornada (\id{EV-05}, \id{EV-06}).
+  \item El reporte hacia la administración se transmite por mensajería instantánea; la
+        organización no emplea ninguna otra herramienta digital (\id{EV-07}).
+  \item La detección de anomalías depende de la inspección visual y de la experiencia del personal
+        técnico; el recorrido completo de la plantación toma una semana (\id{EV-01}).
+  \item La supervisión presencial del asistente de administración ocurre dos veces por semana, lo
+        que introduce una latencia de hasta tres días entre el aviso y la verificación (\id{EV-07}).
+\end{itemize}
+
+El límite del sistema se representa en la Figura~\ref{fig:contexto}. SIMPA intercambia información
+con cinco entidades externas: el dispositivo móvil (cámara y GPS), la estación meteorológica, la
+base de conocimiento de plagas, el servicio de análisis de imágenes y la \textbf{planta extractora},
+actor incorporado en esta entrega a partir de \id{EV-04} y \id{EV-08}.
+
+\begin{figure}[htbp]
+\centering
+% \includegraphics[width=0.95\textwidth]{img/diagrama_contexto.png}
+\fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm} [Insertar \id{img/diagrama\_contexto.png}] \vspace{2cm}}}
+\caption{Diagrama de contexto del SIMPA (límite del sistema).}
+\label{fig:contexto}
+\end{figure}
+
+\subsection{Funciones del producto}
+
+Las funciones de alto nivel se agrupan en seis bloques: (i) gestión de la estructura productiva;
+(ii) planificación y seguimiento de labores; (iii) registro operativo de campo; (iv) diagnóstico
+asistido por IA; (v) control de calidad y relación con la extractora; y (vi) reportes y estimación
+de producción. El detalle se especifica en la §3.2.
+
+\subsection{Clases y características de los usuarios}
+
+\begin{longtable}{|L{3.0cm}|L{5.4cm}|L{3.2cm}|L{2.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Perfil} & \textbf{Descripción} & \textbf{Competencia digital} & \textbf{Frecuencia de uso} \\
+\hline
+\endhead
+Administrador general & Supervisión global del cultivo, decisiones de inversión y evaluación del personal (\id{EV-01}). & Media & Diaria \\ \hline
+Administrador / Asesor técnico & Dirección técnica del cultivo; define nutrición, sanidad y manejo agrícola (\id{EV-02}). & Media & Semanal \\ \hline
+Asistente de administración & Seguimiento de los trabajos de campo, verificación fotográfica de afectaciones, visitas dos veces por semana (\id{EV-07}). & \textbf{Alta} & Bisemanal \\ \hline
+Jefe de polinización & Dirige la polinización asistida y controla su calidad (\id{EV-03}). & Media & Diaria \\ \hline
+Trabajador agrícola & Ejecuta chapia, corona, polinización y cosecha; registra su avance (\id{EV-05}, \id{EV-06}). & \textbf{Baja} & Diaria \\ \hline
+Técnico de la extractora & Califica la fruta recibida y asesora al productor sobre calidad (\id{EV-04}, \id{EV-08}). & Media-alta & Semanal \\ \hline
+\caption{Clases de usuarios del SIMPA}
+\end{longtable}
+
+\noindent
+La brecha de competencia digital entre el asistente de administración y el trabajador agrícola es
+un hallazgo relevante para el diseño. El primero declaró estar familiarizado con este tipo de
+tecnología y anticipó que \emph{``la dificultad podría presentarse principalmente con el personal de
+campo que realiza labores manuales''} (\id{EV-07}). Esta observación sustenta la restricción
+\id{RD-06} y el requisito de usabilidad \id{RNF-08}.
+
+\subsection{Mapa de partes interesadas (matriz poder/interés)}
+
+\begin{longtable}{|L{4.2cm}|C{1.8cm}|C{1.8cm}|L{3.4cm}|C{2.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Parte interesada} & \textbf{Poder} & \textbf{Interés} & \textbf{Estrategia} & \textbf{Evidencia} \\
+\hline
+\endhead
+Propietario de la organización & Alto & Alto & Gestionar de cerca & \id{EV-02} \\ \hline
+Administrador general & Alto & Alto & Gestionar de cerca & \id{EV-01} \\ \hline
+Administrador / Asesor técnico & Alto & Alto & Gestionar de cerca & \id{EV-02} \\ \hline
+Asistente de administración & Medio & Alto & Mantener informado & \id{EV-07} \\ \hline
+Jefe de polinización & Medio & Alto & Mantener informado & \id{EV-03} \\ \hline
+Planta extractora & \textbf{Alto} & Medio & \textbf{Mantener satisfecho} & \id{EV-04}, \id{EV-08} \\ \hline
+Trabajadores agrícolas & Bajo & Alto & Mantener informados & \id{EV-05}, \id{EV-06} \\ \hline
+Agrocalidad (ente regulador) & Alto & Bajo & Monitorear & \id{EV-04} \\ \hline
+\caption{Mapa de partes interesadas con clasificación poder/interés}
+\end{longtable}
+
+\noindent
+La incorporación de la planta extractora como parte interesada de \textbf{poder alto} es la
+modificación más significativa respecto de la 1B. La extractora fija unilateralmente los criterios
+de aceptación de la fruta, aplica castigos económicos sobre el lote y puede rechazar la carga
+completa (\id{EV-04}). Su clasificación como parte de alto poder e interés medio refleja que, si
+bien no es usuaria directa del SIMPA, sus criterios determinan el valor económico de la producción.
+
+\subsection{Modelado organizacional i*}
+
+\subsubsection{Diagrama de Dependencia Estratégica (SD)}
+
+El modelo SD representa las dependencias entre actores del dominio, independientemente del sistema.
+La Tabla~\ref{tab:sd} resume las dependencias identificadas a partir de la evidencia.
+
+\begin{longtable}{|L{3.4cm}|L{3.4cm}|L{2.4cm}|L{4.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Actor dependiente} & \textbf{Actor depositario} & \textbf{Tipo} & \textbf{Elemento de dependencia} \\
+\hline
+\endhead
+Propietario & Administrador general & Objetivo & Rendimiento de 40--45 t/ha/año (\id{EV-02}) \\ \hline
+Administrador general & Jefe de campo & Recurso & Reporte diario de avance (\id{EV-07}) \\ \hline
+Administrador general & Trabajador agrícola & Tarea & Ejecución de la labor presupuestada (\id{EV-11}) \\ \hline
+Administrador general & Asistente de administración & Objetivo-blando & Oportunidad en la detección de afectaciones (\id{EV-07}) \\ \hline
+Trabajador agrícola & Administrador general & Recurso & Asignación de lote y pago por avance (\id{EV-05}, \id{EV-06}) \\ \hline
+Extractora & Cuadrilla de cosecha & Objetivo-blando & Fruta con desprendimiento suficiente (\id{EV-04}) \\ \hline
+Extractora & Productor & Recurso & Estimación de tonelaje para planificar capacidad (\id{EV-04}) \\ \hline
+Productor & Extractora & Recurso & Ticket de pesaje con calificación de calidad (\id{EV-04}) \\ \hline
+Jefe de polinización & Polinizador & Tarea & Aplicación correcta del polinizante (\id{EV-03}) \\ \hline
+\caption{Dependencias estratégicas (modelo i* SD)}
+\label{tab:sd}
+\end{longtable}
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm} [Insertar \id{img/istar\_sd.png}] \vspace{2cm}}}
+\caption{Diagrama de Dependencia Estratégica (i* SD) del dominio de Palmicultora M.}
+\label{fig:sd}
+\end{figure}
+
+\subsubsection{Diagrama de Razón Estratégica (SR)}
+
+El modelo SR profundiza en el actor \textbf{Administrador general}, cuyo objetivo raíz
+\emph{``mantener el cultivo en estado productivo''} se descompone en cuatro tareas: supervisar
+equipos de trabajo, controlar el estado sanitario, asegurar la humedad del suelo y verificar el
+cumplimiento del presupuesto semanal. Sobre estas tareas actúan tres objetivos-blandos derivados de
+la evidencia: \emph{oportunidad del diagnóstico} (\id{EV-01}: el recorrido completo toma una
+semana), \emph{confiabilidad del conteo} (\id{EV-03}: el conteo manual afecta el rendimiento del
+polinizador) y \emph{reducción de la dependencia del conocimiento experto} (\id{EV-01},
+\id{EV-02}: la escasez de mano de obra calificada es el principal problema de gestión).
+
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm} [Insertar \id{img/istar\_sr.png}] \vspace{2cm}}}
+\caption{Diagrama de Razón Estratégica (i* SR) del actor Administrador general.}
+\label{fig:sr}
+\end{figure}
+
+\subsection{Entorno operativo}
+
+\textbf{Entorno físico.} Plantación de aproximadamente cien hectáreas dividida en seis lotes
+(\id{EV-11}), con campamento y oficina administrativa. Condiciones de exposición solar directa,
+humedad alta y jornadas que se extienden entre las 06:00 y las 18:00 según el clima (\id{EV-06}).
+
+\textbf{Conectividad.} Existe internet satelital parcial; la conexión estable se limita al
+campamento (\id{EV-07}). La aplicación ampliada del cuestionario ($n=62$, \id{EV-12}) precisa esta
+condición: el 25{,}8\% de las personas respondientes declara disponer de señal siempre, el 51{,}6\%
+solo a veces, el 21{,}0\% casi nunca y el 1{,}6\% nunca. Es decir, \textbf{el 74{,}2\% no cuenta con
+conectividad permanente} en su zona de trabajo. Esta distribución --- y no la ausencia total de
+señal --- es la que determina la arquitectura \emph{offline-first} del sistema: la aplicación debe
+ser plenamente funcional sin conexión y sincronizar de forma oportunista.
+
+\textbf{Plataforma.} Aplicación móvil Android para campo; panel web para administración; backend en
+la nube con API REST y servicio de inferencia de IA.
+
+\subsection{Suposiciones y dependencias}
+
+\textbf{Suposiciones.} Las imágenes capturadas tienen calidad suficiente para el análisis; la
+organización mantiene la práctica de planificación semanal documentada (\id{EV-11}); la
+organización proveerá un mecanismo de registro asistido para el personal sin dispositivo propio.
+
+\vspace{0.2cm}
+\noindent\fbox{\parbox{0.97\textwidth}{%
+\small\textbf{Suposición invalidada por la evidencia.} Las entregas anteriores asumían que la
+totalidad del personal disponía de teléfono inteligente propio. La aplicación ampliada del
+cuestionario ($n=62$, \id{EV-12}) refuta esa suposición: \textbf{el 11{,}3\% de las personas
+respondientes declara no usar teléfono inteligente}. Esta constatación motiva la restricción
+\id{RD-10} y el requisito \id{RF-35}, que habilitan el registro delegado para dicho segmento. De no
+haberse corregido, el sistema habría excluido a aproximadamente una de cada nueve personas
+destinatarias.}}
+
+\textbf{Dependencias.} Disponibilidad del servicio de inferencia de IA; disponibilidad de datos
+climáticos; vigencia del consentimiento informado de los trabajadores para el tratamiento de datos
+de geolocalización.
+
+\textbf{Riesgos.} Baja calidad de imagen en condiciones de contraluz; resistencia al uso de
+tecnología por parte del personal de campo (\id{EV-07}); variabilidad del criterio de madurez entre
+variedades, que exige parametrización (\id{EV-04}).
+
+
+\subsection{Resultados del cuestionario aplicado ($n=62$)}
+
+El cuestionario se aplicó al personal de campo en dos rondas con \textbf{instrumento idéntico}, con
+el fin de preservar la comparabilidad: una aplicación piloto de cuatro respondientes
+(\id{EV-10}, 30/06/2026) y una aplicación ampliada de 62 respondientes (\id{EV-12}).
+
+\textbf{Definición del perfil dominante.} La guía de la Entrega 3 exige $n \geq 30$ por perfil
+dominante. En este estudio el perfil dominante es el de \textbf{trabajador agrícola de campo}, con
+$n = 60$ (96{,}8\% de la muestra), estratificado en cuatro sub-perfiles según la labor principal.
+Los estratos individuales no alcanzan por separado el umbral de 30; se declara explícitamente que el
+análisis por estrato tiene carácter exploratorio y se reporta como limitación en la §7.
+
+\begin{longtable}{|L{6.8cm}|C{2.0cm}|C{2.0cm}|L{3.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Variable} & \textbf{Valor} & \textbf{\%} & \textbf{Implicación} \\
+\hline
+\endhead
+\multicolumn{4}{|l|}{\textbf{Perfil de la muestra}} \\ \hline
+Polinización & 18 & 29{,}0 & Estrato mayor \\ \hline
+Control fitosanitario & 18 & 29{,}0 & Estrato mayor \\ \hline
+Labores de mantenimiento & 13 & 21{,}0 & --- \\ \hline
+Riego & 11 & 17{,}7 & --- \\ \hline
+Otra & 2 & 3{,}2 & Excluido del perfil dominante \\ \hline
+\multicolumn{4}{|l|}{\textbf{Registro actual de la labor}} \\ \hline
+En papel & 42 & 67{,}7 & Sustenta \id{RF-04}, \id{RF-28} \\ \hline
+Lo anota la administración & 13 & 21{,}0 & Sustenta \id{RF-35} \\ \hline
+No se registra & 6 & 9{,}7 & Pérdida de información \\ \hline
+\multicolumn{4}{|l|}{\textbf{Mayor dificultad declarada} (selección múltiple)} \\ \hline
+Detectar plagas o enfermedades a tiempo & 25 & 40{,}3 & Sustenta \id{RF-07}, \id{RF-12} \\ \hline
+El clima & 21 & 33{,}9 & Sustenta \id{RF-17} \\ \hline
+Llevar la cuenta de lo realizado & 13 & 21{,}0 & Sustenta \id{RF-28}, \id{RF-29} \\ \hline
+Saber qué producto aplicar & 13 & 21{,}0 & Sustenta \id{RF-09} \\ \hline
+Comunicación con la administración & 6 & 9{,}7 & Sustenta \id{RF-30} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Capacidad tecnológica}} \\ \hline
+Usa teléfono inteligente & 55 & 88{,}7 & \textbf{11{,}3\% no lo usa}: \id{RD-10} \\ \hline
+Comodidad con aplicaciones (media 1--5) & 3{,}14 & --- & Sustenta \id{RNF-08}, \id{RD-06} \\ \hline
+Señal de internet permanente & 16 & 25{,}8 & \textbf{74{,}2\% sin señal permanente}: \id{RD-02} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Aceptación}} \\ \hline
+No le preocupa el registro por GPS & 46 & 74{,}2 & \textbf{25{,}8\% con reservas}: \id{RL-03} \\ \hline
+Usaría la aplicación & 53 & 85{,}5 & Adopción esperada \\ \hline
+\caption{Resultados del cuestionario ampliado ($n=62$, \id{EV-12})}
+\end{longtable}
+
+\textbf{Utilidad percibida de las funciones propuestas.} Cada persona respondiente valoró cinco
+funciones en escala de 1 a 5. El orden resultante confirma la priorización MoSCoW de la §5.
+
+\begin{longtable}{|L{7.6cm}|C{1.8cm}|C{1.8cm}|C{2.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Función propuesta} & \textbf{Media} & \textbf{Mediana} & \textbf{Requisito} \\
+\hline
+\endhead
+Recibir alertas ante un problema del cultivo & \textbf{4{,}31} & 5 & \id{RF-12} \\ \hline
+Foto $\rightarrow$ detectar plaga o enfermedad & \textbf{4{,}27} & 5 & \id{RF-07} \\ \hline
+Foto $\rightarrow$ detectar deficiencia nutricional & 4{,}10 & 4 & \id{RF-08} \\ \hline
+Registrar labores en el teléfono & 3{,}95 & 4 & \id{RF-04}, \id{RF-28} \\ \hline
+Conteo automático de flores por GPS & 3{,}94 & 4 & \id{RF-14} \\ \hline
+\caption{Utilidad percibida de las funciones propuestas ($n=62$, escala 1--5)}
+\end{longtable}
+
+\noindent
+Las dos funciones mejor valoradas ---alertas y detección de plagas por imagen--- coinciden con la
+dificultad más declarada por el personal (detectar plagas a tiempo, 40{,}3\%) y con la necesidad
+expresada de forma independiente por la administración general (\id{EV-01}) y la asesoría técnica
+(\id{EV-02}). Esta convergencia entre tres fuentes distintas ---cuestionario, entrevista operativa y
+entrevista directiva--- sustenta la clasificación \emph{Must} de \id{RF-07} y \id{RF-12}.
+
+\textbf{Datos faltantes.} La pregunta sobre comodidad con aplicaciones registró 37 respuestas
+válidas de 62 ($40{,}3\%$ de no respuesta). Este valor se reporta como limitación y no se emplea
+para inferencia; la media de 3{,}14 se presenta únicamente como indicio descriptivo.
+
+% =====================================================================
+%  3. REQUISITOS ESPECIFICOS
+% =====================================================================
+\newpage
+\section{Requisitos específicos}
+
+Esta sección especifica 35 requisitos funcionales, 18 requisitos no funcionales cuantificados sobre
+las nueve características de calidad de ISO/IEC 25010:2023 \cite{iso25010}, 9 restricciones de
+diseño y el mapeo de requisitos legales a la LOPDP \cite{lopdp}.
+
+\subsection{Interfaces externas}
+
+\subsubsection{Interfaces de usuario}
+
+Las pantallas principales se especifican mediante prototipos de alta fidelidad identificados
+\id{MU-01} a \id{MU-08}, incrustados en el Apéndice F y disponibles como archivos PNG en
+\id{03\_Modelado/Mockups/}. La Tabla~\ref{tab:mockups} traza cada prototipo con los requisitos que
+soporta.
+
+\begin{longtable}{|C{1.6cm}|L{5.6cm}|L{7.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Pantalla} & \textbf{Requisitos soportados} \\
+\hline
+\endhead
+\id{MU-01} & Inicio de sesión & \id{RF-01} \\ \hline
+\id{MU-02} & Panel principal & \id{RF-12}, \id{RF-19}, \id{RF-26} \\ \hline
+\id{MU-03} & Captura y análisis de imagen (IA) & \id{RF-07}, \id{RF-08}, \id{RF-09}, \id{RF-21} \\ \hline
+\id{MU-04} & Registro de labor y polinización & \id{RF-04}, \id{RF-13}, \id{RF-14}, \id{RF-28} \\ \hline
+\id{MU-05} & Detalle de lote & \id{RF-02}, \id{RF-05}, \id{RF-06}, \id{RF-11} \\ \hline
+\id{MU-06} & Mapa de recorridos y polinización (GPS) & \id{RF-14}, \id{RF-15}, \id{RF-30} \\ \hline
+\id{MU-07} & Reportes y estimación & \id{RF-18}, \id{RF-19}, \id{RF-32} \\ \hline
+\id{MU-08} & Alertas & \id{RF-12}, \id{RF-22} \\ \hline
+\caption{Trazabilidad entre prototipos de interfaz y requisitos funcionales}
+\label{tab:mockups}
+\end{longtable}
+
+\subsubsection{Interfaces de hardware}
+
+Cámara del dispositivo móvil (captura de imagen para los tres componentes de IA); receptor GPS
+(conteo georreferenciado y registro de recorridos); dispositivo Android 9.0 o superior; servidor o
+servicio en la nube para almacenamiento e inferencia.
+
+\subsubsection{Interfaces de software}
+
+API REST sobre HTTPS con carga útil JSON entre cliente móvil, panel web y backend; servicio de
+inferencia de IA; servicio de autenticación con control de acceso basado en roles; base de datos
+relacional; servicio de datos climáticos.
+
+\subsubsection{Interfaces de comunicación}
+
+Se incorpora en esta entrega la \textbf{interfaz de intercambio con la planta extractora}. La
+evidencia \id{EV-04} documenta que la extractora opera un sistema interno propio que emite un ticket
+de pesaje con peso bruto, tara, neto y calificación de calidad, y que lo remite al productor por
+correo electrónico. El SIMPA no se integra directamente con ese sistema en la versión v1; el
+intercambio se realiza mediante exportación de archivos en formato estructurado, conforme a
+\id{RF-32} y a la restricción de minimización de datos \id{RD-09}.
+
+\subsection{Requisitos funcionales}
+
+Cada requisito se documenta con la plantilla de ocho atributos e incluye la referencia explícita al
+identificador de evidencia que lo respalda, conforme a la §3.3 de la guía de la Entrega 3.
+
+\subsubsection{Bloque I --- Gestión de la estructura productiva}
+
+\RF{RF-01}{Autenticación y control de acceso por rol}
+{El sistema debe permitir el inicio de sesión y restringir las funciones disponibles según el rol de la persona usuaria (administrador general, administrador/asesor técnico, asistente de administración, jefe de polinización, trabajador agrícola).}
+{Administrador general · \id{EV-01}, \id{EV-07}, \id{EV-09}}
+{\textbf{Entrada:} credenciales de acceso. \textbf{Salida:} sesión activa con menú correspondiente al rol, o mensaje de error.}
+{\textbf{Pre:} la persona usuaria está registrada y activa. \textbf{Post:} accede únicamente a las funciones autorizadas para su rol.}
+{Must}
+{Una cuenta con rol \emph{trabajador agrícola} no puede acceder a ninguna función de administración; el acceso se concede exclusivamente con credenciales válidas.}
+
+\RF{RF-02}{Gestión de plantaciones y lotes}
+{El sistema debe permitir registrar, editar y consultar la plantación y sus lotes, con variedad sembrada, área en hectáreas, número de palmas y fecha de siembra.}
+{Administrador general · \id{EV-01}, \id{EV-02}, \id{EV-11}}
+{\textbf{Entrada:} datos identificativos y productivos del lote. \textbf{Salida:} lote almacenado y disponible en el listado.}
+{\textbf{Pre:} persona usuaria con permiso de administración. \textbf{Post:} el lote queda disponible para asociar labores, diagnósticos y cosechas.}
+{Must}
+{Tras registrar un lote, este aparece en el listado y puede seleccionarse como destino de una labor, un diagnóstico y un registro de cosecha.}
+
+\RF{RF-03}{Gestión de personal y equipos de trabajo}
+{El sistema debe permitir registrar al personal y organizarlo por equipos funcionales: administración, polinización, control fitosanitario, riego y labores agrícolas.}
+{Administrador general · \id{EV-01}, \id{EV-11}}
+{\textbf{Entrada:} datos laborales de la persona trabajadora y equipo asignado. \textbf{Salida:} persona registrada y vinculada a un equipo.}
+{\textbf{Pre:} persona usuaria con permiso de administración. \textbf{Post:} queda disponible para asignación de labores y cálculo de avance.}
+{Must}
+{Cada persona registrada queda asociada al menos a un equipo y aparece como asignable en el registro de labores.}
+
+\RF{RF-10}{Gestión de variedades de palma}
+{El sistema debe registrar la variedad sembrada por lote y emplearla para parametrizar los umbrales de diagnóstico y de madurez, así como las advertencias sobre polinizadores naturales.}
+{Administrador / Asesor técnico · \id{EV-01}, \id{EV-02}, \id{EV-04}}
+{\textbf{Entrada:} variedad asignada al lote y sus parámetros. \textbf{Salida:} umbrales aplicables a los módulos de diagnóstico y clasificación.}
+{\textbf{Pre:} el lote existe. \textbf{Post:} los módulos de IA operan con los umbrales de la variedad correspondiente.}
+{Must}
+{Para un lote de variedad \emph{guineensis}, el umbral de madurez aplicado es de 3 frutos desprendidos; para un lote de variedad híbrida, de 5.}
+
+\subsubsection{Bloque II --- Planificación y seguimiento de labores}
+
+\RF{RF-26}{Planificación semanal de labores con presupuesto}
+{El sistema debe permitir registrar el presupuesto semanal de labores por lote, expresado en la unidad de avance correspondiente, y contrastarlo con el avance efectivamente cumplido al cierre de la semana.}
+{Administrador general · \id{EV-11}}
+{\textbf{Entrada:} semana, lote, tipo de labor y meta en unidades. \textbf{Salida:} plan semanal y reporte comparativo presupuestado \emph{versus} cumplido.}
+{\textbf{Pre:} los lotes y los tipos de labor están registrados. \textbf{Post:} el plan queda disponible para el seguimiento diario y el cierre semanal.}
+{Must}
+{Al cierre de una semana, el sistema muestra para cada labor planificada la meta, el avance cumplido y el porcentaje de cumplimiento.}
+
+\RF{RF-27}{Arrastre de labor incompleta a la semana siguiente}
+{Cuando una labor planificada no alcanza su meta al cierre de la semana, el sistema debe generar automáticamente el remanente como pendiente en el plan de la semana siguiente, conservando la referencia a la labor de origen.}
+{Administrador general · \id{EV-11}}
+{\textbf{Entrada:} cierre de la semana con avance inferior a la meta. \textbf{Salida:} labor pendiente creada en la semana siguiente con la cantidad remanente.}
+{\textbf{Pre:} existe un plan semanal cerrado con cumplimiento parcial. \textbf{Post:} el remanente aparece en el plan siguiente marcado como continuación.}
+{Should}
+{Dada una meta de 1.123 coronas con 800 cumplidas, el sistema genera en la semana siguiente una labor pendiente de 323 coronas vinculada a la original.}
+
+\RF{RF-34}{Registro de solicitud de insumos asociada al plan}
+{El sistema debe permitir registrar los insumos requeridos para ejecutar el plan semanal y su estado de provisión.}
+{Administrador general · \id{EV-11}}
+{\textbf{Entrada:} insumo, cantidad y semana asociada. \textbf{Salida:} listado de requerimientos por semana con su estado.}
+{\textbf{Pre:} existe un plan semanal. \textbf{Post:} el requerimiento queda asociado a la semana y consultable por la administración.}
+{Could}
+{Un insumo registrado como requerimiento de la semana aparece en el listado de la semana correspondiente con su estado de provisión.}
+
+\RF{RF-35}{Registro delegado para personal sin dispositivo propio}
+{El sistema debe permitir que una persona con rol de supervisión registre el avance de labor en nombre de una persona trabajadora que no dispone de teléfono inteligente, dejando constancia de quién efectuó el registro y en nombre de quién.}
+{Jefe de campo / Asistente de administración · \id{EV-12}, \id{EV-05}}
+{\textbf{Entrada:} identificación de la persona trabajadora, labor, cantidad y unidad. \textbf{Salida:} avance registrado a nombre de la persona trabajadora, con marca de registro delegado.}
+{\textbf{Pre:} la persona registradora tiene rol de supervisión y la persona trabajadora está registrada. \textbf{Post:} el avance computa para la persona trabajadora y la bitácora conserva la identidad de quien lo registró.}
+{Must}
+{Un avance registrado de forma delegada aparece atribuido a la persona trabajadora en su consolidado, y la bitácora identifica a la persona supervisora que lo ingresó.}
+
+\subsubsection{Bloque III --- Registro operativo de campo}
+
+\RF{RF-04}{Registro de labores agrícolas}
+{El sistema debe permitir registrar las labores ejecutadas por lote: chapia, corona, control químico de malezas, eliminación de flores andróginas, sanidad vegetal, poda, riego, polinización y cosecha.}
+{Trabajador agrícola / Jefe de campo · \id{EV-01}, \id{EV-02}, \id{EV-05}, \id{EV-06}, \id{EV-11}}
+{\textbf{Entrada:} tipo de labor, lote, fecha y persona responsable. \textbf{Salida:} labor registrada y asociada al lote, la fecha y la persona.}
+{\textbf{Pre:} el lote y la persona trabajadora existen. \textbf{Post:} la labor queda en el historial del lote y computa para el avance.}
+{Must}
+{Una labor registrada queda vinculada a su lote, fecha y responsable, y es recuperable mediante consulta del historial del lote.}
+
+\RF{RF-28}{Registro de avance por unidad de labor}
+{El sistema debe registrar el avance diario de cada persona trabajadora en la unidad propia de cada labor: coronas, bancos, plantas, matas, jornales, racimos o toneladas, según corresponda al tipo de labor.}
+{Trabajador agrícola · \id{EV-05}, \id{EV-06}, \id{EV-11}}
+{\textbf{Entrada:} labor, cantidad ejecutada y unidad. \textbf{Salida:} avance diario acumulado por persona, lote y semana.}
+{\textbf{Pre:} existe una labor asignada. \textbf{Post:} el avance queda registrado y disponible para el cálculo de cumplimiento y de remuneración por avance.}
+{Must}
+{Para una jornada de chapia, el sistema registra el número de matas ejecutadas y lo acumula al total semanal de la persona trabajadora.}
+
+\RF{RF-29}{Consulta de avance acumulado y estimación de remuneración}
+{El sistema debe permitir a la persona trabajadora consultar en su propio dispositivo el avance acumulado de la quincena y la estimación de remuneración correspondiente al trabajo por avance.}
+{Trabajador agrícola · \id{EV-06}, \id{EV-07}}
+{\textbf{Entrada:} identificación de la persona trabajadora y período. \textbf{Salida:} avance acumulado por labor y estimación de remuneración del período.}
+{\textbf{Pre:} existen registros de avance en el período. \textbf{Post:} se muestra el consolidado sin posibilidad de edición por parte de la persona trabajadora.}
+{Should}
+{Una persona trabajadora consulta su avance quincenal y obtiene el desglose por labor y el valor estimado, coincidente con la suma de sus registros diarios.}
+
+\RF{RF-05}{Registro de monitoreo fitosanitario}
+{El sistema debe permitir registrar el monitoreo del estado fitosanitario por lote y marcar las incidencias detectadas.}
+{Técnico fitosanitario · \id{EV-01}, \id{EV-02}, \id{EV-09}}
+{\textbf{Entrada:} lote, observaciones y estado. \textbf{Salida:} registro de monitoreo y, si procede, alerta asociada.}
+{\textbf{Pre:} persona usuaria autenticada. \textbf{Post:} el monitoreo queda disponible para consulta y reportes.}
+{Must}
+{El sistema almacena cada monitoreo con fecha y lote, y permite filtrar los lotes que presentan incidencia abierta.}
+
+\RF{RF-30}{Reporte de incidencia desde campo con evidencia fotográfica y georreferencia}
+{El sistema debe permitir reportar una afectación desde el campo adjuntando fotografía y coordenadas del punto exacto, de modo que la verificación posterior no dependa del recuerdo de la persona que reportó.}
+{Asistente de administración · \id{EV-07}}
+{\textbf{Entrada:} fotografía, lote, coordenadas y descripción. \textbf{Salida:} incidencia registrada y georreferenciada, visible en el mapa del lote.}
+{\textbf{Pre:} persona usuaria autenticada con GPS disponible. \textbf{Post:} la incidencia queda pendiente de verificación con su ubicación exacta.}
+{Must}
+{Una incidencia reportada en campo es recuperable posteriormente con su fotografía y sus coordenadas, y su ubicación se muestra sobre el mapa del lote.}
+
+\RF{RF-31}{Lista de verificación de pendientes por visita}
+{El sistema debe mantener, para cada persona con rol de supervisión, una lista de actividades pendientes de verificación en su próxima visita a campo, alimentada por las incidencias reportadas.}
+{Asistente de administración · \id{EV-07}}
+{\textbf{Entrada:} incidencias reportadas y no verificadas. \textbf{Salida:} lista de pendientes ordenada por antigüedad y criticidad.}
+{\textbf{Pre:} existen incidencias sin verificar. \textbf{Post:} la lista se actualiza al marcar cada pendiente como verificado.}
+{Should}
+{Al reportarse una incidencia, esta aparece en la lista de pendientes de la persona supervisora y desaparece al marcarse como verificada.}
+
+\RF{RF-06}{Seguimiento de etapas del cultivo}
+{El sistema debe registrar y dar seguimiento a la etapa del cultivo por lote: siembra, mantenimiento, polinización y cosecha.}
+{Administrador general · \id{EV-01}}
+{\textbf{Entrada:} etapa y fecha de transición por lote. \textbf{Salida:} línea de tiempo de etapas del lote.}
+{\textbf{Pre:} el lote existe. \textbf{Post:} la etapa actual queda actualizada.}
+{Should}
+{Cada lote muestra su etapa actual y el historial completo de transiciones con sus fechas.}
+
+\RF{RF-11}{Registro de análisis de suelo y foliar}
+{El sistema debe registrar los resultados de los análisis de suelo y foliar por lote, incluyendo nitrógeno, fósforo, potasio y elementos menores, para guiar la fertilización.}
+{Administrador / Asesor técnico · \id{EV-02}, \id{EV-04}}
+{\textbf{Entrada:} valores del análisis por lote y fecha. \textbf{Salida:} registro histórico y comparativo por lote.}
+{\textbf{Pre:} el lote existe. \textbf{Post:} el análisis queda asociado al lote y consultable por fecha.}
+{Should}
+{Tras registrar un análisis, sus valores quedan asociados al lote y pueden compararse con los análisis previos del mismo lote.}
+
+\RF{RF-17}{Registro y consulta de datos climáticos}
+{El sistema debe registrar y permitir consultar los datos climáticos del cultivo: milímetros de lluvia medidos con pluviómetro y datos de estaciones meteorológicas.}
+{Administrador general / Asesor técnico · \id{EV-01}, \id{EV-02}, \id{EV-03}}
+{\textbf{Entrada:} lectura de precipitación y fecha. \textbf{Salida:} histórico climático y consulta de lluvia acumulada por período.}
+{\textbf{Pre:} persona usuaria autenticada. \textbf{Post:} la lectura queda incorporada al registro climático del cultivo.}
+{Should}
+{El sistema permite consultar la precipitación acumulada en un rango de fechas definido por la persona usuaria.}
+
+\subsubsection{Bloque IV --- Polinización asistida}
+
+\RF{RF-13}{Registro del proceso de polinización}
+{El sistema debe registrar la polinización por lote, incluyendo el estado de la antesis (coloración amarilla o negra) y la verificación visual de la aplicación del polinizante.}
+{Jefe de polinización / Polinizador · \id{EV-03}}
+{\textbf{Entrada:} lote, estado de antesis y verificación visual. \textbf{Salida:} registro de polinización asociado al lote, fecha y persona.}
+{\textbf{Pre:} el lote se encuentra en etapa de polinización. \textbf{Post:} el registro queda disponible para el control de calidad de la labor.}
+{Must}
+{El sistema permite registrar la polinización indicando el estado de antesis y consultar los lotes polinizados en una fecha dada.}
+
+\RF{RF-14}{Conteo georreferenciado de flores polinizadas}
+{El sistema debe calcular automáticamente, a partir de las marcaciones georreferenciadas registradas durante la jornada, el número de flores polinizadas por cada persona trabajadora, sin requerir el ingreso manual planta por planta.}
+{Polinizador · \id{EV-03}}
+{\textbf{Entrada:} marcaciones georreferenciadas de la jornada. \textbf{Salida:} total diario de flores polinizadas por persona y lote.}
+{\textbf{Pre:} sesión iniciada con rastreo GPS activo. \textbf{Post:} el conteo queda registrado sin intervención manual por planta.}
+{Must}
+{Al cierre de la jornada, el sistema calcula el total de flores polinizadas por persona a partir de las marcaciones GPS, sin registro manual individual.}
+
+\RF{RF-15}{Registro y visualización de recorridos del personal}
+{El sistema debe registrar y mostrar los recorridos georreferenciados del personal en campo, con el fin de verificar la cobertura efectiva de las labores asignadas.}
+{Administrador general · \id{EV-01}, \id{EV-02}, \id{EV-03}}
+{\textbf{Entrada:} secuencia de ubicaciones durante la jornada. \textbf{Salida:} recorrido representado sobre el mapa del lote, por persona y fecha.}
+{\textbf{Pre:} la persona trabajadora ha otorgado consentimiento para el tratamiento de datos de geolocalización (véase \id{RL-03}). \textbf{Post:} el recorrido queda disponible para supervisión.}
+{Should}
+{La administración puede visualizar el recorrido de una persona trabajadora en una fecha determinada, siempre que exista consentimiento vigente.}
+
+\RF{RF-16}{Evaluación de desempeño del personal}
+{El sistema debe calcular indicadores de desempeño por persona trabajadora a partir del avance registrado, la cobertura de los recorridos y la calidad resultante de la fruta cosechada en los lotes bajo su responsabilidad.}
+{Administrador general · \id{EV-01}, \id{EV-02}, \id{EV-03}}
+{\textbf{Entrada:} registros de avance, recorridos y calificaciones de calidad del período. \textbf{Salida:} indicador de desempeño por persona y período.}
+{\textbf{Pre:} existen registros suficientes en el período. \textbf{Post:} el indicador queda disponible para consulta de la administración.}
+{Should}
+{Para un período dado, el sistema calcula un indicador de desempeño por persona a partir de sus registros, sin intervención manual.}
+
+\subsubsection{Bloque V --- Diagnóstico asistido por inteligencia artificial}
+
+\noindent\textbf{Viabilidad técnica de los componentes de IA.} Los tres requisitos de análisis de
+imagen de este bloque no son especulativos: la literatura reciente documenta implementaciones
+equivalentes en el mismo cultivo. La clasificación de madurez de racimos de palma aceitera
+\emph{sobre dispositivos móviles} mediante aprendizaje profundo ha sido reportada por Suharjito
+\emph{et al.} \cite{suharjito2021}, y la revisión de Goh \emph{et al.} \cite{goh2025} sistematiza
+los métodos disponibles y sus tasas de acierto. Existen además conjuntos de datos públicos de
+racimos capturados en exteriores \cite{omar2024} y aproximaciones basadas en segmentación y
+características texturales \cite{rosbi2024} que evitan la dependencia del color, consistente con la
+restricción \id{RD-07}. Rizzo \emph{et al.} \cite{rizzo2023} ofrecen el panorama general de la
+clasificación de madurez de frutos, y Kipli \emph{et al.} \cite{kipli2023} documentan aplicaciones
+de detección y conteo de palmas. Zaki \emph{et al.} \cite{zaki2025} sitúan estas tecnologías dentro
+de la transformación digital del sector palmicultor. Estas fuentes sustentan los valores objetivo
+fijados en \id{RNF-01} y \id{RNF-02}.
+
+\vspace{0.3cm}
+\RF{RF-07}{Detección de plagas y enfermedades por análisis de imagen}
+{El sistema debe analizar una fotografía de la palma e identificar la presencia de plagas o enfermedades, indicando el tipo probable de afectación.}
+{Técnico fitosanitario / Trabajador agrícola · \id{EV-01}, \id{EV-02}, \id{EV-08}}
+{\textbf{Entrada:} fotografía de la palma o de la hoja. \textbf{Salida:} clasificación de la afectación con nivel de confianza y explicación asociada (véase \id{RNF-16}).}
+{\textbf{Pre:} la imagen cumple los requisitos mínimos de calidad. \textbf{Post:} el diagnóstico queda asociado al lote y a la fecha.}
+{Must}
+{Ante un conjunto de imágenes de prueba con afectación previamente conocida, el sistema devuelve la clasificación correspondiente y la registra con su lote y fecha.}
+
+\RF{RF-08}{Diagnóstico de deficiencias nutricionales por análisis de imagen}
+{El sistema debe analizar la fotografía de una hoja y estimar la deficiencia nutricional presente, sugiriendo la corrección correspondiente.}
+{Administrador / Asesor técnico · \id{EV-02}, \id{EV-04}}
+{\textbf{Entrada:} fotografía de la hoja. \textbf{Salida:} deficiencia estimada, recomendación de fertilización y explicación asociada.}
+{\textbf{Pre:} imagen válida y lote con variedad asignada. \textbf{Post:} el diagnóstico nutricional queda registrado en el historial del lote.}
+{Must}
+{Ante una hoja con deficiencia previamente conocida, el sistema indica la deficiencia, propone una corrección y almacena el registro.}
+
+\RF{RF-09}{Ficha técnica de plaga con recomendación de control}
+{El sistema debe presentar, para cada plaga detectada, su especie o familia, su ciclo de evolución y la acción de control recomendada según la etapa del insecto.}
+{Técnico fitosanitario · \id{EV-01}, \id{EV-02}}
+{\textbf{Entrada:} plaga identificada por \id{RF-07}. \textbf{Salida:} ficha con especie, ciclo y acción recomendada diferenciada por etapa.}
+{\textbf{Pre:} existe un diagnóstico de plaga. \textbf{Post:} la recomendación queda disponible y registrada junto al diagnóstico.}
+{Should}
+{Para una plaga detectada en estado adulto, el sistema recomienda trampeo; para la misma plaga en estado larval, recomienda aplicación de insecticida.}
+
+\RF{RF-21}{Clasificación de madurez del racimo por desprendimiento}
+{El sistema debe estimar el estado de madurez de un racimo a partir de una fotografía de su parte basal, empleando el conteo de frutos desprendidos como criterio y aplicando el umbral correspondiente a la variedad del lote. El sistema no debe emplear el color del fruto como criterio de clasificación.}
+{Técnico de la extractora / Cosechador · \id{EV-04}, \id{EV-08}}
+{\textbf{Entrada:} fotografía de la parte basal del racimo y variedad del lote. \textbf{Salida:} estado estimado (verde, maduro, sobremaduro) con nivel de confianza y explicación.}
+{\textbf{Pre:} el lote tiene variedad asignada (\id{RF-10}). \textbf{Post:} la estimación queda asociada al racimo, el lote y la fecha.}
+{Must}
+{Para un lote de variedad híbrida, un racimo con menos de 5 frutos desprendidos se clasifica como verde; con 5 o más, como maduro. Para variedad \emph{guineensis} el umbral aplicado es de 3.}
+
+\RF{RF-12}{Generación de alertas tempranas}
+{El sistema debe generar alertas ante la detección de plagas, enfermedades, deficiencias nutricionales o condiciones anómalas, dirigidas al rol responsable de su atención.}
+{Técnico / Administrador general · \id{EV-01}, \id{EV-02}}
+{\textbf{Entrada:} diagnóstico o incidencia registrada. \textbf{Salida:} alerta con lote, tipo, criticidad y fecha, visible para el rol correspondiente.}
+{\textbf{Pre:} existe una incidencia o diagnóstico positivo. \textbf{Post:} la alerta queda registrada con estado abierto hasta su atención.}
+{Must}
+{Al registrarse un diagnóstico positivo, el sistema genera una alerta asociada al lote, visible para la administración, con estado y fecha.}
+
+\subsubsection{Bloque VI --- Calidad de la fruta y relación con la extractora}
+
+\RF{RF-22}{Estimación y alerta preventiva de porcentaje de fruta verde}
+{El sistema debe estimar, antes del despacho de un lote cosechado, el porcentaje de racimos clasificados como verdes, y emitir una alerta cuando dicho porcentaje se aproxime al umbral a partir del cual la planta extractora aplica penalización.}
+{Administrador general / Técnico de la extractora · \id{EV-04}, \id{EV-08}}
+{\textbf{Entrada:} clasificaciones de madurez del lote cosechado (\id{RF-21}). \textbf{Salida:} porcentaje estimado de fruta verde y alerta si supera el umbral configurado.}
+{\textbf{Pre:} existen racimos clasificados en el lote. \textbf{Post:} la alerta queda registrada antes del despacho.}
+{Must}
+{Configurado un umbral del 3\%, un lote cuya estimación de fruta verde alcance o supere ese valor genera una alerta previa al despacho.}
+
+\RF{RF-23}{Registro de la calificación de calidad emitida por la extractora}
+{El sistema debe permitir registrar los datos del ticket de pesaje emitido por la planta extractora: peso bruto, tara, peso neto y calificación de calidad (tamaño del fruto, fruta verde, sobremadura, malformada y pedúnculo largo).}
+{Administrador general · \id{EV-04}}
+{\textbf{Entrada:} datos del ticket de pesaje. \textbf{Salida:} registro de entrega asociado al lote y a la fecha, con su calificación.}
+{\textbf{Pre:} existe un despacho registrado. \textbf{Post:} la calificación queda asociada al lote de origen y disponible para análisis histórico.}
+{Should}
+{Registrado un ticket, sus valores quedan asociados al lote de origen y son consultables en el histórico de entregas.}
+
+\RF{RF-24}{Trazabilidad de la calificación hasta la cuadrilla responsable}
+{El sistema debe permitir rastrear una calificación desfavorable de la extractora hasta el lote de origen, la fecha de corte y la cuadrilla de cosecha responsable, con el fin de distinguir si el problema proviene de la cosecha o del manejo del cultivo.}
+{Técnico de la extractora / Administrador general · \id{EV-04}, \id{EV-08}}
+{\textbf{Entrada:} identificación del despacho calificado. \textbf{Salida:} lote, fecha de corte, cuadrilla y labores asociadas al período.}
+{\textbf{Pre:} el despacho tiene calificación registrada y el lote tiene labores registradas. \textbf{Post:} se muestra la cadena completa de trazabilidad.}
+{Should}
+{Dado un despacho con penalización por fruta verde, el sistema identifica el lote, la fecha de corte y la cuadrilla que ejecutó la cosecha.}
+
+\RF{RF-25}{Control de la ventana entre corte y entrega}
+{El sistema debe registrar la fecha y hora de corte de cada lote cosechado y calcular el tiempo transcurrido hasta la entrega en la planta extractora, emitiendo una advertencia cuando dicho intervalo supere el valor recomendado para la variedad.}
+{Técnico de la extractora · \id{EV-04}}
+{\textbf{Entrada:} marca temporal de corte y de entrega. \textbf{Salida:} intervalo calculado y advertencia si excede el umbral configurado.}
+{\textbf{Pre:} existe un registro de cosecha con marca temporal. \textbf{Post:} el intervalo queda registrado junto al despacho.}
+{Should}
+{Configurado un umbral de 24 horas, un despacho entregado 30 horas después del corte genera la advertencia correspondiente.}
+
+\RF{RF-33}{Registro de la guía de remisión del despacho}
+{El sistema debe permitir registrar el número y la fecha de la guía de remisión asociada a cada despacho de fruta, y advertir cuando un despacho se registre sin ella.}
+{Técnico de la extractora · \id{EV-04}}
+{\textbf{Entrada:} número y fecha de la guía de remisión. \textbf{Salida:} despacho con guía asociada, o advertencia de ausencia.}
+{\textbf{Pre:} existe un despacho registrado. \textbf{Post:} la guía queda vinculada al despacho.}
+{Could}
+{Un despacho registrado sin número de guía de remisión genera una advertencia visible para la administración antes de su cierre.}
+
+\subsubsection{Bloque VII --- Reportes, estimación e histórico}
+
+\RF{RF-18}{Estimación de producción y rendimiento}
+{El sistema debe estimar la producción futura a partir del censo de flores, el número de racimos en desarrollo y el rendimiento propio de la variedad sembrada.}
+{Administrador general / Asesor técnico · \id{EV-01}, \id{EV-02}}
+{\textbf{Entrada:} censo de flores, conteo de racimos y variedad. \textbf{Salida:} estimación de producción por lote y período.}
+{\textbf{Pre:} existe al menos un censo registrado. \textbf{Post:} la estimación queda disponible para la planificación.}
+{Must}
+{A partir de un censo y de la variedad del lote, el sistema calcula una estimación de producción consultable por lote y período.}
+
+\RF{RF-32}{Compartición de la estimación de cosecha con la planta extractora}
+{El sistema debe permitir exportar la estimación de cosecha del período hacia la planta extractora, limitando la información compartida al conteo de racimos y al peso promedio estimado, con exclusión de cualquier dato personal o económico.}
+{Técnico de la extractora · \id{EV-04}}
+{\textbf{Entrada:} período y lotes seleccionados. \textbf{Salida:} archivo estructurado con conteo de racimos y peso promedio estimado.}
+{\textbf{Pre:} existe una estimación calculada. \textbf{Post:} el archivo queda disponible para su envío, sin contener datos personales.}
+{Should}
+{El archivo exportado contiene exclusivamente conteo de racimos y peso promedio por período, y no incluye ningún campo de identificación personal ni información económica.}
+
+\RF{RF-19}{Generación de reportes}
+{El sistema debe generar reportes diarios, consolidados semanales y estadísticas anuales sobre el estado del cultivo, las labores ejecutadas, el personal y la producción.}
+{Administrador general · \id{EV-01}, \id{EV-02}, \id{EV-11}}
+{\textbf{Entrada:} tipo de reporte y período. \textbf{Salida:} reporte consolidado, exportable a PDF y a hoja de cálculo.}
+{\textbf{Pre:} existen registros en el período seleccionado. \textbf{Post:} el reporte queda disponible para consulta o exportación.}
+{Must}
+{El sistema genera el consolidado semanal de labores y producción del período seleccionado y permite exportarlo.}
+
+\RF{RF-20}{Historial de actividades, diagnósticos y eventos}
+{El sistema debe mantener un historial consultable y filtrable de todas las actividades, diagnósticos, alertas y entregas asociadas a cada lote.}
+{Administrador general / Técnico · \id{EV-01}}
+{\textbf{Entrada:} filtros por lote, fecha y tipo de evento. \textbf{Salida:} historial cronológico filtrado.}
+{\textbf{Pre:} existen registros previos. \textbf{Post:} se muestra el historial conforme a los filtros aplicados.}
+{Should}
+{La persona usuaria puede recuperar, filtrando por lote y rango de fechas, el historial completo de actividades y diagnósticos registrados.}
+
+\subsection{Requisitos no funcionales (ISO/IEC 25010:2023)}
+
+Los dieciocho requisitos no funcionales se organizan según las nueve características de calidad del
+producto de ISO/IEC 25010:2023 \cite{iso25010}. Cada uno se enuncia con métrica, valor objetivo y
+criterio de verificación observable.
+
+\begin{longtable}{|C{1.5cm}|L{2.6cm}|L{6.2cm}|L{3.4cm}|C{1.3cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Característica} & \textbf{Requisito cuantificado} & \textbf{Criterio de verificación} & \textbf{Origen} \\
+\hline
+\endhead
+\id{RNF-01} & Adecuación funcional & La clasificación de madurez del racimo alcanza una exactitud $\geq 85\%$ y una exhaustividad $\geq 80\%$ sobre la clase ``verde'' en el conjunto de prueba. & Matriz de confusión sobre conjunto etiquetado independiente de $\geq 200$ imágenes. & \id{EV-04} \\ \hline
+\id{RNF-02} & Adecuación funcional & La detección de plagas alcanza una exactitud $\geq 80\%$ sobre las cinco afectaciones más frecuentes del cultivo. & Evaluación sobre conjunto etiquetado por la persona asesora técnica. & \id{EV-01}, \id{EV-02} \\ \hline
+\id{RNF-03} & Eficiencia de desempeño & Las operaciones de registro y consulta responden en $\leq 3$ s para el percentil 95, con hasta 50 sesiones concurrentes. & Prueba de carga con 50 usuarios virtuales. & Derivado \\ \hline
+\id{RNF-04} & Eficiencia de desempeño & El diagnóstico por imagen entrega resultado en $\leq 10$ s con ancho de banda $\geq 5$ Mbps. & Tiempo medio sobre 20 análisis consecutivos. & \id{EV-01}, \id{EV-02} \\ \hline
+\id{RNF-05} & Eficiencia de desempeño & El registro GPS captura la ubicación con precisión $\leq 10$ m y período de muestreo $\leq 30$ s. & Contraste de 10 puntos con referencia geodésica. & \id{EV-03} \\ \hline
+\id{RNF-06} & Compatibilidad & La exportación hacia la planta extractora se emite en formato CSV o JSON conforme al esquema documentado, sin campos de identificación personal. & Validación del archivo exportado contra el esquema publicado. & \id{EV-04} \\ \hline
+\id{RNF-07} & Compatibilidad & La aplicación móvil opera en Android 9.0 o superior; el panel web, en las dos últimas versiones estables de Chrome, Edge y Firefox. & Instalación y ejecución sin error en los entornos declarados. & Derivado \\ \hline
+\id{RNF-08} & Interacción de usuario & Una persona sin experiencia previa completa el registro de labor y el análisis de imagen con una tasa de éxito $\geq 90\%$ tras una inducción $\leq 10$ minutos. & Prueba de usabilidad con $\geq 5$ participantes de perfil trabajador agrícola. & \id{EV-05}, \id{EV-06}, \id{EV-07} \\ \hline
+\id{RNF-09} & Interacción de usuario & La totalidad de la interfaz se presenta en español, con etiquetas correspondientes a la terminología del glosario y sin abreviaturas técnicas no definidas. & Inspección de la totalidad de las pantallas contra el glosario de la §1.3. & \id{EV-01}, \id{EV-07} \\ \hline
+\id{RNF-10} & Fiabilidad & El servicio de respaldo presenta una disponibilidad mensual $\geq 99\%$, equivalente a una indisponibilidad $\leq 7$ h 18 min. & Monitoreo de disponibilidad durante 30 días. & Derivado \\ \hline
+\id{RNF-11} & Fiabilidad & La aplicación opera sin conexión y sincroniza el 100\% de los registros pendientes al restablecerse la conectividad, sin pérdida ni duplicación. & 20 operaciones ejecutadas sin conexión, verificadas tras la sincronización. & \id{EV-07}, \id{EV-10} \\ \hline
+\id{RNF-12} & Fiabilidad & Ante pérdida de señal GPS, el sistema conserva el registro parcial y lo marca como de precisión degradada, sin descartar la jornada. & Simulación de pérdida de señal durante una jornada de polinización. & \id{EV-03} \\ \hline
+\id{RNF-13} & Seguridad & Las credenciales se almacenan mediante función de derivación de clave con sal; la totalidad del tráfico emplea TLS 1.2 o superior. & Inspección del almacén de credenciales y análisis del tráfico. & Derivado \\ \hline
+\id{RNF-14} & Seguridad & Los datos de geolocalización se cifran en reposo y su acceso queda registrado en bitácora con identificación de la persona usuaria, fecha y motivo. & Auditoría de la bitácora tras 10 accesos de prueba. & \id{lopdp} Art. 37 \\ \hline
+\id{RNF-15} & Mantenibilidad & El sistema presenta arquitectura modular con cobertura de pruebas automatizadas $\geq 60\%$ en la capa de lógica de negocio. & Reporte de cobertura de la herramienta de integración continua. & Derivado \\ \hline
+\rowcolor{grisclaro}\id{RNF-16} & Interacción de usuario & \textbf{Explicabilidad} --- véase la especificación ampliada en la §3.3.1. & Prueba con 6 participantes (3 técnicos, 3 no técnicos). & \id{EV-01}, \id{EV-02}, \id{EV-07} \\ \hline
+\id{RNF-17} & Portabilidad & La migración del servicio de inferencia a un proveedor alternativo no requiere modificar el cliente móvil, al mediar una interfaz de servicio desacoplada. & Sustitución del proveedor en entorno de prueba sin cambios en el cliente. & Derivado \\ \hline
+\id{RNF-18} & Flexibilidad & Los umbrales de madurez, de porcentaje de fruta verde y de ventana corte-entrega son parametrizables por variedad y por lote sin recompilar la aplicación. & Modificación de los tres umbrales desde la configuración y verificación de su efecto. & \id{EV-04} \\ \hline
+\caption{Requisitos no funcionales cuantificados según ISO/IEC 25010:2023}
+\end{longtable}
+
+\subsubsection{RNF-16 --- Requisito de explicabilidad de los componentes de inteligencia artificial}
+
+Conforme al gatekeeper G7 de la guía de la Entrega 3, todo componente basado en inteligencia
+artificial recibe tratamiento de explicabilidad como requisito no funcional, siguiendo la taxonomía
+de Chazette y Schneider \cite{chazette2020} y el marco de calidad de Chazette, Brunotte y Speith
+\cite{chazette2021,chazette2022}.
+
+\textbf{Justificación empírica.} La necesidad de explicación no es una imposición normativa sino un
+hallazgo de campo. La persona administradora general señaló el valor del sistema para
+\emph{``las personas que no tienen tanto conocimiento en el tema de plagas''} (\id{EV-01}); la
+persona asesora técnica solicitó que el sistema indique \emph{``qué le falta y qué se debe
+aplicar''} (\id{EV-02}); y el asistente de administración anticipó que la dificultad de adopción se
+concentraría en el personal de labores manuales (\id{EV-07}). Los tres coinciden en que el valor del
+diagnóstico automático depende de que la persona destinataria pueda comprender y actuar sobre él.
+
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{RNF-16 --- Explicabilidad del diagnóstico asistido por IA}}\\
+\hline
+\textbf{Componentes alcanzados} & \id{RF-07} (detección de plagas), \id{RF-08} (diagnóstico nutricional) y \id{RF-21} (clasificación de madurez). \\ \hline
+\textbf{Requisito} & Para cada decisión automática, el sistema debe presentar una explicación que incluya: (i) el rasgo visual que sustentó la clasificación, expresado en la terminología del dominio; (ii) el nivel de confianza en escala cualitativa de tres niveles; y (iii) la acción recomendada. La explicación se presenta en $\leq 2$ s tras el resultado, con una extensión $\leq 60$ palabras, en español y sin terminología no incluida en el glosario. \\ \hline
+\textbf{Tipos de explicación} & \emph{Causal} para el diagnóstico nutricional (qué signo foliar indica qué deficiencia); \emph{por contraste} para la clasificación de madurez (por qué maduro y no verde, con referencia al umbral de la variedad); \emph{por ejemplos} para la detección de plagas (imagen de referencia de la afectación identificada). \\ \hline
+\textbf{Métrica} & Comprensión reportada $\geq 4/5$ en escala Likert por participantes de perfil no técnico, y tiempo hasta la decisión de acción $\leq 60$ s. \\ \hline
+\textbf{Criterio de verificación} & Prueba de validación con 6 participantes por ronda (3 de perfil técnico y 3 de perfil no técnico), replicando el tamaño muestral de \cite{chazette2022}; se mide la cobertura de dimensiones del marco, la satisfacción percibida y el acuerdo entre rondas. \\ \hline
+\textbf{Origen} & \id{EV-01}, \id{EV-02}, \id{EV-07} \\ \hline
+\caption{RNF-16 --- Especificación ampliada del requisito de explicabilidad}
+\end{longtable}
+
+\subsection{Requisitos legales}
+
+El SIMPA trata datos personales de personas trabajadoras en relación de dependencia, incluyendo
+datos de geolocalización obtenidos de forma continua durante la jornada. Esta condición hace que el
+cumplimiento de la LOPDP \cite{lopdp} no sea accesorio sino estructural al diseño del sistema.
+
+\begin{longtable}{|C{1.5cm}|C{1.8cm}|L{6.0cm}|L{5.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Artículo} & \textbf{Obligación} & \textbf{Requisito que la implementa} \\
+\hline
+\endhead
+\id{RL-01} & Art. 7 & Consentimiento libre, específico e informado para el tratamiento. & Aceptación explícita y registrada en el alta de la persona usuaria, con constancia de fecha y versión del texto aceptado. \\ \hline
+\id{RL-02} & Art. 10 & Principio de minimización: solo los datos necesarios para la finalidad declarada. & \id{RF-32} limita la exportación al conteo de racimos y peso promedio, excluyendo datos personales. \\ \hline
+\id{RL-03} & Art. 7, 10 & Consentimiento específico para el tratamiento de datos de geolocalización. & \id{RF-15} condiciona la visualización de recorridos a la existencia de consentimiento vigente y revocable. \\ \hline
+\id{RL-04} & Art. 12 & Derecho de acceso de la persona titular a sus datos. & \id{RF-29} permite a la persona trabajadora consultar su propio avance; se añade función de exportación de sus datos personales. \\ \hline
+\id{RL-05} & Art. 13 & Derecho de rectificación. & Función de corrección de registros de labor con conservación de la versión previa en bitácora. \\ \hline
+\id{RL-06} & Art. 14 & Derecho de eliminación. & Supresión de los datos personales al término de la relación laboral, conservando los datos productivos de forma disociada. \\ \hline
+\id{RL-07} & Art. 37 & Medidas de seguridad apropiadas. & \id{RNF-13} y \id{RNF-14}: cifrado en tránsito y en reposo, control de acceso por rol. \\ \hline
+\id{RL-08} & Art. 40 & Registro de las actividades de tratamiento. & \id{RNF-14}: bitácora de acceso a datos de geolocalización con identificación, fecha y motivo. \\ \hline
+\caption{Trazabilidad de requisitos legales: LOPDP $\rightarrow$ requisito del sistema}
+\end{longtable}
+
+\vspace{0.3cm}
+\noindent\fbox{\parbox{0.97\textwidth}{%
+\small\textbf{Nota sobre la aceptación del rastreo por parte del personal.} La aplicación ampliada
+del cuestionario ($n=62$, \id{EV-12}) registró que el 74{,}2\% de las personas respondientes no
+manifiesta preocupación por el registro de su recorrido. Sin embargo, \textbf{el 25{,}8\% restante
+sí expresa alguna preocupación} (17{,}7\% ``me preocupa un poco'' y 8{,}1\% ``me preocupa mucho'').
+Este resultado no autoriza a tratar el rastreo como una funcionalidad pacíficamente aceptada: una de
+cada cuatro personas destinatarias manifiesta reservas. En consecuencia, \id{RL-03} exige
+consentimiento específico, \textbf{revocable en cualquier momento y sin consecuencia laboral}, y
+\id{RF-15} condiciona la visualización de recorridos a su vigencia. La revocación no impide el uso
+del resto del sistema.}}
+
+\subsection{Restricciones de diseño}
+
+\begin{longtable}{|C{1.5cm}|L{6.8cm}|L{6.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Restricción} & \textbf{Justificación / Origen} \\
+\hline
+\endhead
+\id{RD-01} & El cliente de campo se ejecuta sobre dispositivos Android 9.0 o superior. & El personal ya dispone de teléfono inteligente propio (\id{EV-05}, \id{EV-06}, \id{EV-07}). \\ \hline
+\id{RD-02} & La aplicación opera sin conexión y sincroniza de forma diferida. & La conexión estable se limita al campamento (\id{EV-07}); ninguna persona respondiente declaró señal permanente (\id{EV-10}). \\ \hline
+\id{RD-03} & El sistema depende de la cámara y del receptor GPS del dispositivo. & El análisis por imagen y el conteo georreferenciado son funciones nucleares. \\ \hline
+\id{RD-04} & Los datos se emplean exclusivamente con fines académicos, bajo consentimiento firmado y con anonimización previa a toda publicación. & Marco ético del proyecto y LOPDP \cite{lopdp}. \\ \hline
+\id{RD-05} & El respaldo reside en la nube con API REST; la inferencia de IA y la consolidación requieren conectividad. & Decisión de arquitectura: procesamiento centralizado del modelo. \\ \hline
+\id{RD-06} & La interfaz debe ser operable por personas con baja alfabetización tecnológica, en español y sin dependencia de lectura extensa. & Perfil del personal de labores manuales (\id{EV-05}, \id{EV-06}, \id{EV-07}). \\ \hline
+\id{RD-07} & La clasificación de madurez no puede fundarse en el color del fruto. & Criterio técnico expreso de la planta extractora: el color induce a error (\id{EV-08}). \\ \hline
+\id{RD-08} & Los umbrales de decisión deben ser parametrizables por variedad. & Los umbrales de madurez difieren entre \emph{guineensis} e híbrido (\id{EV-04}). \\ \hline
+\id{RD-09} & Ninguna exportación hacia terceros puede incluir datos personales ni información económica de la organización. & Principio de minimización (\id{RL-02}) y criterio expreso de la contraparte (\id{EV-04}). \\ \hline
+\id{RD-10} & El sistema debe admitir el registro delegado del avance para el personal que no dispone de dispositivo propio, sin que ello degrade su consolidado ni su remuneración por avance. & El 11{,}3\% de las personas respondientes declara no usar teléfono inteligente (\id{EV-12}); excluirlas comprometería la equidad del registro. \\ \hline
+\caption{Restricciones de diseño del SIMPA}
+\end{longtable}
+
+% =====================================================================
+%  4. MODELADO DEL SISTEMA CON UML
+% =====================================================================
+\input{seccion4_uml}
+
+% =====================================================================
+%  BIBLIOGRAFIA
+% =====================================================================
+\newpage
+% Las siguientes referencias sustentan el protocolo experimental y el
+% plan de analisis estadistico desarrollados en las secciones 5 y 6.
+\nocite{wohlin2012,runeson2009,molleri2020,hennink2017,cohen1960,wilkinson2016,nosek2018}
+
+% Estilo IEEE si esta disponible (paquete texlive-publishers);
+% en caso contrario se usa unsrt, que produce citas numeradas
+% en orden de aparicion y esta presente en toda instalacion base.
+\IfFileExists{IEEEtran.bst}{\bibliographystyle{IEEEtran}}{\bibliographystyle{unsrt}}
+\bibliography{referencias}
+
+\end{document}
