@@ -1,0 +1,8 @@
+﻿Campo;Ejemplo;Observación
+id_archivo;P01_video_01.mp4;Identificador anónimo
+tipo;video;Video, audio, consentimiento, acta, etc.
+duracion_segundos;934.2;Para multimedia
+codec;h264 / aac;Puede obtenerse con ffprobe
+tamano_bytes;248512334;Tamaño exacto del archivo
+sha256;a4f3...;Debe coincidir con checksums.sha256
+contenedor;evidencias_restringidas_2A.7z;Nombre del .7z público
