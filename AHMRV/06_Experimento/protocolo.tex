@@ -1,0 +1,337 @@
+% =====================================================================
+%  PROTOCOLO EXPERIMENTAL -- Proyecto SIMPA
+%  Enfoque 1: calidad de requisitos elicitados por analistas humanos
+%             frente a los generados por un modelo grande de lenguaje
+%  Equipo AHMRV -- ISR-401 -- UTEQ -- 2026-2027 PPA
+%  Compilacion: pdflatex protocolo.tex   (dos veces)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+
+\definecolor{uteqverde}{RGB}{0,102,51}
+\definecolor{grisclaro}{RGB}{242,242,242}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcommand{\id}[1]{\texttt{#1}}
+\renewcommand{\tablename}{Tabla}
+\sloppy
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small Protocolo experimental --- SIMPA}
+\rhead{\small Equipo AHMRV --- ISR-401}
+\cfoot{\small Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\titleformat{\section}{\normalfont\large\bfseries\color{uteqverde}}{\thesection.}{0.6em}{}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\par}
+{\normalsize Facultad de Ciencias de la Computación --- Carrera de Software\par}
+\vspace{0.5cm}
+\rule{\textwidth}{1pt}\par
+\vspace{0.3cm}
+{\LARGE\bfseries\color{uteqverde} PROTOCOLO EXPERIMENTAL\par}
+\vspace{0.25cm}
+{\large Calidad de los requisitos funcionales elicitados por analistas humanos\\
+frente a los generados por un modelo grande de lenguaje\\
+a partir del mismo material fuente\par}
+\vspace{0.3cm}
+\rule{\textwidth}{1pt}\par
+\end{center}
+
+\vspace{0.3cm}
+\begin{longtable}{|L{4.0cm}|L{10.8cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{Identificación}}\\
+\hline
+\textbf{Proyecto} & SIMPA --- Sistema Inteligente de Mantenimiento de Palma Africana \\ \hline
+\textbf{Equipo} & AHMRV --- Paralelo 4to ``A'' \\ \hline
+\textbf{Enfoque} & Enfoque 1 de la Sección 5 de la guía de la Entrega 3 (2A) \\ \hline
+\textbf{Diseño} & Cuasi-experimento con medidas apareadas y evaluación a ciegas \\ \hline
+\textbf{Registro previo} & Marco de Ciencia Abierta (OSF) --- véase \id{osf\_registration.pdf} \\ \hline
+\textbf{Estado} & Diseñado y registrado. \textbf{Ejecución pendiente} \\ \hline
+\textbf{Versión} & 1.0 --- 3 de agosto de 2026 \\ \hline
+\end{longtable}
+
+% =====================================================================
+\section{Motivación y contexto}
+
+La revisión sistemática de Cheng \emph{et al.} sobre inteligencia artificial generativa aplicada a
+la ingeniería de requisitos señala que la elicitación es una de las fases con menor evidencia
+empírica acumulada. Las guías de Vogelsang y Fischbach para el uso de modelos grandes de lenguaje en
+tareas de procesamiento de lenguaje natural aplicadas a requisitos proponen prácticas que aún no han
+sido validadas en contextos latinoamericanos ni en dominios agroindustriales.
+
+Este estudio aporta un caso de evidencia adicional: compara el conjunto de requisitos funcionales
+elicitados por un equipo humano de estudiantes con el conjunto que produce un modelo grande de
+lenguaje a partir de la misma transcripción de entrevista, evaluados a ciegas por personas expertas
+independientes.
+
+% =====================================================================
+\section{Pregunta de investigación en formato PICOC}
+
+\begin{longtable}{|C{2.6cm}|L{12.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Elemento} & \textbf{Definición para este estudio} \\
+\hline
+\endhead
+\textbf{Población} & Requisitos funcionales de un sistema agroindustrial real de gestión y monitoreo de cultivo de palma africana \\ \hline
+\textbf{Intervención} & Generación de requisitos funcionales mediante un modelo grande de lenguaje a partir de una transcripción de entrevista anonimizada \\ \hline
+\textbf{Comparación} & Requisitos funcionales elicitados por el equipo humano a partir del mismo material fuente \\ \hline
+\textbf{Resultado} & Puntuación en cinco dimensiones de calidad: completitud, ausencia de ambigüedad, verificabilidad, corrección respecto de la fuente y consistencia interna \\ \hline
+\textbf{Contexto} & Proyecto académico de ingeniería de requisitos, Ecuador, con evidencia de campo propia \\ \hline
+\caption{Marco PICOC del estudio}
+\end{longtable}
+
+\noindent
+\textbf{RQ1.} ¿En qué dimensiones de calidad difieren los requisitos funcionales elicitados por un
+equipo humano de los generados por un modelo grande de lenguaje a partir del mismo material fuente?
+
+\noindent
+\textbf{RQ2.} ¿Cuál es el grado de acuerdo entre personas evaluadoras independientes al valorar la
+calidad de requisitos funcionales sin conocer su procedencia?
+
+% =====================================================================
+\section{Hipótesis}
+
+Para cada dimensión de calidad $d \in \{$completitud, ausencia de ambigüedad, verificabilidad,
+corrección, consistencia$\}$:
+
+\begin{itemize}[nosep,leftmargin=1.6em]
+  \item $H_{0,d}$: no existe diferencia entre la puntuación media del conjunto humano y la del
+        conjunto generado por el modelo. Formalmente, $\mu_{H,d} = \mu_{L,d}$.
+  \item $H_{1,d}$: existe diferencia estadísticamente significativa. Formalmente,
+        $\mu_{H,d} \neq \mu_{L,d}$.
+\end{itemize}
+
+\noindent
+La hipótesis alternativa se formula de forma \textbf{bilateral}. El equipo no anticipa la dirección
+del efecto: la literatura reporta resultados mixtos, y postular una dirección sin base sería un
+sesgo de expectativa.
+
+% =====================================================================
+\section{Variables}
+
+\begin{longtable}{|C{2.6cm}|L{5.4cm}|L{6.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Tipo} & \textbf{Variable} & \textbf{Operacionalización} \\
+\hline
+\endhead
+Independiente & Origen del requisito & Nominal dicotómica: humano / modelo de lenguaje \\ \hline
+Dependiente & Completitud & Ordinal 1--5: presencia de los ocho atributos de la plantilla \\ \hline
+Dependiente & Ausencia de ambigüedad & Ordinal 1--5: unicidad de interpretación del enunciado \\ \hline
+Dependiente & Verificabilidad & Ordinal 1--5: existencia de un criterio objetivamente comprobable \\ \hline
+Dependiente & Corrección respecto de la fuente & Ordinal 1--5: fidelidad al contenido de la transcripción \\ \hline
+Dependiente & Consistencia interna & Ordinal 1--5: ausencia de contradicción con otros requisitos del mismo conjunto \\ \hline
+Control & Material fuente & Idéntico para ambos conjuntos: transcripción de \id{ENTR-04} \\ \hline
+Control & Rúbrica de evaluación & Idéntica para ambos conjuntos \\ \hline
+Control & Ceguera & Las personas evaluadoras desconocen la procedencia de cada requisito \\ \hline
+Control & Orden de presentación & Aleatorizado para evitar efecto de posición \\ \hline
+\caption{Variables del estudio}
+\end{longtable}
+
+% =====================================================================
+\section{Población, muestra y unidad de análisis}
+
+\textbf{Unidad de análisis:} el requisito funcional individual.
+
+\begin{longtable}{|L{5.6cm}|C{2.6cm}|L{6.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Conjunto} & \textbf{Tamaño} & \textbf{Procedencia} \\
+\hline
+\endhead
+Conjunto A --- generado por el modelo & $\geq 25$ & Producido a partir de la transcripción anonimizada de \id{ENTR-04} \\ \hline
+Conjunto B --- elicitado por el equipo & $\geq 25$ & Subconjunto del ERS trazado a \id{EV-04} y evidencias relacionadas \\ \hline
+Personas evaluadoras & 3 (mínimo) & Estudiantes de otro paralelo de la misma asignatura, sin participación en el proyecto \\ \hline
+\caption{Conjuntos y participantes}
+\end{longtable}
+
+\noindent
+\textbf{Nota sobre el tamaño de las personas evaluadoras.} Las guías del área recomiendan cinco
+personas evaluadoras. El equipo declara tres como mínimo viable y reportará el número efectivo. Si
+solo se alcanzan tres, se declarará como amenaza a la validez de conclusión.
+
+% =====================================================================
+\section{Procedimiento}
+
+\begin{enumerate}[leftmargin=1.8em]
+  \item \textbf{Preparación del material fuente.} Se selecciona la transcripción completa de la
+        entrevista \id{ENTR-04} y se verifica su anonimización: sin nombres propios, sin cargos que
+        identifiquen de forma unívoca y sin referencias reconocibles a la organización.
+
+  \item \textbf{Generación del conjunto A.} Se ejecuta el modelo con la consigna exacta:
+
+        \begin{quote}
+        \emph{``A partir del siguiente material fuente, redacta requisitos funcionales del sistema
+        descrito, con los ocho atributos de la plantilla del sílabo.''}
+        \end{quote}
+
+        Se registran en \id{prompts\_llm/}: consigna literal, modelo y versión exacta, temperatura,
+        top-p, top-k, semilla, fecha y hora de la consulta, y respuesta completa sin edición.
+
+  \item \textbf{Preparación del conjunto B.} Se extraen del ERS los requisitos trazados a
+        \id{EV-04}, presentados en el mismo formato que el conjunto A para impedir su
+        identificación por la forma.
+
+  \item \textbf{Normalización de formato.} Ambos conjuntos se transcriben a una plantilla común:
+        misma tipografía, misma estructura de campos, identificadores neutros del tipo
+        \id{R-001} a \id{R-0NN}. Se elimina toda marca que revele la procedencia.
+
+  \item \textbf{Aleatorización y ciego.} Los requisitos de ambos conjuntos se mezclan en orden
+        aleatorio con semilla registrada. La correspondencia entre identificador neutro y
+        procedencia se conserva en un archivo separado que las personas evaluadoras no reciben.
+
+  \item \textbf{Evaluación.} Cada persona evaluadora puntúa cada requisito de 1 a 5 en las cinco
+        dimensiones, de forma independiente y sin comunicación con las demás.
+
+  \item \textbf{Análisis.} Se aplica el plan de la Sección 8.
+
+  \item \textbf{Desciego y discusión.} Se revela la procedencia y se analizan los desacuerdos entre
+        personas evaluadoras y los casos extremos.
+\end{enumerate}
+
+% =====================================================================
+\section{Instrumentos}
+
+\begin{longtable}{|C{2.6cm}|L{5.0cm}|L{6.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Instrumento} & \textbf{Descripción} & \textbf{Ubicación} \\
+\hline
+\endhead
+Material fuente & Transcripción anonimizada de \id{ENTR-04} & \id{02\_Evidencias/Transcripciones/} \\ \hline
+Consigna & Texto literal, parámetros del modelo y respuesta & \id{06\_Experimento/prompts\_llm/} \\ \hline
+Rúbrica & Cinco dimensiones, escala 1--5, con descriptor por nivel & \id{06\_Experimento/instrumentos/} \\ \hline
+Hoja de puntuación & Una por persona evaluadora, en formato tabular & \id{06\_Experimento/instrumentos/} \\ \hline
+Consentimiento & Formulario para las personas evaluadoras & \id{06\_Experimento/instrumentos/} \\ \hline
+\caption{Instrumentos del estudio}
+\end{longtable}
+
+\noindent
+\textbf{Descriptores de la rúbrica.} Cada dimensión se puntúa según la escala siguiente, común a las
+cinco: 1, la propiedad está ausente; 2, presente de forma marginal; 3, presente con deficiencias
+apreciables; 4, presente con deficiencias menores; 5, plenamente presente. Cada nivel se acompaña de
+un ejemplo positivo y uno negativo en el documento de la rúbrica, con el fin de reducir la
+variabilidad de criterio entre personas evaluadoras.
+
+% =====================================================================
+\section{Plan de análisis estadístico}
+
+El plan se fija \emph{antes} de disponer de datos. No se modificará en función de los resultados
+obtenidos.
+
+\begin{enumerate}[leftmargin=1.8em]
+  \item \textbf{Estadística descriptiva.} Media, mediana, desviación típica y rango intercuartílico
+        por conjunto y por dimensión.
+
+  \item \textbf{Prueba de normalidad.} Shapiro--Wilk sobre las diferencias apareadas de cada
+        dimensión, con $\alpha = 0{,}05$.
+
+  \item \textbf{Prueba de hipótesis.} Si las diferencias siguen distribución normal, prueba $t$ para
+        muestras apareadas. En caso contrario, prueba de los rangos con signo de Wilcoxon.
+        Contraste bilateral, $\alpha = 0{,}05$.
+
+  \item \textbf{Corrección por comparaciones múltiples.} Se contrastan cinco dimensiones sobre el
+        mismo conjunto de datos. Se aplica corrección de Holm--Bonferroni sobre los cinco valores
+        $p$ obtenidos. Se reportan tanto los valores crudos como los corregidos.
+
+  \item \textbf{Tamaño del efecto.} Cohen $d$ para muestras apareadas cuando se aplique la prueba
+        paramétrica; Cliff $\delta$ cuando se aplique la no paramétrica. Se reporta con su intervalo
+        de confianza al 95\%.
+
+  \item \textbf{Acuerdo entre personas evaluadoras.} Coeficiente $\kappa$ de Cohen para cada par de
+        personas evaluadoras y $\kappa$ de Fleiss para el conjunto completo. Se interpreta según los
+        umbrales convencionales del área.
+
+  \item \textbf{Potencia estadística.} Cálculo previo fijando $\alpha = 0{,}05$, potencia
+        $1-\beta = 0{,}80$ y tamaño de efecto medio $d = 0{,}5$. Con esos parámetros, el tamaño
+        muestral requerido para una prueba $t$ apareada bilateral es de aproximadamente 34 pares.
+        \textbf{El diseño contempla 25 pares}, lo que sitúa la potencia alcanzable por debajo del
+        objetivo. Esta limitación se declara de forma expresa y se reporta como amenaza a la validez
+        de conclusión; no se incrementará artificialmente el tamaño muestral duplicando requisitos.
+\end{enumerate}
+
+\noindent
+Todas las tablas y figuras del informe de resultados se producirán mediante los scripts versionados
+en \id{06\_Experimento/scripts\_analisis/}. No se aceptarán cifras calculadas manualmente.
+
+% =====================================================================
+\section{Amenazas a la validez previstas}
+
+\begin{longtable}{|C{2.6cm}|L{5.6cm}|L{6.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Categoría} & \textbf{Amenaza} & \textbf{Mitigación prevista} \\
+\hline
+\endhead
+Constructo & La rúbrica de cinco dimensiones puede no capturar la calidad de un requisito en su totalidad & Las dimensiones proceden de la literatura del área y de los criterios transversales de la propia guía; se declara la limitación \\ \hline
+Interna & El conjunto humano fue elaborado por el mismo equipo que ejecuta el estudio & Evaluación a ciegas, normalización de formato e identificadores neutros \\ \hline
+Interna & Efecto de posición en el orden de presentación & Aleatorización con semilla registrada \\ \hline
+Externa & Un único material fuente, un único dominio y un único modelo de lenguaje & Se declara. No se generalizará más allá del caso estudiado \\ \hline
+Externa & Las personas evaluadoras son estudiantes, no profesionales en ejercicio & Se declara el perfil real; no se atribuirá al juicio la condición de experto profesional \\ \hline
+Conclusión & Potencia estadística por debajo de $0{,}80$ con 25 pares & Se declara antes de ejecutar; se reporta el intervalo de confianza del tamaño del efecto y no solo el valor $p$ \\ \hline
+Conclusión & Acuerdo bajo entre personas evaluadoras & Se reporta $\kappa$ con independencia de su valor; si resulta bajo, se discute como hallazgo y no se descarta \\ \hline
+\caption{Amenazas a la validez identificadas antes de la ejecución}
+\end{longtable}
+
+% =====================================================================
+\section{Consideraciones éticas}
+
+Las personas evaluadoras firman un consentimiento específico que declara el propósito del estudio,
+el carácter voluntario de su participación, la ausencia de compensación y el uso académico de sus
+puntuaciones de forma agregada y anónima.
+
+El material fuente sometido al modelo de lenguaje está anonimizado: no contiene nombres propios,
+cargos identificativos ni referencias reconocibles a la organización. La persona participante
+\id{ENTR-04} autorizó de forma expresa el uso de sus datos anonimizados en publicaciones
+científicas revisadas por pares, conforme a la adenda ética de la segunda ronda.
+
+Ninguna puntuación individual se publicará de forma atribuible a una persona evaluadora concreta.
+
+% =====================================================================
+\section{Compromiso de reporte íntegro}
+
+El equipo se compromete de forma expresa a:
+
+\begin{enumerate}[nosep,leftmargin=1.8em]
+  \item Reportar el resultado obtenido con independencia de si confirma o refuta la hipótesis nula.
+  \item No modificar el plan de análisis en función de los datos observados.
+  \item Publicar los datos crudos de puntuación junto con los scripts que producen cada tabla.
+  \item Declarar el número efectivo de personas evaluadoras y de requisitos evaluados.
+  \item No redactar las secciones de resultados ni de discusión antes de disponer de datos
+        analizados.
+\end{enumerate}
+
+\noindent
+\fbox{\parbox{0.97\textwidth}{%
+\textbf{Estado a la fecha de este documento.} El protocolo se encuentra \textbf{diseñado y
+registrado}; el experimento \textbf{no ha sido ejecutado}. En consecuencia, el ERS/SRS de la Entrega
+3 (2A) no contiene sección de resultados ni de discusión de este estudio. Ambas corresponden a la
+Entrega 4 (2B), una vez recogidos y analizados los datos primarios.}}
+
+\vspace{1.4cm}
+\noindent
+\begin{tabular}{p{7.0cm}p{7.0cm}}
+\rule{6.4cm}{0.4pt} & \rule{6.4cm}{0.4pt} \\
+Villafuerte Rosero Allan Noe & Ing. Gleiston Cicerón Guerrero Ulloa, PhD \\
+Analista líder --- Equipo AHMRV & Docente responsable --- ISR-401 \\
+\end{tabular}
+
+\vspace{1.0cm}
+\noindent Quevedo, 3 de agosto de 2026.
+
+\end{document}
