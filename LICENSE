@@ -1,0 +1,107 @@
+LICENCIAS DEL PROYECTO SIMPA
+Sistema Inteligente de Mantenimiento de Palma Africana
+Equipo AHMRV — Ingeniería de Requerimientos (ISR-401)
+Universidad Técnica Estatal de Quevedo — Período 2026-2027 PPA
+
+Este repositorio contiene materiales sujetos a tres regímenes distintos.
+Lea el alcance de cada uno antes de reutilizar cualquier contenido.
+
+===============================================================================
+ 1. DOCUMENTACIÓN Y CONJUNTO DE DATOS ANONIMIZADO
+    Licencia: Creative Commons Atribución 4.0 Internacional (CC BY 4.0)
+===============================================================================
+
+ALCANCE
+  - AHMRV/01_ERS/            documento ERS/SRS, fuente LaTeX y bibliografía
+  - AHMRV/03_Modelado/       diagramas UML, modelos i* y prototipos de interfaz
+  - AHMRV/04_Trazabilidad/   matriz de trazabilidad y priorización
+  - AHMRV/06_Experimento/    protocolo experimental e instrumentos
+  - AHMRV/07_Publicacion/    conjunto de datos anonimizado y material de replicación
+  - AHMRV/02_Evidencias/     ÚNICAMENTE el material de zona pública:
+                             transcripciones anonimizadas, respuestas de
+                             cuestionario sin columnas identificativas,
+                             codificación temática y fichas técnicas
+
+Usted es libre de compartir y adaptar este material para cualquier finalidad,
+incluso comercial, bajo la condición de reconocer la autoría de forma adecuada,
+proporcionar un enlace a la licencia e indicar si se realizaron cambios.
+
+Texto completo: https://creativecommons.org/licenses/by/4.0/deed.es
+
+Atribución sugerida:
+  Equipo AHMRV (2026). SIMPA — Especificación de Requisitos de Software.
+  Universidad Técnica Estatal de Quevedo. CC BY 4.0.
+
+===============================================================================
+ 2. CÓDIGO FUENTE DEL PROTOTIPO (MVP)
+    Licencia: MIT
+===============================================================================
+
+ALCANCE
+  - AHMRV/05_MVP/            código fuente del prototipo funcional
+  - AHMRV/06_Experimento/scripts_analisis/   scripts de análisis
+
+Copyright (c) 2026 Equipo AHMRV — Universidad Técnica Estatal de Quevedo
+
+Por la presente se concede permiso, libre de cargo, a cualquier persona que
+obtenga una copia de este software y de los archivos de documentación asociados
+(el "Software"), a utilizar el Software sin restricción, incluyendo sin
+limitación los derechos a usar, copiar, modificar, fusionar, publicar,
+distribuir, sublicenciar y/o vender copias del Software, y a permitir a las
+personas a las que se les proporcione el Software a hacer lo mismo, sujeto a las
+siguientes condiciones:
+
+El aviso de copyright anterior y este aviso de permiso se incluirán en todas las
+copias o partes sustanciales del Software.
+
+EL SOFTWARE SE PROPORCIONA "COMO ESTÁ", SIN GARANTÍA DE NINGÚN TIPO, EXPRESA O
+IMPLÍCITA, INCLUYENDO PERO NO LIMITADO A GARANTÍAS DE COMERCIALIZACIÓN,
+IDONEIDAD PARA UN PROPÓSITO PARTICULAR Y NO INFRACCIÓN. EN NINGÚN CASO LOS
+AUTORES O TITULARES DEL COPYRIGHT SERÁN RESPONSABLES DE NINGUNA RECLAMACIÓN,
+DAÑOS U OTRAS RESPONSABILIDADES, YA SEA EN UNA ACCIÓN CONTRACTUAL, AGRAVIO O
+CUALQUIER OTRO MOTIVO, DERIVADAS DE, FUERA DE O EN CONEXIÓN CON EL SOFTWARE O SU
+USO U OTRO TIPO DE ACCIONES EN EL SOFTWARE.
+
+===============================================================================
+ 3. ZONA RESTRINGIDA — MATERIAL NO LICENCIADO
+===============================================================================
+
+ALCANCE
+  - AHMRV/02_Evidencias/00_Restringido/    en su totalidad
+
+  Contiene: consentimientos informados originales con cédula y firma visibles,
+  grabaciones de video y audio sin anonimizar, actas con firma visible y
+  documentos originales de la organización cliente.
+
+SE DECLARA DE FORMA EXPRESA QUE ESTE CONTENIDO:
+
+  a) NO SE LICENCIA bajo ninguno de los regímenes anteriores ni bajo ningún otro.
+  b) NO SE REDISTRIBUYE, ni total ni parcialmente, por ningún medio.
+  c) NO FORMA PARTE del depósito abierto de datos ni de ningún conjunto de datos
+     publicado con licencia libre.
+  d) Se almacena exclusivamente en contenedores cifrados con AES-256, cuya
+     contraseña se entrega únicamente al docente responsable de la asignatura
+     por el espacio de la actividad en el sistema de gestión académica.
+  e) Se conserva durante veinticuatro (24) meses contados desde la finalización
+     del proyecto, y transcurrido ese plazo se elimina de forma segura mediante
+     acta firmada.
+
+FUNDAMENTO
+  Ley Orgánica de Protección de Datos Personales del Ecuador (Registro Oficial
+  Suplemento No. 459, 2021), en particular sus artículos 7, 10, 37 y 40.
+
+  La tabla de correspondencia entre códigos de participante y personas reales
+  permanece bajo custodia del docente responsable y no forma parte de este
+  repositorio.
+
+===============================================================================
+ NOTA SOBRE SEUDONIMIZACIÓN
+===============================================================================
+
+Las organizaciones participantes figuran en todos los artefactos públicos bajo
+los seudónimos "Palmicultora M" y "Extractora R". Los nombres reales constan
+únicamente en el aval institucional depositado en AHMRV/08_Etica/, conforme al
+protocolo de anonimización (documento C.3).
+
+Las personas participantes se identifican mediante los códigos ENTR-01 a
+ENTR-08. En ningún archivo de acceso público figura su nombre propio.
