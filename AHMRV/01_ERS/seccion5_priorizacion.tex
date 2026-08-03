@@ -1,0 +1,326 @@
+% =====================================================================
+%  SECCION 5 -- PRIORIZACION Y TRAZABILIDAD EXTENDIDA
+%  Se incluye desde ERS_SRS_2A_v1.0.tex mediante \input{seccion5_priorizacion}
+% =====================================================================
+
+\newpage
+\section{Priorización y trazabilidad extendida}
+
+\subsection{Clasificación de requisitos}
+
+El documento especifica 75 elementos de requisito, distribuidos como sigue.
+
+\begin{longtable}{|L{4.2cm}|C{2.0cm}|L{8.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Tipo} & \textbf{Cantidad} & \textbf{Identificadores} \\
+\hline
+\endhead
+Requisito funcional (RF) & 39 & \id{RF-01} a \id{RF-39} \\ \hline
+Requisito no funcional (RNF) & 18 & \id{RNF-01} a \id{RNF-18} \\ \hline
+Restricción de diseño (RD) & 10 & \id{RD-01} a \id{RD-10} \\ \hline
+Requisito legal (RL) & 8 & \id{RL-01} a \id{RL-08} \\ \hline
+\rowcolor{grisclaro}\textbf{Total} & \textbf{75} & \\ \hline
+\caption{Clasificación de los requisitos por tipo}
+\end{longtable}
+
+\noindent
+La distribución MoSCoW de los requisitos funcionales es de 21 \emph{Must}, 16 \emph{Should} y 2
+\emph{Could}. Los cuatro requisitos incorporados a partir de la hoja de liquidación semanal
+(\id{RF-36} a \id{RF-39}) se clasifican como \emph{Must} los dos primeros ---el catálogo de tarifas
+es prerrequisito del cálculo de remuneración y la liquidación es el cierre del ciclo semanal--- y
+como \emph{Should} los dos restantes. No hay requisitos funcionales clasificados como \emph{Won't}: las exclusiones de
+alcance se enuncian a nivel de producto en la §1.2.4 y se argumentan en la §5.3.4.
+
+% ---------------------------------------------------------------------
+\subsection{Historias de usuario de los requisitos \emph{Must}}
+
+Conforme a la §3.3 de la guía de la Entrega 3, cada requisito funcional de prioridad \emph{Must}
+cuenta con una historia de usuario en formato Connextra, con los criterios INVEST verificados y un
+escenario de aceptación redactado en Gherkin. Se especifican 19 historias (\id{HU-01} a
+\id{HU-19}), con sus criterios de aceptación (\id{CA-01} a \id{CA-19}).
+
+\begin{longtable}{|C{1.3cm}|C{1.3cm}|L{12.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{HU} & \textbf{RF} & \textbf{Historia de usuario (Connextra) y escenario de aceptación (Gherkin)} \\
+\hline
+\endhead
+
+\id{HU-01} & \id{RF-01} & \textbf{Como} persona trabajadora del cultivo, \textbf{quiero} acceder al sistema con mis credenciales, \textbf{para} usar únicamente las funciones que corresponden a mi labor. \newline \emph{\id{CA-01}:} \textbf{Dado} que existe una cuenta con rol ``trabajador agrícola'', \textbf{cuando} inicia sesión, \textbf{entonces} el menú no presenta ninguna opción de administración \textbf{y} un intento de acceso directo a esa ruta es rechazado. \\ \hline
+
+\id{HU-02} & \id{RF-02} & \textbf{Como} administrador general, \textbf{quiero} registrar los lotes con su variedad y superficie, \textbf{para} poder asociarles labores, diagnósticos y cosechas. \newline \emph{\id{CA-02}:} \textbf{Dado} un lote recién registrado con variedad asignada, \textbf{cuando} se abre el formulario de registro de labor, \textbf{entonces} el lote aparece como opción seleccionable. \\ \hline
+
+\id{HU-03} & \id{RF-03} & \textbf{Como} administrador general, \textbf{quiero} organizar al personal por equipos funcionales, \textbf{para} asignar labores y evaluar el desempeño por cuadrilla. \newline \emph{\id{CA-03}:} \textbf{Dado} un trabajador asignado al equipo de polinización, \textbf{cuando} se consulta el equipo, \textbf{entonces} la persona figura en él \textbf{y} es asignable a labores de ese tipo. \\ \hline
+
+\id{HU-04} & \id{RF-04} & \textbf{Como} trabajador agrícola, \textbf{quiero} registrar la labor que ejecuté en el lote, \textbf{para} que quede constancia sin depender de una libreta de papel. \newline \emph{\id{CA-04}:} \textbf{Dado} que ejecuté chapia en el lote 3, \textbf{cuando} registro la labor con su cantidad, \textbf{entonces} queda vinculada al lote, la fecha y mi identificación \textbf{y} aparece en el historial del lote. \\ \hline
+
+\id{HU-05} & \id{RF-05} & \textbf{Como} técnico fitosanitario, \textbf{quiero} registrar el monitoreo sanitario del lote, \textbf{para} dejar trazabilidad de las revisiones y de las incidencias detectadas. \newline \emph{\id{CA-05}:} \textbf{Dado} un monitoreo con incidencia marcada, \textbf{cuando} se filtran los lotes con incidencia abierta, \textbf{entonces} ese lote aparece en el resultado. \\ \hline
+
+\id{HU-06} & \id{RF-07} & \textbf{Como} asistente de administración, \textbf{quiero} fotografiar una palma afectada y obtener el diagnóstico, \textbf{para} identificar la plaga sin depender de conocimiento especializado. \newline \emph{\id{CA-06}:} \textbf{Dado} que capturo la imagen de una palma con afectación conocida, \textbf{cuando} solicito el análisis, \textbf{entonces} el sistema devuelve la clase, el nivel de confianza y una explicación de no más de 60 palabras \textbf{y} registra el diagnóstico con lote y fecha. \\ \hline
+
+\id{HU-07} & \id{RF-08} & \textbf{Como} asesor técnico, \textbf{quiero} fotografiar una hoja y conocer la deficiencia nutricional, \textbf{para} decidir qué aplicar sin esperar el análisis de laboratorio. \newline \emph{\id{CA-07}:} \textbf{Dado} el lote con variedad asignada, \textbf{cuando} envío la imagen de una hoja con deficiencia conocida, \textbf{entonces} el sistema indica el elemento deficiente, propone una corrección \textbf{y} explica qué signo foliar la sustenta. \\ \hline
+
+\id{HU-08} & \id{RF-10} & \textbf{Como} asesor técnico, \textbf{quiero} que el sistema conozca la variedad de cada lote, \textbf{para} que los umbrales de diagnóstico correspondan al material sembrado. \newline \emph{\id{CA-08}:} \textbf{Dado} un lote de variedad \emph{guineensis}, \textbf{cuando} se clasifica un racimo, \textbf{entonces} el umbral aplicado es de 3 frutos desprendidos; \textbf{y dado} un lote híbrido, \textbf{entonces} el umbral aplicado es de 5. \\ \hline
+
+\id{HU-09} & \id{RF-12} & \textbf{Como} administrador general, \textbf{quiero} recibir alertas ante una afectación detectada, \textbf{para} intervenir antes de que se propague. \newline \emph{\id{CA-09}:} \textbf{Dado} un diagnóstico positivo registrado, \textbf{cuando} se completa el análisis, \textbf{entonces} se crea una alerta con lote, tipo, criticidad y estado abierto \textbf{y} resulta visible para el rol responsable. \\ \hline
+
+\id{HU-10} & \id{RF-13} & \textbf{Como} jefe de polinización, \textbf{quiero} registrar el estado de la antesis y la verificación visual, \textbf{para} controlar la calidad de la labor que determina la producción. \newline \emph{\id{CA-10}:} \textbf{Dado} un lote en etapa de polinización, \textbf{cuando} se registra la jornada con estado de antesis, \textbf{entonces} el registro queda asociado al lote, la fecha y la persona \textbf{y} es consultable por fecha. \\ \hline
+
+\id{HU-11} & \id{RF-14} & \textbf{Como} polinizador, \textbf{quiero} que el conteo de flores se calcule solo, \textbf{para} no perder rendimiento anotando planta por planta. \newline \emph{\id{CA-11}:} \textbf{Dado} que trabajé la jornada con rastreo activo, \textbf{cuando} cierro la jornada, \textbf{entonces} el sistema calcula el total de flores a partir de las marcaciones \textbf{y} no me solicita ningún registro manual por planta. \\ \hline
+
+\id{HU-12} & \id{RF-18} & \textbf{Como} administrador general, \textbf{quiero} estimar la producción del período, \textbf{para} planificar la cosecha y la mano de obra necesaria. \newline \emph{\id{CA-12}:} \textbf{Dado} un censo de flores registrado y la variedad del lote, \textbf{cuando} solicito la estimación, \textbf{entonces} el sistema devuelve el tonelaje estimado del período \textbf{y} el supuesto de rendimiento empleado. \\ \hline
+
+\id{HU-13} & \id{RF-19} & \textbf{Como} administrador general, \textbf{quiero} generar el consolidado semanal, \textbf{para} tomar decisiones sin recopilar reportes dispersos de mensajería. \newline \emph{\id{CA-13}:} \textbf{Dado} que existen registros en la semana, \textbf{cuando} genero el reporte, \textbf{entonces} obtengo labores, avance, producción y alertas del período \textbf{y} puedo exportarlo a PDF o a hoja de cálculo. \\ \hline
+
+\id{HU-14} & \id{RF-21} & \textbf{Como} cosechador, \textbf{quiero} saber si un racimo está en punto de corte, \textbf{para} no cortar fruta verde que será penalizada. \newline \emph{\id{CA-14}:} \textbf{Dado} un lote híbrido, \textbf{cuando} fotografío la parte basal de un racimo con 4 frutos desprendidos, \textbf{entonces} el sistema lo clasifica como verde \textbf{y} explica que el umbral de la variedad es de 5. \\ \hline
+
+\id{HU-15} & \id{RF-22} & \textbf{Como} administrador general, \textbf{quiero} conocer el porcentaje estimado de fruta verde antes de despachar, \textbf{para} evitar la penalización del lote en la planta extractora. \newline \emph{\id{CA-15}:} \textbf{Dado} un umbral de penalización del 3\%, \textbf{cuando} el porcentaje estimado del lote alcanza ese valor, \textbf{entonces} el sistema emite alerta preventiva \textbf{y} desaconseja el despacho. \\ \hline
+
+\id{HU-16} & \id{RF-26} & \textbf{Como} administrador general, \textbf{quiero} registrar el presupuesto semanal de labores, \textbf{para} contrastar lo planificado con lo efectivamente ejecutado. \newline \emph{\id{CA-16}:} \textbf{Dado} un plan con meta de 1.123 coronas en el lote 3, \textbf{cuando} cierro la semana con 800 cumplidas, \textbf{entonces} el sistema reporta un cumplimiento del 71,2\% \textbf{y} un remanente de 323 coronas. \\ \hline
+
+\id{HU-17} & \id{RF-28} & \textbf{Como} trabajador agrícola, \textbf{quiero} registrar mi avance en la unidad propia de cada labor, \textbf{para} que mi trabajo se contabilice como corresponde. \newline \emph{\id{CA-17}:} \textbf{Dado} que ejecuté 120 coronas, \textbf{cuando} registro el avance, \textbf{entonces} la cantidad se acumula a mi total semanal en la unidad ``coronas'' \textbf{y} el sistema rechaza una unidad incompatible con el tipo de labor. \\ \hline
+
+\id{HU-18} & \id{RF-30} & \textbf{Como} asistente de administración, \textbf{quiero} reportar una afectación con foto y ubicación, \textbf{para} poder volver al punto exacto en mi siguiente visita. \newline \emph{\id{CA-18}:} \textbf{Dado} que reporto una incidencia con GPS activo, \textbf{cuando} la consulto días después, \textbf{entonces} recupero su fotografía y sus coordenadas \textbf{y} la incidencia figura en mi lista de pendientes de verificación. \\ \hline
+
+\id{HU-19} & \id{RF-35} & \textbf{Como} jefe de campo, \textbf{quiero} registrar el avance de quien no tiene teléfono, \textbf{para} que ninguna persona quede sin registrar su trabajo. \newline \emph{\id{CA-19}:} \textbf{Dado} un trabajador sin dispositivo propio, \textbf{cuando} registro su avance de forma delegada, \textbf{entonces} el avance se atribuye a esa persona en su consolidado \textbf{y} la bitácora conserva mi identificación como registrador. \\ \hline
+\caption{Historias de usuario y criterios de aceptación de los requisitos \emph{Must}}
+\end{longtable}
+
+\subsubsection{Verificación de los criterios INVEST}
+
+Las diecinueve historias fueron evaluadas contra los seis criterios INVEST. La tabla siguiente
+reporta el resultado y documenta las tres historias que requirieron ajuste.
+
+\begin{longtable}{|L{2.4cm}|C{1.6cm}|L{11.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Criterio} & \textbf{Cumple} & \textbf{Observación} \\
+\hline
+\endhead
+Independiente & 16 / 19 & \id{HU-11} depende de \id{HU-10}, \id{HU-15} de \id{HU-14} y \id{HU-17} de \id{HU-04}. Se documenta la dependencia en la matriz en lugar de forzar la independencia, dado que responde a la secuencia real del proceso. \\ \hline
+Negociable & 19 / 19 & Ninguna historia prescribe solución técnica; los umbrales son parametrizables (\id{RD-08}). \\ \hline
+Valiosa & 19 / 19 & Cada historia declara el beneficio esperado y se traza a evidencia de campo. \\ \hline
+Estimable & 19 / 19 & Todas admiten estimación en la escala Fibonacci empleada en el cálculo WSJF de la §5.3.3. \\ \hline
+Pequeña & 17 / 19 & \id{HU-06} y \id{HU-07} superan el tamaño recomendado por incluir el componente de IA; se sugiere descomponerlas en captura, inferencia y explicación durante la planificación de la implementación. \\ \hline
+Verificable & 19 / 19 & Todas cuentan con escenario Gherkin con criterio observable. \\ \hline
+\caption{Verificación de los criterios INVEST sobre las historias de usuario}
+\end{longtable}
+
+% ---------------------------------------------------------------------
+\subsection{Priorización combinada}
+
+La priorización emplea tres instrumentos complementarios: MoSCoW para el compromiso de alcance, el
+modelo de Kano para la relación con la satisfacción del cliente, y WSJF para el orden de
+implementación.
+
+\subsubsection{Justificación de la clasificación MoSCoW}
+
+\textbf{\emph{Must} (19 RF).} Corresponden a tres condiciones. Primero, la \textbf{base operativa
+indispensable}: sin autenticación por rol (\id{RF-01}), estructura de lotes (\id{RF-02}), personal
+(\id{RF-03}) y registro de labor y avance (\id{RF-04}, \id{RF-28}, \id{RF-35}) el sistema no
+sustituye al proceso manual que pretende reemplazar. Segundo, el \textbf{diferencial de valor}: el
+análisis por imagen (\id{RF-07}, \id{RF-08}, \id{RF-21}) y las alertas (\id{RF-12}) son las
+funciones mejor valoradas por el personal en el cuestionario ($4{,}31$ y $4{,}27$ sobre 5,
+\id{EV-12}) y las señaladas de forma independiente por la administración (\id{EV-01}) y la asesoría
+técnica (\id{EV-02}). Tercero, la \textbf{consecuencia económica directa}: la polinización determina
+la producción de la finca (\id{EV-03}), su conteo condiciona la evaluación del trabajo
+(\id{RF-13}, \id{RF-14}), y el porcentaje de fruta verde determina la penalización del lote en la
+planta extractora (\id{RF-22}, \id{EV-04}).
+
+\textbf{\emph{Should} (14 RF).} Aportan valor sustantivo pero el sistema entrega su propuesta de
+valor sin ellos en la primera versión: seguimiento de etapas, ficha de plaga, análisis de
+suelo, recorridos, evaluación de desempeño, clima, historial, registro del ticket de la extractora,
+trazabilidad de la penalización, ventana corte-entrega, arrastre semanal, consulta de remuneración,
+lista de pendientes y exportación hacia la extractora.
+
+\textbf{\emph{Could} (2 RF).} \id{RF-33} (guía de remisión) y \id{RF-34} (solicitud de insumos) son
+mejoras deseables de bajo acoplamiento con el núcleo.
+
+\textbf{\emph{Won't} en esta versión.} Se excluyen explícitamente y con argumento: la
+\textbf{gestión de nómina y pago}, porque el sistema calcula el avance pero la liquidación
+involucra información laboral y tributaria cuyo tratamiento excede el consentimiento obtenido
+(\id{RD-04}, \id{RL-02}); la \textbf{facturación y contabilidad}, por no corresponder al manejo del
+cultivo; la \textbf{comercialización de la producción}, que se negocia fuera del sistema; la
+\textbf{integración directa con el sistema de la planta extractora}, porque pertenece a una
+organización externa con sistema propio y su interfaz no está disponible (\id{EV-04}); y la
+\textbf{operación multi-finca}, que el cliente administra pero que no forma parte del alcance
+acordado para la v1 (§1.2.2).
+
+\subsubsection{Modelo de Kano}
+
+La clasificación se sustenta en la distancia entre la valoración declarada en el cuestionario y la
+expectativa implícita del proceso actual.
+
+\begin{longtable}{|L{2.8cm}|L{5.4cm}|L{7.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Categoría} & \textbf{Requisitos} & \textbf{Fundamento} \\
+\hline
+\endhead
+Básica & \id{RF-01}, \id{RF-02}, \id{RF-03}, \id{RF-04} & Su ausencia genera rechazo, su presencia no genera entusiasmo. El registro de labor ya existe en papel: el sistema debe igualarlo, no impresiona por hacerlo. \\ \hline
+De desempeño & \id{RF-19}, \id{RF-26}, \id{RF-28}, \id{RF-29}, \id{RF-13} & La satisfacción crece de forma proporcional a la calidad de ejecución. Valoración intermedia en el cuestionario ($3{,}95$ para el registro de labores). \\ \hline
+\rowcolor{grisclaro}De deleite & \id{RF-07}, \id{RF-08}, \id{RF-12}, \id{RF-21} & Generan entusiasmo desproporcionado respecto de la expectativa. Son las funciones mejor valoradas ($4{,}27$ y $4{,}31$) y las únicas mencionadas de forma espontánea por los cinco perfiles entrevistados. \\ \hline
+Indiferente & \id{RF-33}, \id{RF-34} & No inciden en la satisfacción percibida por la persona usuaria final. \\ \hline
+De rechazo potencial & \id{RF-15} & El rastreo de recorridos puede generar insatisfacción: el 25{,}8\% del personal manifiesta reservas (\id{EV-12}). Se mitiga con consentimiento revocable (\id{RL-03}). \\ \hline
+\caption{Clasificación de los requisitos según el modelo de Kano}
+\end{longtable}
+
+\noindent
+La clasificación de \id{RF-15} como \emph{requisito de rechazo potencial} es deliberada y
+constituye un hallazgo. La funcionalidad fue solicitada por la administración (\id{EV-01},
+\id{EV-02}) y por la jefatura de polinización (\id{EV-03}), pero una de cada cuatro personas
+destinatarias expresa reservas sobre ella. Kano permite representar esta tensión: un requisito puede
+ser valioso para quien lo solicita y adverso para quien lo padece. La mitigación no es técnica sino
+de diseño de la relación: consentimiento específico, revocable y sin consecuencia laboral.
+
+\subsubsection{Valor de negocio mediante WSJF}
+
+Se aplica el método del Trabajo Ponderado Más Corto Primero:
+\[
+\mathrm{WSJF} = \frac{\text{Valor de negocio} + \text{Criticidad temporal} + \text{Reducción de riesgo}}{\text{Tamaño del trabajo}}
+\]
+Los cuatro componentes se puntúan en escala Fibonacci (1, 2, 3, 5, 8, 13). La tabla presenta los
+diez requisitos evaluados de mayor valor de negocio, ordenados de forma descendente por WSJF.
+
+\begin{longtable}{|C{1.4cm}|C{1.3cm}|C{1.3cm}|C{1.3cm}|C{1.3cm}|C{1.4cm}|L{5.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{RF} & \textbf{Valor} & \textbf{Crit. temp.} & \textbf{Red. riesgo} & \textbf{Tamaño} & \textbf{WSJF} & \textbf{Justificación} \\
+\hline
+\endhead
+\id{RF-35} & 5 & 8 & 8 & 3 & \textbf{7,00} & Bajo costo y alto impacto: sin él, el 11,3\% del personal queda excluido del sistema (\id{EV-12}). \\ \hline
+\id{RF-21} & 13 & 13 & 8 & 8 & \textbf{4,25} & Evita la penalización económica del lote; la temporada de baja producción (jul.--oct.) es cuando más fruta verde se corta (\id{EV-04}). \\ \hline
+\id{RF-22} & 13 & 13 & 8 & 8 & \textbf{4,25} & Actúa antes del despacho, momento en que la pérdida aún es evitable. \\ \hline
+\id{RF-04} & 8 & 8 & 5 & 5 & \textbf{4,20} & Base de todo el registro operativo; sin él no hay datos para ninguna otra función. \\ \hline
+\id{RF-12} & 8 & 8 & 5 & 5 & \textbf{4,20} & Función mejor valorada del cuestionario (4,31/5). \\ \hline
+\id{RF-01} & 5 & 8 & 8 & 5 & \textbf{4,20} & Precondición técnica y legal de todo lo demás (\id{RL-01}). \\ \hline
+\id{RF-07} & 13 & 8 & 8 & 8 & \textbf{3,62} & Mayor dificultad declarada por el personal (40,3\%, \id{EV-12}). \\ \hline
+\id{RF-28} & 8 & 5 & 5 & 5 & \textbf{3,60} & Habilita el cálculo de cumplimiento y de remuneración por avance. \\ \hline
+\id{RF-14} & 13 & 8 & 5 & 8 & \textbf{3,25} & La polinización determina la producción; el conteo manual afecta el rendimiento (\id{EV-03}). \\ \hline
+\id{RF-08} & 8 & 5 & 5 & 8 & \textbf{2,25} & Alto valor técnico, pero el diagnóstico nutricional admite mayor demora que el sanitario. \\ \hline
+
+\caption{Valor de negocio mediante WSJF (diez requisitos de mayor prioridad)}
+\end{longtable}
+
+\noindent
+\textbf{Lectura del resultado.} \id{RF-35} y \id{RF-10} encabezan el orden de implementación con un
+WSJF de 7,00 cada uno,
+pese a no ser el requisito de mayor valor de negocio. La razón es su tamaño reducido frente a un
+impacto alto: se trata de una variante del formulario de registro que evita excluir a una de cada
+nueve personas destinatarias. \id{RF-10} alcanza la misma posición por una razón distinta: es
+prerrequisito de \id{RF-21}, dado que el umbral de desprendimiento se obtiene de la variedad del
+lote. El método revela así una dependencia técnica que ni MoSCoW ni Kano hacen visible.
+
+Ambos casos ilustran la utilidad del método frente a una priorización basada únicamente en valor
+percibido, que los habría situado muy por debajo. La lectura inversa también es informativa:
+\id{RF-07} y \id{RF-08}, las dos funciones mejor valoradas por las personas usuarias, obtienen WSJF
+de 3,62 y 2,25 por su elevado tamaño de trabajo. Esto no altera su condición de \emph{Must}, pero
+indica que el desarrollo debe iniciarse por la base operativa mientras los componentes de
+inteligencia artificial se construyen en paralelo. El archivo
+\id{04\_Trazabilidad/}\allowbreak\id{priorizacion\_moscow\_kano.csv} contiene la tabla completa para los 35
+requisitos funcionales.
+
+% ---------------------------------------------------------------------
+\subsection{Matriz de trazabilidad extendida}
+
+La matriz enlaza, para cada elemento, la cadena completa
+Ley $\rightarrow$ Objetivo $\rightarrow$ Interesado $\rightarrow$ Evidencia $\rightarrow$
+Requisito $\rightarrow$ Caso de uso $\rightarrow$ Historia de usuario $\rightarrow$
+Criterio de aceptación $\rightarrow$ Componente $\rightarrow$ Mockup.
+
+La versión completa, con las trece columnas exigidas por la §8.8 de la guía, reside en
+\id{04\_Trazabilidad/}\allowbreak\id{matriz\_trazabilidad.csv} y contiene \textbf{52 filas}. La tabla siguiente
+reproduce una vista reducida con las columnas de mayor densidad informativa; se conservan las 48
+filas para permitir la verificación de cobertura. Las cuatro últimas corresponden a los requisitos derivados de la hoja de liquidación semanal (\id{EV-13}).
+
+\begin{longtable}{|C{0.9cm}|C{1.5cm}|C{1.6cm}|C{1.5cm}|C{1.3cm}|C{1.3cm}|C{1.3cm}|C{1.5cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{\#} & \textbf{Interesado} & \textbf{ID-EV} & \textbf{ID-RF} & \textbf{Tipo} & \textbf{ID-CU} & \textbf{ID-HU} & \textbf{ID-Mockup} \\
+\hline
+\endhead
+1 & Administrador & EV-01, EV-09 & RF-01 & RF & CU-11 & HU-01 & MU-01 \\ \hline
+2 & Administrador & EV-01, EV-02 & RF-02 & RF & CU-12 & HU-02 & MU-05 \\ \hline
+3 & Administrador & EV-01, EV-11 & RF-03 & RF & CU-13 & HU-03 & --- \\ \hline
+4 & Trabajador & EV-05, EV-06 & RF-04 & RF & CU-04 & HU-04 & MU-04 \\ \hline
+5 & Trabajador & EV-11 & RF-04 & RF & CU-04 & HU-04 & MU-04 \\ \hline
+6 & Técnico fitosan. & EV-01, EV-02 & RF-05 & RF & CU-15 & HU-05 & MU-05 \\ \hline
+7 & Administrador & EV-01 & RF-06 & RF & CU-12 & --- & MU-05 \\ \hline
+8 & Asistente admin. & EV-01, EV-02 & RF-07 & RF & CU-01 & HU-06 & MU-03 \\ \hline
+9 & Asistente admin. & EV-07 & RF-07 & RF & CU-01 & HU-06 & MU-03 \\ \hline
+10 & Asesor técnico & EV-02 & RF-08 & RF & CU-02 & HU-07 & MU-03 \\ \hline
+11 & Asesor técnico & EV-04 & RF-08 & RF & CU-02 & HU-07 & MU-03 \\ \hline
+12 & Técnico fitosan. & EV-01, EV-02 & RF-09 & RF & CU-01 & --- & MU-03 \\ \hline
+13 & Asesor técnico & EV-04 & RF-10 & RF & CU-12 & HU-08 & MU-05 \\ \hline
+14 & Asesor técnico & EV-02 & RF-11 & RF & CU-02 & --- & MU-05 \\ \hline
+15 & Administrador & EV-01, EV-02 & RF-12 & RF & CU-16 & HU-09 & MU-08 \\ \hline
+16 & Trabajador & EV-12 & RF-12 & RF & CU-16 & HU-09 & MU-08 \\ \hline
+17 & Jefe polinización & EV-03 & RF-13 & RF & CU-03 & HU-10 & MU-04 \\ \hline
+18 & Jefe polinización & EV-03 & RF-14 & RF & CU-03 & HU-11 & MU-06 \\ \hline
+19 & Administrador & EV-01, EV-03 & RF-15 & RF & CU-03 & --- & MU-06 \\ \hline
+20 & Administrador & EV-01, EV-02 & RF-16 & RF & CU-05 & --- & MU-07 \\ \hline
+21 & Administrador & EV-01, EV-02 & RF-17 & RF & CU-05 & --- & MU-05 \\ \hline
+22 & Administrador & EV-01, EV-02 & RF-18 & RF & CU-17 & HU-12 & MU-07 \\ \hline
+23 & Administrador & EV-01, EV-11 & RF-19 & RF & CU-05 & HU-13 & MU-07 \\ \hline
+24 & Administrador & EV-01 & RF-20 & RF & CU-05 & --- & MU-05 \\ \hline
+25 & Téc. extractora & EV-04 & RF-21 & RF & CU-06 & HU-14 & MU-03 \\ \hline
+26 & Téc. extractora & EV-08 & RF-21 & RF & CU-06 & HU-14 & MU-03 \\ \hline
+27 & Administrador & EV-04, EV-08 & RF-22 & RF & CU-06 & HU-15 & MU-08 \\ \hline
+28 & Administrador & EV-04 & RF-23 & RF & CU-10 & --- & MU-07 \\ \hline
+29 & Téc. extractora & EV-04, EV-08 & RF-24 & RF & CU-10 & --- & MU-07 \\ \hline
+30 & Téc. extractora & EV-04 & RF-25 & RF & CU-10 & --- & MU-07 \\ \hline
+31 & Administrador & EV-11 & RF-26 & RF & CU-07 & HU-16 & MU-02 \\ \hline
+32 & Administrador & EV-11 & RF-27 & RF & CU-07 & --- & MU-02 \\ \hline
+33 & Trabajador & EV-05, EV-11 & RF-28 & RF & CU-04 & HU-17 & MU-04 \\ \hline
+34 & Trabajador & EV-06, EV-07 & RF-29 & RF & CU-08 & --- & MU-02 \\ \hline
+35 & Asistente admin. & EV-07 & RF-30 & RF & CU-09 & HU-18 & MU-06 \\ \hline
+36 & Asistente admin. & EV-07 & RF-31 & RF & CU-09 & --- & MU-08 \\ \hline
+37 & Téc. extractora & EV-04 & RF-32 & RF & CU-17 & --- & MU-07 \\ \hline
+38 & Téc. extractora & EV-04 & RF-33 & RF & CU-10 & --- & MU-07 \\ \hline
+39 & Administrador & EV-11 & RF-34 & RF & CU-07 & --- & MU-02 \\ \hline
+40 & Jefe de campo & EV-12, EV-05 & RF-35 & RF & CU-04 & HU-19 & MU-04 \\ \hline
+41 & Téc. extractora & EV-04 & RNF-01 & RNF & CU-06 & HU-14 & MU-03 \\ \hline
+42 & Trabajador & EV-07, EV-12 & RNF-11 & RNF & CU-04 & HU-04 & MU-04 \\ \hline
+43 & Jefe polinización & EV-03 & RNF-05 & RNF & CU-03 & HU-11 & MU-06 \\ \hline
+44 & Trabajador & EV-12 & RNF-08 & RNF & CU-04 & HU-04 & MU-04 \\ \hline
+45 & Trabajador & EV-12 & RNF-14 & RNF & CU-03 & HU-11 & MU-06 \\ \hline
+46 & Asistente admin. & EV-01, EV-07 & RNF-16 & RNF & CU-18 & HU-06 & MU-03 \\ \hline
+47 & Trabajador & EV-12 & RD-10 & RD & CU-04 & HU-19 & MU-04 \\ \hline
+48 & Téc. extractora & EV-08 & RD-07 & RD & CU-06 & HU-14 & MU-03 \\ \hline
+49 & Administrador & EV-13 & RF-36 & RF & CU-08 & --- & MU-02 \\ \hline
+50 & Administrador & EV-13, EV-11 & RF-37 & RF & CU-07 & --- & MU-02 \\ \hline
+51 & Administrador & EV-13 & RF-38 & RF & CU-07 & --- & MU-02 \\ \hline
+52 & Administrador & EV-13 & RF-39 & RF & CU-07 & --- & MU-02 \\ \hline
+\caption{Matriz de trazabilidad extendida (vista reducida, 52 filas)}
+\end{longtable}
+
+\subsubsection{Diagnóstico de cobertura}
+
+\begin{longtable}{|L{5.6cm}|C{2.4cm}|L{6.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Indicador} & \textbf{Resultado} & \textbf{Interpretación} \\
+\hline
+\endhead
+Requisitos funcionales trazados a evidencia & 39 / 39 (100\%) & Ningún requisito carece de fuente verificable. \\ \hline
+Requisitos \emph{Must} con caso de uso & 19 / 19 (100\%) & Se corrige la deficiencia de la Entrega 2, donde \id{RF-17} y \id{RF-20} carecían de caso de uso. \\ \hline
+Requisitos \emph{Must} con historia y criterio & 19 / 19 (100\%) & \\ \hline
+Evidencias que originan al menos un requisito & 12 / 13 (92,3\%) & \id{EV-09} (observación de campo) aporta contexto y respalda requisitos junto con otras fuentes, sin originar ninguno de forma exclusiva. \\ \hline
+Requisitos sustentados en una sola evidencia & 9 / 39 (23,1\%) & Véase el análisis de elementos huérfanos. \\ \hline
+Requisitos con mockup asociado & 36 / 39 (92,3\%) & \id{RF-03}, \id{RF-27} y \id{RF-34} operan sobre pantallas no prototipadas en esta entrega. \\ \hline
+\caption{Diagnóstico de cobertura de la matriz de trazabilidad}
+\end{longtable}
+
+\subsubsection{Elementos huérfanos y vacíos de cobertura}
+
+Se declaran de forma explícita las debilidades detectadas, conforme al criterio de completitud de la
+guía.
+
+\begin{enumerate}[nosep]
+  \item \textbf{Requisitos con fuente única.} \id{RF-11}, \id{RF-23}, \id{RF-25}, \id{RF-32},
+        \id{RF-33} y \id{RF-34} se sustentan en una sola evidencia. Los cuatro derivados de
+        \id{EV-04} conciernen a la relación con la planta extractora y no pudieron triangularse con
+        una segunda fuente independiente de esa organización, dado que \id{EV-08} corresponde a la
+        misma sesión de campo. Se declara como limitación.
+  \item \textbf{Requisitos sin prototipo de interfaz.} \id{RF-03}, \id{RF-27} y \id{RF-34}. Los tres
+        son de prioridad no \emph{Must}, por lo que la ausencia no incumple la exigencia de
+        prototipar las pantallas \emph{Must}.
+  \item \textbf{Ausencia de \emph{Won't} funcionales.} Las exclusiones se enuncian a nivel de
+        producto y no como requisitos individuales descartados. Se argumentan en la §5.3.1.
+  \item \textbf{Evidencia de contexto.} \id{EV-09} no origina requisitos de forma exclusiva. Se
+        conserva en el catálogo por su valor de caracterización del proceso actual.
+\end{enumerate}

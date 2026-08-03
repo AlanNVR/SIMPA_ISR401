@@ -20,9 +20,9 @@ El diagrama presenta ocho actores y dieciocho casos de uso. Los actores primario
 seis perfiles de usuario de la §2.3; los actores secundarios son el servicio de análisis de IA y el
 receptor GPS del dispositivo.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=\textwidth]{img/casos_uso_general.png}
+\includegraphics[width=0.91\textwidth]{img/casos_uso_general}
 \caption{Diagrama general de casos de uso del SIMPA, con los ocho actores y el límite del sistema.}
 \label{fig:cu_general}
 \end{figure}
@@ -150,13 +150,14 @@ principal, al menos un flujo alternativo y al menos una excepción.
 \hline
 \rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-07 --- Planificar la semana de labores}}\\
 \hline
-\textbf{Requisitos} & \id{RF-26}, \id{RF-27}, \id{RF-34} \\ \hline
+\textbf{Requisitos} & \id{RF-26}, \id{RF-27}, \id{RF-34}, \id{RF-37} a \id{RF-39} \\ \hline
 \textbf{Actores} & Primario: administrador general. \\ \hline
 \textbf{Precondición} & Lotes y tipos de labor registrados. \\ \hline
 \textbf{Postcondición} & El plan de la semana queda publicado y disponible para el seguimiento diario. \\ \hline
 \textbf{Flujo principal} & 1. La persona administradora crea el plan de la semana. \newline 2. Para cada lote, define las labores previstas con su meta y unidad. \newline 3. El sistema incorpora automáticamente los remanentes arrastrados de la semana anterior. \newline 4. La persona administradora registra los insumos requeridos. \newline 5. El sistema publica el plan y lo hace visible al jefe de campo. \\ \hline
 \textbf{Flujo alternativo A} & \emph{Cierre de semana.} Al cierre, el sistema calcula el cumplimiento de cada meta; si es parcial, genera el remanente como labor pendiente de la semana siguiente, vinculada a la de origen (\id{RF-27}). \\ \hline
 \textbf{Flujo alternativo B} & Ajuste del plan durante la semana en curso, conservando la versión previa en bitácora. \\ \hline
+\textbf{Flujo alternativo C} & \emph{Liquidación y aprobación.} Al cierre, el sistema genera la liquidación que contrasta cantidad presupuestada, cantidad ejecutada, tarifa y valor por grupo de labor, totaliza el gasto presupuestado frente al real, e incorpora las labores no presupuestadas en su grupo diferenciado (\id{RF-37}, \id{RF-38}). La persona administradora aprueba la liquidación y el período queda cerrado (\id{RF-39}). \\ \hline
 \textbf{Excepción E1} & Meta expresada en unidad incompatible con el tipo de labor: el sistema rechaza la meta e indica la unidad esperada. \\ \hline
 \textbf{Excepción E2} & Existe un plan publicado para la misma semana: el sistema advierte y solicita confirmación antes de sustituirlo. \\ \hline
 \caption{CU-07 --- Planificar la semana de labores}
@@ -167,15 +168,15 @@ principal, al menos un flujo alternativo y al menos una excepción.
 \hline
 \rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-08 --- Consultar avance acumulado y remuneración estimada}}\\
 \hline
-\textbf{Requisitos} & \id{RF-29}, \id{RL-04} \\ \hline
+\textbf{Requisitos} & \id{RF-29}, \id{RF-36}, \id{RL-04} \\ \hline
 \textbf{Actores} & Primario: trabajador agrícola. \\ \hline
 \textbf{Precondición} & Existen registros de avance de la persona trabajadora en el período. \\ \hline
 \textbf{Postcondición} & Se presenta el consolidado del período, sin posibilidad de edición por parte de la persona trabajadora. \\ \hline
-\textbf{Flujo principal} & 1. La persona trabajadora accede a \emph{Mi avance}. \newline 2. Selecciona el período (quincena en curso por defecto). \newline 3. El sistema agrega sus registros de avance por tipo de labor. \newline 4. El sistema calcula la remuneración estimada correspondiente al trabajo por avance. \newline 5. El sistema presenta el desglose por labor y el total estimado. \\ \hline
+\textbf{Flujo principal} & 1. La persona trabajadora accede a \emph{Mi avance}. \newline 2. Selecciona el período (quincena en curso por defecto). \newline 3. El sistema agrega sus registros de avance por tipo de labor. \newline 4. El sistema obtiene del catálogo la tarifa vigente de cada tipo de labor a la fecha de cada registro y calcula la remuneración estimada correspondiente al trabajo por avance. \newline 5. El sistema presenta el desglose por labor y el total estimado. \\ \hline
 \textbf{Flujo alternativo A} & \emph{Ejercicio del derecho de acceso.} La persona trabajadora solicita la exportación de sus datos personales; el sistema genera el archivo conforme al Art. 12 de la LOPDP (\id{RL-04}). \\ \hline
 \textbf{Flujo alternativo B} & \emph{Discrepancia.} La persona trabajadora marca un registro como discrepante; el sistema notifica a la administración sin modificar el dato original, y la corrección se tramita mediante \id{RL-05}. \\ \hline
 \textbf{Excepción E1} & Sin registros en el período: el sistema informa la ausencia de datos. \\ \hline
-\textbf{Excepción E2} & El valor unitario de la labor no está configurado: el sistema muestra el avance en unidades y omite la estimación monetaria, indicando el motivo. \\ \hline
+\textbf{Excepción E2} & La labor carece de tarifa vigente en el catálogo (\id{RF-36}) a la fecha del registro: el sistema muestra el avance en unidades, omite la estimación monetaria e indica que la tarifa no está vigente para esa fecha. \\ \hline
 \caption{CU-08 --- Consultar avance acumulado y remuneración estimada}
 \end{longtable}
 
@@ -221,9 +222,9 @@ jerarquías de herencia (\id{Persona}--\id{Usuario} y la especialización de \id
 tres variantes), cuatro relaciones de composición y asociaciones con multiplicidad explícita. No
 corresponde a un diseño de base de datos, sino al modelo conceptual del dominio del problema.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=\textwidth]{img/clases_refinado.png}
+\includegraphics[width=1.0\textwidth]{img/clases_refinado}
 \caption{Diagrama de clases refinado del SIMPA, con atributos y operaciones.}
 \label{fig:clases}
 \end{figure}
@@ -245,23 +246,23 @@ los documentos de planificación semanal (\id{EV-11}).
 Se presentan los diagramas de secuencia de los tres casos de uso \emph{Must} de mayor complejidad
 de interacción.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{img/secuencia_CU01.png}
+\includegraphics[width=1.0\textwidth]{img/secuencia_CU01}
 \caption{Diagrama de secuencia del CU-01: análisis de imagen para detección de plaga, con las ramas de baja confianza y de operación sin conectividad.}
 \label{fig:seq01}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{img/secuencia_CU03.png}
+\includegraphics[width=1.0\textwidth]{img/secuencia_CU03}
 \caption{Diagrama de secuencia del CU-03: registro de polinización y conteo georreferenciado, con verificación de consentimiento y manejo de precisión degradada.}
 \label{fig:seq03}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.95\textwidth]{img/secuencia_CU06.png}
+\includegraphics[width=1.0\textwidth]{img/secuencia_CU06}
 \caption{Diagrama de secuencia del CU-06: clasificación de madurez del racimo y alerta preventiva de porcentaje de fruta verde.}
 \label{fig:seq06}
 \end{figure}
@@ -274,9 +275,9 @@ central de la organización según los documentos operativos (\id{EV-11}). Incor
 por disponibilidad de dispositivo (\id{RF-35}), la bifurcación por conectividad (\id{RNF-11}) y el
 mecanismo de arrastre de labor incompleta (\id{RF-27}).
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.85\textwidth]{img/actividad_ciclo_semanal.png}
+\includegraphics[width=1.0\textwidth]{img/actividad_ciclo_semanal}
 \caption{Diagrama de actividad del ciclo semanal de planificación y ejecución de labores.}
 \label{fig:actividad}
 \end{figure}
@@ -288,16 +289,16 @@ Se modelan las dos entidades del dominio con ciclo de vida no trivial: el \textb
 trayectoria determina el valor económico de la producción, y la \textbf{alerta}, cuyo ciclo refleja
 la latencia real de verificación documentada en \id{EV-07}.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.78\textwidth]{img/estados_racimo.png}
+\includegraphics[width=0.67\textwidth]{img/estados_racimo}
 \caption{Diagrama de estados del racimo, desde la inflorescencia hasta la calificación en la planta extractora.}
 \label{fig:est_racimo}
 \end{figure}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.92\textwidth]{img/estados_alerta.png}
+\includegraphics[width=1.0\textwidth]{img/estados_alerta}
 \caption{Diagrama de estados de la alerta, con escalamiento por vencimiento de plazo y reapertura tras tratamiento inefectivo.}
 \label{fig:est_alerta}
 \end{figure}
@@ -312,9 +313,9 @@ previsto en \id{RNF-15} y \id{RNF-17}.
 % ---------------------------------------------------------------------
 \subsection{Diagrama de componentes}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=\textwidth]{img/componentes.png}
+\includegraphics[width=1.0\textwidth]{img/componentes}
 \caption{Diagrama de componentes del SIMPA.}
 \label{fig:componentes}
 \end{figure}
@@ -330,9 +331,9 @@ contraparte de que hay información que no puede compartirse (\id{EV-04}).
 % ---------------------------------------------------------------------
 \subsection{Diagrama de despliegue}
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=\textwidth]{img/despliegue.png}
+\includegraphics[width=1.0\textwidth]{img/despliegue}
 \caption{Diagrama de despliegue del SIMPA.}
 \label{fig:despliegue}
 \end{figure}

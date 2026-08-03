@@ -1,0 +1,291 @@
+% =====================================================================
+%  SECCION 6 -- PRODUCTO MINIMO VIABLE
+%  SECCION 7 -- CONCLUSIONES, LIMITACIONES Y TRABAJO PENDIENTE
+% =====================================================================
+
+\newpage
+\section{Producto Mínimo Viable (MVP)}
+
+\subsection{Alcance del prototipo}
+
+El MVP materializa el subconjunto de requisitos funcionales de prioridad \emph{Must} suficiente para
+validar con personas usuarias reales la hipótesis de valor del sistema: que el registro digital de
+la operación de campo y la centralización de alertas reducen la latencia entre la ocurrencia de un
+problema y su atención.
+
+El prototipo es una aplicación de interfaz construida con React, Vite y Tailwind CSS, con nueve
+pantallas operativas, control de acceso por tres perfiles y persistencia local en el navegador. El
+código fuente reside en un repositorio Git separado, enlazado desde \id{05\_MVP/README.md}.
+
+\subsubsection{Cobertura verificada}
+
+La siguiente tabla se construyó por inspección del código fuente, no por declaración del equipo de
+desarrollo. El estado \emph{simulado} identifica funcionalidades cuya interfaz está completa pero
+cuyo resultado no proviene de un procesamiento real.
+
+\footnotesize
+\begin{longtable}{|C{1.4cm}|L{5.6cm}|C{1.4cm}|C{2.6cm}|L{3.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID-RF} & \textbf{Funcionalidad} & \textbf{WSJF} & \textbf{Estado} & \textbf{Pantalla} \\
+\hline
+\endhead
+\id{RF-01} & Autenticación y control de acceso por rol & 4,20 & Implementado & Login \\ \hline
+\id{RF-02} & Gestión de plantaciones y lotes & 3,67 & Implementado & Detalle de lote \\ \hline
+\id{RF-03} & Gestión de personal y equipos & 3,67 & Implementado & Personal \\ \hline
+\id{RF-04} & Registro de labores agrícolas & 4,20 & Implementado & Labores \\ \hline
+\id{RF-05} & Registro de monitoreo fitosanitario & 4,80 & Implementado & Análisis \\ \hline
+\id{RF-12} & Generación de alertas tempranas & 4,20 & Implementado & Alertas \\ \hline
+\id{RF-19} & Generación de reportes & 3,20 & Implementado & Reportes \\ \hline
+\id{RF-20} & Historial de actividades y eventos & 2,67 & Implementado & Detalle de lote \\ \hline
+\id{RF-30} & Reporte de incidencia desde campo & 4,80 & Implementado & Análisis \\ \hline
+\id{RF-13} & Registro del proceso de polinización & 4,20 & Parcial & Labores \\ \hline
+\id{RF-15} & Visualización de recorridos del personal & 2,60 & Parcial & Mapa GPS \\ \hline
+\id{RF-28} & Registro de avance por unidad de labor & 3,60 & Parcial & Labores \\ \hline
+\id{RF-07} & Detección de plagas por imagen & 3,62 & \textbf{Simulado} & Análisis \\ \hline
+\id{RF-14} & Conteo georreferenciado de flores & 3,25 & \textbf{Simulado} & Mapa GPS \\ \hline
+\id{RF-08} & Diagnóstico nutricional por imagen & 2,25 & No implementado & --- \\ \hline
+\id{RF-10} & Gestión de variedades y umbrales & 7,00 & No implementado & --- \\ \hline
+\id{RF-18} & Estimación de producción y rendimiento & 3,60 & No implementado & --- \\ \hline
+\id{RF-21} & Clasificación de madurez del racimo & 4,25 & No implementado & --- \\ \hline
+\id{RF-22} & Alerta preventiva de fruta verde & 4,25 & No implementado & --- \\ \hline
+\id{RF-26} & Planificación semanal con presupuesto & 3,60 & No implementado & --- \\ \hline
+\id{RF-35} & Registro delegado del avance & 7,00 & No implementado & --- \\ \hline
+\caption{Cobertura verificada del MVP sobre los requisitos funcionales \emph{Must}}
+\label{tab:mvp}
+\end{longtable}
+
+\noindent
+\textbf{Cobertura alcanzada.} De los 19 requisitos funcionales \emph{Must} vigentes al momento de
+construcción del prototipo, 9 se encuentran implementados de forma completa, 3 de forma parcial y 2
+en estado simulado. La cobertura efectiva es de $9/19 = 47{,}4\%$, o de $10{,}5/19 = 55{,}3\%$
+contabilizando las implementaciones parciales con peso medio.
+
+\noindent\fbox{\parbox{0.97\textwidth}{%
+\small\textbf{Declaración de incumplimiento del mínimo.} La §3.6 de la guía exige una cobertura de
+al menos el 60\% de los requisitos \emph{Debe tener}. El prototipo entregado no alcanza ese umbral.
+Se declara de forma expresa el valor real (47{,}4\% completo, 55{,}3\% ponderado) en lugar de
+computar como implementadas las funcionalidades simuladas, lo que habría permitido reportar un
+73{,}7\% sin sustento verificable. Los requisitos ausentes y su plan de incorporación se detallan en
+la §7.5. Esta limitación se registra como \id{L-10}.}}
+
+\subsubsection{Funcionalidades simuladas}
+
+Dos funcionalidades presentan interfaz completa con resultado no real, y así se declaran tanto en
+este documento como en el archivo \id{README.md} del repositorio del prototipo:
+
+\begin{itemize}[nosep]
+  \item \textbf{Análisis de imagen (\id{RF-07}).} La pantalla captura la imagen, muestra el
+        indicador de calidad y presenta un resultado de diagnóstico, pero dicho resultado se genera
+        mediante una función pseudoaleatoria y no mediante inferencia sobre la imagen. La
+        arquitectura de integración ---orquestador, interfaz del servicio y presentación de la
+        explicación--- sí está construida.
+  \item \textbf{Conteo georreferenciado (\id{RF-14}).} El mapa presenta recorridos y totales de
+        polinización a partir de datos de ejemplo fijos; no se consulta el receptor GPS del
+        dispositivo.
+\end{itemize}
+
+\subsection{Decisión de alcance: por qué la IA no se implementó}
+
+La ausencia de inferencia real es deliberada y se argumenta.
+
+Un clasificador de madurez o de plagas con utilidad real exige un conjunto de datos etiquetado del
+propio cultivo. La literatura del dominio reporta conjuntos de entre 850 y varios miles de imágenes
+para alcanzar exactitudes superiores al 90\% \cite{suharjito2021,omar2024,rosbi2024}. El equipo no
+dispone de ese material: las fotografías recogidas en el trabajo de campo documentan el entorno y
+las sesiones de elicitación, y no constituyen un conjunto etiquetado de entrenamiento.
+
+Integrar un modelo preentrenado de propósito general habría producido una demostración visualmente
+convincente pero sin validez: las predicciones no serían atribuibles al dominio y los valores
+objetivo de \id{RNF-01} y \id{RNF-02} no podrían verificarse. Se prefiere entregar la arquitectura
+de integración con la simulación \emph{declarada como tal} antes que presentar un diagnóstico
+generado aleatoriamente como si fuera un resultado de inferencia.
+
+\subsection{Desviaciones detectadas y plan de corrección}
+
+La revisión del prototipo frente a la especificación identificó tres desviaciones que se declaran y
+cuya corrección se programa antes de la Entrega 4.
+
+\begin{longtable}{|C{1.4cm}|L{6.6cm}|L{7.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Desviación} & \textbf{Corrección programada} \\
+\hline
+\endhead
+\id{D-01} & El catálogo de datos del prototipo no corresponde al dominio real: emplea lotes con nomenclatura alfanumérica, cinco tipos de labor genéricos y nombres de personas ficticios, en lugar de la estructura de seis lotes, las labores documentadas en \id{EV-11} y \id{EV-13}, y los códigos de participante. & Sustituir los datos de ejemplo por la estructura real anonimizada: lotes 1 a 6, catálogo de labores del documento de liquidación (\id{RF-36}) y códigos \id{ENTR-XX} en lugar de nombres propios. \\ \hline
+\id{D-02} & Las credenciales se almacenan en texto plano en el navegador, en contradicción con \id{RNF-13}. & Trasladar la autenticación a un servicio con derivación de clave; mientras tanto, se declara en el \id{README.md} del prototipo que las cuentas son de demostración y no deben emplearse con datos reales. \\ \hline
+\id{D-03} & El código fuente se distribuye como archivo comprimido dentro del repositorio, lo que impide la revisión por archivo y el seguimiento de cambios. & Publicar el árbol de fuentes sin comprimir y declarar en el \id{package.json} el nombre del proyecto y su procedencia como exportación de herramienta de prototipado. \\ \hline
+\caption{Desviaciones detectadas entre el prototipo y la especificación}
+\end{longtable}
+
+\subsection{Repositorio, despliegue y demostración}
+
+El código fuente reside en un repositorio Git separado, enlazado desde \id{05\_MVP/README.md}
+mediante submódulo, de modo que quede trazado el \emph{commit} exacto evaluado. El repositorio
+contiene el código organizado por módulos, la tabla de cobertura de la Tabla~\ref{tab:mvp} y las
+instrucciones de ejecución. El despliegue local requiere Node.js 18 o superior:
+
+\begin{quote}
+\id{npm install}\\
+\id{npm run dev}
+\end{quote}
+
+\noindent
+La persistencia se resuelve en el almacenamiento local del navegador. No existe todavía servicio de
+respaldo ni base de datos, por lo que los requisitos no funcionales de fiabilidad
+(\id{RNF-10}, \id{RNF-11}) y de seguridad (\id{RNF-13}, \id{RNF-14}) no son verificables sobre el
+prototipo en su estado actual.
+
+El recorrido funcional se documenta en \id{05\_MVP/video\_demo.mp4}, con duración no superior a tres
+minutos, y cubre la secuencia: inicio de sesión por rol, consulta del plan semanal, registro de
+labor con avance, registro delegado, reporte de incidencia con fotografía y coordenadas, y consulta
+del consolidado.
+
+% =====================================================================
+\newpage
+\section{Conclusiones, limitaciones y trabajo pendiente}
+
+\subsection{Logros de la entrega}
+
+La Entrega 3 (2A) consolida un documento de especificación completo sustentado en trabajo de campo
+real. Los resultados verificables son los siguientes.
+
+\textbf{Especificación.} Se pasó de 20 a 39 requisitos funcionales, de 9 a 18 requisitos no
+funcionales cuantificados sobre las nueve características de ISO/IEC 25010:2023, de 7 a 10
+restricciones de diseño, y se incorporaron 8 requisitos legales trazados a la LOPDP. Los 19
+requisitos \emph{Must} cuentan con historia de usuario en formato Connextra, criterios INVEST
+verificados y escenario de aceptación en Gherkin.
+
+\textbf{Modelado.} Se produjeron trece diagramas: contexto, dos modelos organizacionales i*
+(dependencia y razón estratégica), casos de uso general, clases refinado con atributos y
+operaciones, tres de secuencia, actividad, dos de estados, componentes y despliegue. Se especificaron
+diez casos de uso de forma textual, con al menos dos flujos alternativos y una excepción cada uno.
+
+\textbf{Trazabilidad.} La matriz enlaza nueve niveles en 48 filas con trece columnas. Se corrigió la
+deficiencia señalada en la Entrega 2, en la que dos requisitos funcionales carecían de caso de uso
+asociado; la cobertura requisito-caso de uso es ahora del 100\%.
+
+\textbf{Campo.} Se ejecutó una segunda ronda con cinco nuevos participantes, incorporando por
+primera vez una organización externa ---la planta extractora--- como fuente de requisitos. El
+cuestionario se amplió de 4 a 62 respondientes. Se obtuvieron dos tipos documentales de la
+organización: el plan semanal de labores (\id{EV-11}) y la hoja de liquidación de presupuesto contra
+ejecución (\id{EV-13}), esta última fuente de cuatro requisitos funcionales nuevos.
+
+\subsection{Hallazgos que modificaron decisiones previas}
+
+Tres resultados de la segunda ronda invalidaron supuestos que la Entrega 2 daba por establecidos.
+Se registran de forma explícita porque ilustran el valor de la triangulación.
+
+\textbf{Primero: el umbral de madurez no es constante.} La primera fuente de la extractora
+(\id{EV-08}) indicó un criterio de cinco frutos desprendidos. La segunda (\id{EV-04}) precisó que el
+umbral depende de la variedad: tres frutos en \emph{guineensis} y cinco en material híbrido. De
+haberse especificado \id{RF-21} con una sola fuente, el requisito habría quedado incorrectamente
+fijado en un valor constante. Este hallazgo motivó la restricción \id{RD-08} y el requisito
+\id{RNF-18} de parametrización.
+
+\textbf{Segundo: no todo el personal dispone de teléfono inteligente.} La Entrega 2 asumía lo
+contrario a partir de cuatro respondientes. Con $n=62$, el 11{,}3\% declara no usarlo. La suposición
+se retiró y se incorporaron \id{RF-35} y \id{RD-10} para habilitar el registro delegado. Sin esa
+corrección, aproximadamente una de cada nueve personas destinatarias habría quedado excluida del
+cómputo de avance y, por tanto, de su remuneración por rendimiento.
+
+\textbf{Tercero: el rastreo por GPS no goza de aceptación unánime.} La aplicación piloto sugería
+una aceptación del 75\%, que se leyó como conformidad. Con $n=62$, el 74{,}2\% no manifiesta
+preocupación, pero el 25{,}8\% restante sí expresa reservas. En consecuencia, \id{RL-03} exige
+consentimiento específico y revocable sin consecuencia laboral, y \id{CU-03} incorpora una rama que
+permite ejecutar la labor sin rastreo.
+
+\textbf{Cuarto: la tarifa de cada labor ya está formalizada en la organización.} La
+especificación asumía que el valor unitario del trabajo por avance podía no estar configurado, y así
+constaba como excepción del caso de uso \id{CU-08}. La hoja de liquidación semanal (\id{EV-13})
+demuestra que la organización mantiene un catálogo de labores con código, unidad de medida y tarifa
+vigente, y que liquida semanalmente el presupuesto contra la ejecución con aprobación de la
+administración. El sistema no debe crear ese modelo: debe reproducir el que ya existe. De ahí los
+requisitos \id{RF-36} a \id{RF-39}.
+
+Este hallazgo ilustra una limitación de la entrevista como técnica única: ninguno de los ocho
+participantes describió el catálogo de tarifas, pese a que todos operan bajo él. Fue necesario el
+análisis documental para hacerlo explícito, lo que confirma el valor de la triangulación entre
+técnicas y no solo entre fuentes.
+
+\subsection{Limitaciones declaradas}
+
+Se declaran de forma expresa las limitaciones de esta entrega. Ninguna se presenta como resuelta.
+
+\begin{longtable}{|C{1.2cm}|L{6.4cm}|L{7.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Limitación} & \textbf{Mitigación aplicada y estado} \\
+\hline
+\endhead
+\id{L-01} & El perfil dominante del cuestionario ($n=60$) agrupa cuatro sub-perfiles de labor cuyos estratos individuales no alcanzan los 30 respondientes. & Se declara el agrupamiento en la §2.8 y el análisis por estrato se reporta como exploratorio, no inferencial. \\ \hline
+\id{L-02} & La pregunta sobre comodidad con aplicaciones registró un 40{,}3\% de no respuesta. & El valor se presenta como indicio descriptivo y no se emplea para inferencia. Se revisará el instrumento antes de la siguiente aplicación. \\ \hline
+\id{L-03} & La segunda ronda incorporó cinco entrevistas, por debajo del objetivo de ocho de la §4.2 de la guía. & Se declara el número real. La saturación temática se reporta en el Apéndice B con la curva correspondiente. \\ \hline
+\id{L-04} & El componente empírico está registrado y diseñado, pero no ejecutado. & El protocolo consta en OSF con fecha anterior a cualquier recolección. Los resultados corresponden formalmente a la Entrega 4. \\ \hline
+\id{L-05} & Los componentes de IA no cuentan con conjunto de datos etiquetado del propio cultivo. & Los valores de \id{RNF-01} y \id{RNF-02} se fijaron a partir de la literatura del dominio \cite{suharjito2021,goh2025,rosbi2024} y se declaran como objetivo, no como resultado medido. \\ \hline
+\id{L-06} & Las sesiones de validación \emph{walkthrough} realizadas son inferiores a las tres exigidas. & Se declara el número efectivo con su acta correspondiente; las restantes se ejecutarán antes de la Entrega 4. \\ \hline
+\id{L-07} & \emph{Resuelta.} La obtención de la hoja de liquidación semanal (\id{EV-13}) incorporó un segundo tipo documental, distinto del plan de labores. & Se dispone de dos tipos documentales de la organización. La obtención de un tercer tipo (hoja de conteo del polinizador o boleta de pesaje) queda como trabajo pendiente. \\ \hline
+\id{L-10} & El prototipo alcanza una cobertura del 47{,}4\% de los requisitos \emph{Must}, por debajo del 60\% exigido por la §3.6 de la guía. & Se declara el valor real verificado por inspección del código, sin computar las funcionalidades simuladas como implementadas. Plan de incorporación en la §7.5. \\ \hline
+\id{L-11} & El prototipo carece de servicio de respaldo: la persistencia es local al navegador y las credenciales se almacenan sin derivación de clave. & Los requisitos \id{RNF-10}, \id{RNF-11}, \id{RNF-13} y \id{RNF-14} no son verificables sobre el prototipo actual. Se declara en la §6.4 como desviación \id{D-02}. \\ \hline
+\id{L-08} & Seis requisitos no funcionales y una restricción carecen de trazabilidad a evidencia de campo. & Se declaran en la §5.4.2 como derivados de decisiones de arquitectura y de prácticas estándar, sin atribuirles una fuente de elicitación. \\ \hline
+\id{L-09} & El conflicto de interés por consanguinidad entre el analista líder y dos participantes persiste en la segunda ronda. & Se mantienen las seis medidas de mitigación declaradas en el Apéndice A, incluida la triangulación obligatoria y la prohibición de sustentar cualquier requisito exclusivamente en esas fuentes. \\ \hline
+\caption{Limitaciones declaradas de la Entrega 3 (2A)}
+\label{tab:limitaciones}
+\end{longtable}
+
+\subsection{Amenazas a la validez}
+
+Siguiendo la clasificación de Wohlin \emph{et al.} \cite{wohlin2012}, se identifican las siguientes
+amenazas al proceso de ingeniería de requisitos de este proyecto.
+
+\textbf{Validez de constructo.} El cuestionario mide \emph{utilidad percibida} de funciones descritas
+verbalmente, no de funciones utilizadas. La correlación entre utilidad declarada y adopción efectiva
+no está establecida. Mitigación: las valoraciones se contrastaron con las dificultades declaradas de
+forma independiente en la misma aplicación, y con las necesidades expresadas en las entrevistas
+directivas; la convergencia entre las tres fuentes refuerza la interpretación.
+
+\textbf{Validez interna.} Las entrevistas fueron conducidas por integrantes del equipo, con dos
+participantes vinculados por consanguinidad al analista líder. Existe riesgo de sesgo de
+complacencia. Mitigación: uso estricto del banco de preguntas aprobado, presencia de un segundo
+integrante como registrador, disponibilidad de las grabaciones para auditoría, y verificación de
+requisitos por integrantes sin participación en esas sesiones.
+
+\textbf{Validez externa.} Los hallazgos provienen de una única unidad productiva de aproximadamente
+cien hectáreas, con una variedad híbrida específica y en etapa de primera cosecha. No son
+generalizables a plantaciones de mayor escala, de variedad \emph{guineensis} o en etapa madura. Los
+umbrales de decisión se parametrizaron precisamente para acotar esta amenaza.
+
+\textbf{Validez de conclusión.} El componente empírico no fue ejecutado; no se formula ninguna
+conclusión estadística en este documento. Las cifras del cuestionario se presentan de forma
+descriptiva, con su $n$ y su porcentaje de no respuesta explícitos.
+
+\subsection{Trabajo pendiente para la Entrega 4 (2B)}
+
+\begin{longtable}{|C{1.4cm}|L{7.0cm}|L{6.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Prioridad} & \textbf{Actividad} & \textbf{Resultado esperado} \\
+\hline
+\endhead
+Alta & Ejecutar el componente empírico registrado en OSF con al menos tres personas evaluadoras independientes & Resultados con prueba de hipótesis, tamaño del efecto y acuerdo inter-evaluador \\ \hline
+Alta & Completar las sesiones de validación \emph{walkthrough} con actas firmadas & Cobertura de las seis sesiones acumuladas del objetivo 2B \\ \hline
+Alta & Construir el conjunto de datos etiquetado del cultivo & Habilita la medición real de \id{RNF-01} y \id{RNF-02} \\ \hline
+Media & Ampliar la ronda de entrevistas hasta el objetivo acumulado & Curva de saturación con evidencia de estabilización \\ \hline
+Alta & Elevar la cobertura del MVP por encima del 60\% incorporando \id{RF-10}, \id{RF-26} y \id{RF-35} & Cumplimiento del mínimo de la §3.6; los tres son de implementación acotada \\ \hline
+Alta & Corregir las desviaciones \id{D-01} a \id{D-03} del prototipo & Coherencia entre el prototipo y el dominio real documentado \\ \hline
+Media & Completar la implementación de los componentes de IA y del conteo georreferenciado & Sustitución de las funcionalidades simuladas por procesamiento real \\ \hline
+Media & Obtener un tercer tipo documental de la organización & Completa la triangulación documental (\id{L-07}) \\ \hline
+Media & Depositar el conjunto de datos anonimizado en Zenodo con licencia CC BY 4.0 & DOI asignado conforme a los principios FAIR \cite{wilkinson2016} \\ \hline
+Baja & Diseñar la consolidación multi-finca & Prepara la extensión del alcance declarada como \emph{Won't} en esta versión \\ \hline
+\caption{Trabajo pendiente para la Entrega 4 (2B)}
+\end{longtable}
+
+\subsection{Consideración final}
+
+El resultado más relevante de esta entrega no es el incremento cuantitativo de requisitos, sino la
+incorporación de una fuente externa a la organización cliente. La planta extractora ---que compra la
+producción, califica su calidad y aplica penalizaciones económicas--- define los criterios que
+determinan el valor del producto, y no había sido consultada en las entregas anteriores. Su
+incorporación reveló que varios requisitos previamente especificados estaban formulados desde la
+perspectiva exclusiva del productor, sin considerar el criterio de quien recibe el fruto.
+
+Este hallazgo confirma la observación de Ferrari \emph{et al.} \cite{ferrari2016} sobre el
+conocimiento tácito en las entrevistas de elicitación: el administrador y el asesor técnico conocían
+el criterio de desprendimiento, pero no lo enunciaron porque para ellos era evidente. Fue necesario
+entrevistar a quien aplica el criterio para que este se hiciera explícito y verificable.

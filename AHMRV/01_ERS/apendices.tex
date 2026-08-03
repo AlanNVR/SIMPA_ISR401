@@ -1,0 +1,383 @@
+% =====================================================================
+%  APENDICES A -- E
+% =====================================================================
+
+\newpage
+\appendix
+\section{Plan del proyecto de Ingeniería de Requisitos}
+
+\subsection{Identificación de las partes interesadas}
+
+\begin{longtable}{|C{1.6cm}|L{4.4cm}|C{1.8cm}|C{1.6cm}|C{1.6cm}|C{2.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Código} & \textbf{Rol} & \textbf{Organización} & \textbf{Tipo} & \textbf{Influencia} & \textbf{Evidencia} \\
+\hline
+\endhead
+\id{ENTR-01} & Administrador general & Palmicultora M & Primario & Alta & \id{EV-01} \\ \hline
+\id{ENTR-02} & Administrador / Asesor técnico & Palmicultora M & Primario & Alta & \id{EV-02} \\ \hline
+\id{ENTR-03} & Jefe de polinización & Palmicultora M & Primario & Alta & \id{EV-03} \\ \hline
+\id{ENTR-04} & Supervisor de técnicos agrícolas & Extractora R & Externo & Alta & \id{EV-04} \\ \hline
+\id{ENTR-05} & Trabajador agrícola & Palmicultora M & Operativo & Baja & \id{EV-05} \\ \hline
+\id{ENTR-06} & Trabajador agrícola & Palmicultora M & Operativo & Baja & \id{EV-06} \\ \hline
+\id{ENTR-07} & Asistente de administración & Palmicultora M & Primario & Media & \id{EV-07} \\ \hline
+\id{ENTR-08} & Técnico agrícola & Extractora R & Externo & Media & \id{EV-08} \\ \hline
+\caption{Identificación de las partes interesadas entrevistadas}
+\end{longtable}
+
+\subsection{Cronograma de actividades}
+
+\begin{longtable}{|C{2.0cm}|L{6.6cm}|L{6.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Semana} & \textbf{Actividad} & \textbf{Producto} \\
+\hline
+\endhead
+1--3 & Identificación del problema y del sistema objetivo & Propuesta de proyecto \\ \hline
+3--4 & Primera ronda de elicitación (\id{EV-01} a \id{EV-03}) y observación de campo & Entrega 1 (1A) \\ \hline
+5--6 & Elaboración del paquete ético y obtención del aval institucional & Documentos A.1--A.13 y Categoría C \\ \hline
+6--9 & Modelado UML inicial y formalización de requisitos & Diagramas y plantillas de RF \\ \hline
+9--10 & Consolidación del ERS parcial & Entrega 2 (1B) \\ \hline
+11 & Adenda ética y registro del protocolo experimental en OSF & Adenda y comprobante OSF \\ \hline
+12 & Segunda ronda de campo (\id{EV-04} a \id{EV-08}) y ampliación del cuestionario & Grabaciones, transcripciones, $n=62$ \\ \hline
+13 & Consolidación del ERS completo y del MVP & \textbf{Entrega 3 (2A)} \\ \hline
+14--16 & Ejecución del componente empírico y análisis & Resultados y borrador de manuscrito \\ \hline
+17 & Defensa final & Entrega 4 (2B) \\ \hline
+\caption{Cronograma de actividades de ingeniería de requisitos}
+\end{longtable}
+
+\subsection{Técnicas de elicitación y justificación}
+
+\begin{longtable}{|L{3.6cm}|C{1.6cm}|L{9.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Técnica} & \textbf{Sesiones} & \textbf{Justificación} \\
+\hline
+\endhead
+Entrevista semiestructurada & 8 & Permite profundizar en el conocimiento experto y adaptarse a respuestas inesperadas. Es la técnica indicada cuando el dominio contiene conocimiento tácito \cite{ferrari2016}, situación confirmada en el criterio de madurez del racimo. \\ \hline
+Cuestionario estructurado & 2 aplicaciones & Permite cuantificar la utilidad percibida y las condiciones de operación en una población que no puede ser entrevistada en su totalidad. Instrumento idéntico entre rondas para preservar la comparabilidad. \\ \hline
+Observación directa & 1 & Documenta el proceso tal como ocurre, sin la mediación del relato. Registrada en \id{EV-09}. \\ \hline
+Análisis de documentos & 2 tipos & Los planes semanales (\id{EV-11}) revelaron la estructura de planificación y las unidades reales de medida del trabajo. La hoja de liquidación (\id{EV-13}) hizo explícito el catálogo de tarifas por labor, que ninguno de los ocho participantes enunció pese a operar bajo él. Es la técnica que más requisitos aportó por unidad de esfuerzo. \\ \hline
+Prototipado & 8 pantallas & Los prototipos de alta fidelidad (\id{MU-01} a \id{MU-08}) permiten validar la interfaz con personal de baja alfabetización tecnológica antes de construir. \\ \hline
+\caption{Técnicas de elicitación aplicadas y su justificación}
+\end{longtable}
+
+\subsection{Declaración de conflicto de interés}
+
+Se declara que dos de las personas participantes mantienen relación de consanguinidad con el
+analista líder del equipo: el participante \id{ENTR-02} en primer grado y el participante
+\id{ENTR-07} en segundo grado. Ambas entrevistas fueron conducidas por el propio analista líder.
+
+Se aplicaron seis medidas de mitigación:
+
+\begin{enumerate}[nosep]
+  \item Presencia de un segundo integrante del equipo en calidad de registrador durante ambas sesiones.
+  \item Conservación íntegra de las grabaciones y transcripciones, disponibles para auditoría docente.
+  \item Uso estricto del banco de preguntas aprobado, sin preguntas improvisadas fuera del guion.
+  \item Verificación de los requisitos derivados por integrantes con rol de verificador que no participaron en esas sesiones.
+  \item Triangulación obligatoria de todo hallazgo con al menos una de las otras seis entrevistas.
+  \item \textbf{Ningún requisito del presente ERS se sustenta de forma exclusiva en estas dos fuentes.}
+\end{enumerate}
+
+\noindent
+La sexta medida es verificable en la matriz de trazabilidad: toda fila que referencia \id{EV-02} o
+\id{EV-07} referencia además al menos una evidencia adicional independiente.
+
+% =====================================================================
+\newpage
+\section{Trabajo de campo y evidencias}
+
+\subsection{Catálogo de evidencias}
+
+\footnotesize
+\begin{longtable}{|C{1.2cm}|L{2.6cm}|C{1.7cm}|C{1.8cm}|L{4.2cm}|C{1.3cm}|C{1.1cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID-EV} & \textbf{Tipo} & \textbf{Fecha} & \textbf{Participante} & \textbf{Requisitos derivados} & \textbf{Zona} & \textbf{Cons.} \\
+\hline
+\endhead
+\id{EV-01} & Entrevista (audio) & 23/05/2026 & \id{ENTR-01} & \id{RF-01} a \id{RF-06}, \id{RF-09}, \id{RF-12}, \id{RF-15} a \id{RF-20} & [R] & Sí \\ \hline
+\id{EV-02} & Entrevista (video) & 23/05/2026 & \id{ENTR-02} & \id{RF-02}, \id{RF-05}, \id{RF-08}, \id{RF-11}, \id{RF-17}, \id{RF-18} & [R] & Sí \\ \hline
+\id{EV-03} & Entrevista (video) & 23/05/2026 & \id{ENTR-03} & \id{RF-13}, \id{RF-14}, \id{RF-15}, \id{RNF-05} & [R] & Sí \\ \hline
+\id{EV-04} & Entrevista (video) & 28/07/2026 & \id{ENTR-04} & \id{RF-10}, \id{RF-21} a \id{RF-25}, \id{RF-32}, \id{RF-33}, \id{RNF-18} & [R] & Sí \\ \hline
+\id{EV-05} & Entrevista (video) & 28/07/2026 & \id{ENTR-05} & \id{RF-04}, \id{RF-28}, \id{RF-35} & [R] & Sí \\ \hline
+\id{EV-06} & Entrevista (video) & 28/07/2026 & \id{ENTR-06} & \id{RF-04}, \id{RF-28}, \id{RF-29} & [R] & Sí \\ \hline
+\id{EV-07} & Entrevista (video) & 02/08/2026 & \id{ENTR-07} & \id{RF-29} a \id{RF-31}, \id{RNF-11} & [R] & Sí \\ \hline
+\id{EV-08} & Entrevista (video) & 28/07/2026 & \id{ENTR-08} & \id{RF-21}, \id{RF-22}, \id{RF-24}, \id{RD-07} & [R] & Sí \\ \hline
+\id{EV-09} & Observación de campo & 23/05/2026 & Equipo AHMRV & \id{RF-01}, \id{RF-02}, \id{RF-05} & [P] & N/A \\ \hline
+\id{EV-10} & Cuestionario piloto & 30/06/2026 & $n=4$ & Validación de \id{RF-04}, \id{RF-07}, \id{RF-12} & [P] & Anónimo \\ \hline
+\id{EV-11} & Documentos de la organización & 29/06 a 24/07/2026 & Palmicultora M & \id{RF-02}, \id{RF-03}, \id{RF-19}, \id{RF-26} a \id{RF-28}, \id{RF-34} & [P] + [R] & N/A \\ \hline
+\id{EV-12} & Cuestionario ampliado & 30/06/2026 & $n=62$ & \id{RF-12}, \id{RF-15}, \id{RF-35}, \id{RD-10}, \id{RNF-08} & [P] & Anónimo \\ \hline
+\id{EV-13} & Hoja de liquidación semanal & 03--07/08/2026 & Palmicultora M & \id{RF-29}, \id{RF-36} a \id{RF-39} & [P] + [R] & N/A \\ \hline
+\caption{Catálogo de evidencias de campo. [P] = zona pública, [R] = zona restringida cifrada}
+\label{tab:catalogo}
+\end{longtable}
+
+\noindent
+\textbf{Nota sobre la renumeración.} Las evidencias \id{EV-09} y \id{EV-10} correspondían a
+\id{EV-04} y \id{EV-05} en la Entrega 2 (1B). El desplazamiento permitió asignar identificadores
+contiguos a las entrevistas de la segunda ronda. La equivalencia se registra en \id{CHANGELOG.md}.
+
+\subsection{Documentos de la organización}
+
+Se obtuvieron dos tipos documentales distintos, ambos correspondientes a la operación real de la
+organización cliente durante el período del proyecto.
+
+\begin{longtable}{|C{1.4cm}|L{4.2cm}|C{2.4cm}|L{6.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID-EV} & \textbf{Tipo documental} & \textbf{Período} & \textbf{Aporte a la especificación} \\
+\hline
+\endhead
+\id{EV-11} & Plan semanal de labores (presupuesto por cumplir y cumplido) & Semanas 27 a 30 de 2026 & Estructura de lotes, catálogo de labores, unidades de avance, patrón de arrastre de labor incompleta, requerimientos de insumos \\ \hline
+\id{EV-13} & Hoja de liquidación de presupuesto contra ejecución & Semana 32 de 2026 & Código de labor, unidad de medida, tarifa vigente, distinción entre cantidad facturada y ejecutada, grupo de labor no presupuestada, flete como costo independiente, aprobación de la administración \\ \hline
+\caption{Documentos de la organización incorporados como evidencia}
+\end{longtable}
+
+\noindent
+\textbf{Relación entre ambos documentos.} \id{EV-11} declara metas; \id{EV-13} liquida su ejecución.
+El par constituye el ciclo completo de planificación y control que el sistema debe reproducir, y
+sustenta los requisitos \id{RF-26}, \id{RF-27} y \id{RF-37} a \id{RF-39}. Su obtención en momentos
+distintos del proyecto explica que los requisitos de liquidación aparezcan al final de la numeración
+pese a corresponder a un proceso central de la organización.
+
+\noindent
+\textbf{Tratamiento aplicado.} Conforme a la §8.4 de la guía, la copia depositada en la zona pública
+tiene tachados de forma irreversible los valores de tarifa, los importes por labor y los totales de
+gasto, así como el nombre propio que figuraba en la columna de observaciones, sustituido por el
+código de participante correspondiente. Los originales íntegros residen en el contenedor cifrado.
+
+\subsection{Instrumentos aplicados}
+
+Los instrumentos residen en \id{06\_Experimento/instrumentos/}. Se aplicaron cuatro guiones
+diferenciados por perfil, decisión metodológica que permite ajustar el vocabulario y la profundidad
+técnica al interlocutor:
+
+\begin{longtable}{|C{2.0cm}|L{5.0cm}|C{2.0cm}|L{5.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Guion} & \textbf{Perfil destinatario} & \textbf{Aplicado a} & \textbf{Foco temático} \\
+\hline
+\endhead
+\id{G-01} & Dirección y asesoría técnica & \id{EV-01}, \id{EV-02} & Manejo del cultivo, nutrición, sanidad, estimación \\ \hline
+\id{G-02} & Jefatura de polinización & \id{EV-03} & Antesis, calidad de la labor, control del personal \\ \hline
+\id{G-03} & Personal de la extractora & \id{EV-04}, \id{EV-08} & Criterios de calidad, calificación, penalización \\ \hline
+\id{G-04} & Personal de campo y asistencia & \id{EV-05} a \id{EV-07} & Jornada, registro, reporte de afectaciones, tecnología \\ \hline
+\id{C-01} & Cuestionario (idéntico en ambas rondas) & \id{EV-10}, \id{EV-12} & Perfil, registro actual, dificultades, utilidad percibida, aceptación \\ \hline
+\caption{Instrumentos de recolección aplicados}
+\end{longtable}
+
+\subsection{Codificación temática y saturación}
+
+La codificación temática de las ocho transcripciones reside en
+\id{02\_Evidencias/Codificacion\_Tematica/}\allowbreak\id{codificacion.csv}, con las columnas Fragmento, Código,
+Categoría, Requisito derivado, ID de evidencia y Analista codificador.
+
+\begin{longtable}{|C{1.6cm}|C{2.4cm}|C{2.4cm}|C{2.4cm}|L{5.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Entrevista} & \textbf{Códigos totales} & \textbf{Códigos nuevos} & \textbf{Acumulado} & \textbf{Observación} \\
+\hline
+\endhead
+\id{EV-01} & 24 & 24 & 24 & Primera fuente: todo es nuevo \\ \hline
+\id{EV-02} & 21 & 9 & 33 & Alta redundancia con \id{EV-01} \\ \hline
+\id{EV-03} & 14 & 6 & 39 & Aporta el dominio de la polinización \\ \hline
+\id{EV-04} & 26 & \textbf{17} & 56 & \textbf{Repunte}: dominio nuevo (calidad en extractora) \\ \hline
+\id{EV-05} & 9 & 2 & 58 & Confirma el registro manual \\ \hline
+\id{EV-06} & 11 & 3 & 61 & Aporta la perspectiva de remuneración \\ \hline
+\id{EV-07} & 15 & 5 & 66 & Aporta la latencia de verificación \\ \hline
+\id{EV-08} & 18 & 2 & 68 & Triangula \id{EV-04}; casi sin códigos nuevos \\ \hline
+\caption{Aportación de códigos nuevos por entrevista (curva de saturación)}
+\label{tab:saturacion}
+\end{longtable}
+
+\noindent
+\textbf{Lectura de la curva.} La aportación de códigos nuevos desciende de forma sostenida hasta
+\id{EV-03}, lo que sugería saturación al cierre de la primera ronda. El repunte de \id{EV-04}
+(17 códigos nuevos) demuestra que dicha saturación era \textbf{aparente}: correspondía al
+agotamiento de un dominio ---el manejo del cultivo--- y no del problema completo. La incorporación
+de la organización externa abrió un dominio no explorado.
+
+La caída pronunciada en \id{EV-08} (2 códigos nuevos), pese a pertenecer al mismo dominio nuevo,
+indica que ese dominio sí alcanzó saturación con dos fuentes. Este comportamiento ---saturación por
+dominio y no por número absoluto de entrevistas--- es coherente con la distinción entre saturación
+de código y saturación de significado de Hennink \emph{et al.} \cite{hennink2017}, y se reportará
+como hallazgo metodológico en el manuscrito.
+
+\subsection{Zonas de evidencia y verificación}
+
+Conforme a la §4.1 de la guía, la evidencia se organiza en dos zonas. La zona pública \textbf{[P]}
+contiene transcripciones anonimizadas, copias enmascaradas de consentimientos, fotografías sin
+rostros ni coordenadas GPS, respuestas del cuestionario sin columnas identificativas y las fichas
+técnicas de cada archivo multimedia. La zona restringida \textbf{[R]} contiene los originales
+identificables, cifrados con AES-256 en
+\id{02\_Evidencias/00\_Restringido/}\allowbreak\id{evidencias\_restringidas\_2A.7z}.
+
+El hash SHA-256 de cada archivo se calculó \emph{antes} del cifrado y consta en
+\id{checksums.sha256} junto con la ficha técnica pública \id{fichas\_tecnicas.csv}, que registra
+nombre de archivo, tipo, fecha, código de participante, duración, códec, tamaño y hash. La
+contraseña del contenedor se entrega únicamente al docente por el espacio de la actividad en el
+sistema de gestión académica.
+
+\noindent\fbox{\parbox{0.97\textwidth}{%
+\small\textbf{Nota técnica sobre Git LFS.} Los archivos multimedia y el contenedor cifrado se
+versionan mediante Git Large File Storage. Una clonación sin \id{git lfs pull} muestra archivos de
+133 bytes correspondientes a los punteros, no al contenido. Las instrucciones de recuperación
+constan en el \id{README.md} de la raíz del repositorio.}}
+
+% =====================================================================
+\newpage
+\section{Clasificación y priorización completa}
+
+La tabla completa de clasificación de los 35 requisitos funcionales, con su prioridad MoSCoW, su
+categoría de Kano, los cuatro factores del cálculo WSJF y la justificación de cada asignación,
+reside en \id{04\_Trazabilidad/}\allowbreak\id{priorizacion\_moscow\_kano.csv}. La §5.3 del cuerpo del documento
+desarrolla la argumentación de las categorías extremas y el contraste entre las tres técnicas.
+
+Los requisitos no funcionales y las restricciones de diseño se clasifican como sigue.
+
+\begin{longtable}{|C{2.0cm}|C{2.0cm}|L{5.0cm}|L{5.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Prioridad} & \textbf{Característica / Ámbito} & \textbf{Razón} \\
+\hline
+\endhead
+\id{RNF-01}, \id{RNF-02} & Must & Adecuación funcional & La exactitud del clasificador determina la utilidad del sistema \\ \hline
+\id{RNF-03} & Should & Eficiencia de desempeño & Deseable; sin umbral crítico en la operación de campo \\ \hline
+\id{RNF-04} & Must & Eficiencia de desempeño (IA) & Un diagnóstico lento no se usa en campo \\ \hline
+\id{RNF-05} & Should & Eficiencia (precisión GPS) & Condiciona la confiabilidad del conteo \\ \hline
+\id{RNF-06} & Should & Compatibilidad & Requerido para el intercambio con la extractora \\ \hline
+\id{RNF-07} & Should & Compatibilidad & Cobertura de versiones de plataforma \\ \hline
+\id{RNF-08}, \id{RNF-09} & Must & Interacción de usuario & Condicionan la adopción por personal de baja alfabetización digital \\ \hline
+\id{RNF-10} & Should & Fiabilidad & Disponibilidad alta; no bloqueante en v1 \\ \hline
+\id{RNF-11} & Must & Fiabilidad & El 74{,}2\% del personal carece de conectividad permanente \\ \hline
+\id{RNF-12} & Should & Fiabilidad & Tolerancia a degradación de señal GPS \\ \hline
+\id{RNF-13}, \id{RNF-14} & Must & Seguridad & Exigidos por los artículos 37 y 40 de la LOPDP \\ \hline
+\id{RNF-15} & Could & Mantenibilidad & Meta de calidad interna \\ \hline
+\id{RNF-16} & Must & Explicabilidad & Obligatorio para todo componente de IA; gatekeeper G7 \\ \hline
+\id{RNF-17} & Should & Portabilidad & Evita dependencia de un proveedor de inferencia \\ \hline
+\id{RNF-18} & Must & Flexibilidad & Los umbrales varían por variedad; prerrequisito de \id{RF-21} \\ \hline
+\id{RD-01} a \id{RD-10} & Must & Restricciones & Impuestas por el entorno, la normativa o la contraparte \\ \hline
+\caption{Clasificación de los requisitos no funcionales y las restricciones}
+\end{longtable}
+
+% =====================================================================
+\newpage
+\section{Matriz de trazabilidad completa}
+
+La matriz completa, con las trece columnas exigidas por la §8.8 de la guía, reside en
+\id{04\_Trazabilidad/}\allowbreak\id{matriz\_trazabilidad.csv} en formato procesable. La §5.4 del cuerpo del
+documento presenta la vista reducida de sus 48 filas y el diagnóstico de cobertura correspondiente.
+
+\subsection{Diccionario de identificadores}
+
+\begin{longtable}{|C{2.2cm}|L{5.2cm}|L{7.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Prefijo} & \textbf{Significado} & \textbf{Rango} \\
+\hline
+\endhead
+\id{TR-XX} & Fila de la matriz de trazabilidad & \id{TR-01} a \id{TR-48} \\ \hline
+\id{O-X} & Objetivo del sistema & \id{O1} a \id{O6} \\ \hline
+\id{EV-XX} & Identificador de evidencia & \id{EV-01} a \id{EV-13} \\ \hline
+\id{ENTR-XX} & Código de participante & \id{ENTR-01} a \id{ENTR-08} \\ \hline
+\id{RF-XX} & Requisito funcional & \id{RF-01} a \id{RF-39} \\ \hline
+\id{RNF-XX} & Requisito no funcional & \id{RNF-01} a \id{RNF-18} \\ \hline
+\id{RD-XX} & Restricción de diseño & \id{RD-01} a \id{RD-10} \\ \hline
+\id{RL-XX} & Requisito legal (LOPDP) & \id{RL-01} a \id{RL-08} \\ \hline
+\id{CU-XX} & Caso de uso & \id{CU-01} a \id{CU-18} \\ \hline
+\id{HU-XX} & Historia de usuario & \id{HU-01} a \id{HU-19} \\ \hline
+\id{CA-XX} & Criterio de aceptación & \id{CA-01} a \id{CA-19} \\ \hline
+\id{MU-XX} & Prototipo de interfaz & \id{MU-01} a \id{MU-08} \\ \hline
+\id{C-XXX} & Componente de la arquitectura & Véase Figura~\ref{fig:componentes} \\ \hline
+\id{L-XX} & Limitación declarada & \id{L-01} a \id{L-11} \\ \hline
+\id{D-XX} & Desviación del prototipo & \id{D-01} a \id{D-03} \\ \hline
+\caption{Diccionario de prefijos de identificadores empleados en el documento}
+\end{longtable}
+
+% =====================================================================
+\newpage
+\section{Repositorio del proyecto}
+
+\subsection{Enlace y estructura}
+
+\begin{center}
+\url{https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV/tree/main/AHMRV}
+\end{center}
+
+\noindent
+Los cinco archivos raíz exigidos ---\id{README.md}, \id{LICENSE}, \id{CITATION.cff},
+\id{CHANGELOG.md} y \id{checksums.sha256}--- se encuentran completos en la raíz del repositorio.
+
+\vspace{0.3cm}
+\noindent\fbox{\parbox{0.97\textwidth}{%
+\small\textbf{Declaración de desviación estructural.} La §8.1 de la guía establece que la raíz del
+repositorio debe reproducir el árbol del proyecto. En este repositorio el proyecto reside en la
+carpeta \id{AHMRV/}, un nivel por debajo de la raíz.
+
+\vspace{0.2cm}
+La desviación es deliberada. La ruta \id{/tree/main/AHMRV} es la declarada en la portada del
+documento entregado en el sistema de gestión académica, cuya actividad se encuentra cerrada y no
+admite modificación por ningún medio. Trasladar el contenido a la raíz produciría un error 404 en
+ese enlace, dado que GitHub no redirige rutas eliminadas, y activaría el gatekeeper G1 con nota
+máxima de 2,50 sobre 10.
+
+\vspace{0.2cm}
+Ante la disyuntiva entre una desviación estructural penalizable en rúbrica y un enlace roto que
+activa un gatekeeper, el equipo optó por preservar la verificabilidad del enlace y declarar la
+desviación de forma expresa. La estructura interna de \id{AHMRV/} reproduce íntegramente el árbol
+de la §8.1, y el \id{README.md} de la raíz orienta hacia ella.}}
+
+\begin{longtable}{|L{4.6cm}|L{10.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Carpeta} & \textbf{Contenido} \\
+\hline
+\endhead
+\id{01\_ERS/} & Documento en PDF, fuente \id{.tex}, \id{referencias.bib} e imágenes vectoriales \\ \hline
+\id{02\_Evidencias/} & Zona restringida cifrada, consentimientos enmascarados, transcripciones, fotografías, cuestionario, documentos de la organización, actas de validación y codificación temática \\ \hline
+\id{03\_Modelado/} & Trece diagramas UML e i* en fuente PlantUML, PNG a 300 dpi y SVG; ocho prototipos de interfaz \\ \hline
+\id{04\_Trazabilidad/} & \id{matriz\_trazabilidad.csv} y \id{priorizacion\_moscow\_kano.csv} \\ \hline
+\id{05\_MVP/} & Enlace al repositorio del prototipo y video de demostración \\ \hline
+\id{06\_Experimento/} & Protocolo, comprobante OSF, instrumentos, consignas de LLM, resultados y scripts \\ \hline
+\id{07\_Publicacion/} & Borrador de manuscrito, análisis de revistas y paquete de datos para Zenodo \\ \hline
+\id{08\_Etica/} & Paquete ético completo, documentos de Categoría C y adenda de la segunda ronda \\ \hline
+\caption{Estructura del repositorio del proyecto}
+\end{longtable}
+
+\subsection{Instrucciones de reproducción}
+
+\textbf{Obtención del repositorio con los archivos multimedia:}
+
+\begin{quote}
+\id{git clone https://github.com/AlanNVR/}\allowbreak\id{Villafuerte\_Grupo\_AHMRV.git}\\
+\id{cd Villafuerte\_Grupo\_AHMRV}\\
+\id{git lfs pull}
+\end{quote}
+
+\noindent
+\textbf{Compilación del presente documento} desde \id{01\_ERS/}:
+
+\begin{quote}
+\id{pdflatex ERS\_SRS\_2A\_v1.0.tex}\\
+\id{bibtex ERS\_SRS\_2A\_v1.0}\\
+\id{pdflatex ERS\_SRS\_2A\_v1.0.tex}\\
+\id{pdflatex ERS\_SRS\_2A\_v1.0.tex}
+\end{quote}
+
+\noindent
+\textbf{Regeneración de los diagramas} desde \id{03\_Modelado/Diagramas\_UML/}:
+
+\begin{quote}
+\id{plantuml -tpng -Sdpi=300 -o png *.puml}\\
+\id{plantuml -tsvg -o svg *.puml}
+\end{quote}
+
+\noindent
+\textbf{Verificación de integridad} desde la raíz: \id{sha256sum -c checksums.sha256}
+
+\subsection{Contribución del equipo}
+
+\begin{longtable}{|L{4.4cm}|L{4.0cm}|L{6.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Integrante} & \textbf{Rol} & \textbf{Contribución principal en la 2A} \\
+\hline
+\endhead
+Villafuerte Rosero Allan Noe & Analista líder & Coordinación, segunda ronda de elicitación, paquete ético y adenda, protocolo experimental \\ \hline
+Huilcapi León Denisses Fabiola & Documentadora & Redacción del ERS, migración a \LaTeX, control de versiones \\ \hline
+Rizzo Vélez Edson Nagib & Verificador & Verificación de calidad de requisitos, gestión de evidencias y fichas técnicas \\ \hline
+Macías Herrera Josthyn Esteban & Modelador & Diagramas UML e i*, matriz de trazabilidad \\ \hline
+Arboleda Yanza Francisco Javier & Apoyo modelado & Estructura del repositorio, priorización, diagramas \\ \hline
+Alcívar Vélez Anderson Adonis & Apoyo repositorio & Transcripciones, anonimización, prototipo funcional \\ \hline
+\caption{Contribución de los integrantes del equipo en la Entrega 3 (2A)}
+\end{longtable}

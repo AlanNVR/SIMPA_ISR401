@@ -26,6 +26,7 @@
 \renewcommand{\figurename}{Figura}
 \renewcommand{\refname}{Referencias}
 
+\usepackage{amsmath}   % requerido por \text{} en la fórmula del WSJF
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{graphicx}
 \usepackage{longtable}
@@ -44,12 +45,26 @@
 \definecolor{uteqverde}{RGB}{0,102,51}
 \definecolor{grisclaro}{RGB}{242,242,242}
 
-\newcommand{\id}[1]{\texttt{#1}}
+% \id: identificadores en monoespaciada con puntos de corte tras - _ y /
+\newcommand{\idbreak}{\discretionary{}{}{}}
+\newcommand{\id}[1]{\texttt{\begingroup\hyphenpenalty=10000\relax#1\endgroup}}
+\renewcommand{\id}[1]{\texttt{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 
 \sloppy
 \setlength{\emergencystretch}{3em}
+\setlength{\tabcolsep}{4pt}
+
+% --- Control de figuras: ninguna excede el area util de la pagina
+\usepackage[htt]{hyphenat}   % permite dividir identificadores en \texttt
+\usepackage[export]{adjustbox}
+\setkeys{Gin}{keepaspectratio,max width=\textwidth,max height=0.86\textheight}
+% --- Mas tolerancia para que los floats no se acumulen al final
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.7}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -68,9 +83,9 @@
 %          {Pre/Postcondiciones}{Prioridad}{Criterio de verificacion}
 % =====================================================================
 \newcommand{\RF}[8]{%
-\begin{longtable}{|L{3.2cm}|L{12.2cm}|}
+\begin{longtable}{|L{3.5cm}|L{12.0cm}|}
 \hline
-\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{#1 --- #2}}\\
+\rowcolor{grisclaro}\multicolumn{2}{|p{15.7cm}|}{\textbf{#1 --- #2}}\\
 \hline
 \textbf{Identificador} & \id{#1} \\ \hline
 \textbf{Nombre} & #2 \\ \hline
@@ -133,7 +148,7 @@ Alcívar Vélez Anderson Adonis & Apoyo Repositorio \\
 
 \vspace{0.8cm}
 {\bfseries Repositorio del proyecto:}\par
-\url{https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV}
+\url{https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV/tree/main/AHMRV}
 
 \vfill
 {\small Quevedo --- Los Ríos --- Ecuador\par}
@@ -153,7 +168,7 @@ Alcívar Vélez Anderson Adonis & Apoyo Repositorio \\
 1.0 & 01/06/2026 & Equipo AHMRV & Elaboración inicial de la Entrega 1 (1A): planificación y elicitación. \\ \hline
 1.1 & 23/06/2026 & Equipo AHMRV & Incorporación de correcciones docentes de la 1A: diagrama de contexto, actas formales, trazabilidad de requisitos brutos. \\ \hline
 2.0 & 26/06/2026 & Equipo AHMRV & Entrega 2 (1B): requisitos específicos, modelado UML, priorización MoSCoW y matriz de trazabilidad parcial. \\ \hline
-\rowcolor{grisclaro}3.0 & 03/08/2026 & Equipo AHMRV & \textbf{Entrega 3 (2A).} Correcciones del informe docente de la 1B incorporadas (véase §1.6). Segunda ronda de campo con cinco nuevos participantes (EV-04 a EV-08) y una nueva organización fuente. Ampliación a 35 RF y 18 RNF sobre las nueve características de ISO/IEC 25010:2023. Incorporación del requisito de explicabilidad, del mapeo a la LOPDP, de las historias de usuario en formato Connextra con escenarios Gherkin y del modelado organizacional i*. Renumeración del catálogo de evidencias (véase §1.7). Migración del documento a \LaTeX. \\ \hline
+\rowcolor{grisclaro}3.0 & 03/08/2026 & Equipo AHMRV & \textbf{Entrega 3 (2A).} Correcciones del informe docente de la 1B incorporadas (véase §1.6). Segunda ronda de campo con cinco nuevos participantes (EV-04 a EV-08) y una nueva organización fuente. Ampliación a 39 RF y 18 RNF sobre las nueve características de ISO/IEC 25010:2023. Incorporación del requisito de explicabilidad, del mapeo a la LOPDP, de las historias de usuario en formato Connextra con escenarios Gherkin y del modelado organizacional i*. Renumeración del catálogo de evidencias (véase §1.7). Migración del documento a \LaTeX. \\ \hline
 \caption{Historial de versiones del documento}
 \end{longtable}
 
@@ -313,7 +328,7 @@ siguiente tabla traza cada observación del informe docente del 01/07/2026 con l
 \endhead
 1 & Audio de la entrevista al administrador general declarado solo mediante enlace externo a YouTube, sin archivo dentro del repositorio. & Archivo de audio incorporado físicamente al repositorio mediante Git LFS; ficha técnica con duración, códec y hash SHA-256 publicada en zona pública. \\ \hline
 2 & Videos de dos entrevistas declarados solo mediante enlaces externos. & Videos incorporados como archivos dentro del contenedor cifrado \id{02\_Evidencias/00\_Restringido/}, con hash registrado en \id{checksums.sha256}. \\ \hline
-3 & Ausencia de fotografías de la aplicación real del cuestionario. & Incorporadas en \id{02\_Evidencias/Cuestionario/Fotos\_Aplicacion/}, con rostros fuera de encuadre. \\ \hline
+3 & Ausencia de fotografías de la aplicación real del cuestionario. & Incorporadas en \id{02\_Evidencias/} \id{Cuestionario/Fotos\_Aplicacion/}, con rostros fuera de encuadre. \\ \hline
 4 & Ausencia de documentos originales de la organización. & Incorporados los planes semanales de labores de dos unidades productivas (\id{EV-11}), anonimizados conforme a la §4.1 de la guía. \\ \hline
 5 & Archivo de evidencia fotográfica con tamaño de 2 bytes (\emph{placeholder}). & Archivo reemplazado por la imagen real y verificado mediante inspección de cabecera binaria. \\ \hline
 6 & Consentimientos publicados con cédula y firma visibles. & Copias públicas enmascaradas conforme a la §4.1; originales íntegros trasladados a la zona restringida cifrada. \\ \hline
@@ -367,10 +382,9 @@ con cinco entidades externas: el dispositivo móvil (cámara y GPS), la estació
 base de conocimiento de plagas, el servicio de análisis de imágenes y la \textbf{planta extractora},
 actor incorporado en esta entrega a partir de \id{EV-04} y \id{EV-08}.
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-% \includegraphics[width=0.95\textwidth]{img/diagrama_contexto.png}
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm} [Insertar \id{img/diagrama\_contexto.png}] \vspace{2cm}}}
+\includegraphics[width=1.0\textwidth]{img/contexto}
 \caption{Diagrama de contexto del SIMPA (límite del sistema).}
 \label{fig:contexto}
 \end{figure}
@@ -416,10 +430,10 @@ Propietario de la organización & Alto & Alto & Gestionar de cerca & \id{EV-02} 
 Administrador general & Alto & Alto & Gestionar de cerca & \id{EV-01} \\ \hline
 Administrador / Asesor técnico & Alto & Alto & Gestionar de cerca & \id{EV-02} \\ \hline
 Asistente de administración & Medio & Alto & Mantener informado & \id{EV-07} \\ \hline
-Jefe de polinización & Medio & Alto & Mantener informado & \id{EV-03} \\ \hline
+Jefe de polinización & Medio & Alto & Mantener informado & \footnotesize \id{EV-03} \\ \hline
 Planta extractora & \textbf{Alto} & Medio & \textbf{Mantener satisfecho} & \id{EV-04}, \id{EV-08} \\ \hline
 Trabajadores agrícolas & Bajo & Alto & Mantener informados & \id{EV-05}, \id{EV-06} \\ \hline
-Agrocalidad (ente regulador) & Alto & Bajo & Monitorear & \id{EV-04} \\ \hline
+Agrocalidad (ente regulador) & Alto & Bajo & Monitorear & \footnotesize \id{EV-04} \\ \hline
 \caption{Mapa de partes interesadas con clasificación poder/interés}
 \end{longtable}
 
@@ -455,9 +469,15 @@ Jefe de polinización & Polinizador & Tarea & Aplicación correcta del polinizan
 \label{tab:sd}
 \end{longtable}
 
-\begin{figure}[htbp]
+\noindent\textbf{Nota sobre la notación.} Los modelos i* se representan con la notación estándar de
+Yu: objetivo (\emph{goal}) en rectángulo redondeado, objetivo-blando (\emph{softgoal}) en nube,
+tarea (\emph{task}) en hexágono y recurso (\emph{resource}) en rectángulo. En el modelo SD, la
+lectura de cada dependencia es \emph{depender} $\rightarrow$ \emph{dependum} $\rightarrow$
+\emph{dependee}. Cada diagrama incorpora su leyenda.
+
+\begin{figure}[!htbp]
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm} [Insertar \id{img/istar\_sd.png}] \vspace{2cm}}}
+\includegraphics[width=1.0\textwidth]{img/istar_sd}
 \caption{Diagrama de Dependencia Estratégica (i* SD) del dominio de Palmicultora M.}
 \label{fig:sd}
 \end{figure}
@@ -473,9 +493,9 @@ semana), \emph{confiabilidad del conteo} (\id{EV-03}: el conteo manual afecta el
 polinizador) y \emph{reducción de la dependencia del conocimiento experto} (\id{EV-01},
 \id{EV-02}: la escasez de mano de obra calificada es el principal problema de gestión).
 
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm} [Insertar \id{img/istar\_sr.png}] \vspace{2cm}}}
+\includegraphics[width=1.0\textwidth]{img/istar_sr}
 \caption{Diagrama de Razón Estratégica (i* SR) del actor Administrador general.}
 \label{fig:sr}
 \end{figure}
@@ -522,7 +542,7 @@ tecnología por parte del personal de campo (\id{EV-07}); variabilidad del crite
 variedades, que exige parametrización (\id{EV-04}).
 
 
-\subsection{Resultados del cuestionario aplicado ($n=62$)}
+\subsection[Resultados del cuestionario aplicado (n=62)]{Resultados del cuestionario aplicado ($n=62$)}
 
 El cuestionario se aplicó al personal de campo en dos rondas con \textbf{instrumento idéntico}, con
 el fin de preservar la comparabilidad: una aplicación piloto de cuatro respondientes
@@ -598,7 +618,7 @@ para inferencia; la media de 3{,}14 se presenta únicamente como indicio descrip
 \newpage
 \section{Requisitos específicos}
 
-Esta sección especifica 35 requisitos funcionales, 18 requisitos no funcionales cuantificados sobre
+Esta sección especifica 39 requisitos funcionales, 18 requisitos no funcionales cuantificados sobre
 las nueve características de calidad de ISO/IEC 25010:2023 \cite{iso25010}, 9 restricciones de
 diseño y el mapeo de requisitos legales a la LOPDP \cite{lopdp}.
 
@@ -713,6 +733,39 @@ identificador de evidencia que lo respalda, conforme a la §3.3 de la guía de l
 {\textbf{Pre:} existe un plan semanal. \textbf{Post:} el requerimiento queda asociado a la semana y consultable por la administración.}
 {Could}
 {Un insumo registrado como requerimiento de la semana aparece en el listado de la semana correspondiente con su estado de provisión.}
+
+\RF{RF-36}{Catálogo codificado de labores con tarifa por unidad}
+{El sistema debe mantener un catálogo de tipos de labor con su código identificador, su unidad de medida asociada (jornal, hora, avance o tonelada) y su tarifa vigente, de modo que la tarifa aplicable a un registro de avance se obtenga del catálogo y no se ingrese de forma manual en cada registro.}
+{Administrador general · \id{EV-13}}
+{\textbf{Entrada:} código de labor, unidad de medida, tarifa y fecha de vigencia. \textbf{Salida:} catálogo consultable y tarifa aplicable a cada registro de avance.}
+{\textbf{Pre:} persona usuaria con permiso de administración. \textbf{Post:} los registros de avance posteriores emplean la tarifa vigente a su fecha.}
+{Must}
+{Registrada una labor de tipo corona con tarifa por unidad de avance, el cálculo del valor de un registro de 400 unidades corresponde al producto entre la cantidad y la tarifa vigente en la fecha del registro.}
+
+\RF{RF-37}{Liquidación semanal de presupuesto contra ejecución}
+{El sistema debe generar, al cierre de cada semana, una liquidación que contraste por grupo de labor la cantidad presupuestada, la cantidad ejecutada y el valor resultante, y que totalice el gasto presupuestado frente al gasto real.}
+{Administrador general · \id{EV-13}, \id{EV-11}}
+{\textbf{Entrada:} plan semanal y registros de avance del período. \textbf{Salida:} liquidación por grupo con totales y diferencia entre presupuestado y real.}
+{\textbf{Pre:} existe un plan semanal y registros de avance asociados. \textbf{Post:} la liquidación queda disponible para aprobación.}
+{Must}
+{Para una semana con plan y avances registrados, el sistema presenta por cada grupo de labor la cantidad, la tarifa, el valor y el total, y calcula la diferencia entre el gasto presupuestado y el real.}
+
+\RF{RF-38}{Registro de labor no presupuestada}
+{El sistema debe permitir registrar labores ejecutadas que no figuraban en el plan de la semana, identificándolas de forma diferenciada para que no se confundan con el cumplimiento de las metas planificadas.}
+{Administrador general · \id{EV-13}}
+{\textbf{Entrada:} labor, cantidad, lote y motivo. \textbf{Salida:} registro marcado como no presupuestado, excluido del cálculo de cumplimiento del plan.}
+{\textbf{Pre:} existe un plan semanal publicado. \textbf{Post:} la labor computa en el gasto real pero no en el cumplimiento de las metas.}
+{Should}
+{Una labor registrada como no presupuestada aparece en el grupo correspondiente de la liquidación y no altera el porcentaje de cumplimiento del plan.}
+
+\RF{RF-39}{Aprobación de la liquidación semanal}
+{El sistema debe requerir la aprobación explícita de la persona administradora para cerrar la liquidación de una semana, dejando constancia de quién aprobó y en qué fecha, tras lo cual los registros del período no admiten modificación sin trazabilidad.}
+{Administrador general · \id{EV-13}}
+{\textbf{Entrada:} liquidación semanal completa. \textbf{Salida:} liquidación cerrada con constancia de aprobación.}
+{\textbf{Pre:} la liquidación de la semana está generada. \textbf{Post:} el período queda cerrado; toda modificación posterior genera entrada en bitácora.}
+{Should}
+{Aprobada una liquidación, el sistema registra la identidad de quien aprueba y la fecha, e impide modificar los registros del período sin dejar constancia.}
+
 
 \RF{RF-35}{Registro delegado para personal sin dispositivo propio}
 {El sistema debe permitir que una persona con rol de supervisión registre el avance de labor en nombre de una persona trabajadora que no dispone de teléfono inteligente, dejando constancia de quién efectuó el registro y en nombre de quién.}
@@ -969,31 +1022,32 @@ Los dieciocho requisitos no funcionales se organizan según las nueve caracterí
 producto de ISO/IEC 25010:2023 \cite{iso25010}. Cada uno se enuncia con métrica, valor objetivo y
 criterio de verificación observable.
 
-\begin{longtable}{|C{1.5cm}|L{2.6cm}|L{6.2cm}|L{3.4cm}|C{1.3cm}|}
+{\setlength{\tabcolsep}{4pt}
+\begin{longtable}{|C{1.2cm}|L{2.4cm}|L{5.8cm}|L{3.1cm}|L{2.2cm}|}
 \hline
 \rowcolor{grisclaro}\textbf{ID} & \textbf{Característica} & \textbf{Requisito cuantificado} & \textbf{Criterio de verificación} & \textbf{Origen} \\
 \hline
 \endhead
-\id{RNF-01} & Adecuación funcional & La clasificación de madurez del racimo alcanza una exactitud $\geq 85\%$ y una exhaustividad $\geq 80\%$ sobre la clase ``verde'' en el conjunto de prueba. & Matriz de confusión sobre conjunto etiquetado independiente de $\geq 200$ imágenes. & \id{EV-04} \\ \hline
-\id{RNF-02} & Adecuación funcional & La detección de plagas alcanza una exactitud $\geq 80\%$ sobre las cinco afectaciones más frecuentes del cultivo. & Evaluación sobre conjunto etiquetado por la persona asesora técnica. & \id{EV-01}, \id{EV-02} \\ \hline
-\id{RNF-03} & Eficiencia de desempeño & Las operaciones de registro y consulta responden en $\leq 3$ s para el percentil 95, con hasta 50 sesiones concurrentes. & Prueba de carga con 50 usuarios virtuales. & Derivado \\ \hline
-\id{RNF-04} & Eficiencia de desempeño & El diagnóstico por imagen entrega resultado en $\leq 10$ s con ancho de banda $\geq 5$ Mbps. & Tiempo medio sobre 20 análisis consecutivos. & \id{EV-01}, \id{EV-02} \\ \hline
-\id{RNF-05} & Eficiencia de desempeño & El registro GPS captura la ubicación con precisión $\leq 10$ m y período de muestreo $\leq 30$ s. & Contraste de 10 puntos con referencia geodésica. & \id{EV-03} \\ \hline
-\id{RNF-06} & Compatibilidad & La exportación hacia la planta extractora se emite en formato CSV o JSON conforme al esquema documentado, sin campos de identificación personal. & Validación del archivo exportado contra el esquema publicado. & \id{EV-04} \\ \hline
-\id{RNF-07} & Compatibilidad & La aplicación móvil opera en Android 9.0 o superior; el panel web, en las dos últimas versiones estables de Chrome, Edge y Firefox. & Instalación y ejecución sin error en los entornos declarados. & Derivado \\ \hline
+\id{RNF-01} & Adecuación funcional & La clasificación de madurez del racimo alcanza una exactitud $\geq 85\%$ y una exhaustividad $\geq 80\%$ sobre la clase ``verde'' en el conjunto de prueba. & Matriz de confusión sobre conjunto etiquetado independiente de $\geq 200$ imágenes. & \footnotesize \id{EV-04} \\ \hline
+\id{RNF-02} & Adecuación funcional & La detección de plagas alcanza una exactitud $\geq 80\%$ sobre las cinco afectaciones más frecuentes del cultivo. & Evaluación sobre conjunto etiquetado por la persona asesora técnica. & \footnotesize \id{EV-01}, \id{EV-02} \\ \hline
+\id{RNF-03} & Eficiencia de desempeño & Las operaciones de registro y consulta responden en $\leq 3$ s para el percentil 95, con hasta 50 sesiones concurrentes. & Prueba de carga con 50 usuarios virtuales. & \footnotesize Derivado \\ \hline
+\id{RNF-04} & Eficiencia de desempeño & El diagnóstico por imagen entrega resultado en $\leq 10$ s con ancho de banda $\geq 5$ Mbps. & Tiempo medio sobre 20 análisis consecutivos. & \footnotesize \id{EV-01}, \id{EV-02} \\ \hline
+\id{RNF-05} & Eficiencia de desempeño & El registro GPS captura la ubicación con precisión $\leq 10$ m y período de muestreo $\leq 30$ s. & Contraste de 10 puntos con referencia geodésica. & \footnotesize \id{EV-03} \\ \hline
+\id{RNF-06} & Compatibilidad & La exportación hacia la planta extractora se emite en formato CSV o JSON conforme al esquema documentado, sin campos de identificación personal. & Validación del archivo exportado contra el esquema publicado. & \footnotesize \id{EV-04} \\ \hline
+\id{RNF-07} & Compatibilidad & La aplicación móvil opera en Android 9.0 o superior; el panel web, en las dos últimas versiones estables de Chrome, Edge y Firefox. & Instalación y ejecución sin error en los entornos declarados. & \footnotesize Derivado \\ \hline
 \id{RNF-08} & Interacción de usuario & Una persona sin experiencia previa completa el registro de labor y el análisis de imagen con una tasa de éxito $\geq 90\%$ tras una inducción $\leq 10$ minutos. & Prueba de usabilidad con $\geq 5$ participantes de perfil trabajador agrícola. & \id{EV-05}, \id{EV-06}, \id{EV-07} \\ \hline
 \id{RNF-09} & Interacción de usuario & La totalidad de la interfaz se presenta en español, con etiquetas correspondientes a la terminología del glosario y sin abreviaturas técnicas no definidas. & Inspección de la totalidad de las pantallas contra el glosario de la §1.3. & \id{EV-01}, \id{EV-07} \\ \hline
-\id{RNF-10} & Fiabilidad & El servicio de respaldo presenta una disponibilidad mensual $\geq 99\%$, equivalente a una indisponibilidad $\leq 7$ h 18 min. & Monitoreo de disponibilidad durante 30 días. & Derivado \\ \hline
+\id{RNF-10} & Fiabilidad & El servicio de respaldo presenta una disponibilidad mensual $\geq 99\%$, equivalente a una indisponibilidad $\leq 7$ h 18 min. & Monitoreo de disponibilidad durante 30 días. & \footnotesize Derivado \\ \hline
 \id{RNF-11} & Fiabilidad & La aplicación opera sin conexión y sincroniza el 100\% de los registros pendientes al restablecerse la conectividad, sin pérdida ni duplicación. & 20 operaciones ejecutadas sin conexión, verificadas tras la sincronización. & \id{EV-07}, \id{EV-10} \\ \hline
-\id{RNF-12} & Fiabilidad & Ante pérdida de señal GPS, el sistema conserva el registro parcial y lo marca como de precisión degradada, sin descartar la jornada. & Simulación de pérdida de señal durante una jornada de polinización. & \id{EV-03} \\ \hline
-\id{RNF-13} & Seguridad & Las credenciales se almacenan mediante función de derivación de clave con sal; la totalidad del tráfico emplea TLS 1.2 o superior. & Inspección del almacén de credenciales y análisis del tráfico. & Derivado \\ \hline
-\id{RNF-14} & Seguridad & Los datos de geolocalización se cifran en reposo y su acceso queda registrado en bitácora con identificación de la persona usuaria, fecha y motivo. & Auditoría de la bitácora tras 10 accesos de prueba. & \id{lopdp} Art. 37 \\ \hline
-\id{RNF-15} & Mantenibilidad & El sistema presenta arquitectura modular con cobertura de pruebas automatizadas $\geq 60\%$ en la capa de lógica de negocio. & Reporte de cobertura de la herramienta de integración continua. & Derivado \\ \hline
-\rowcolor{grisclaro}\id{RNF-16} & Interacción de usuario & \textbf{Explicabilidad} --- véase la especificación ampliada en la §3.3.1. & Prueba con 6 participantes (3 técnicos, 3 no técnicos). & \id{EV-01}, \id{EV-02}, \id{EV-07} \\ \hline
-\id{RNF-17} & Portabilidad & La migración del servicio de inferencia a un proveedor alternativo no requiere modificar el cliente móvil, al mediar una interfaz de servicio desacoplada. & Sustitución del proveedor en entorno de prueba sin cambios en el cliente. & Derivado \\ \hline
-\id{RNF-18} & Flexibilidad & Los umbrales de madurez, de porcentaje de fruta verde y de ventana corte-entrega son parametrizables por variedad y por lote sin recompilar la aplicación. & Modificación de los tres umbrales desde la configuración y verificación de su efecto. & \id{EV-04} \\ \hline
+\id{RNF-12} & Fiabilidad & Ante pérdida de señal GPS, el sistema conserva el registro parcial y lo marca como de precisión degradada, sin descartar la jornada. & Simulación de pérdida de señal durante una jornada de polinización. & \footnotesize \id{EV-03} \\ \hline
+\id{RNF-13} & Seguridad & Las credenciales se almacenan mediante función de derivación de clave con sal; la totalidad del tráfico emplea TLS 1.2 o superior. & Inspección del almacén de credenciales y análisis del tráfico. & \footnotesize Derivado \\ \hline
+\id{RNF-14} & Seguridad & Los datos de geolocalización se cifran en reposo y su acceso queda registrado en bitácora con identificación de la persona usuaria, fecha y motivo. & Auditoría de la bitácora tras 10 accesos de prueba. & \footnotesize \cite{lopdp} Art. 37 \\ \hline
+\id{RNF-15} & Mantenibilidad & El sistema presenta arquitectura modular con cobertura de pruebas automatizadas $\geq 60\%$ en la capa de lógica de negocio. & Reporte de cobertura de la herramienta de integración continua. & \footnotesize Derivado \\ \hline
+\rowcolor{grisclaro}\id{RNF-16} & Interacción de usuario & \textbf{Explicabilidad} --- véase la especificación ampliada en la §3.3.1. & Prueba con 6 participantes (3 técnicos, 3 no técnicos). & \footnotesize \id{EV-01}, \id{EV-02}, \id{EV-07} \\ \hline
+\id{RNF-17} & Portabilidad & La migración del servicio de inferencia a un proveedor alternativo no requiere modificar el cliente móvil, al mediar una interfaz de servicio desacoplada. & Sustitución del proveedor en entorno de prueba sin cambios en el cliente. & \footnotesize Derivado \\ \hline
+\id{RNF-18} & Flexibilidad & Los umbrales de madurez, de porcentaje de fruta verde y de ventana corte-entrega son parametrizables por variedad y por lote sin recompilar la aplicación. & Modificación de los tres umbrales desde la configuración y verificación de su efecto. & \footnotesize \id{EV-04} \\ \hline
 \caption{Requisitos no funcionales cuantificados según ISO/IEC 25010:2023}
-\end{longtable}
+\end{longtable}}
 
 \subsubsection{RNF-16 --- Requisito de explicabilidad de los componentes de inteligencia artificial}
 
@@ -1019,7 +1073,7 @@ diagnóstico automático depende de que la persona destinataria pueda comprender
 \textbf{Tipos de explicación} & \emph{Causal} para el diagnóstico nutricional (qué signo foliar indica qué deficiencia); \emph{por contraste} para la clasificación de madurez (por qué maduro y no verde, con referencia al umbral de la variedad); \emph{por ejemplos} para la detección de plagas (imagen de referencia de la afectación identificada). \\ \hline
 \textbf{Métrica} & Comprensión reportada $\geq 4/5$ en escala Likert por participantes de perfil no técnico, y tiempo hasta la decisión de acción $\leq 60$ s. \\ \hline
 \textbf{Criterio de verificación} & Prueba de validación con 6 participantes por ronda (3 de perfil técnico y 3 de perfil no técnico), replicando el tamaño muestral de \cite{chazette2022}; se mide la cobertura de dimensiones del marco, la satisfacción percibida y el acuerdo entre rondas. \\ \hline
-\textbf{Origen} & \id{EV-01}, \id{EV-02}, \id{EV-07} \\ \hline
+\textbf{Origen} & \footnotesize \id{EV-01}, \id{EV-02}, \id{EV-07} \\ \hline
 \caption{RNF-16 --- Especificación ampliada del requisito de explicabilidad}
 \end{longtable}
 
@@ -1083,6 +1137,16 @@ del resto del sistema.}}
 \input{seccion4_uml}
 
 % =====================================================================
+%  5. PRIORIZACION Y TRAZABILIDAD EXTENDIDA
+% =====================================================================
+\input{seccion5_priorizacion}
+
+% =====================================================================
+%  6. MVP  y  7. CONCLUSIONES
+% =====================================================================
+\input{seccion6_7_mvp_conclusiones}
+
+% =====================================================================
 %  BIBLIOGRAFIA
 % =====================================================================
 \newpage
@@ -1095,5 +1159,10 @@ del resto del sistema.}}
 % en orden de aparicion y esta presente en toda instalacion base.
 \IfFileExists{IEEEtran.bst}{\bibliographystyle{IEEEtran}}{\bibliographystyle{unsrt}}
 \bibliography{referencias}
+
+% =====================================================================
+%  APENDICES
+% =====================================================================
+\input{apendices}
 
 \end{document}
