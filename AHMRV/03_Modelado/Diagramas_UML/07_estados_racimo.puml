@@ -1,0 +1,56 @@
+@startuml estados_racimo
+' SIMPA - Estados: ciclo de vida del Racimo (RF-21 a RF-25)
+skinparam shadowing false
+skinparam StateBorderColor #006633
+
+[*] --> Inflorescencia
+
+Inflorescencia : entidad femenina en desarrollo
+Inflorescencia --> Antesis : alcanza receptividad\n(coloracion amarilla o negra)
+
+Antesis : ventana de polinizacion (EV-03)
+Antesis --> Polinizado : se aplica polinizante\n[RF-13]
+Antesis --> Abortado : ventana perdida
+
+Polinizado : desarrollo del racimo
+Polinizado --> EnDesarrollo : formacion del fruto
+
+EnDesarrollo : ~6 meses desde antesis (EV-02)
+EnDesarrollo --> Verde : frutos desprendidos < umbral
+EnDesarrollo --> Afectado : plaga o enfermedad detectada
+
+Verde : no apto para corte [RD-07: no clasificar por color]
+Verde --> Maduro : frutos desprendidos >= umbral variedad\n[RF-21]
+
+Maduro : apto para corte
+Maduro --> Sobremaduro : permanece sin cortar
+Maduro --> Cosechado : se ejecuta el corte\n[registra fechaCorte]
+
+Sobremaduro : eleva la acidez del aceite (EV-08)
+Sobremaduro --> Cosechado : corte tardio
+
+Afectado --> Descartado : dano irreversible
+Afectado --> EnDesarrollo : tratamiento efectivo
+
+Cosechado : en espera de despacho
+Cosechado --> Despachado : sale hacia la extractora\n[RF-25 inicia conteo de ventana]
+Cosechado --> Degradado : supera ventana recomendada\n[24 h hibrido / menor en guineensis]
+
+Degradado --> Despachado : se despacha con advertencia
+
+Despachado --> Aceptado : calificacion conforme\n[RF-23]
+Despachado --> Penalizado : verde/sobremadura > umbral\n[RF-22, RF-24]
+Despachado --> Rechazado : lote no conforme\n[retorna al productor]
+
+Aceptado --> [*]
+Penalizado --> [*]
+Rechazado --> [*]
+Abortado --> [*]
+Descartado --> [*]
+
+note right of Penalizado
+  RF-24: la penalizacion se traza
+  hasta el lote, la fecha de corte
+  y la cuadrilla responsable (EV-04).
+end note
+@enduml

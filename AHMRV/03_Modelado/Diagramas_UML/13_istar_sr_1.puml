@@ -1,0 +1,109 @@
+@startuml istar_sr
+' SIMPA - Modelo i* Razon Estrategica (SR) del actor Administrador general
+skinparam shadowing false
+left to right direction
+skinparam componentStyle rectangle
+
+skinparam usecase {
+  BackgroundColor<<goal>> #DCEBF7
+  BorderColor<<goal>> #2E6DA4
+  BackgroundColor<<task>> #FDEBD0
+  BorderColor<<task>> #B8860B
+  BackgroundColor<<res>> #E5E5E5
+  BorderColor<<res>> #666666
+  BackgroundColor<<soft>> #F2DCF7
+  BorderColor<<soft>> #7B4397
+}
+skinparam rectangle {
+  BackgroundColor<<ext>> #E8F4EC
+  BorderColor<<ext>> #006633
+  BackgroundColor<<sistema>> #006633
+  FontColor<<sistema>> #FFFFFF
+}
+
+package "Actor: Administrador general" {
+  usecase "O: Mantener el cultivo\nen estado productivo" <<goal>> as G0
+
+  usecase "T: Supervisar\nequipos de trabajo" <<task>> as T1
+  usecase "T: Controlar el\nestado sanitario" <<task>> as T2
+  usecase "T: Asegurar la\nhumedad del suelo" <<task>> as T3
+  usecase "T: Verificar el cumplimiento\ndel presupuesto semanal" <<task>> as T4
+
+  usecase "T: Recorrer\nla plantacion" <<task>> as T11
+  usecase "T: Evaluar el rendimiento\ndel personal" <<task>> as T12
+  usecase "T: Monitorear plagas\ny enfermedades" <<task>> as T21
+  usecase "T: Decidir el\ncontrol aplicable" <<task>> as T22
+  usecase "T: Comparar meta\ncontra cumplido" <<task>> as T41
+  usecase "T: Arrastrar el\nremanente" <<task>> as T42
+
+  usecase "R: Conteo de flores\npolinizadas" <<res>> as R1
+  usecase "R: Diagnostico de\nla afectacion" <<res>> as R2
+  usecase "R: Lectura de\nprecipitacion" <<res>> as R3
+  usecase "R: Avance por unidad\nde labor" <<res>> as R4
+
+  usecase "OB: Oportunidad\ndel diagnostico" <<soft>> as S1
+  usecase "OB: Confiabilidad\ndel conteo" <<soft>> as S2
+  usecase "OB: Menor dependencia del\nconocimiento experto" <<soft>> as S3
+  usecase "OB: Equidad en el\nregistro del avance" <<soft>> as S4
+}
+
+rectangle "SIMPA" <<sistema>> as SYS
+rectangle "Trabajador\nagricola" <<ext>> as TRA
+rectangle "Asistente de\nadministracion" <<ext>> as ASI
+
+' --- descomposicion de tareas (means-ends y task-decomposition)
+G0 --> T1 : decomposition
+G0 --> T2 : decomposition
+G0 --> T3 : decomposition
+G0 --> T4 : decomposition
+
+T1 --> T11
+T1 --> T12
+T2 --> T21
+T2 --> T22
+T4 --> T41
+T4 --> T42
+
+T12 --> R1
+T22 --> R2
+T3 --> R3
+T41 --> R4
+
+' --- contribuciones a objetivos-blandos
+R2 ..> S1 : help
+T11 ..> S1 : hurt
+R1 ..> S2 : help
+R2 ..> S3 : help
+R4 ..> S4 : help
+
+' --- dependencias externas
+R1 --> SYS
+R2 --> SYS
+R3 --> SYS
+R4 --> TRA
+R4 --> ASI
+
+note right of T11
+  T11 contribuye negativamente a S1:
+  el recorrido completo de la plantacion
+  toma una semana (EV-01) y la verificacion
+  presencial ocurre dos veces por semana
+  (EV-07). Esa latencia es la que el
+  sistema busca reducir.
+end note
+
+note bottom of S4
+  S4 surge de EV-12: el 11,3% del personal
+  no dispone de dispositivo propio. El
+  registro delegado (RF-35) evita que ese
+  segmento quede excluido del computo de
+  avance y de la remuneracion.
+end note
+
+note bottom of S3
+  S3 responde al problema declarado como
+  mas critico por la administracion: la
+  escasez y rotacion de mano de obra
+  calificada (EV-01).
+end note
+@enduml

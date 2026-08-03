@@ -1,0 +1,62 @@
+@startuml secuencia_CU01
+' SIMPA - Secuencia CU-01: Analizar imagen para detectar plaga (RF-07)
+skinparam shadowing false
+skinparam ParticipantBorderColor #006633
+autonumber
+
+actor "Asistente de\nadministracion" as U
+participant "App movil" as APP
+database "Almacen local" as LOC
+participant "API REST" as API
+participant "Servicio IA" as IA
+participant "Motor de\nexplicacion" as EXP
+database "BD central" as BD
+
+U -> APP : selecciona lote y "Analizar imagen"
+APP -> APP : activa camara
+U -> APP : captura fotografia
+APP -> APP : valida calidad (nitidez, luminosidad)
+
+alt Calidad insuficiente
+  APP --> U : solicita repetir captura
+else Calidad suficiente
+  APP -> LOC : almacena imagen + metadatos (lote, GPS, instante)
+
+  alt Con conectividad
+    APP -> API : POST /diagnostico/plaga {imagen, loteId, variedad}
+    API -> IA : inferir(imagen, umbralesVariedad)
+    IA --> API : {clase, nivelConfianza, rasgoVisual}
+
+    alt nivelConfianza < umbral minimo
+      API --> APP : resultado no concluyente
+      APP --> U : sugiere nueva captura o consulta a asesoria
+    else nivelConfianza aceptable
+      API -> EXP : generarExplicacion(clase, rasgoVisual, perfilUsuario)
+      note right of EXP
+        RNF-16: <= 60 palabras, <= 2 s,
+        tipo "por ejemplos" para plagas.
+      end note
+      EXP --> API : Explicacion
+      API -> BD : persistir Diagnostico + Explicacion
+      API -> BD : evaluar regla de alerta
+
+      opt Resultado positivo
+        BD -> BD : crear Alerta (CU-16)
+        API --> APP : notificacion de alerta generada
+      end
+
+      API --> APP : {diagnostico, explicacion, recomendacion}
+      APP -> LOC : marca registro como sincronizado
+      APP --> U : muestra resultado con explicacion
+    end
+
+  else Sin conectividad (RNF-11)
+    APP -> LOC : encola analisis pendiente
+    APP --> U : "analisis pendiente, se procesara al reconectar"
+    ...  al restablecerse la conexion ...
+    APP -> API : POST /diagnostico/plaga (diferido)
+    API --> APP : resultado
+    APP --> U : notificacion de resultado disponible
+  end
+end
+@enduml

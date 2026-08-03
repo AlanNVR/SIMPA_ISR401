@@ -1,0 +1,56 @@
+@startuml secuencia_CU06
+' SIMPA - Secuencia CU-06: Clasificar madurez del racimo (RF-21, RF-22)
+skinparam shadowing false
+skinparam ParticipantBorderColor #006633
+autonumber
+
+actor "Cosechador /\nTecnico" as C
+participant "App movil" as APP
+participant "API REST" as API
+participant "Servicio IA" as IA
+participant "Motor de\nexplicacion" as EXP
+database "BD central" as BD
+
+C -> APP : selecciona lote y "Clasificar racimo"
+APP -> API : GET /lote/{id}/variedad
+API --> APP : {variedad, umbralDesprendimiento}
+
+note right of APP
+  RD-08: el umbral depende de la variedad.
+  guineensis = 3 frutos, hibrido = 5 (EV-04).
+end note
+
+C -> APP : captura foto de la parte basal
+APP -> API : POST /clasificacion/madurez {imagen, umbral}
+API -> IA : contarFrutosDesprendidos(imagen)
+note right of IA
+  RD-07: prohibido usar el color
+  como criterio; el color enganya (EV-08).
+end note
+IA --> API : {frutosDesprendidos, nivelConfianza}
+
+API -> API : estado = (frutos >= umbral) ? MADURO : VERDE
+API -> EXP : generarExplicacion(estado, frutos, umbral)
+note right of EXP
+  Explicacion "por contraste":
+  por que maduro y no verde,
+  con referencia al umbral.
+end note
+EXP --> API : Explicacion
+API -> BD : persistir ClasificacionMadurez
+API --> APP : {estado, explicacion}
+APP --> C : muestra estado y explicacion
+
+C -> APP : solicita estimacion del lote antes de despacho
+APP -> API : GET /lote/{id}/porcentaje-verde
+API -> BD : agregar clasificaciones del lote
+BD --> API : porcentajeVerde
+
+alt porcentajeVerde >= umbral de penalizacion (RF-22)
+  API -> BD : crear Alerta preventiva
+  API --> APP : alerta {porcentaje, umbral}
+  APP --> C : "riesgo de penalizacion: no despachar aun"
+else porcentajeVerde por debajo del umbral
+  API --> APP : lote apto para despacho
+end
+@enduml

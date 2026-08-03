@@ -1,0 +1,92 @@
+@startuml istar_sd
+' SIMPA - Modelo i* Dependencia Estrategica (SD)
+' Notacion: O = objetivo (goal), T = tarea (task), R = recurso (resource),
+'           OB = objetivo-blando (softgoal)
+skinparam shadowing false
+left to right direction
+skinparam componentStyle rectangle
+skinparam ArrowColor #444444
+
+skinparam rectangle {
+  BackgroundColor<<actor>> #E8F4EC
+  BorderColor<<actor>> #006633
+  BackgroundColor<<sistema>> #006633
+  FontColor<<sistema>> #FFFFFF
+}
+skinparam usecase {
+  BackgroundColor<<goal>> #DCEBF7
+  BorderColor<<goal>> #2E6DA4
+  BackgroundColor<<task>> #FDEBD0
+  BorderColor<<task>> #B8860B
+  BackgroundColor<<res>> #E5E5E5
+  BorderColor<<res>> #666666
+  BackgroundColor<<soft>> #F2DCF7
+  BorderColor<<soft>> #7B4397
+}
+
+rectangle "Propietario" <<actor>> as PROP
+rectangle "Administrador\ngeneral" <<actor>> as ADM
+rectangle "Administrador /\nAsesor tecnico" <<actor>> as AST
+rectangle "Asistente de\nadministracion" <<actor>> as ASI
+rectangle "Jefe de\npolinizacion" <<actor>> as JPO
+rectangle "Polinizador" <<actor>> as POL
+rectangle "Trabajador\nagricola" <<actor>> as TRA
+rectangle "Planta\nExtractora R" <<actor>> as EXT
+rectangle "SIMPA" <<sistema>> as SYS
+
+usecase "O: Rendimiento de\n40-45 t/ha/ano" <<goal>> as G1
+usecase "R: Reporte diario\nde avance" <<res>> as R1
+usecase "T: Ejecutar la labor\npresupuestada" <<task>> as T1
+usecase "R: Asignacion de lote\ny pago por avance" <<res>> as R2
+usecase "OB: Oportunidad en la\ndeteccion de afectaciones" <<soft>> as S1
+usecase "T: Aplicar correctamente\nel polinizante" <<task>> as T2
+usecase "OB: Fruta con desprendimiento\nsuficiente" <<soft>> as S2
+usecase "R: Ticket de pesaje\ncon calificacion" <<res>> as R3
+usecase "R: Estimacion de tonelaje\npara planificar capacidad" <<res>> as R4
+usecase "R: Diagnostico nutricional\na distancia" <<res>> as R5
+usecase "OB: Confiabilidad del\nconteo de polinizacion" <<soft>> as S3
+usecase "OB: Menor dependencia del\nconocimiento experto" <<soft>> as S4
+
+PROP --> G1
+G1 --> ADM
+
+ADM --> R1
+R1 --> ASI
+
+ADM --> T1
+T1 --> TRA
+
+TRA --> R2
+R2 --> ADM
+
+ADM --> S1
+S1 --> ASI
+
+JPO --> T2
+T2 --> POL
+
+EXT --> S2
+S2 --> TRA
+
+ADM --> R3
+R3 --> EXT
+
+EXT --> R4
+R4 --> ADM
+
+AST --> R5
+R5 --> SYS
+
+JPO --> S3
+S3 --> SYS
+
+ADM --> S4
+S4 --> SYS
+
+note bottom
+  Dependencias hacia SIMPA (R5, S3, S4): el sistema asume dependencias que
+  hoy recaen sobre personas. S4 responde al problema declarado como mas
+  critico por la administracion general: la escasez y rotacion de mano de
+  obra calificada (EV-01).
+end note
+@enduml

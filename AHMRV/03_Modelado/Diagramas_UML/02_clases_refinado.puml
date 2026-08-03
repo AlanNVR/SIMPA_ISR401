@@ -1,0 +1,269 @@
+@startuml clases_refinado
+' SIMPA - Diagrama de clases refinado (atributos Y operaciones)
+skinparam classAttributeIconSize 0
+left to right direction
+skinparam linetype ortho
+skinparam shadowing false
+skinparam ClassBorderColor #006633
+hide circle
+
+class Plantacion {
+  - codigo : String
+  - nombre : String
+  - hectareas : Decimal
+  + agregarLote(Lote) : void
+  + calcularAreaTotal() : Decimal
+}
+
+class Lote {
+  - codigo : String
+  - area : Decimal
+  - numeroPalmas : Integer
+  - fechaSiembra : Date
+  - etapaActual : EtapaCultivo
+  + registrarLabor(Labor) : void
+  + obtenerHistorial(Rango) : List<Evento>
+  + estimarProduccion() : Estimacion
+  + porcentajeFrutaVerde() : Decimal
+}
+
+class Variedad {
+  - nombre : String
+  - umbralDesprendimiento : Integer
+  - requierePolinizacionAsistida : Boolean
+  - ventanaCorteEntregaHoras : Integer
+  + umbralMadurez() : Integer
+}
+
+class Palma {
+  - codigo : String
+  - estado : EstadoPalma
+  + marcarAfectada(Diagnostico) : void
+}
+
+class Persona {
+  - codigo : String
+  - rol : Rol
+  - equipo : Equipo
+  - poseeDispositivo : Boolean
+  + puedeRegistrarPorSi() : Boolean
+}
+
+class Usuario {
+  - identificador : String
+  - consentimientoGPS : Consentimiento
+  + autenticar(Credencial) : Sesion
+  + revocarConsentimientoGPS() : void
+}
+
+class Consentimiento {
+  - tipo : TipoConsentimiento
+  - fechaOtorgamiento : DateTime
+  - fechaRevocacion : DateTime
+  - vigente : Boolean
+  + estaVigente() : Boolean
+  + revocar() : void
+}
+
+class PlanSemanal {
+  - numeroSemana : Integer
+  - fechaInicio : Date
+  - fechaFin : Date
+  + agregarMeta(MetaLabor) : void
+  + porcentajeCumplimiento() : Decimal
+  + generarArrastre() : PlanSemanal
+}
+
+class MetaLabor {
+  - tipoLabor : TipoLabor
+  - cantidadMeta : Decimal
+  - unidad : UnidadAvance
+  - cantidadCumplida : Decimal
+  + remanente() : Decimal
+  + estaCumplida() : Boolean
+}
+
+class Labor {
+  - fecha : Date
+  - tipo : TipoLabor
+  - registroDelegado : Boolean
+  + validar() : Boolean
+}
+
+class RegistroAvance {
+  - cantidad : Decimal
+  - unidad : UnidadAvance
+  - fechaRegistro : DateTime
+  + acumularEnPeriodo(Periodo) : Decimal
+}
+
+class RegistroPolinizacion {
+  - estadoAntesis : EstadoAntesis
+  - verificacionVisual : Boolean
+  - floresContadas : Integer
+  + calcularConteoDesdeGPS(List<Marcacion>) : Integer
+}
+
+class Marcacion {
+  - latitud : Decimal
+  - longitud : Decimal
+  - precisionMetros : Decimal
+  - instante : DateTime
+  + esPrecisa() : Boolean
+}
+
+class Recorrido {
+  - fecha : Date
+  - distanciaMetros : Decimal
+  + cobertura(Lote) : Decimal
+}
+
+abstract class Diagnostico {
+  - fecha : DateTime
+  - imagen : Imagen
+  - nivelConfianza : NivelConfianza
+  + generarExplicacion() : Explicacion
+}
+
+class DiagnosticoPlaga {
+  - especie : String
+  - etapaCicloPlaga : EtapaPlaga
+  + recomendarControl() : Recomendacion
+}
+
+class DiagnosticoNutricional {
+  - elementoDeficiente : String
+  + recomendarFertilizacion() : Recomendacion
+}
+
+class ClasificacionMadurez {
+  - frutosDesprendidos : Integer
+  - estadoMadurez : EstadoMadurez
+  + clasificar(Variedad) : EstadoMadurez
+}
+
+class Explicacion {
+  - rasgoVisual : String
+  - tipoExplicacion : TipoExplicacion
+  - textoBreve : String
+  + longitudPalabras() : Integer
+}
+
+class Alerta {
+  - tipo : TipoAlerta
+  - criticidad : Criticidad
+  - estado : EstadoAlerta
+  + atender(Usuario) : void
+}
+
+class Incidencia {
+  - descripcion : String
+  - verificada : Boolean
+  + marcarVerificada() : void
+}
+
+class Racimo {
+  - codigo : String
+  - pesoKg : Decimal
+  - estado : EstadoRacimo
+  + estaListoParaCorte(Variedad) : Boolean
+}
+
+class Cosecha {
+  - fechaCorte : DateTime
+  - toneladas : Decimal
+  - numeroRacimos : Integer
+  + horasHastaEntrega(Despacho) : Decimal
+}
+
+class Despacho {
+  - fechaEntrega : DateTime
+  - guiaRemision : String
+  + tieneGuia() : Boolean
+}
+
+class CalificacionExtractora {
+  - pesoBruto : Decimal
+  - pesoTara : Decimal
+  - pesoNeto : Decimal
+  - porcentajeVerde : Decimal
+  - porcentajeSobremadura : Decimal
+  - pedunculoLargo : Boolean
+  + fuePenalizado(Decimal) : Boolean
+}
+
+class AnalisisSueloFoliar {
+  - fecha : Date
+  - nitrogeno : Decimal
+  - fosforo : Decimal
+  - potasio : Decimal
+  + compararCon(AnalisisSueloFoliar) : Variacion
+}
+
+class RegistroClimatico {
+  - fecha : Date
+  - milimetrosLluvia : Decimal
+  - horasLuz : Decimal
+  + acumuladoPeriodo(Periodo) : Decimal
+}
+
+class Reporte {
+  - tipo : TipoReporte
+  - periodo : Periodo
+  + generar() : Documento
+  + exportar(Formato) : Archivo
+}
+
+' --- Herencia
+Persona <|-- Usuario
+Diagnostico <|-- DiagnosticoPlaga
+Diagnostico <|-- DiagnosticoNutricional
+Diagnostico <|-- ClasificacionMadurez
+
+' --- Composicion
+Plantacion "1" *-- "1..*" Lote
+Lote "1" *-- "1..*" Palma
+PlanSemanal "1" *-- "1..*" MetaLabor
+Cosecha "1" *-- "1..*" Racimo
+
+' --- Agregacion y asociacion
+Lote "1..*" -- "1" Variedad : es de >
+Plantacion "1" o-- "1..*" PlanSemanal
+Lote "1" -- "0..*" Labor : registra >
+Labor "1" -- "1..*" RegistroAvance
+Persona "1" -- "0..*" RegistroAvance : ejecuta >
+Usuario "1" -- "0..*" Consentimiento
+Labor "0..1" -- "0..1" RegistroPolinizacion
+RegistroPolinizacion "1" -- "0..*" Marcacion
+Persona "1" -- "0..*" Recorrido
+Recorrido "1" -- "1..*" Marcacion
+Lote "1" -- "0..*" Diagnostico
+Palma "0..1" -- "0..*" Diagnostico : se diagnostica >
+Diagnostico "1" -- "1" Explicacion : produce >
+Diagnostico "0..*" -- "0..1" Alerta : genera >
+Incidencia "0..*" -- "0..1" Alerta
+Lote "1" -- "0..*" Incidencia
+Persona "1" -- "0..*" Incidencia : reporta >
+Racimo "0..*" -- "0..1" ClasificacionMadurez
+Lote "1" -- "0..*" Cosecha
+Cosecha "1..*" -- "0..1" Despacho
+Despacho "1" -- "0..1" CalificacionExtractora
+Lote "1" -- "0..*" AnalisisSueloFoliar
+Plantacion "1" -- "0..*" RegistroClimatico
+Usuario "1" -- "0..*" Reporte : genera >
+
+note right of Consentimiento
+  RL-03: el consentimiento de
+  geolocalizacion es revocable
+  sin consecuencia laboral.
+  Recorrido solo es visible si
+  estaVigente() == true.
+end note
+
+note right of Variedad
+  RD-08: los umbrales se
+  parametrizan por variedad.
+  guineensis = 3 frutos
+  hibrido    = 5 frutos
+end note
+@enduml

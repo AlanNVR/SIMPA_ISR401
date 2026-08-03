@@ -1,0 +1,64 @@
+@startuml contexto
+' SIMPA - Diagrama de contexto (limite del sistema)
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam ActorBorderColor #006633
+skinparam RectangleBorderColor #006633
+left to right direction
+
+skinparam rectangle {
+  BackgroundColor<<sistema>> #006633
+  FontColor<<sistema>> #FFFFFF
+  BackgroundColor<<externo>> #FFF3D6
+  BorderColor<<externo>> #B8860B
+  BackgroundColor<<actor>> #E8F4EC
+}
+
+actor "Administrador\ngeneral" as ADM
+actor "Administrador /\nAsesor tecnico" as AST
+actor "Asistente de\nadministracion" as ASI
+actor "Jefe de\npolinizacion" as JPO
+actor "Trabajador\nagricola" as TRA
+actor "Tecnico de\nla extractora" as EXT
+
+rectangle "**SIMPA**\nSistema Inteligente de\nMantenimiento de Palma Africana" <<sistema>> as SIMPA
+
+rectangle "Dispositivo movil\n(camara + GPS)" <<externo>> as DISP
+rectangle "Servicio de\nanalisis de IA" <<externo>> as IA
+rectangle "Servicio de datos\nclimaticos" <<externo>> as CLIMA
+rectangle "Base de conocimiento\nde plagas y enfermedades" <<externo>> as KB
+rectangle "Sistema de pesaje\nde la Extractora R" <<externo>> as EXTSYS
+
+ADM --> SIMPA : plan semanal,\nlotes, personal
+SIMPA --> ADM : reportes, alertas,\ncumplimiento
+AST --> SIMPA : analisis de suelo,\nfoto de hoja
+SIMPA --> AST : diagnostico nutricional\ncon explicacion
+ASI --> SIMPA : incidencia con foto\ny coordenadas
+SIMPA --> ASI : lista de pendientes\nde verificacion
+JPO --> SIMPA : estado de antesis,\nverificacion visual
+SIMPA --> JPO : conteo de flores\npor trabajador
+TRA --> SIMPA : avance por unidad\nde labor
+SIMPA --> TRA : tareas asignadas,\navance acumulado
+EXT --> SIMPA : calificacion del ticket\nde pesaje
+SIMPA --> EXT : estimacion de cosecha\n(datos minimizados)
+
+SIMPA <--> DISP : imagenes,\nmarcaciones GPS
+SIMPA --> IA : imagen + umbrales\nde variedad
+IA --> SIMPA : clase, confianza,\nrasgo visual
+CLIMA --> SIMPA : precipitacion,\nhoras luz
+KB --> SIMPA : especie, ciclo,\nrecomendacion
+SIMPA ..> EXTSYS : archivo CSV/JSON\n(sin datos personales)
+
+note bottom of EXTSYS
+  RD-09 / RF-32: sin integracion
+  directa en v1. Intercambio por
+  archivo, con filtrado previo de
+  datos personales y economicos.
+end note
+
+note bottom of DISP
+  RD-02: la aplicacion opera sin
+  conexion. El 74,2% del personal
+  no tiene senal permanente (EV-12).
+end note
+@enduml

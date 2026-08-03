@@ -1,0 +1,80 @@
+@startuml componentes
+' SIMPA - Diagrama de componentes
+skinparam shadowing false
+left to right direction
+skinparam ComponentBorderColor #006633
+
+package "Cliente movil (Android 9.0+)" {
+  [UI de campo] as UI
+  [Gestor de captura\n(camara + GPS)] as CAP
+  [Almacen local\noffline-first] as LOCAL
+  [Motor de\nsincronizacion] as SYNC
+  [Cliente API] as CLI
+}
+
+package "Panel web de administracion" {
+  [UI administrativa] as WEB
+  [Modulo de reportes] as REP
+}
+
+package "Backend en la nube" {
+  [API REST] as API
+  [Servicio de\nautenticacion y roles] as AUTH
+  [Gestor de\nconsentimientos] as CONS
+  [Motor de reglas\nde alerta] as RULES
+  [Orquestador de IA] as ORCH
+  [Motor de explicacion] as EXPL
+  [Servicio de\ntrazabilidad] as TRACE
+  [Servicio de\nexportacion] as EXPORT
+  [Bitacora de acceso] as LOG
+}
+
+package "Servicios externos" {
+  [Modelo de deteccion\nde plagas] as M1
+  [Modelo de diagnostico\nnutricional] as M2
+  [Modelo de clasificacion\nde madurez] as M3
+  [Servicio de datos\nclimaticos] as CLIMA
+}
+
+database "Base de datos\nrelacional" as BD
+database "Almacen de\nimagenes" as BLOB
+
+UI --> CAP
+UI --> LOCAL
+LOCAL --> SYNC
+SYNC --> CLI
+CLI --> API : HTTPS/JSON
+WEB --> API : HTTPS/JSON
+REP --> API
+
+API --> AUTH
+API --> CONS
+API --> ORCH
+API --> RULES
+API --> TRACE
+API --> EXPORT
+API --> BD
+API --> BLOB
+AUTH --> LOG
+CONS --> LOG : registra accesos\na geolocalizacion
+
+ORCH --> M1
+ORCH --> M2
+ORCH --> M3
+ORCH --> EXPL
+EXPL --> API
+RULES --> BD
+API --> CLIMA
+
+note bottom of CONS
+  RL-03 / RNF-14: verifica vigencia
+  del consentimiento antes de exponer
+  datos de geolocalizacion.
+end note
+
+note bottom of EXPORT
+  RD-09 / RF-32: filtra datos personales
+  y economicos antes de exportar hacia
+  la planta extractora.
+end note
+@enduml

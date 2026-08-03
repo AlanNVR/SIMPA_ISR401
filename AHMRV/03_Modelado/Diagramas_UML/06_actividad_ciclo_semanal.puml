@@ -1,0 +1,44 @@
+@startuml actividad_ciclo_semanal
+' SIMPA - Actividad: ciclo semanal de planificacion y ejecucion (RF-26, RF-27)
+skinparam shadowing false
+skinparam ActivityBorderColor #006633
+|Administracion|
+start
+:Definir plan semanal por lote\n(meta, unidad, tipo de labor);
+note right: RF-26 - deriva de EV-11
+:Publicar plan;
+|Jefe de campo|
+:Asignar labores del dia;
+|Trabajador agricola|
+repeat
+  :Ejecutar labor en el lote;
+  if (Dispone de dispositivo propio?) then (si)
+    :Registrar avance en la app;
+  else (no)
+    |Jefe de campo|
+    :Registrar avance de forma delegada;
+    note right: RF-35 / RD-10 - 11,3% sin\ndispositivo (EV-12)
+    |Trabajador agricola|
+  endif
+  if (Hay conectividad?) then (si)
+    :Sincronizar de inmediato;
+  else (no)
+    :Encolar localmente;
+    note right: RNF-11
+  endif
+repeat while (Quedan dias en la semana?) is (si)
+->no;
+|Administracion|
+:Cerrar la semana;
+:Comparar cumplido contra meta;
+if (Meta alcanzada?) then (si)
+  :Marcar labor como terminada;
+else (no)
+  :Calcular remanente;
+  :Generar labor pendiente\nen la semana siguiente;
+  note right: RF-27 - patron "(CONTINUA)"\nobservado en EV-11
+endif
+:Generar consolidado semanal;
+note right: RF-19
+stop
+@enduml

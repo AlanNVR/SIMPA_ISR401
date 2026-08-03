@@ -1,0 +1,84 @@
+@startuml casos_uso_general
+' =====================================================================
+'  SIMPA - Diagrama general de casos de uso
+'  Genera: plantuml -tpng -Sdpi=300 01_casos_uso_general.puml
+'          plantuml -tsvg 01_casos_uso_general.puml
+' =====================================================================
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam ActorBorderColor #006633
+skinparam UsecaseBorderColor #006633
+
+actor "Administrador\ngeneral" as ADM
+actor "Administrador /\nAsesor tecnico" as AST
+actor "Asistente de\nadministracion" as ASI
+actor "Jefe de\npolinizacion" as JPO
+actor "Trabajador\nagricola" as TRA
+actor "Tecnico de\nla extractora" as EXT
+actor "Servicio de\nanalisis de IA" as IA
+actor "Receptor GPS" as GPS
+
+rectangle "SIMPA" {
+  usecase "CU-11 Iniciar sesion" as CU11
+  usecase "CU-12 Gestionar lotes\ny variedades" as CU12
+  usecase "CU-13 Gestionar personal" as CU13
+  usecase "CU-07 Planificar semana\nde labores" as CU07
+  usecase "CU-04 Registrar labor\nagricola" as CU04
+  usecase "CU-14 Registrar avance\npor unidad" as CU14
+  usecase "CU-08 Consultar avance\ny remuneracion" as CU08
+  usecase "CU-09 Reportar incidencia\ndesde campo" as CU09
+  usecase "CU-15 Registrar monitoreo\nfitosanitario" as CU15
+  usecase "CU-03 Registrar polinizacion\ny conteo GPS" as CU03
+  usecase "CU-01 Analizar imagen\nde plaga (IA)" as CU01
+  usecase "CU-02 Diagnosticar deficiencia\nnutricional (IA)" as CU02
+  usecase "CU-06 Clasificar madurez\ndel racimo (IA)" as CU06
+  usecase "CU-16 Generar alerta\ntemprana" as CU16
+  usecase "CU-10 Registrar calificacion\nde la extractora" as CU10
+  usecase "CU-17 Estimar produccion" as CU17
+  usecase "CU-05 Generar reporte" as CU05
+  usecase "CU-18 Explicar decision\nautomatica" as CU18
+}
+
+ADM --> CU11
+ADM --> CU12
+ADM --> CU13
+ADM --> CU07
+ADM --> CU17
+ADM --> CU05
+ADM --> CU10
+AST --> CU02
+AST --> CU15
+ASI --> CU09
+ASI --> CU01
+JPO --> CU03
+TRA --> CU04
+TRA --> CU14
+TRA --> CU08
+EXT --> CU06
+EXT --> CU10
+
+CU01 --> IA
+CU02 --> IA
+CU06 --> IA
+CU03 --> GPS
+CU09 --> GPS
+
+CU04 ..> CU11 : <<include>>
+CU14 ..> CU04 : <<include>>
+CU03 ..> CU11 : <<include>>
+CU01 ..> CU18 : <<include>>
+CU02 ..> CU18 : <<include>>
+CU06 ..> CU18 : <<include>>
+CU16 ..> CU01 : <<extend>>
+CU16 ..> CU02 : <<extend>>
+CU16 ..> CU06 : <<extend>>
+CU16 ..> CU15 : <<extend>>
+CU07 <.. CU05 : <<extend>>
+
+note bottom of CU18
+  CU-18 implementa RNF-16 (explicabilidad).
+  Se incluye obligatoriamente en todo caso
+  de uso con decision automatica.
+end note
+@enduml

@@ -1,0 +1,55 @@
+@startuml despliegue
+' SIMPA - Diagrama de despliegue
+skinparam shadowing false
+left to right direction
+skinparam NodeBorderColor #006633
+
+node "Dispositivo movil\n<<Android 9.0+>>" as MOVIL {
+  artifact "simpa-app.apk" as APK
+  database "SQLite local\n(cifrado)" as SQLITE
+}
+
+node "Equipo de escritorio\n<<oficina de campamento>>" as PC {
+  artifact "Navegador web" as NAV
+}
+
+cloud "Proveedor de nube" {
+  node "Servidor de aplicacion\n<<contenedor>>" as APPSRV {
+    artifact "simpa-api" as APIART
+    artifact "simpa-web" as WEBART
+  }
+  node "Servidor de inferencia\n<<GPU>>" as GPUSRV {
+    artifact "modelos-ia" as MODELS
+  }
+  node "Servidor de datos" as DBSRV {
+    database "PostgreSQL" as PG
+    database "Almacen de objetos" as S3
+  }
+}
+
+cloud "Servicios de terceros" {
+  node "Servicio climatico" as CLIMASRV
+}
+
+node "Planta extractora\n<<organizacion externa>>" as EXTRACTORA {
+  artifact "Sistema interno\nde pesaje" as TICKET
+}
+
+MOVIL -- APPSRV : HTTPS/TLS 1.2+\n(intermitente, RNF-11)
+PC -- APPSRV : HTTPS/TLS 1.2+
+APPSRV -- GPUSRV : gRPC interno
+APPSRV -- DBSRV : conexion cifrada
+APPSRV -- CLIMASRV : HTTPS
+APPSRV ..> EXTRACTORA : exportacion CSV/JSON\n(RF-32, sin datos personales)
+
+note bottom of MOVIL
+  RNF-11: opera sin conexion.
+  RNF-14: geolocalizacion cifrada
+  en reposo tambien en el cliente.
+end note
+
+note bottom of EXTRACTORA
+  No hay integracion directa en v1.
+  El intercambio es por archivo (EV-04).
+end note
+@enduml

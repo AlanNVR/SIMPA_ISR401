@@ -1,0 +1,58 @@
+@startuml secuencia_CU03
+' SIMPA - Secuencia CU-03: Registrar polinizacion y conteo GPS (RF-13, RF-14)
+skinparam shadowing false
+skinparam ParticipantBorderColor #006633
+autonumber
+
+actor "Polinizador" as P
+participant "App movil" as APP
+participant "Receptor GPS" as GPS
+database "Almacen local" as LOC
+participant "API REST" as API
+database "BD central" as BD
+
+P -> APP : inicia jornada de polinizacion en lote
+APP -> API : verificar consentimiento GPS vigente
+API --> APP : consentimiento vigente
+
+alt Consentimiento revocado (RL-03)
+  APP --> P : registro manual de flores, sin rastreo
+else Consentimiento vigente
+  APP -> GPS : activarRastreo(periodoMuestreo = 30 s)
+
+  loop durante la jornada
+    GPS --> APP : Marcacion {lat, lon, precision, instante}
+    alt precision <= 10 m
+      APP -> LOC : almacenar marcacion
+    else precision > 10 m (RNF-12)
+      APP -> LOC : almacenar marcada como degradada
+      APP --> P : advertencia de senal debil
+    end
+  end
+
+  P -> APP : registra estado de antesis y verificacion visual
+  APP -> LOC : almacenar RegistroPolinizacion
+
+  P -> APP : cierra la jornada
+  APP -> GPS : detenerRastreo()
+  APP -> APP : calcularConteoDesdeGPS(marcaciones)
+  note right of APP
+    RF-14: el conteo se deriva de las
+    marcaciones. No se solicita ingreso
+    manual planta por planta para no
+    afectar el rendimiento (EV-03).
+  end note
+  APP --> P : muestra total de flores polinizadas
+
+  alt Con conectividad
+    APP -> API : POST /polinizacion {registro, marcaciones, conteo}
+    API -> BD : persistir
+    API --> APP : confirmacion
+  else Sin conectividad
+    APP -> LOC : marcar pendiente de sincronizacion
+    ... al reconectar ...
+    APP -> API : sincronizar lote de registros
+    API --> APP : confirmacion
+  end
+end
+@enduml

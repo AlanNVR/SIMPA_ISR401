@@ -1,0 +1,35 @@
+@startuml estados_alerta
+' SIMPA - Estados: ciclo de vida de la Alerta (RF-12, RF-31)
+skinparam shadowing false
+skinparam StateBorderColor #006633
+
+[*] --> Abierta : diagnostico positivo\no incidencia reportada
+
+Abierta : visible para el rol responsable
+Abierta --> EnProceso : la persona responsable\nla toma [RF-31]
+Abierta --> Escalada : supera el plazo\nsin atencion
+
+Escalada : notifica a la administracion general
+Escalada --> EnProceso : se asigna responsable
+
+EnProceso : pendiente de verificacion en campo
+EnProceso --> Verificada : verificacion presencial\n(hasta 2 visitas/semana, EV-07)
+EnProceso --> Descartada : falso positivo del modelo
+
+Verificada --> EnTratamiento : se aplica correctivo
+Verificada --> Cerrada : no requiere accion
+
+EnTratamiento --> Cerrada : afectacion superada
+EnTratamiento --> Reabierta : persiste tras el tratamiento
+
+Reabierta --> EnProceso
+
+Cerrada --> [*]
+Descartada --> [*]
+
+note right of Descartada
+  Los falsos positivos alimentan
+  el reentrenamiento del modelo
+  (RNF-15, RNF-17).
+end note
+@enduml
