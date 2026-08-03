@@ -1,0 +1,40 @@
+ID-RF;MoSCoW;Kano;Valor_negocio;Criticidad_temporal;Reduccion_riesgo;Tamano;WSJF;Justificacion
+RF-35;Must;Basica;5;8;8;3;7.0;Bajo costo y alto impacto: evita excluir al 11,3% del personal sin dispositivo (EV-12).
+RF-10;Must;Basica;5;8;8;3;7.0;Prerrequisito de RF-21: los umbrales de madurez dependen de la variedad.
+RF-36;Must;Basica;8;5;8;3;7.0;"Prerrequisito del calculo de remuneracion; el catalogo de tarifas ya existe en la organizacion (EV-13)."
+RF-39;Should;Basica;3;3;8;2;7.0;La liquidacion semanal requiere aprobacion de la administracion (EV-13).
+RF-23;Should;Desempeno;5;3;5;2;6.5;Cierra el ciclo de retroalimentacion de calidad con la extractora (EV-04).
+RF-33;Could;Basica;2;3;8;2;6.5;"Exigida por la normativa de transporte; su ausencia expone a sancion (EV-04)."
+RF-25;Should;Desempeno;5;8;5;3;6.0;"La ventana corte-entrega afecta la acidez del aceite; 24 h recomendadas (EV-04)."
+RF-38;Should;Desempeno;3;3;5;2;5.5;La organizacion registra labores fuera de presupuesto en un grupo diferenciado (EV-13).
+RF-31;Should;Desempeno;5;5;5;3;5.0;Estructura la visita de verificacion, que ocurre dos veces por semana (EV-07).
+RF-05;Must;Desempeno;8;8;8;5;4.8;"Monitoreo fitosanitario; la deteccion tardia es la dificultad mas declarada."
+RF-30;Must;Desempeno;8;8;8;5;4.8;Elimina la dependencia del recuerdo para ubicar la afectacion (EV-07).
+RF-11;Should;Desempeno;5;3;5;3;4.33;Apoya la fertilizacion y permite contrastar el diagnostico por imagen.
+RF-17;Should;Desempeno;5;5;3;3;4.33;El clima es la segunda dificultad mas declarada (33,9%, EV-12).
+RF-21;Must;Deleite;13;13;8;8;4.25;"Determina el valor economico de la entrega; umbral de penalizacion en 3-5% (EV-04)."
+RF-22;Must;Deleite;13;13;8;8;4.25;Actua antes del despacho, cuando la perdida aun es evitable.
+RF-04;Must;Basica;8;8;5;5;4.2;"Base de todo el registro operativo; sin el no hay datos para ninguna otra funcion."
+RF-12;Must;Deleite;8;8;5;5;4.2;Funcion mejor valorada del cuestionario (4,31/5, EV-12).
+RF-01;Must;Basica;5;8;8;5;4.2;Precondicion tecnica y legal de todo lo demas (RL-01).
+RF-13;Must;Basica;8;8;5;5;4.2;La polinizacion asistida es la labor que mas determina la produccion (EV-03).
+RF-24;Should;Desempeno;8;5;8;5;4.2;Permite distinguir si el problema proviene de la cosecha o del cultivo (EV-04).
+RF-02;Must;Basica;5;3;3;3;3.67;Sin lotes no es posible asociar labor, diagnostico ni cosecha.
+RF-03;Must;Basica;5;3;3;3;3.67;La asignacion de labor y el computo de avance dependen del registro de personal.
+RF-27;Should;Deleite;5;3;3;3;3.67;Automatiza el patron de arrastre observado semana tras semana (EV-11).
+RF-32;Should;Indiferente;3;3;5;3;3.67;"La extractora tambien proyecta su capacidad de recepcion; beneficio mutuo (EV-04)."
+RF-07;Must;Deleite;13;8;8;8;3.62;Mayor dificultad declarada por el personal (40,3%, EV-12).
+RF-28;Must;Basica;8;5;5;5;3.6;Habilita el calculo de cumplimiento y de remuneracion por avance.
+RF-18;Must;Desempeno;8;5;5;5;3.6;"Salida que el propietario necesita; meta de 40-45 t/ha/ano (EV-02)."
+RF-26;Must;Basica;8;5;5;5;3.6;Proceso central de la organizacion, documentado en los planes semanales (EV-11).
+RF-37;Must;Desempeno;8;5;5;5;3.6;Cierra el ciclo de planificacion y control que la organizacion ya ejecuta semanalmente (EV-13).
+RF-20;Should;Basica;3;2;5;3;3.33;Historial para auditoria y analisis de trazabilidad de calidad.
+RF-29;Should;Deleite;5;2;3;3;3.33;"Transparencia hacia el trabajador; solicitado de forma espontanea (EV-06, EV-07)."
+RF-14;Must;Deleite;13;8;5;8;3.25;"La polinizacion determina la produccion; el conteo manual afecta el rendimiento (EV-03)."
+RF-09;Should;Desempeno;5;3;8;5;3.2;"Complementa la deteccion indicando que aplicar; puede entregarse despues."
+RF-19;Must;Desempeno;8;5;3;5;3.2;Principal salida de informacion para la toma de decisiones.
+RF-34;Could;Indiferente;2;2;2;2;3.0;"Mejora la ejecucion del plan; no bloquea la operacion."
+RF-15;Should;Desempeno;5;3;5;5;2.6;"Supervision de cobertura; el 25,8% del personal expresa reservas (EV-12)."
+RF-06;Should;Indiferente;3;2;2;3;2.33;"Util para planificacion; no bloquea la operacion inicial."
+RF-08;Must;Deleite;8;5;5;8;2.25;"Alto valor tecnico; el diagnostico nutricional admite mayor demora que el sanitario."
+RF-16;Should;Desempeno;5;3;3;5;2.2;Depende de datos ya capturados por RF-14 y RF-28.

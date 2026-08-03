@@ -1,0 +1,53 @@
+ID;Ley;Articulo;Objetivo;Stakeholder;ID-EV;ID-RF;Tipo;ID-CU;ID-HU;ID-CA;ID-Componente;ID-Mockup
+TR-01;LOPDP;Art. 7;O6;Administrador;"EV-01; EV-09";RF-01;RF;CU-11;HU-01;CA-01;C-AUTH;MU-01
+TR-02;-;-;O2;Administrador;"EV-01; EV-02";RF-02;RF;CU-12;HU-02;CA-02;C-API;MU-05
+TR-03;-;-;O2;Administrador;"EV-01; EV-11";RF-03;RF;CU-13;HU-03;CA-03;C-API;-
+TR-04;-;-;O2;Trabajador;"EV-05; EV-06";RF-04;RF;CU-04;HU-04;CA-04;C-LOCAL;MU-04
+TR-05;-;-;O2;Trabajador;EV-11;RF-04;RF;CU-04;HU-04;CA-04;C-LOCAL;MU-04
+TR-06;-;-;O1;Técnico fitosan;"EV-01; EV-02";RF-05;RF;CU-15;HU-05;CA-05;C-API;MU-05
+TR-07;-;-;O5;Administrador;EV-01;RF-06;RF;CU-12;-;-;C-API;MU-05
+TR-08;-;-;O1;Asistente admin;"EV-01; EV-02";RF-07;RF;CU-01;HU-06;CA-06;C-ORCH;MU-03
+TR-09;-;-;O1;Asistente admin;EV-07;RF-07;RF;CU-01;HU-06;CA-06;C-ORCH;MU-03
+TR-10;-;-;O1;Asesor técnico;EV-02;RF-08;RF;CU-02;HU-07;CA-07;C-ORCH;MU-03
+TR-11;-;-;O1;Asesor técnico;EV-04;RF-08;RF;CU-02;HU-07;CA-07;C-ORCH;MU-03
+TR-12;-;-;O1;Técnico fitosan;"EV-01; EV-02";RF-09;RF;CU-01;-;-;C-ORCH;MU-03
+TR-13;-;-;O4;Asesor técnico;EV-04;RF-10;RF;CU-12;HU-08;CA-08;C-API;MU-05
+TR-14;-;-;O1;Asesor técnico;EV-02;RF-11;RF;CU-02;-;-;C-API;MU-05
+TR-15;-;-;O1;Administrador;"EV-01; EV-02";RF-12;RF;CU-16;HU-09;CA-09;C-RULES;MU-08
+TR-16;-;-;O1;Trabajador;EV-12;RF-12;RF;CU-16;HU-09;CA-09;C-RULES;MU-08
+TR-17;-;-;O2;Jefe polinización;EV-03;RF-13;RF;CU-03;HU-10;CA-10;C-LOCAL;MU-04
+TR-18;LOPDP;Art. 7;O2;Jefe polinización;EV-03;RF-14;RF;CU-03;HU-11;CA-11;C-CAP;MU-06
+TR-19;LOPDP;"Art. 7; Art. 10";O6;Administrador;"EV-01; EV-03";RF-15;RF;CU-03;-;-;C-CONS;MU-06
+TR-20;-;-;O3;Administrador;"EV-01; EV-02";RF-16;RF;CU-05;-;-;C-API;MU-07
+TR-21;-;-;O5;Administrador;"EV-01; EV-02";RF-17;RF;CU-05;-;-;C-CLIMA;MU-05
+TR-22;-;-;O5;Administrador;"EV-01; EV-02";RF-18;RF;CU-17;HU-12;CA-12;C-API;MU-07
+TR-23;-;-;O5;Administrador;"EV-01; EV-11";RF-19;RF;CU-05;HU-13;CA-13;C-REP;MU-07
+TR-24;-;-;O2;Administrador;EV-01;RF-20;RF;CU-05;-;-;C-TRACE;MU-05
+TR-25;-;-;O4;Téc extractora;EV-04;RF-21;RF;CU-06;HU-14;CA-14;C-ORCH;MU-03
+TR-26;-;-;O4;Téc extractora;EV-08;RF-21;RF;CU-06;HU-14;CA-14;C-ORCH;MU-03
+TR-27;-;-;O4;Administrador;"EV-04; EV-08";RF-22;RF;CU-06;HU-15;CA-15;C-RULES;MU-08
+TR-28;-;-;O4;Administrador;EV-04;RF-23;RF;CU-10;-;-;C-API;MU-07
+TR-29;-;-;O4;Téc extractora;"EV-04; EV-08";RF-24;RF;CU-10;-;-;C-TRACE;MU-07
+TR-30;-;-;O4;Téc extractora;EV-04;RF-25;RF;CU-10;-;-;C-API;MU-07
+TR-31;-;-;O3;Administrador;EV-11;RF-26;RF;CU-07;HU-16;CA-16;C-API;MU-02
+TR-32;-;-;O3;Administrador;EV-11;RF-27;RF;CU-07;-;-;C-RULES;MU-02
+TR-33;-;-;O2;Trabajador;"EV-05; EV-11";RF-28;RF;CU-04;HU-17;CA-17;C-LOCAL;MU-04
+TR-34;LOPDP;Art. 12;O2;Trabajador;"EV-06; EV-07";RF-29;RF;CU-08;-;-;C-API;MU-02
+TR-35;-;-;O1;Asistente admin;EV-07;RF-30;RF;CU-09;HU-18;CA-18;C-CAP;MU-06
+TR-36;-;-;O1;Asistente admin;EV-07;RF-31;RF;CU-09;-;-;C-API;MU-08
+TR-37;LOPDP;Art. 10;O4;Téc extractora;EV-04;RF-32;RF;CU-17;-;-;C-EXPORT;MU-07
+TR-38;-;-;O4;Téc extractora;EV-04;RF-33;RF;CU-10;-;-;C-API;MU-07
+TR-39;-;-;O3;Administrador;EV-11;RF-34;RF;CU-07;-;-;C-API;MU-02
+TR-40;-;-;O2;Jefe de campo;"EV-12; EV-05";RF-35;RF;CU-04;HU-19;CA-19;C-API;MU-04
+TR-41;-;-;O4;Téc extractora;EV-04;RNF-01;RNF;CU-06;HU-14;CA-14;C-ORCH;MU-03
+TR-42;-;-;O2;Trabajador;"EV-07; EV-12";RNF-11;RNF;CU-04;HU-04;CA-04;C-SYNC;MU-04
+TR-43;-;-;O2;Jefe polinización;EV-03;RNF-05;RNF;CU-03;HU-11;CA-11;C-CAP;MU-06
+TR-44;-;-;O2;Trabajador;EV-12;RNF-08;RNF;CU-04;HU-04;CA-04;C-UI;MU-04
+TR-45;LOPDP;"Art. 37; Art. 40";O6;Trabajador;EV-12;RNF-14;RNF;CU-03;HU-11;CA-11;C-LOG;MU-06
+TR-46;-;-;O1;Asistente admin;"EV-01; EV-07";RNF-16;RNF;CU-18;HU-06;CA-06;C-EXPL;MU-03
+TR-47;LOPDP;Art. 10;O2;Trabajador;EV-12;RD-10;RD;CU-04;HU-19;CA-19;C-API;MU-04
+TR-48;-;-;O4;Téc extractora;EV-08;RD-07;RD;CU-06;HU-14;CA-14;C-ORCH;MU-03
+TR-49;-;-;O2;Administrador;EV-13;RF-36;RF;CU-08;-;CA-64;C-API;MU-02
+TR-50;-;-;O3;Administrador;"EV-13; EV-11";RF-37;RF;CU-07;-;CA-65;C-API;MU-02
+TR-51;-;-;O3;Administrador;EV-13;RF-38;RF;CU-07;-;CA-66;C-API;MU-02
+TR-52;-;-;O3;Administrador;EV-13;RF-39;RF;CU-07;-;CA-67;C-LOG;MU-02
