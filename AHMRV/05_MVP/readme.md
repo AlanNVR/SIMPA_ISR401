@@ -9,3 +9,16 @@ Duración máxima 3 minutos. Recorrido:
 3. Registro de una labor con su avance
 4. Reporte de incidencia con fotografía
 5. Consulta de alertas y de reportes
+
+## 🔗 Demo en vivo
+
+Prueba el prototipo funcionando aquí: https://prototipo-simpa.netlify.app/
+
+**Cuentas de prueba:**
+| Usuario | Contraseña | Rol |
+|---|---|---|
+| admin | admin123 | Administrador |
+| supervisor | super123 | Supervisor |
+| operario | oper123 | Operario |
+
+---
