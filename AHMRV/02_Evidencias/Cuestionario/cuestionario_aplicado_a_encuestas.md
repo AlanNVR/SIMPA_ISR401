@@ -1,5 +1,5 @@
 # Cuestionario para trabajadores — Proyecto SIMPA
-### Sistema Inteligente de Mantenimiento de Palma Africana · Palmicultora M
+### Sistema Inteligente de Mantenimiento de Palma Africana · Palmicultora M.
 
 ---
 
