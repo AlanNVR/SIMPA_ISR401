@@ -5,6 +5,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.0.0] — 2026-08-29 · Cierre 2B (saneamiento de historial)
+
+- Se detectó que el historial de Git del repositorio anterior (`Villafuerte_Grupo_AHMRV`) conservaba, en la rama `reorganizar-estructura-ahmrv`, versiones sin anonimizar de los consentimientos informados y fotografías de entorno, con nombres reales de los participantes visibles en el nombre de archivo.
+- Se reescribió el historial de dicha rama con `git filter-repo`, retirando por completo las rutas afectadas (`AHMRV/evidencias/`, `AHMRV/02_Evidencias/formularios/`, `AHMRV/02_Evidencias/fotos/`, entre otras), verificado mediante auditoría de blobs (`git rev-list --objects --all`).
+- Se determinó que la reescritura por sí sola era insuficiente: GitHub conserva de forma permanente e inmutable la referencia `refs/pull/2/head` de un Pull Request abierto en algún momento desde esa rama, la cual seguía sirviendo el contenido original sin anonimizar y no puede eliminarse mediante `git push --force` ni ninguna operación de git estándar.
+- Por lo anterior, se migró el proyecto a un repositorio nuevo y limpio: `https://github.com/AlanNVR/SIMPA_ISR401`, que no hereda referencias de Pull Requests ni historial previo. El repositorio original quedó archivado en privado.
+- Se verificó de forma independiente que el repositorio nuevo no contiene ninguna referencia (`refs/pull/*` ni de otro tipo) ni ningún blob con datos identificables en su historial completo.
+
+---
+
 ## [3.0.0] — 2026-08-03 · Entrega 3 (2A)
 
 Especificación completa con componente empírico. Segunda ronda de trabajo de campo
