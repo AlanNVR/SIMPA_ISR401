@@ -23,7 +23,7 @@ Las celdas marcadas **`[verificar]`** requieren consulta directa en el sitio de 
 
 **Palabras clave:** ingeniería de requisitos · estudio empírico · modelos grandes de lenguaje · calidad de requisitos · explicabilidad
 
-**Resumen preliminar (para pegar en las herramientas):** véase `07_Publicacion/manuscrito_borrador.pdf`, sección *Abstract*.
+**Resumen preliminar (para pegar en las herramientas):** *no disponible en esta versión — se redactará junto con el manuscrito (ver Fase 7 del plan operativo).*
 
 ---
 

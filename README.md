@@ -145,8 +145,8 @@ El protocolo está registrado en OSF con fecha anterior a cualquier recolección
 | Archivo | Contenido |
 |---|---|
 | `protocolo.pdf` | Preguntas de investigación en formato PICOC, hipótesis, variables, plan de análisis estadístico |
-| `osf_registration.pdf` | Comprobante de registro previo con URL persistente |
-| `instrumentos/` | Guiones de entrevista, cuestionario, rúbrica de evaluación |
+| `osf_registration.pdf` | Comprobante de registro previo con URL persistente — *no disponible en esta versión* |
+| `instrumentos/` | Guiones de entrevista, cuestionario, rúbrica de evaluación — *no disponible en esta versión* |
 | `prompts_llm/` | Consignas exactas con modelo, temperatura, top-p y semilla |
 | `scripts_analisis/` | Scripts que reproducen tablas y figuras a partir de los datos crudos |
 
