@@ -22,8 +22,8 @@ type: dataset
 version: 3.0.0
 date-released: '2026-08-03'
 license: CC-BY-4.0
-repository-code: 'https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV'
-url: 'https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV/tree/main/AHMRV'
+repository-code: 'https://github.com/AlanNVR/SIMPA_ISR401'
+url: 'https://github.com/AlanNVR/SIMPA_ISR401/tree/main/AHMRV'
 
 keywords:
   - ingeniería de requisitos
