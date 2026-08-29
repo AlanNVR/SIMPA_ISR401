@@ -15,7 +15,7 @@ Especificación de Requisitos de Software (ERS/SRS) conforme a **ISO/IEC/IEEE 29
 Esta ruta se conserva porque es la declarada en la portada del documento entregado en el SGA. Moverla a la raíz produciría un enlace roto (error 404) y activaría el gatekeeper G1. La decisión y su justificación constan en el Apéndice E del ERS.
 
 ```
-Villafuerte_Grupo_AHMRV/
+SIMPA_ISR401/
 ├── README.md            ← este archivo
 ├── LICENSE
 ├── CITATION.cff
@@ -78,8 +78,8 @@ Sustituye un proceso que hoy se registra en libretas de papel y se comunica por 
 Los archivos multimedia y los contenedores cifrados se versionan con **Git Large File Storage**. Una clonación sin `git lfs pull` deja archivos de 133 bytes que son punteros, no contenido.
 
 ```bash
-git clone https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV.git
-cd Villafuerte_Grupo_AHMRV
+git clone https://github.com/AlanNVR/SIMPA_ISR401.git
+cd SIMPA_ISR401
 git lfs pull          # OBLIGATORIO — descarga ~1,8 GB de evidencia
 ```
 
