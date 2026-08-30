@@ -1,0 +1,415 @@
+% =====================================================================
+%  A.14 -- Adenda etica de la tercera ronda de trabajo de campo
+%  Proyecto SIMPA -- Equipo AHMRV -- ISR-401 -- UTEQ -- 2026-2027 PPA
+%  Compilacion: pdflatex A14_Adenda_Tercera_Ronda.tex  (x2)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{uteqverde}{HTML}{1F6F3C}
+\definecolor{grisclaro}{HTML}{F2F2F2}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{uteqverde}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\footnotesize\color{uteqverde}A.14 --- Adenda ética de la tercera ronda}
+\rhead{\footnotesize SIMPA --- Equipo AHMRV}
+\cfoot{\footnotesize Página \thepage\ de \pageref{LastPage}}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\footnotesize UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\\
+Facultad de Ciencias de la Computación --- Carrera de Software}\\[10pt]
+{\Large\bfseries\color{uteqverde} ADENDA ÉTICA}\\[3pt]
+{\large Tercera ronda de trabajo de campo}\\[2pt]
+{\footnotesize Documento A.14 --- extensión del protocolo aprobado A.01}
+\end{center}
+
+\vspace{6pt}
+
+\section*{Identificación del documento}
+\renewcommand{\arraystretch}{1.25}
+\begin{longtable}{|L{5.0cm}|L{10.6cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{Datos de identificación}}\\
+\hline
+Documento & A.14 --- Adenda ética de la tercera ronda de trabajo de campo \\
+\hline
+Proyecto & Sistema Inteligente de Mantenimiento de Palma Africana (SIMPA) \\
+\hline
+Equipo & AHMRV --- Paralelo 4to ``A'' \\
+\hline
+Asignatura & Ingeniería de Requerimientos (ISR-401) \\
+\hline
+Docente responsable & Ing. Gleiston Cicerón Guerrero Ulloa, PhD \\
+\hline
+Analista líder & Villafuerte Rosero Allan Noé \\
+\hline
+Organización cliente & Palmicultora M (seudónimo) \\
+\hline
+Segunda organización fuente & Extractora R (seudónimo) \\
+\hline
+Categoría de riesgo & C --- riesgo mínimo operativo \\
+\hline
+Protocolo base & A.01 --- Protocolo de investigación \\
+\hline
+Adendas previas & A.13 --- Adenda ética de la segunda ronda (emitida el 3 de agosto de 2026) \\
+\hline
+Fecha de emisión & \rule{5.5cm}{0.4pt} \\
+\hline
+\end{longtable}
+
+\begin{tcolorbox}[colback=red!4,colframe=red!55!black,boxrule=0.8pt,arc=2pt,left=6pt,right=6pt,top=5pt,bottom=5pt]
+\textbf{Condición de vigencia.} Esta adenda debe quedar firmada, fechada y cargada en el repositorio
+\texttt{08\_Etica/} \textbf{con fecha anterior a la primera entrevista de la tercera ronda}. La guía de la
+Entrega 4 (2B), sección 10.1, gatekeeper G8, condiciona la admisión de la entrega al cumplimiento de esta
+secuencia. Ninguna entrevista de la tercera ronda debe iniciarse antes de que este documento esté firmado y
+versionado.
+\end{tcolorbox}
+
+\section{Objeto de la adenda}
+
+Esta adenda amplía el protocolo aprobado (documento A.01) para cubrir la tercera y última ronda de trabajo
+de campo del proyecto SIMPA. Declara la incorporación de una población de participantes distinta de la de
+las rondas anteriores, las técnicas adicionales que se aplicarán, el tratamiento de los datos y las medidas
+de privacidad reforzadas. Todas las disposiciones del protocolo base y de la adenda A.13 permanecen
+vigentes; esta adenda no las sustituye: las extiende.
+
+\section{Motivo de la tercera ronda}
+
+\subsection{Vacíos detectados en la codificación temática}
+
+La codificación temática abierta de las ocho entrevistas de las rondas primera y segunda produjo 68 códigos
+distintos distribuidos en 16 categorías. La distribución es marcadamente asimétrica: cinco categorías
+concentran la mayor parte de los fragmentos codificados, mientras que las categorías directamente
+relacionadas con la interacción entre la persona usuaria y el sistema permanecen escasamente pobladas.
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|L{5.2cm}|C{2.4cm}|L{7.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Categoría} & \textbf{Fragmentos} & \textbf{Estado} \\
+\hline
+Calidad de la fruta & 27 & Suficientemente cubierta \\
+\hline
+Detección de afectaciones & 19 & Suficientemente cubierta \\
+\hline
+Tecnología & 15 & \textbf{Cubierta sólo desde la perspectiva operativa} \\
+\hline
+Registro operativo & 12 & Suficientemente cubierta \\
+\hline
+Polinización / Organización del trabajo & 11 c/u & Suficientemente cubiertas \\
+\hline
+Reportes & 5 & \textbf{Vacío --- indicadores para decisión} \\
+\hline
+Remuneración & 4 & \textbf{Vacío --- transparencia percibida} \\
+\hline
+Trazabilidad & 3 & \textbf{Vacío} \\
+\hline
+Protección de datos & 1 & \textbf{Vacío crítico} \\
+\hline
+Cumplimiento normativo & 1 & \textbf{Vacío crítico} \\
+\hline
+\end{longtable}
+
+Los códigos \texttt{USUARIO\_NO\_EXPERTO}, \texttt{CURVA\_APRENDIZAJE},
+\texttt{RECOMENDACION\_ACCIONABLE}, \texttt{DIAGNOSTICO\_POR\_IMAGEN} y \texttt{MINIMIZACION\_DATOS}
+aparecen una sola vez cada uno. Son precisamente los códigos que sustentan el requisito no funcional
+RNF-16 (explicabilidad del diagnóstico asistido por inteligencia artificial para personal sin formación
+técnica) y el requisito funcional RF-15 (registro y visualización de recorridos del personal, condicionado
+a consentimiento). Ambos requisitos se encuentran hoy respaldados por evidencia insuficiente.
+
+\subsection{Qué busca cubrir esta ronda}
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+  \item Comprensibilidad de la interfaz y de las etiquetas del sistema por parte de personas que no
+        participaron en su especificación.
+  \item Explicabilidad percibida del diagnóstico asistido (RNF-16): qué necesita ver una persona para
+        confiar o desconfiar de una recomendación automática.
+  \item Aceptabilidad del registro georreferenciado de recorridos (RF-15) y sensibilidad hacia la
+        protección de datos personales.
+  \item Utilidad percibida de los reportes e indicadores (RF-19) para la toma de decisiones.
+  \item Curva de aprendizaje estimada y condiciones de adopción o rechazo de la herramienta.
+  \item Contraste de un subconjunto de requisitos ya elicitados frente a una audiencia externa al proceso.
+\end{enumerate}
+
+\section{Población de la tercera ronda}
+
+\subsection{Entorno universitario}
+
+La tercera ronda se ejecuta principalmente en las instalaciones de la Universidad Técnica Estatal de
+Quevedo. Los participantes previstos son personas del entorno universitario vinculadas a áreas de
+agronomía, producción vegetal, agricultura o campos afines, en dos grupos: personal docente, ingeniería y
+profesionales por una parte, y estudiantado de carreras relacionadas por otra.
+
+\subsection{Declaración expresa sobre niveles heterogéneos de conocimiento}
+
+\begin{tcolorbox}[colback=uteqverde!5,colframe=uteqverde,boxrule=0.8pt,arc=2pt,left=6pt,right=6pt,top=5pt,bottom=5pt]
+Se declara de forma expresa que los participantes de esta ronda \textbf{no necesariamente poseen
+experiencia directa en plantaciones de palma africana} ni el conocimiento operativo específico de los
+participantes de las rondas anteriores. \textbf{Esta heterogeneidad es deliberada y constituye la variable
+de estratificación de la ronda}, no una limitación no controlada.
+
+El propósito no es replicar la elicitación de dominio ya realizada, sino incorporar un estrato de contraste
+con distintos niveles de conocimiento previo, que permita evaluar la comprensibilidad del sistema, la
+explicabilidad de sus salidas y la robustez de los requisitos ya especificados ante una audiencia que no
+participó en su construcción.
+\end{tcolorbox}
+
+\subsection{Perfiles previstos y asignación de códigos}
+
+\begin{longtable}{|C{2.1cm}|L{5.0cm}|L{4.2cm}|L{3.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Código} & \textbf{Perfil previsto} & \textbf{Organización} & \textbf{Técnicas previstas} \\
+\hline
+ENTR-09 & Docente / ingeniería del área agropecuaria & UTEQ & Entrevista + walkthrough \\
+\hline
+ENTR-10 & Docente / ingeniería del área agropecuaria & UTEQ & Entrevista + walkthrough \\
+\hline
+ENTR-11 & Profesional del área agrícola & UTEQ / externo & Entrevista + walkthrough \\
+\hline
+ENTR-12 & Profesional o docente del área agrícola & UTEQ / externo & Entrevista \\
+\hline
+ENTR-13 & Estudiantado de carrera afín & UTEQ & Entrevista + walkthrough \\
+\hline
+ENTR-14 & Estudiantado de carrera afín & UTEQ & Entrevista + walkthrough \\
+\hline
+ENTR-15 & Estudiantado de carrera afín & UTEQ & Entrevista + walkthrough \\
+\hline
+ENTR-16 & Estudiantado de carrera afín & UTEQ & Entrevista \\
+\hline
+\end{longtable}
+
+\begin{tcolorbox}[colback=grisclaro,colframe=black!35,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt]
+\textbf{Regla de clasificación.} La adscripción de cada participante al estrato \emph{técnico} o
+\emph{no técnico} \textbf{no se deriva de su cargo ni de su condición de docente o estudiante}, sino de la
+experiencia efectivamente manifestada en las preguntas de caracterización (sección 6 de los guiones). Un
+estudiante con experiencia familiar en producción agrícola puede quedar clasificado como técnico; un
+docente de un área no agronómica puede quedar clasificado como no técnico. La clasificación se registra en
+el acta de cada sesión junto con el criterio aplicado.
+\end{tcolorbox}
+
+\section{Técnicas de recolección}
+
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+  \item \textbf{Entrevista semiestructurada individual.} Duración prevista de 20 a 30 minutos. Dos
+        variantes con un núcleo común de preguntas que permite la comparación entre estratos: Guion A
+        (perfil profesional/docente) y Guion B (perfil estudiantil).
+  \item \textbf{Walkthrough del prototipo funcional (MVP).} Sesión de observación de 10 a 15 minutos
+        inmediatamente posterior a la entrevista, sobre dos o tres escenarios preseleccionados y trazados
+        a la matriz de trazabilidad. El moderador interviene lo mínimo imprescindible: la explicación
+        anticipada de cada pantalla invalidaría la observación de usabilidad.
+  \item \textbf{Observación y notas de campo.} Registro escrito de dudas, vacilaciones y rutas de
+        navegación seguidas por el participante.
+\end{enumerate}
+
+\subsection{Grabación de audio y video}
+
+Se registra audio de la entrevista y, cuando el participante lo autorice de forma expresa, video de la
+sesión. La autorización de grabación es independiente de la autorización de participación: un participante
+puede aceptar la entrevista y negar la grabación en video, en cuyo caso la sesión se documenta únicamente
+con audio y notas de campo. Durante el walkthrough se graba preferentemente la pantalla y la voz, no el
+rostro.
+
+\section{Tratamiento de los datos y seudonimización}
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+  \item Cada participante recibe un código \texttt{ENTR-XX} en el momento de la firma del consentimiento.
+        A partir de ese instante, ningún artefacto del proyecto lo identifica por su nombre.
+  \item La tabla que vincula el código con la identidad real es el único documento de reidentificación.
+        Reside exclusivamente en la zona restringida [R], dentro del contenedor cifrado con AES-256, y no
+        se versiona en texto plano en ningún punto del repositorio.
+  \item Las transcripciones sustituyen nombres propios, topónimos precisos y razones sociales por
+        seudónimos y códigos antes de su incorporación a la zona pública [P].
+  \item Los datos que se depositen posteriormente en un repositorio abierto lo harán en su versión
+        anonimizada, bajo licencia Creative Commons Atribución 4.0 Internacional, conforme a la
+        autorización expresa recogida en el consentimiento A.03 v3.
+  \item Se aplica el principio de minimización: no se solicita cédula, dirección, teléfono, correo
+        electrónico ni ningún dato personal que no resulte indispensable para la finalidad declarada.
+\end{enumerate}
+
+\section{Medidas de privacidad reforzadas y medida correctiva sobre la zona pública}
+
+\begin{tcolorbox}[colback=red!4,colframe=red!55!black,boxrule=0.8pt,arc=2pt,left=6pt,right=6pt,top=5pt,bottom=5pt]
+\textbf{Medida correctiva declarada.} Una revisión interna del repositorio, posterior a la emisión de la
+adenda A.13, detectó que en la zona pública subsistía material identificable: nombres manuscritos legibles
+en copias de consentimientos, al menos una fotografía con rostro sin enmascarar y nombres propios
+incorporados a nombres de archivo. En consecuencia, la afirmación contenida en la sección 2 de la adenda
+A.13 según la cual ningún dato identificable se había publicado en la zona de acceso público
+\textbf{no se corresponde con el estado verificado del repositorio en esa fecha}.
+
+El equipo declara esta discrepancia de forma voluntaria, ejecuta el saneamiento de la zona pública con
+carácter previo al inicio de la tercera ronda y adopta las medidas de captura que se enumeran a
+continuación para impedir su repetición. Se deja constancia expresa de que la corrección se realiza por
+iniciativa del equipo y no como respuesta a un requerimiento.
+\end{tcolorbox}
+
+Medidas aplicables desde el momento de la captura:
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+  \item Ningún archivo destinado a la zona pública incorpora el nombre del participante en su
+        denominación. La nomenclatura obligatoria es \texttt{AAAA-MM-DD\_Tipo\_ENTR-XX\_Tecnica.ext}.
+  \item No se publican rostros. Las fotografías de la zona pública se enmascaran antes de su carga, y se
+        publican únicamente cuando documentan el entorno o la sesión sin permitir identificación.
+  \item No se publican firmas, cédulas ni ningún número de documento. La copia pública del consentimiento
+        lleva enmascarados el nombre, la firma y el documento de identidad, y muestra visible únicamente
+        el código de participante.
+  \item Se eliminan los metadatos EXIF, incluida la geolocalización, de toda imagen antes de su
+        incorporación a la zona pública.
+  \item No se publica ninguna combinación de atributos que permita la identificación indirecta
+        (por ejemplo, cargo específico más unidad académica concreta más año de graduación).
+  \item Los originales sin enmascarar, así como cualquier contenedor cifrado del proyecto ---incluidos los
+        alojados en el repositorio audiovisual complementario--- permanecen exclusivamente en zona
+        restringida o cifrada. La contraseña correspondiente \textbf{no se publica en ningún repositorio,
+        público ni complementario}, y se entrega únicamente al docente responsable por el canal del
+        Sistema de Gestión Académica.
+\end{enumerate}
+
+\subsection{Saneamiento del historial de control de versiones}
+
+Con posterioridad a la corrección declarada en esta sección, una auditoría del repositorio determinó que
+el historial de Git ---no la zona pública actual, sino versiones anteriores conservadas en el historial---
+seguía reteniendo copias sin anonimizar de los consentimientos y fotografías corregidos: nombres reales
+visibles en el nombre de archivo y en el contenido de al menos tres participantes de las rondas primera y
+segunda.
+
+El equipo reescribió dicho historial mediante la herramienta \texttt{git filter-repo}, retirando las rutas
+que contenían las versiones sin anonimizar, y verificó la corrección mediante inspección directa de los
+objetos del historial. Se detectó posteriormente que GitHub conserva de forma permanente e inmutable la
+referencia de un Pull Request abierto sobre la rama afectada, la cual seguía sirviendo el contenido
+original y no puede eliminarse mediante operaciones estándar de Git. Por esta limitación, ajena al control
+del equipo, el proyecto se migró a un repositorio nuevo sin historial de Pull Requests:
+\url{https://github.com/AlanNVR/SIMPA_ISR401}. El repositorio anterior quedó archivado en modo privado.
+
+Esta operación queda registrada en \texttt{CHANGELOG.md} y en \texttt{08\_Etica/README\_Etica.md}, conforme
+al principio de no ocultar la corrección: se documenta hacia adelante, sin modificar la adenda A.13 que
+declaró el hallazgo original. El equipo considera esta desviación \textbf{subsanada y cerrada} a partir de
+la fecha de emisión de la presente adenda. Esta declaración no constituye una nueva solicitud de
+aprobación: documenta, con fines de trazabilidad, un hallazgo y su corrección ya ejecutada.
+
+\section{Repositorio audiovisual complementario}
+
+Debido al agotamiento de la cuota de almacenamiento de Git LFS del repositorio principal, los contenedores
+audiovisuales de mayor tamaño se alojan en un repositorio complementario, conforme a la orientación
+comunicada personalmente por el docente responsable. El repositorio principal conserva toda la evidencia
+de control y trazabilidad: \texttt{fichas\_tecnicas.csv}, \texttt{checksums.sha256}, las transcripciones y
+las copias públicas enmascaradas. El procedimiento de acceso, descifrado y verificación de integridad se
+documenta en \texttt{02\_Evidencias/00\_Restringido/README\_Evidencias\_Externas.md}.
+
+\section{Riesgos identificados y mitigaciones}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|C{1.5cm}|L{5.6cm}|L{8.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Riesgo} & \textbf{Mitigación} \\
+\hline
+R-14.1 & Identificación indirecta de un participante por la combinación de perfil y unidad académica &
+Los perfiles se publican en categorías amplias (docente/profesional del área agropecuaria; estudiantado de
+carrera afín). No se publica carrera concreta, semestre ni asignatura. \\
+\hline
+R-14.2 & Incomodidad del participante ante la grabación &
+Autorización de grabación separada y revocable. Posibilidad de participar con audio únicamente o sin
+grabación. Se informa antes de iniciar. \\
+\hline
+R-14.3 & Percepción de evaluación o examen por parte del estudiantado &
+Se declara al inicio de cada sesión que no existe respuesta correcta, que no se evalúa a la persona
+participante y que la participación no tiene relación alguna con su calificación académica. \\
+\hline
+R-14.4 & Relación de asimetría entre estudiantado entrevistado y equipo entrevistador &
+Ningún integrante del equipo entrevista a estudiantes sobre los que tenga cualquier función de evaluación.
+La participación no se solicita durante horas de clase ni a través de docentes con poder de calificación
+sobre la persona. \\
+\hline
+R-14.5 & Fatiga de la sesión al encadenar entrevista y walkthrough &
+Duración total acotada a 45 minutos. El walkthrough es opcional y se ofrece tras la entrevista, no antes.
+El participante puede detenerlo en cualquier momento. \\
+\hline
+R-14.6 & Atribución de credibilidad a un diagnóstico automático simulado &
+Véase la sección 9. Se declara la simulación al cierre de cada sesión de walkthrough. \\
+\hline
+R-14.7 & Contaminación del análisis de saturación por mezcla de poblaciones &
+Véase la sección 10. Los estratos se analizan por separado. \\
+\hline
+R-14.8 & Reaparición de datos identificables en la zona pública &
+Checklist de cierre por participante y verificación de nomenclatura antes de cada carga al repositorio. \\
+\hline
+\end{longtable}
+
+\section{Declaración sobre las funcionalidades simuladas del prototipo}
+
+\begin{tcolorbox}[colback=red!4,colframe=red!55!black,boxrule=0.8pt,arc=2pt,left=6pt,right=6pt,top=5pt,bottom=5pt]
+Dos funcionalidades del prototipo funcional presentan interfaz completa con resultado no real: la detección
+de plagas por análisis de imagen (RF-07) y el conteo georreferenciado de flores polinizadas (RF-14). En
+ambos casos la salida se genera por una función de ejemplo y no por inferencia sobre datos reales.
+
+Durante el walkthrough esta condición \textbf{no se revela con antelación}, porque el objeto de observación
+es precisamente qué elementos de la interfaz sustentan o erosionan la confianza de la persona usuaria en una
+salida automática. La condición de simulación \textbf{se revela de forma expresa al cierre de cada sesión},
+antes de la despedida, y se deja constancia de la revelación en el acta correspondiente. Ningún dato
+recogido sobre confianza en el diagnóstico se reportará sin declarar simultáneamente que la salida
+observada era simulada.
+\end{tcolorbox}
+
+\section{Relación con las rondas anteriores y con el análisis de saturación}
+
+La primera y la segunda ronda elicitaron requisitos de dominio con participantes de Palmicultora M y
+Extractora R (ENTR-01 a ENTR-08). La tercera ronda no sustituye ni replica esa elicitación: incorpora un
+estrato de contraste y validación (ENTR-09 a ENTR-16).
+
+\begin{tcolorbox}[colback=grisclaro,colframe=black!35,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt]
+\textbf{Consecuencia metodológica que se declara por anticipado.} La curva de saturación de significado se
+calculará y reportará \textbf{por estrato}, no sobre la mezcla indiferenciada de las dieciséis entrevistas.
+Agregar en una sola curva dos poblaciones con distinta relación con el dominio produciría una inflexión
+artificial: los participantes universitarios generan pocos códigos nuevos de dominio por construcción, no
+por saturación alcanzada. Se reportará la curva del estrato de dominio (ENTR-01 a ENTR-08), la del estrato
+de contraste (ENTR-09 a ENTR-16) y la agregada, con la interpretación de cada una. Esta decisión se
+incorporará como amenaza a la validez de constructo en el manuscrito.
+\end{tcolorbox}
+
+Un subconjunto de preguntas del guion de la tercera ronda se mantiene deliberadamente común con las rondas
+anteriores, para permitir el contraste de códigos ya existentes. El resto se orienta a las categorías con
+vacío declaradas en la sección 2.
+
+\section{Vigencia}
+
+Esta adenda entra en vigor en la fecha de su firma y permanece vigente hasta el cierre del Proyecto Fin de
+Curso. No modifica la categoría de riesgo del proyecto, que se mantiene en C --- riesgo mínimo operativo.
+No se recogen categorías especiales de datos personales. Toda persona participante conserva el derecho de
+retirar su consentimiento en cualquier momento, con la consiguiente eliminación de su material de todos los
+artefactos del proyecto.
+
+\vspace{18pt}
+
+\begin{center}
+\begin{tabular}{C{6.6cm} C{6.6cm}}
+\rule{6.2cm}{0.4pt} & \rule{6.2cm}{0.4pt} \\[2pt]
+\textbf{Villafuerte Rosero Allan Noé} & \textbf{Ing. Gleiston C. Guerrero Ulloa, PhD} \\
+Analista líder --- Equipo AHMRV & Docente responsable --- ISR-401 \\[16pt]
+\multicolumn{2}{c}{Fecha: \rule{4.5cm}{0.4pt}} \\
+\end{tabular}
+\end{center}
+
+\end{document}
