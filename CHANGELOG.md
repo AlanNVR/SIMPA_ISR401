@@ -5,13 +5,18 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
-## [4.0.0] — 2026-08-29 · Cierre 2B (saneamiento de historial)
+## [4.0.1] — 2026-08-31 · Higiene del historial y portabilidad de checksums
 
-- Se detectó que el historial de Git del repositorio anterior (`Villafuerte_Grupo_AHMRV`) conservaba, en la rama `reorganizar-estructura-ahmrv`, versiones sin anonimizar de los consentimientos informados y fotografías de entorno, con nombres reales de los participantes visibles en el nombre de archivo.
-- Se reescribió el historial de dicha rama con `git filter-repo`, retirando por completo las rutas afectadas (`AHMRV/evidencias/`, `AHMRV/02_Evidencias/formularios/`, `AHMRV/02_Evidencias/fotos/`, entre otras), verificado mediante auditoría de blobs (`git rev-list --objects --all`).
-- Se determinó que la reescritura por sí sola era insuficiente: GitHub conserva de forma permanente e inmutable la referencia `refs/pull/2/head` de un Pull Request abierto en algún momento desde esa rama, la cual seguía sirviendo el contenido original sin anonimizar y no puede eliminarse mediante `git push --force` ni ninguna operación de git estándar.
-- Por lo anterior, se migró el proyecto a un repositorio nuevo y limpio: `https://github.com/AlanNVR/SIMPA_ISR401`, que no hereda referencias de Pull Requests ni historial previo. El repositorio original quedó archivado en privado.
-- Se verificó de forma independiente que el repositorio nuevo no contiene ninguna referencia (`refs/pull/*` ni de otro tipo) ni ningún blob con datos identificables en su historial completo.
+### Corregido
+
+- Se realizó una segunda reescritura del historial, independiente del saneamiento de privacidad anterior, para retirar material ajeno al PFC que permanecía únicamente en commits históricos.
+- Se eliminaron del historial las rutas `Tareas_Villafuerte/`, `Grupo_C/`, `MRV_Equipo_B/` y `cambios_fase0_v2.patch`.
+- El historial pasó de 281 a 241 commits tras retirar 40 commits asociados exclusivamente a dicho material.
+- Se verificó nuevamente que `Hacienda La Manuela` no aparece en los commits alcanzables y que el seudónimo `Palmicultora M` permanece correctamente aplicado.
+- El tag `v1.0-mvp-demo` fue reescrito durante el saneamiento y quedó asociado al commit limpio equivalente.
+- Se añadió `.gitattributes` en la raíz con la regla `* -text` para impedir conversiones automáticas LF/CRLF entre plataformas.
+- `checksums.sha256` fue regenerado para incorporar `.gitattributes` y permitir su verificación directa mediante `sha256sum -c checksums.sha256` también en Windows.
+- La verificación final se realizó desde un clon fresco del repositorio, sin presentar archivos `FAILED`.
 
 ---
 
