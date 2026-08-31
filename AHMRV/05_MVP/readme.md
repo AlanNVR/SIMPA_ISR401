@@ -5,7 +5,13 @@ Prototipo de interfaz del **Sistema Inteligente de Mantenimiento de Palma Africa
 > **Estado:** prototipo funcional de interfaz. La lógica de negocio se ejecuta en el navegador y la persistencia es local. No existe todavía servicio de respaldo ni base de datos.
 
 ---
+## Enlace de video demostrativo
 
+
+```
+https://github.com/AlanNVR/SIMPA_ISR401/releases/download/v1.0-mvp-demo/video_demo.mp4
+```
+---
 ## Repositorio del código
 
 El código fuente reside en un repositorio separado:
