@@ -1,0 +1,62 @@
+@startuml sequence_CU01
+' SIMPA - Sequence CU-01: Analyze image to detect pest (RF-07)
+skinparam shadowing false
+skinparam ParticipantBorderColor #006633
+autonumber
+
+actor "Administrative\nassistant" as U
+participant "Mobile app" as APP
+database "Local storage" as LOC
+participant "REST API" as API
+participant "AI service" as IA
+participant "Explanation\nengine" as EXP
+database "Central DB" as BD
+
+U -> APP : selects block and "Analyze image"
+APP -> APP : activates camera
+U -> APP : captures photograph
+APP -> APP : validates quality (sharpness, brightness)
+
+alt Insufficient quality
+  APP --> U : requests recapture
+else Sufficient quality
+  APP -> LOC : stores image + metadata (block, GPS, timestamp)
+
+  alt With connectivity
+    APP -> API : POST /diagnosis/pest {image, blockId, variety}
+    API -> IA : infer(image, varietyThresholds)
+    IA --> API : {class, confidenceLevel, visualFeature}
+
+    alt confidenceLevel < minimum threshold
+      API --> APP : inconclusive result
+      APP --> U : suggests new capture or advisory consultation
+    else acceptable confidenceLevel
+      API -> EXP : generateExplanation(class, visualFeature, userProfile)
+      note right of EXP
+        RNF-16: <= 60 words, <= 2 s,
+        "by example" type for pests.
+      end note
+      EXP --> API : Explanation
+      API -> BD : persist Diagnosis + Explanation
+      API -> BD : evaluate alert rule
+
+      opt Positive result
+        BD -> BD : create Alert (CU-16)
+        API --> APP : alert generated notification
+      end
+
+      API --> APP : {diagnosis, explanation, recommendation}
+      APP -> LOC : marks record as synced
+      APP --> U : shows result with explanation
+    end
+
+  else No connectivity (RNF-11)
+    APP -> LOC : queues pending analysis
+    APP --> U : "analysis pending, will be processed on reconnection"
+    ...  once connection is restored ...
+    APP -> API : POST /diagnosis/pest (deferred)
+    API --> APP : result
+    APP --> U : result available notification
+  end
+end
+@enduml
