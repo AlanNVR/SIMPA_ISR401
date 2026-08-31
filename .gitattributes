@@ -1,0 +1,16 @@
+# =====================================================================
+# .gitattributes - Proyecto SIMPA - Equipo AHMRV - ISR-401 - UTEQ
+# ---------------------------------------------------------------------
+# Se desactiva la conversion automatica de terminadores de linea para
+# TODOS los archivos del repositorio.
+#
+# Motivo: la integridad del repositorio se acredita mediante
+# checksums.sha256. Si Git convirtiera LF a CRLF al hacer checkout en
+# Windows (core.autocrlf=true), la copia de trabajo dejaria de coincidir
+# byte a byte con el contenido almacenado, y `sha256sum -c` fallaria
+# aunque los archivos estuvieran intactos.
+#
+# Con esta regla, el checkout entrega exactamente los mismos bytes en
+# Windows, macOS y Linux, y la verificacion funciona en cualquier equipo.
+# =====================================================================
+* -text
