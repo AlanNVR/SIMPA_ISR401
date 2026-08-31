@@ -26,7 +26,9 @@ https://github.com/jmaciasherr4/Prottotipo_Simpa
 
 ## Cobertura sobre los requisitos *Must*
 
-Tabla verificada por inspección del código fuente, no por declaración.
+Tabla corregida conforme a la auditoría realizada en PE5. La versión anterior
+incluía incorrectamente como *Must* a RF-15 y RF-20, que son *Should*, y omitía
+RF-36 y RF-37.
 
 | ID-RF | Funcionalidad | Estado | Pantalla |
 |---|---|---|---|
@@ -37,10 +39,8 @@ Tabla verificada por inspección del código fuente, no por declaración.
 | RF-05 | Registro de monitoreo fitosanitario | ✅ Implementado | Análisis |
 | RF-12 | Generación de alertas tempranas | ✅ Implementado | Alertas |
 | RF-19 | Generación de reportes | ✅ Implementado | Reportes |
-| RF-20 | Historial de actividades y eventos | ✅ Implementado | Detalle de lote |
 | RF-30 | Reporte de incidencia desde campo | ✅ Implementado | Análisis |
 | RF-13 | Registro del proceso de polinización | 🟡 Parcial | Labores |
-| RF-15 | Visualización de recorridos del personal | 🟡 Parcial | Mapa GPS |
 | RF-28 | Registro de avance por unidad de labor | 🟡 Parcial | Labores |
 | RF-07 | Detección de plagas por imagen | ⚠️ **Simulado** | Análisis |
 | RF-14 | Conteo georreferenciado de flores | ⚠️ **Simulado** | Mapa GPS |
@@ -51,12 +51,23 @@ Tabla verificada por inspección del código fuente, no por declaración.
 | RF-22 | Alerta preventiva de fruta verde | ❌ No implementado | — |
 | RF-26 | Planificación semanal con presupuesto | ❌ No implementado | — |
 | RF-35 | Registro delegado del avance | ❌ No implementado | — |
+| RF-36 | Catálogo de tarifas por labor | ❌ No implementado | — |
+| RF-37 | Cálculo de remuneración semanal | ❌ No implementado | — |
 
-**Cobertura: 9 de 19 requisitos *Must* completos (47,4 %)**, o 55,3 % contabilizando los parciales con peso medio.
+**Cobertura al momento de construcción del prototipo:** 8 de 21 requisitos
+*Must* implementados completamente (**38,1 %**).
 
-> ⚠️ **La §3.6 de la guía exige al menos el 60 %. El prototipo no alcanza ese umbral.** Se declara el valor real en lugar de computar como implementadas las funcionalidades simuladas, lo que habría permitido reportar un 73,7 % sin sustento verificable. Esta limitación consta como `L-10` en la §7.3 del ERS.
+Si las dos implementaciones parciales se ponderan con peso medio, la cobertura
+es 9/21 (**42,9 %**).
 
----
+Después del Change Control Board se incorporaron RF-40, RF-41 y RF-42 como
+*Must*, elevando el catálogo vigente a 24 requisitos *Must*. Contra ese
+denominador, la cobertura completa del prototipo es **8/24 = 33,3 %**.
+
+> ⚠️ **La §3.6 de la guía exige al menos el 60 %. El prototipo no alcanza ese
+> umbral.** La versión anterior de este README declaraba 9/19 = 47,4 %, cifra
+> corregida formalmente durante PE5. Se conserva la cifra auditada aunque sea
+> menos favorable.
 
 ## Funcionalidades simuladas
 
@@ -129,7 +140,7 @@ React · Vite · Tailwind CSS · Radix UI · Recharts · Lucide
 
 ## Trabajo pendiente para la Entrega 4
 
-1. Incorporar RF-10, RF-26 y RF-35 — los tres son de implementación acotada y elevarían la cobertura por encima del 60 %
+1. Aumentar la cobertura de requisitos *Must*. Con 8 implementados de 21 se requieren al menos 13 completos para alcanzar el 60 % sobre el alcance de construcción del prototipo; frente al catálogo vigente de 24 se requieren al menos 15.
 2. Corregir las desviaciones `D-01` a `D-03`
 3. Conectar un servicio de respaldo real en sustitución del almacenamiento local
 4. Construir el conjunto de datos etiquetado del cultivo para sustituir la simulación de RF-07

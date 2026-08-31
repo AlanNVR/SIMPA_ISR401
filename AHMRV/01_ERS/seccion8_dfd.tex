@@ -1,0 +1,248 @@
+% =====================================================================
+%  seccion8_dfd.tex — Diagramas de flujo de datos del SIMPA
+%  Notación Yourdon–DeMarco. Se incorpora en la PE5 (Unidad V) para
+%  completar la cadena de trazabilidad extremo a extremo, que exige
+%  enlazar cada requisito con el proceso del DFD que lo realiza.
+%
+%  Requiere en el preámbulo:
+%     \usepackage{tikz}
+%     \usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fit}
+% =====================================================================
+
+\section{Diagramas de flujo de datos}
+\label{sec:dfd}
+
+Los modelos UML de la §4 describen el sistema desde la estructura y el comportamiento. Los diagramas
+de flujo de datos que siguen lo describen desde la circulación de la información: qué datos entran,
+qué proceso los transforma, dónde se almacenan y qué sale del sistema. Se emplea la notación de
+Yourdon--DeMarco, en la que los procesos son círculos numerados, las entidades externas rectángulos,
+los almacenes rectángulos abiertos y los flujos flechas rotuladas con el dato que transportan.
+
+La razón de incorporarlos es la trazabilidad: la cadena extremo a extremo exigida por la Unidad~V
+enlaza cada requisito funcional con el proceso del DFD que lo realiza, y sin este modelo esa columna
+de la matriz quedaría vacía. Los procesos del nivel~1 se derivan de los siete bloques funcionales de
+la §3.2, de modo que la correspondencia entre bloque, proceso y requisito es directa y verificable.
+
+% ---------------------------------------------------------------------
+\subsection{Convenciones de notación}
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Notación empleada en los diagramas de flujo de datos}
+\label{tab:notacion-dfd}
+\begin{tabular}{|L{3.2cm}|L{3.4cm}|L{8.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Elemento} & \textbf{Representación} & \textbf{Significado en el SIMPA}\\ \hline
+Proceso & Círculo numerado (\id{P-XX}) & Transformación de datos que el sistema ejecuta. Cada proceso corresponde a un bloque funcional de la §3.2.\\ \hline
+Entidad externa & Rectángulo & Origen o destino de datos situado fuera de la frontera del sistema: personas con un rol y organizaciones o servicios de terceros.\\ \hline
+Almacén de datos & Rectángulo abierto (\id{D-XX}) & Depósito persistente de información. Se corresponde con una o varias clases del modelo de dominio de la §4.\\ \hline
+Flujo de datos & Flecha rotulada & Dato concreto que circula. El rótulo nombra el dato, nunca la acción.\\ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+Los identificadores de proceso siguen el formato \id{P-XX} y los de almacén \id{D-XX}. Ambos se
+emplean como valores de la columna correspondiente en la matriz de trazabilidad final.
+
+% ---------------------------------------------------------------------
+\subsection{DFD de nivel 0 --- diagrama de contexto}
+
+El nivel 0 fija la frontera del sistema. El SIMPA aparece como un único proceso y solo se representan
+los intercambios con el exterior. Las cuatro entidades externas son las clases de usuario declaradas
+en la §2.3 --- agrupadas por su relación con el flujo de datos, no por su cargo --- y la planta
+extractora, que es la única organización externa que intercambia información con el sistema.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  ent/.style={draw, thick, rectangle, minimum width=2.9cm, minimum height=1.0cm, align=center, fill=gray!8},
+  sis/.style={draw, thick, circle, minimum size=3.3cm, align=center, fill=gray!15},
+  flujo/.style={-{Stealth[length=2mm]}, thick},
+  rot/.style={font=\scriptsize, align=center, inner sep=1pt}
+]
+\node[sis] (s) at (0,0) {\textbf{0}\\[2pt] SIMPA\\ Sistema Inteligente\\ de Mantenimiento\\ de Palma Africana};
+
+\node[ent] (adm) at (-6.4, 2.6) {Administración\\ \scriptsize(propietario, administrador,\\ \scriptsize asistente)};
+\node[ent] (tra) at (-6.4,-2.6) {Personal de campo\\ \scriptsize(trabajador agrícola,\\ \scriptsize jefe de polinización)};
+\node[ent] (ext) at ( 6.4, 2.6) {Planta extractora};
+\node[ent] (ase) at ( 6.4,-2.6) {Asesoría técnica};
+
+% Administración
+\draw[flujo] (adm.east) to[out=0,in=150]
+  node[rot,above,pos=0.55]{plan semanal de labores,\\ catálogo de tarifas,\\ altas de lotes y personal} (s.150);
+\draw[flujo] (s.170) to[out=170,in=-20]
+  node[rot,below,pos=0.45]{reportes, estimación\\ de producción,\\ liquidación semanal} (adm.south east);
+
+% Personal de campo
+\draw[flujo] (tra.east) to[out=0,in=-150]
+  node[rot,below,pos=0.55]{registro de avance,\\ fotografía de incidencia,\\ marcación GPS} (s.210);
+\draw[flujo] (s.190) to[out=190,in=20]
+  node[rot,above,pos=0.45]{labores asignadas,\\ alertas, avance\\ acumulado propio} (tra.north east);
+
+% Planta extractora
+\draw[flujo] (ext.west) to[out=180,in=30]
+  node[rot,above,pos=0.55]{calificación de calidad,\\ ticket de recepción} (s.30);
+\draw[flujo] (s.10) to[out=10,in=200]
+  node[rot,below,pos=0.45]{estimación de cosecha,\\ guía de remisión} (ext.south west);
+
+% Asesoría técnica
+\draw[flujo] (ase.west) to[out=180,in=-30]
+  node[rot,below,pos=0.55]{fichas técnicas de plaga,\\ análisis de suelo y foliar} (s.330);
+\draw[flujo] (s.350) to[out=350,in=160]
+  node[rot,above,pos=0.45]{diagnósticos e\\ historial fitosanitario} (ase.north west);
+\end{tikzpicture}
+\caption{DFD de nivel 0 --- diagrama de contexto del SIMPA.}
+\label{fig:dfd0}
+\end{figure}
+
+\noindent
+\textbf{Lectura del diagrama.} El sistema no intercambia datos con ningún servicio externo de
+inferencia en este nivel porque el análisis de imagen se ejecuta dentro de la frontera del sistema,
+conforme a \id{RD-05}. La asesoría técnica aparece como entidad externa y no como usuario del
+sistema porque su intervención es consultiva: aporta las fichas técnicas que alimentan \id{RF-09} y
+recibe los diagnósticos, pero no opera la aplicación.
+
+% ---------------------------------------------------------------------
+\subsection{DFD de nivel 1 --- descomposición funcional}
+
+El nivel 1 descompone el proceso 0 en siete procesos, uno por bloque funcional de la §3.2. La
+correspondencia es intencionada: permite que la columna de proceso de la matriz de trazabilidad se
+derive del bloque en que el propio ERS ubica cada requisito, sin introducir una clasificación nueva.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  font=\scriptsize,
+  proc/.style={draw, thick, circle, minimum size=2.15cm, align=center, fill=gray!15, inner sep=0pt},
+  ent/.style={draw, thick, rectangle, minimum width=2.5cm, minimum height=1.0cm, align=center, fill=gray!8},
+  alm/.style={draw, thick, rectangle, minimum width=3.5cm, minimum height=0.62cm, align=center, fill=white, font=\tiny},
+  flujo/.style={-{Stealth[length=1.8mm]}, semithick},
+  rot/.style={font=\tiny, align=center, inner sep=1.5pt, fill=white, fill opacity=0.85, text opacity=1}
+]
+% ============ columna 1: entidades externas ============
+\node[ent] (adm) at (0, 10.4) {Administración};
+\node[ent] (tra) at (0,  6.0) {Personal\\ de campo};
+\node[ent] (ase) at (0,  2.6) {Asesoría\\ técnica};
+\node[ent] (ext) at (0, -1.4) {Planta\\ extractora};
+
+% ============ columna 2: procesos ============
+\node[proc] (p1) at (5.0, 12.2) {\textbf{P-01}\\ Estructura\\ productiva};
+\node[proc] (p2) at (5.0,  9.4) {\textbf{P-02}\\ Planificación\\ y liquidación};
+\node[proc] (p3) at (5.0,  6.6) {\textbf{P-03}\\ Registro\\ de campo};
+\node[proc] (p4) at (5.0,  3.8) {\textbf{P-04}\\ Polinización\\ asistida};
+\node[proc] (p5) at (5.0,  1.0) {\textbf{P-05}\\ Diagnóstico\\ por IA};
+\node[proc] (p6) at (5.0, -1.8) {\textbf{P-06}\\ Calidad y\\ despacho};
+\node[proc] (p7) at (5.0, -4.6) {\textbf{P-07}\\ Reportes e\\ histórico};
+
+% ============ columna 3: almacenes ============
+\node[alm] (d1) at (10.6, 12.2) {\id{D-01} Estructura productiva};
+\node[alm] (d2) at (10.6,  9.4) {\id{D-02} Plan y liquidación};
+\node[alm] (d3) at (10.6,  6.6) {\id{D-03} Registros de campo};
+\node[alm] (d4) at (10.6,  3.8) {\id{D-04} Polinización};
+\node[alm] (d5) at (10.6,  1.0) {\id{D-05} Diagnósticos};
+\node[alm] (d6) at (10.6, -1.8) {\id{D-06} Calidad y despachos};
+\node[alm] (d7) at (10.6, -4.6) {\id{D-07} Histórico y bitácora};
+
+% ============ entidad -> proceso ============
+\draw[flujo] (adm) to[out=20,in=175]  node[rot,pos=0.55,above]{altas de lotes,\\ variedades y personal} (p1.west);
+\draw[flujo] (adm) to[out=-20,in=170] node[rot,pos=0.55,below]{plan semanal,\\ tarifas} (p2.west);
+\draw[flujo] (tra) to[out=15,in=190]  node[rot,pos=0.55,above]{avance,\\ incidencia con foto} (p3.west);
+\draw[flujo] (tra) to[out=-25,in=175] node[rot,pos=0.55,below]{conteo de flores,\\ recorrido GPS} (p4.west);
+\draw[flujo] (ase) to[out=-15,in=178] node[rot,pos=0.55,below]{fichas técnicas\\ de plaga} (p5.west);
+\draw[flujo] (ext) to[out=-10,in=182] node[rot,pos=0.55,below]{calificación\\ de calidad} (p6.west);
+
+% ============ proceso -> entidad ============
+\draw[flujo] (p7.west) to[out=175,in=-45] node[rot,pos=0.4,left]{reportes,\\ estimación} (adm.south);
+\draw[flujo] (p5.north west) to[out=150,in=-35] node[rot,pos=0.5,right]{alertas} (tra.south east);
+\draw[flujo] (p6.south west) to[out=200,in=-20] node[rot,pos=0.5,below]{guía de\\ remisión} (ext.east);
+
+% ============ proceso <-> almacen ============
+\foreach \p/\d/\lbl in {p1/d1/{lotes, palmas}, p2/d2/{presupuesto}, p3/d3/{avance, clima},
+                        p4/d4/{conteo GPS}, p5/d5/{diagnóstico}, p6/d6/{calificación}, p7/d7/{evento}}
+  \draw[flujo] (\p.east) -- node[rot,above]{\lbl} (\d.west);
+
+% ============ flujos entre procesos ============
+\draw[flujo] (p1.south west) to[out=250,in=110] node[rot,pos=0.5,left]{lote,\\ variedad} (p2.north west);
+\draw[flujo] (p2.south west) to[out=250,in=110] node[rot,pos=0.5,left]{labor\\ asignada} (p3.north west);
+\draw[flujo] (p3.south west) to[out=250,in=110] node[rot,pos=0.5,left]{jornada\\ registrada} (p4.north west);
+\draw[flujo] (p3.south east) to[out=290,in=70]  node[rot,pos=0.5,right]{imagen\\ capturada} (p5.north east);
+\draw[flujo] (p5.south east) to[out=290,in=70]  node[rot,pos=0.5,right]{grado de\\ madurez} (p6.north east);
+\draw[flujo] (p6.south west) to[out=250,in=110] node[rot,pos=0.5,left]{calidad\\ del lote} (p7.north west);
+\draw[flujo] (p3.west) to[out=200,in=160] node[rot,pos=0.5,left]{avance\\ ejecutado} (p7.west);
+\end{tikzpicture}
+\caption{DFD de nivel 1 --- descomposición del SIMPA en siete procesos.}
+\label{fig:dfd1}
+\end{figure}
+
+% ---------------------------------------------------------------------
+\subsection{Diccionario de procesos}
+
+\begin{longtable}{|C{1.5cm}|L{3.4cm}|L{5.0cm}|L{5.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Proceso} & \textbf{Transformación que realiza} & \textbf{Requisitos que lo realizan}\\ \hline
+\endfirsthead
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Proceso} & \textbf{Transformación} & \textbf{Requisitos}\\ \hline
+\endhead
+\id{P-01} & Gestión de la estructura productiva & Convierte las altas y bajas declaradas por la administración en el catálogo vigente de lotes, palmas, variedades, personal y credenciales de acceso. & \id{RF-01}, \id{RF-02}, \id{RF-03}, \id{RF-10}, \id{RF-40} a \id{RF-42}\\ \hline
+\id{P-02} & Planificación y liquidación de labores & Convierte el plan semanal y el catálogo de tarifas, contrastados con el avance registrado, en el presupuesto de la semana y en la liquidación aprobada. & \id{RF-26}, \id{RF-27}, \id{RF-34} a \id{RF-39}\\ \hline
+\id{P-03} & Registro operativo de campo & Convierte las observaciones y marcaciones que el personal captura en el lote en registros persistentes de avance, monitoreo fitosanitario, análisis y clima. & \id{RF-04} a \id{RF-06}, \id{RF-11}, \id{RF-17}, \id{RF-28} a \id{RF-31}\\ \hline
+\id{P-04} & Polinización asistida & Convierte las marcaciones georreferenciadas del recorrido de polinización en conteos agregados por línea de siembra y en indicadores de desempeño del personal. & \id{RF-13} a \id{RF-16}\\ \hline
+\id{P-05} & Diagnóstico asistido por IA & Convierte la imagen capturada en campo en un diagnóstico de plaga, deficiencia nutricional o grado de madurez, y en la alerta dirigida al rol responsable. & \id{RF-07} a \id{RF-09}, \id{RF-12}, \id{RF-21}\\ \hline
+\id{P-06} & Calidad de la fruta y despacho & Convierte la estimación de fruta verde y la calificación emitida por la extractora en la trazabilidad de la penalización hasta la cuadrilla y en el control de la ventana corte--entrega. & \id{RF-22} a \id{RF-25}, \id{RF-33}\\ \hline
+\id{P-07} & Reportes, estimación e histórico & Convierte los registros acumulados en estimaciones de producción, reportes por período e historial consultable de actividades y eventos. & \id{RF-18} a \id{RF-20}, \id{RF-32}\\ \hline
+\caption{Diccionario de procesos del DFD de nivel 1}
+\label{tab:dicc-procesos}
+\end{longtable}
+
+% ---------------------------------------------------------------------
+\subsection{Diccionario de almacenes de datos}
+
+\begin{longtable}{|C{1.5cm}|L{3.6cm}|L{5.6cm}|L{4.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Almacén} & \textbf{Contenido} & \textbf{Procesos que lo usan}\\ \hline
+\endfirsthead
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Almacén} & \textbf{Contenido} & \textbf{Procesos}\\ \hline
+\endhead
+\id{D-01} & Estructura productiva & Plantaciones, lotes, palmas, variedades, personal, equipos de trabajo y credenciales. & \id{P-01} (escribe); \id{P-02} a \id{P-07} (leen)\\ \hline
+\id{D-02} & Plan y liquidación & Plan semanal de labores, catálogo codificado de labores con tarifa, presupuesto, arrastres y liquidaciones aprobadas. & \id{P-02} (escribe); \id{P-03}, \id{P-07} (leen)\\ \hline
+\id{D-03} & Registros de campo & Registros de labor, avance por unidad, monitoreo fitosanitario, análisis de suelo y foliar, datos climáticos e incidencias con evidencia fotográfica. & \id{P-03} (escribe); \id{P-05}, \id{P-07} (leen)\\ \hline
+\id{D-04} & Polinización & Registros del proceso de polinización, conteos georreferenciados por línea de siembra y recorridos del personal. & \id{P-04} (escribe); \id{P-07} (lee)\\ \hline
+\id{D-05} & Diagnósticos & Diagnósticos de plaga, deficiencia nutricional y madurez, fichas técnicas de control y alertas con su estado. & \id{P-05} (escribe); \id{P-06}, \id{P-07} (leen)\\ \hline
+\id{D-06} & Calidad y despachos & Estimaciones de fruta verde, calificaciones emitidas por la extractora, guías de remisión y ventanas corte--entrega. & \id{P-06} (escribe); \id{P-07} (lee)\\ \hline
+\id{D-07} & Histórico y bitácora & Historial de actividades, diagnósticos y eventos; bitácora de accesos y de rectificaciones exigida por la LOPDP. & \id{P-07} (escribe); \id{P-01} (escribe la bitácora); todos (leen)\\ \hline
+\caption{Diccionario de almacenes de datos}
+\label{tab:dicc-almacenes}
+\end{longtable}
+
+% ---------------------------------------------------------------------
+\subsection{Correspondencia entre el DFD y los modelos UML}
+
+Los dos modelos describen el mismo sistema desde perspectivas complementarias, y la tabla siguiente
+declara su correspondencia para que la matriz de trazabilidad pueda recorrerse en cualquiera de las
+dos direcciones sin ambigüedad.
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Correspondencia entre procesos del DFD, bloques funcionales y módulos}
+\label{tab:dfd-uml}
+\begin{tabular}{|C{1.4cm}|L{4.4cm}|L{4.0cm}|L{4.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Proceso} & \textbf{Bloque funcional (§3.2)} & \textbf{Módulo (§4)} & \textbf{Casos de uso principales}\\ \hline
+\id{P-01} & Bloque I & M-01 & \id{CU-11}, \id{CU-13}\\ \hline
+\id{P-02} & Bloque II & M-02 & \id{CU-07}, \id{CU-08}\\ \hline
+\id{P-03} & Bloque III & M-03 & \id{CU-04}, \id{CU-09}\\ \hline
+\id{P-04} & Bloque IV & M-04 & \id{CU-03}\\ \hline
+\id{P-05} & Bloque V & M-05 & \id{CU-01}, \id{CU-02}, \id{CU-06}, \id{CU-18}\\ \hline
+\id{P-06} & Bloque VI & M-06 & \id{CU-10}, \id{CU-14}\\ \hline
+\id{P-07} & Bloque VII & M-07 & \id{CU-05}, \id{CU-17}\\ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+La equivalencia entre proceso, bloque y módulo es uno a uno por construcción. No es una coincidencia
+del dominio: se adoptó deliberadamente para que la introducción del DFD en esta versión no obligue a
+reclasificar ningún requisito ya especificado, y para que un cambio en un requisito se propague por
+una sola ruta en la matriz de trazabilidad.

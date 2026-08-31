@@ -38,3 +38,6 @@ RF-15;Should;Desempeno;5;3;5;5;2.6;"Supervision de cobertura; el 25,8% del perso
 RF-06;Should;Indiferente;3;2;2;3;2.33;"Util para planificacion; no bloquea la operacion inicial."
 RF-08;Must;Deleite;8;5;5;8;2.25;"Alto valor tecnico; el diagnostico nutricional admite mayor demora que el sanitario."
 RF-16;Should;Desempeno;5;3;3;5;2.2;Depende de datos ya capturados por RF-14 y RF-28.
+RF-40;Must;;;;;;;Requisito incorporado por RFC-03 para cumplir RL-04, Art. 12 LOPDP: derecho de acceso y exportacion de datos personales. PE5 no asigno puntuacion WSJF/Kano posterior al CCB.
+RF-41;Must;;;;;;;Requisito incorporado por RFC-03 para cumplir RL-05, Art. 13 LOPDP: derecho de rectificacion con conservacion en bitacora. PE5 no asigno puntuacion WSJF/Kano posterior al CCB.
+RF-42;Must;;;;;;;Requisito incorporado por RFC-03 para cumplir RL-06, Art. 14 LOPDP: supresion de datos personales con disociacion del historico productivo. PE5 no asigno puntuacion WSJF/Kano posterior al CCB.

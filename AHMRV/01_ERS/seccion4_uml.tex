@@ -1,6 +1,6 @@
 % =====================================================================
 %  SECCION 4 -- MODELADO DEL SISTEMA CON UML
-%  Se incluye desde ERS_SRS_2A_v1.0.tex mediante \input{seccion4_uml}
+%  Se incluye desde ERS_SRS_2B_v2.0.tex mediante \input{seccion4_uml}
 %  Requiere las imagenes en img/ generadas desde 03_Modelado/Diagramas_UML/
 % =====================================================================
 
@@ -117,12 +117,13 @@ principal, al menos un flujo alternativo y al menos una excepción.
 \hline
 \rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-05 --- Generar reporte}}\\
 \hline
-\textbf{Requisitos} & \id{RF-19}, \id{RF-26} \\ \hline
+\textbf{Requisitos} & \id{RF-16}, \id{RF-17}, \id{RF-19}, \id{RF-20}, \id{RF-26} \\ \hline
 \textbf{Actores} & Primario: administrador general. \\ \hline
 \textbf{Precondición} & Existen registros en el período seleccionado. \\ \hline
 \textbf{Postcondición} & El reporte queda disponible para consulta o exportación. \\ \hline
 \textbf{Flujo principal} & 1. La persona administradora selecciona el tipo de reporte y el período. \newline 2. El sistema consolida labores, avance, producción y alertas del período. \newline 3. El sistema genera y presenta el reporte. \newline 4. La persona administradora lo consulta o lo exporta a PDF o a hoja de cálculo. \\ \hline
 \textbf{Flujo alternativo A} & Filtrado por lote, por equipo o por persona trabajadora. \\ \hline
+\textbf{Flujo alternativo C} & \emph{Reporte de desempeño e historial.} El sistema presenta el indicador de desempeño por persona (\id{RF-16}), el historial de actividades y eventos del lote (\id{RF-20}) y la información climática asociada al período (\id{RF-17}). \\ \hline
 \textbf{Flujo alternativo B} & \emph{Reporte de cumplimiento semanal.} El sistema contrasta el plan de la semana con lo ejecutado y destaca las metas no alcanzadas y su remanente. \\ \hline
 \textbf{Excepción E1} & Sin registros en el período: el sistema informa la ausencia de datos y propone un período alternativo con información disponible. \\ \hline
 \caption{CU-05 --- Generar reporte}
@@ -213,6 +214,19 @@ principal, al menos un flujo alternativo y al menos una excepción.
 \textbf{Excepción E2} & La suma de pesos es inconsistente (neto distinto de bruto menos tara): el sistema rechaza el registro e indica la inconsistencia. \\ \hline
 \caption{CU-10 --- Registrar la calificación de la planta extractora}
 \end{longtable}
+
+% ---------------------------------------------------------------------
+%  CU-11 a CU-18 --- especificados en la PE5 para cerrar la métrica M1b
+% ---------------------------------------------------------------------
+\noindent
+Los ocho casos de uso que siguen existían como nodo del diagrama general desde la Entrega 2A, pero
+carecían de especificación textual. La auditoría de calidad de la Unidad~V lo detectó al medir la
+métrica M1b ---casos de uso especificados sobre casos de uso identificados---, que arrojaba un
+55,6\,\% frente al 100\,\% exigido. Su especificación cierra esa brecha y, al hacerlo, completa el
+eslabón de caso de uso de la cadena de trazabilidad para los requisitos que solo aparecían en el
+diagrama.
+
+\input{cu_11_18}
 
 % ---------------------------------------------------------------------
 \subsection{Diagrama de clases refinado}

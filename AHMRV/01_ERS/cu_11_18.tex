@@ -1,0 +1,139 @@
+% =====================================================================
+%  Especificación de CU-11 a CU-18 — incorporada en la PE5 para cerrar
+%  la métrica M1b (casos de uso especificados / identificados).
+%  Se anexa a seccion4_uml.tex con el mismo formato de CU-01 a CU-10.
+% =====================================================================
+
+% --- CU-11
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-11 --- Autenticar e iniciar sesión con control de acceso por rol}}\\
+\hline
+\textbf{Requisitos} & \id{RF-01}, \id{RNF-13}, \id{RNF-14} \\ \hline
+\textbf{Actores} & Primario: cualquier persona usuaria del sistema. \\ \hline
+\textbf{Precondición} & La persona usuaria tiene credenciales activas y un rol asignado en \id{CU-13}. \\ \hline
+\textbf{Postcondición} & La sesión queda abierta con el conjunto de permisos del rol, y el acceso queda registrado en la bitácora. \\ \hline
+\textbf{Flujo principal} & 1. La persona usuaria introduce su identificador y su contraseña. \newline 2. El sistema verifica la credencial contra el valor derivado almacenado (\id{RNF-13}). \newline 3. El sistema recupera el rol asignado y compone el conjunto de permisos. \newline 4. El sistema abre la sesión y presenta únicamente las funciones autorizadas para ese rol. \newline 5. El sistema registra el acceso con marca temporal en la bitácora. \\ \hline
+\textbf{Flujo alternativo A} & \emph{Sesión sin conectividad.} Si el dispositivo no tiene señal, el sistema valida contra la credencial almacenada localmente en el último inicio correcto y habilita únicamente las funciones de registro sin sincronización (\id{RD-02}). \\ \hline
+\textbf{Excepción E1} & Credencial incorrecta: el sistema deniega el acceso sin indicar cuál de los dos campos falló y registra el intento. \\ \hline
+\textbf{Excepción E2} & Persona sin rol asignado: el sistema deniega el acceso e informa que debe solicitar la asignación a la administración. \\ \hline
+\textbf{Inclusión} & Es incluido obligatoriamente por \id{CU-03}, \id{CU-04} y \id{CU-14}, que presuponen sesión autenticada. \\ \hline
+\caption{CU-11 --- Autenticar e iniciar sesión con control de acceso por rol}
+\end{longtable}
+
+% --- CU-12
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-12 --- Gestionar la plantación, sus lotes y las variedades sembradas}}\\
+\hline
+\textbf{Requisitos} & \id{RF-02}, \id{RF-06}, \id{RF-10} \\ \hline
+\textbf{Actores} & Primario: administrador general. Secundario: asesoría técnica, que aporta los parámetros agronómicos de la variedad. \\ \hline
+\textbf{Precondición} & Sesión iniciada con rol de administración. \\ \hline
+\textbf{Postcondición} & El catálogo de lotes, superficies, variedades y etapas del cultivo queda actualizado y disponible para el resto de los procesos. \\ \hline
+\textbf{Flujo principal} & 1. La administración selecciona la opción de gestión de la estructura productiva. \newline 2. Registra o modifica el lote indicando superficie, número de palmas y fecha de siembra. \newline 3. Asocia el lote a una variedad del catálogo. \newline 4. El sistema deriva la etapa del cultivo a partir de la fecha de siembra y de los umbrales de la variedad (\id{RF-06}). \newline 5. El sistema valida que la superficie declarada y el número de palmas sean coherentes con el marco de siembra registrado. \newline 6. El sistema persiste el cambio y lo propaga al catálogo consultable por los demás procesos. \\ \hline
+\textbf{Flujo alternativo A} & \emph{Alta de variedad.} Si la variedad no existe en el catálogo, la administración la registra indicando su ventana de corte-entrega y sus umbrales de madurez antes de asociarla al lote (\id{RF-10}). \\ \hline
+\textbf{Excepción E1} & Lote con registros de labor asociados: el sistema impide eliminarlo y ofrece marcarlo como inactivo, para no romper la trazabilidad del histórico. \\ \hline
+\textbf{Excepción E2} & Variedad sin ventana de corte-entrega configurada: el sistema permite el alta pero advierte que \id{RF-25} no podrá emitir advertencia para los lotes de esa variedad. \\ \hline
+\caption{CU-12 --- Gestionar la plantación, sus lotes y las variedades sembradas}
+\end{longtable}
+
+% --- CU-13
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-13 --- Gestionar el personal y los derechos sobre sus datos personales}}\\
+\hline
+\textbf{Requisitos} & \id{RF-03}, \id{RF-40}, \id{RF-41}, \id{RF-42}, \id{RNF-14} \\ \hline
+\textbf{Actores} & Primario: administrador general. Secundario: persona trabajadora, en su condición de titular de los datos. \\ \hline
+\textbf{Precondición} & Sesión iniciada. Las operaciones de exportación las inicia la propia persona titular; las de rectificación y supresión, la administración. \\ \hline
+\textbf{Postcondición} & El registro de personal queda actualizado y toda operación sobre datos personales queda asentada en la bitácora con autor, fecha y motivo. \\ \hline
+\textbf{Flujo principal} & 1. La administración registra a la persona trabajadora con sus datos identificativos, de contacto y de vinculación. \newline 2. Asigna rol de acceso y equipo de trabajo. \newline 3. El sistema persiste el registro y habilita las credenciales de \id{CU-11}. \\ \hline
+\textbf{Flujo alternativo A} & \emph{Derecho de acceso (\id{RF-40}, Art.~12 LOPDP).} La persona titular autenticada solicita la exportación de sus datos; el sistema genera un archivo estructurado con la totalidad de los datos personales que conserva sobre ella y registra la solicitud en la bitácora. \\ \hline
+\textbf{Flujo alternativo B} & \emph{Derecho de rectificación (\id{RF-41}, Art.~13 LOPDP).} La administración corrige un dato indicando el motivo; el sistema actualiza el valor y conserva el anterior en la bitácora de forma no eliminable. \\ \hline
+\textbf{Flujo alternativo C} & \emph{Derecho de eliminación (\id{RF-42}, Art.~14 LOPDP).} Terminada la relación laboral, la administración ejecuta la supresión; el sistema hace irrecuperables los datos identificativos y de contacto, y sustituye el identificador por uno disociado que conserva el histórico productivo del lote. \\ \hline
+\textbf{Excepción E1} & Supresión sobre una relación laboral que no consta como terminada: el sistema la rechaza e indica la condición incumplida. \\ \hline
+\textbf{Excepción E2} & Intento de borrar una entrada de bitácora: la interfaz no expone la operación y el sistema la rechaza en la capa de servicio. \\ \hline
+\caption{CU-13 --- Gestionar el personal y los derechos sobre sus datos personales}
+\end{longtable}
+
+% --- CU-14
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-14 --- Registrar el avance por unidad de labor}}\\
+\hline
+\textbf{Requisitos} & \id{RF-28}, \id{RF-29}, \id{RF-38}, \id{RNF-08}, \id{RNF-11} \\ \hline
+\textbf{Actores} & Primario: persona trabajadora agrícola. Secundario: jefe de campo, cuando el registro es delegado (\id{RF-35}). \\ \hline
+\textbf{Precondición} & Sesión iniciada y labor previamente registrada mediante \id{CU-04}. \\ \hline
+\textbf{Postcondición} & El avance queda asociado a la persona, al lote, a la labor y a la fecha, y alimenta el cálculo de la liquidación semanal. \\ \hline
+\textbf{Flujo principal} & 1. La persona trabajadora selecciona la labor asignada de la jornada. \newline 2. Introduce la cantidad ejecutada en la unidad propia de esa labor. \newline 3. El sistema valida que la cantidad sea positiva y no exceda la meta planificada sin justificación. \newline 4. El sistema persiste el avance en el dispositivo y lo encola para sincronización. \newline 5. Al sincronizar, el sistema actualiza el acumulado de la persona y su remuneración estimada (\id{RF-29}). \\ \hline
+\textbf{Flujo alternativo A} & \emph{Labor no presupuestada.} Si la labor ejecutada no consta en el plan de la semana, se registra por \id{RF-38} indicando el motivo, y queda marcada como fuera de presupuesto para la liquidación. \\ \hline
+\textbf{Flujo alternativo B} & \emph{Registro delegado.} Si la persona no dispone de dispositivo propio, el jefe de campo registra el avance en su nombre; la bitácora conserva la identificación de quien registra (\id{RF-35}). \\ \hline
+\textbf{Excepción E1} & Conflicto de sincronización: dos registros de la misma persona, labor y fecha se resuelven por la política declarada en \id{RNF-11}, y el descartado queda en la bitácora de conflicto. \\ \hline
+\textbf{Inclusión} & Incluye a \id{CU-04}, dado que el registro de avance presupone una labor registrada. \\ \hline
+\caption{CU-14 --- Registrar el avance por unidad de labor}
+\end{longtable}
+
+% --- CU-15
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-15 --- Registrar el monitoreo fitosanitario del lote}}\\
+\hline
+\textbf{Requisitos} & \id{RF-05}, \id{RF-11}, \id{RNF-05} \\ \hline
+\textbf{Actores} & Primario: asistente de administración o persona trabajadora designada. Secundario: asesoría técnica. \\ \hline
+\textbf{Precondición} & Sesión iniciada y lote seleccionado. \\ \hline
+\textbf{Postcondición} & La observación fitosanitaria queda registrada con su fecha, su ubicación y su nivel de incidencia, y pasa a formar parte del histórico del lote. \\ \hline
+\textbf{Flujo principal} & 1. La persona usuaria selecciona el lote y la opción de monitoreo. \newline 2. Registra la plaga o enfermedad observada, el número de palmas afectadas y el nivel de incidencia. \newline 3. El sistema captura la ubicación con la precisión admitida por \id{RNF-05}. \newline 4. El sistema calcula el porcentaje de afectación sobre el total de palmas del lote. \newline 5. El sistema persiste el registro y lo pone a disposición del histórico y de las alertas. \\ \hline
+\textbf{Flujo alternativo A} & \emph{Registro de análisis de laboratorio.} El asistente registra los resultados de análisis de suelo o foliar del lote, con sus valores de nitrógeno, fósforo, potasio y elementos menores (\id{RF-11}). \\ \hline
+\textbf{Excepción E1} & Número de palmas afectadas superior al total registrado para el lote: el sistema rechaza el dato y solicita revisar el censo del lote. \\ \hline
+\textbf{Extensión} & Si el porcentaje de afectación supera el umbral configurado, se extiende con \id{CU-16} para generar la alerta correspondiente. \\ \hline
+\caption{CU-15 --- Registrar el monitoreo fitosanitario del lote}
+\end{longtable}
+
+% --- CU-16
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-16 --- Generar alerta temprana}}\\
+\hline
+\textbf{Requisitos} & \id{RF-12}, \id{RNF-09} \\ \hline
+\textbf{Actores} & Primario: el propio sistema, que actúa sin intervención humana. Secundario: el rol responsable de atender la alerta. \\ \hline
+\textbf{Precondición} & Se ha producido alguno de los cuatro disparadores enumerados en \id{RF-12}. \\ \hline
+\textbf{Postcondición} & La alerta queda registrada en estado abierto, asociada al lote y al disparador que la originó, y visible para el rol responsable hasta su atención. \\ \hline
+\textbf{Flujo principal} & 1. Un proceso del sistema produce una condición que coincide con un disparador de \id{RF-12}. \newline 2. El sistema determina el tipo de alerta y su criticidad. \newline 3. El sistema identifica el rol responsable de atenderla según el tipo. \newline 4. El sistema crea la alerta con estado abierto y marca temporal. \newline 5. El sistema la presenta al rol responsable en su panel y, si hay conectividad, la notifica. \\ \hline
+\textbf{Flujo alternativo A} & \emph{Sin conectividad.} La alerta se crea localmente y la notificación se encola; al restablecerse la conexión se emite sin duplicar la alerta ya creada. \\ \hline
+\textbf{Flujo alternativo B} & \emph{Alerta equivalente ya abierta.} Si existe una alerta abierta del mismo tipo para el mismo lote, el sistema no crea una nueva: incrementa su contador de ocurrencias y actualiza su marca temporal. \\ \hline
+\textbf{Excepción E1} & Ningún rol asignado para el tipo de alerta: se dirige por defecto a la administración general y se registra la incidencia de configuración. \\ \hline
+\textbf{Extensión} & Extiende a \id{CU-01}, \id{CU-02}, \id{CU-06} y \id{CU-15} cuando el resultado de estos es positivo o supera el umbral. \\ \hline
+\caption{CU-16 --- Generar alerta temprana}
+\end{longtable}
+
+% --- CU-17
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-17 --- Estimar la producción y compartirla con la planta extractora}}\\
+\hline
+\textbf{Requisitos} & \id{RF-18}, \id{RF-32}, \id{RNF-04} \\ \hline
+\textbf{Actores} & Primario: administrador general. Secundario: técnico de la planta extractora, como destinatario de la estimación. Interesado: propietario de la organización, como destinatario del resultado. \\ \hline
+\textbf{Precondición} & Existe al menos un censo del lote registrado en los seis meses previos. \\ \hline
+\textbf{Postcondición} & La estimación queda disponible con su margen de error declarado y, si se comparte, con constancia del envío y de su destinatario. \\ \hline
+\textbf{Flujo principal} & 1. La administración selecciona el lote y el período de estimación. \newline 2. El sistema recupera el censo más reciente, la variedad y el histórico de producción del lote. \newline 3. El sistema calcula la estimación y su margen de error. \newline 4. El sistema presenta el resultado acompañado siempre del margen, nunca como cifra aislada. \\ \hline
+\textbf{Flujo alternativo A} & \emph{Compartición con la extractora.} La administración autoriza el envío de la estimación agregada a la planta extractora; el sistema transmite únicamente el volumen estimado y la fecha prevista, sin datos de personal ni de costos (\id{RF-32}). \\ \hline
+\textbf{Excepción E1} & Censo con más de seis meses de antigüedad: el sistema no calcula la estimación e indica que debe actualizarse el censo. \\ \hline
+\textbf{Excepción E2} & Desviación superior al margen declarado al contrastar con la producción real: el sistema registra una incidencia de calibración del modelo de estimación. \\ \hline
+\caption{CU-17 --- Estimar la producción y compartirla con la planta extractora}
+\end{longtable}
+
+% --- CU-18
+\begin{longtable}{|L{3.4cm}|L{12.0cm}|}
+\hline
+\rowcolor{grisclaro}\multicolumn{2}{|l|}{\textbf{CU-18 --- Explicar una decisión automática del sistema}}\\
+\hline
+\textbf{Requisitos} & \id{RNF-16}, \id{RNF-19} \\ \hline
+\textbf{Actores} & Primario: la persona usuaria destinataria de la decisión automática. \\ \hline
+\textbf{Precondición} & El sistema ha emitido una clasificación, un diagnóstico o una recomendación producida por un componente de inteligencia artificial. \\ \hline
+\textbf{Postcondición} & La persona usuaria dispone, junto al resultado, de la explicación que lo sustenta, sin necesidad de solicitarla. \\ \hline
+\textbf{Flujo principal} & 1. Un componente de IA emite una salida con su nivel de confianza. \newline 2. El sistema recupera el rasgo o los rasgos determinantes de esa salida. \newline 3. El sistema compone la explicación en lenguaje natural, dirigida al rol que consume el resultado. \newline 4. El sistema presenta la salida y la explicación de forma conjunta y no omisible. \newline 5. Si la salida es una recomendación de control fitosanitario, la explicación incluye el equipo de protección personal y el intervalo de reingreso al lote (\id{RNF-19}). \\ \hline
+\textbf{Flujo alternativo A} & \emph{Confianza por debajo del umbral.} El sistema no presenta clasificación: informa que el resultado no es concluyente e indica qué condición de la captura habría que mejorar. \\ \hline
+\textbf{Excepción E1} & Rasgo determinante no disponible: el sistema presenta el resultado marcado explícitamente como no explicable y lo registra como incidencia de calidad del modelo. \\ \hline
+\textbf{Excepción E2} & Ficha de producto sin equipo de protección o sin intervalo de reingreso: el sistema no presenta la recomendación (\id{RNF-19}). \\ \hline
+\textbf{Inclusión} & Es incluido obligatoriamente por \id{CU-01}, \id{CU-02} y \id{CU-06}, que son los tres casos de uso con decisión automática. \\ \hline
+\caption{CU-18 --- Explicar una decisión automática del sistema}
+\end{longtable}

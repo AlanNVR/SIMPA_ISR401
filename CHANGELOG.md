@@ -5,6 +5,79 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.1.0] - 2026-08-31 - Migración y consolidación de la Entrega PE5
+
+### Cambiado
+
+## 31/08/2026 — Migración y consolidación de la Entrega PE5
+
+Se integró al repositorio principal el trabajo consolidado durante la Entrega PE5,
+preservando los cambios posteriores que ya existían en `SIMPA_ISR401`.
+
+### ERS
+
+- Se retiró la versión anterior:
+  - `ERS_SRS_2A_v1.0.tex`
+  - `ERS_SRS_2A_v1.0.pdf`
+- Se incorporó y compiló la línea base:
+  - `ERS_SRS_2B_v2.0.tex`
+  - `ERS_SRS_2B_v2.0.pdf`
+- Se migraron las secciones de DFD, inteligencia artificial, casos de uso
+  CU-11 a CU-18 y el apéndice BDD.
+- Se conservó `declaracion_uso_ia.tex`, creado después de PE5, y se integró
+  en la nueva compilación.
+- La compilación final se verificó sin errores LaTeX graves ni referencias
+  o citas indefinidas.
+
+### Auditoría y control de cambios
+
+Se incorporaron como anexos de soporte:
+
+- `AnexoA_auditoria_calidad.xlsx`
+- `AnexoB_registro_defectos.xlsx`
+- `Acta_CCB.pdf`
+- `RFC-01.pdf`
+- `RFC-02.pdf`
+- `RFC-03.pdf`
+
+Estos documentos sustentan la evolución de la línea base y las modificaciones
+aprobadas mediante el Change Control Board.
+
+### Trazabilidad
+
+- Se incorporó `matriz_e2e.xlsx` como matriz vigente de PE5.
+- La matriz contiene 73 filas de trazabilidad.
+- Se incorporaron `backlog_export.csv` y las capturas de sincronización con Jira.
+- Se corrigió la traza de `RNF-11`, sustituyendo `EV-12` por `EV-10`:
+  `EV-07, EV-10`.
+- La matriz anterior de 52 filas se conserva como artefacto histórico.
+
+### Priorización
+
+El catálogo funcional quedó reconciliado en:
+
+- 42 RF;
+- 24 Must;
+- 16 Should;
+- 2 Could;
+- 0 Won't.
+
+Se incorporaron RF-40, RF-41 y RF-42 como Must conforme a RFC-03.
+No se asignaron retrospectivamente valores Kano o WSJF que no estuvieran
+documentados en PE5.
+
+### MVP
+
+Se corrigió la cobertura publicada anteriormente como `9/19 = 47,4 %`.
+
+Los valores auditados son:
+
+- 8/21 = 38,1 % respecto al catálogo utilizado durante la construcción del MVP;
+- 8/24 = 33,3 % respecto al catálogo vigente post-CCB.
+
+La cifra antigua se conserva únicamente en las notas históricas que documentan
+la corrección.
+
 ## [4.0.1] — 2026-08-31 · Higiene del historial y portabilidad de checksums
 
 ### Corregido

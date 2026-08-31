@@ -104,7 +104,7 @@ La sexta medida es verificable en la matriz de trazabilidad: toda fila que refer
 \id{EV-10} & Cuestionario piloto & 30/06/2026 & $n=4$ & Validación de \id{RF-04}, \id{RF-07}, \id{RF-12} & [P] & Anónimo \\ \hline
 \id{EV-11} & Documentos de la organización & 29/06 a 24/07/2026 & Palmicultora M & \id{RF-02}, \id{RF-03}, \id{RF-19}, \id{RF-26} a \id{RF-28}, \id{RF-34} & [P] + [R] & N/A \\ \hline
 \id{EV-12} & Cuestionario ampliado & 30/06/2026 & $n=62$ & \id{RF-12}, \id{RF-15}, \id{RF-35}, \id{RD-10}, \id{RNF-08} & [P] & Anónimo \\ \hline
-\id{EV-13} & Hoja de liquidación semanal & 03--07/08/2026 & Palmicultora M & \id{RF-29}, \id{RF-36} a \id{RF-39} & [P] + [R] & N/A \\ \hline
+\id{EV-13} & Hoja de liquidación semanal & 03--07/08/2026 & Palmicultora M & \id{RF-36} a \id{RF-39} & [P] + [R] & N/A \\ \hline
 \caption{Catálogo de evidencias de campo. [P] = zona pública, [R] = zona restringida cifrada}
 \label{tab:catalogo}
 \end{longtable}
@@ -237,7 +237,7 @@ constan en el \id{README.md} de la raíz del repositorio.}}
 \newpage
 \section{Clasificación y priorización completa}
 
-La tabla completa de clasificación de los 35 requisitos funcionales, con su prioridad MoSCoW, su
+La tabla completa de clasificación de los 42 requisitos funcionales, con su prioridad MoSCoW, su
 categoría de Kano, los cuatro factores del cálculo WSJF y la justificación de cada asignación,
 reside en \id{04\_Trazabilidad/}\allowbreak\id{priorizacion\_moscow\_kano.csv}. La §5.3 del cuerpo del documento
 desarrolla la argumentación de las categorías extremas y el contraste entre las tres técnicas.
@@ -260,6 +260,7 @@ Los requisitos no funcionales y las restricciones de diseño se clasifican como 
 \id{RNF-11} & Must & Fiabilidad & El 74{,}2\% del personal carece de conectividad permanente \\ \hline
 \id{RNF-12} & Should & Fiabilidad & Tolerancia a degradación de señal GPS \\ \hline
 \id{RNF-13}, \id{RNF-14} & Must & Seguridad & Exigidos por los artículos 37 y 40 de la LOPDP \\ \hline
+\id{RNF-19} & Must & Seguridad física & Condiciona la recomendación fitosanitaria de \id{RF-09}: su omisión expone físicamente al personal \\ \hline
 \id{RNF-15} & Could & Mantenibilidad & Meta de calidad interna \\ \hline
 \id{RNF-16} & Must & Explicabilidad & Obligatorio para todo componente de IA; gatekeeper G7 \\ \hline
 \id{RNF-17} & Should & Portabilidad & Evita dependencia de un proveedor de inferencia \\ \hline
@@ -274,7 +275,7 @@ Los requisitos no funcionales y las restricciones de diseño se clasifican como 
 
 La matriz completa, con las trece columnas exigidas por la §8.8 de la guía, reside en
 \id{04\_Trazabilidad/}\allowbreak\id{matriz\_trazabilidad.csv} en formato procesable. La §5.4 del cuerpo del
-documento presenta la vista reducida de sus 48 filas y el diagnóstico de cobertura correspondiente.
+documento presenta la vista reducida de sus 55 filas y el diagnóstico de cobertura correspondiente.
 
 \subsection{Diccionario de identificadores}
 
@@ -283,12 +284,13 @@ documento presenta la vista reducida de sus 48 filas y el diagnóstico de cobert
 \rowcolor{grisclaro}\textbf{Prefijo} & \textbf{Significado} & \textbf{Rango} \\
 \hline
 \endhead
-\id{TR-XX} & Fila de la matriz de trazabilidad & \id{TR-01} a \id{TR-48} \\ \hline
+\id{TR-XX} & Fila de la matriz de trazabilidad & \id{TR-01} a \id{TR-55} \\ \hline
+\id{CB-XX} & Criterio de aceptación BDD derivado de la ficha del requisito & \id{CB-01} a \id{CB-37} \\ \hline
 \id{O-X} & Objetivo del sistema & \id{O1} a \id{O6} \\ \hline
 \id{EV-XX} & Identificador de evidencia & \id{EV-01} a \id{EV-13} \\ \hline
 \id{ENTR-XX} & Código de participante & \id{ENTR-01} a \id{ENTR-08} \\ \hline
-\id{RF-XX} & Requisito funcional & \id{RF-01} a \id{RF-39} \\ \hline
-\id{RNF-XX} & Requisito no funcional & \id{RNF-01} a \id{RNF-18} \\ \hline
+\id{RF-XX} & Requisito funcional & \id{RF-01} a \id{RF-42} \\ \hline
+\id{RNF-XX} & Requisito no funcional & \id{RNF-01} a \id{RNF-19} \\ \hline
 \id{RD-XX} & Restricción de diseño & \id{RD-01} a \id{RD-10} \\ \hline
 \id{RL-XX} & Requisito legal (LOPDP) & \id{RL-01} a \id{RL-08} \\ \hline
 \id{CU-XX} & Caso de uso & \id{CU-01} a \id{CU-18} \\ \hline
@@ -397,4 +399,5 @@ Alcívar Vélez Anderson Adonis & Apoyo repositorio & Transcripciones, anonimiza
 \caption{Contribución de los integrantes del equipo en la Entrega 3 (2A)}
 \end{longtable}
 
-\input{declaracion_uso_ia}
+\input{apendice_bdd}
+

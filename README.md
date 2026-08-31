@@ -64,7 +64,7 @@ Sustituye un proceso que hoy se registra en libretas de papel y se comunica por 
 
 | Recurso | Ubicación |
 |---|---|
-| ERS/SRS completo (PDF) | [`AHMRV/01_ERS/ERS_SRS_2A_v1.0.pdf`](AHMRV/01_ERS/) |
+| ERS/SRS completo (PDF) | [`AHMRV/01_ERS/ERS_SRS_2B_v2.0.pdf`](AHMRV/01_ERS/) |
 | Fuente LaTeX reproducible | [`AHMRV/01_ERS/`](AHMRV/01_ERS/) |
 | Diagramas UML e i\* | [`AHMRV/03_Modelado/`](AHMRV/03_Modelado/) |
 | Matriz de trazabilidad | [`AHMRV/04_Trazabilidad/`](AHMRV/04_Trazabilidad/) |
@@ -115,13 +115,13 @@ sha256sum -c checksums.sha256
 Desde `AHMRV/01_ERS/`, con TeX Live completo:
 
 ```bash
-pdflatex ERS_SRS_2A_v1.0.tex
-bibtex   ERS_SRS_2A_v1.0
-pdflatex ERS_SRS_2A_v1.0.tex
-pdflatex ERS_SRS_2A_v1.0.tex
+pdflatex ERS_SRS_2B_v2.0.tex
+bibtex   ERS_SRS_2B_v2.0
+pdflatex ERS_SRS_2B_v2.0.tex
+pdflatex ERS_SRS_2B_v2.0.tex
 ```
 
-Alternativa sin instalación local: subir el contenido de `01_ERS/` a Overleaf, marcar `ERS_SRS_2A_v1.0.tex` como *Main File* y compilar con pdfLaTeX.
+Alternativa sin instalación local: subir el contenido de `01_ERS/` a Overleaf, marcar `ERS_SRS_2B_v2.0.tex` como *Main File* y compilar con pdfLaTeX.
 
 **Resultado esperado:** 79 páginas, sin errores.
 

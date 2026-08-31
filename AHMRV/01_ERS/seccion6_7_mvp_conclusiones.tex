@@ -36,10 +36,8 @@ cuyo resultado no proviene de un procesamiento real.
 \id{RF-05} & Registro de monitoreo fitosanitario & 4,80 & Implementado & Análisis \\ \hline
 \id{RF-12} & Generación de alertas tempranas & 4,20 & Implementado & Alertas \\ \hline
 \id{RF-19} & Generación de reportes & 3,20 & Implementado & Reportes \\ \hline
-\id{RF-20} & Historial de actividades y eventos & 2,67 & Implementado & Detalle de lote \\ \hline
 \id{RF-30} & Reporte de incidencia desde campo & 4,80 & Implementado & Análisis \\ \hline
 \id{RF-13} & Registro del proceso de polinización & 4,20 & Parcial & Labores \\ \hline
-\id{RF-15} & Visualización de recorridos del personal & 2,60 & Parcial & Mapa GPS \\ \hline
 \id{RF-28} & Registro de avance por unidad de labor & 3,60 & Parcial & Labores \\ \hline
 \id{RF-07} & Detección de plagas por imagen & 3,62 & \textbf{Simulado} & Análisis \\ \hline
 \id{RF-14} & Conteo georreferenciado de flores & 3,25 & \textbf{Simulado} & Mapa GPS \\ \hline
@@ -50,22 +48,35 @@ cuyo resultado no proviene de un procesamiento real.
 \id{RF-22} & Alerta preventiva de fruta verde & 4,25 & No implementado & --- \\ \hline
 \id{RF-26} & Planificación semanal con presupuesto & 3,60 & No implementado & --- \\ \hline
 \id{RF-35} & Registro delegado del avance & 7,00 & No implementado & --- \\ \hline
-\caption{Cobertura verificada del MVP sobre los requisitos funcionales \emph{Must}}
+\id{RF-36} & Catálogo de tarifas por labor & --- & No implementado & --- \\ \hline
+\id{RF-37} & Cálculo de la remuneración semanal & --- & No implementado & --- \\ \hline
+\caption{Cobertura verificada del MVP sobre los 21 requisitos funcionales \emph{Must}}
 \label{tab:mvp}
 \end{longtable}
 
 \noindent
-\textbf{Cobertura alcanzada.} De los 19 requisitos funcionales \emph{Must} vigentes al momento de
-construcción del prototipo, 9 se encuentran implementados de forma completa, 3 de forma parcial y 2
-en estado simulado. La cobertura efectiva es de $9/19 = 47{,}4\%$, o de $10{,}5/19 = 55{,}3\%$
-contabilizando las implementaciones parciales con peso medio.
+\textbf{Cobertura alcanzada.} De los 21 requisitos funcionales \emph{Must} vigentes al momento de
+construir el prototipo, 8 se encuentran implementados de forma completa, 2 de forma parcial y 2 en
+estado simulado. La cobertura efectiva sobre ese conjunto es de $8/21 = 38{,}1\%$, o de
+$9/21 = 42{,}9\%$ contabilizando las implementaciones parciales con peso medio. Sobre el catálogo
+posterior al Change Control Board, que eleva los \emph{Must} a 24 con la incorporación de
+\id{RF-40} a \id{RF-42}, la cobertura desciende a $8/24 = 33{,}3\%$. Se declaran ambos
+denominadores: el primero mide el prototipo contra el alcance que tenía cuando se construyó; el
+segundo, contra el alcance vigente.
+
+\noindent\fbox{\parbox{0.97\textwidth}{\small\textbf{Nota de corrección (v3.1).} La versión 3.0
+declaraba una cobertura de $9/19 = 47{,}4\%$. Ese cálculo incorporaba en el numerador a \id{RF-20}
+(implementado) y a \id{RF-15} (parcial), que sus fichas de la §3.2 clasifican como \emph{Should}, y
+omitía del denominador a \id{RF-36} y \id{RF-37}, que son \emph{Must}. Depurado el conjunto, la
+cobertura real es menor que la declarada. Se corrige a la baja en lugar de conservar la cifra más
+favorable.}}
 
 \noindent\fbox{\parbox{0.97\textwidth}{%
 \small\textbf{Declaración de incumplimiento del mínimo.} La §3.6 de la guía exige una cobertura de
 al menos el 60\% de los requisitos \emph{Debe tener}. El prototipo entregado no alcanza ese umbral.
-Se declara de forma expresa el valor real (47{,}4\% completo, 55{,}3\% ponderado) en lugar de
+Se declara de forma expresa el valor real (38{,}1\% completo, 42{,}9\% ponderado) en lugar de
 computar como implementadas las funcionalidades simuladas, lo que habría permitido reportar un
-73{,}7\% sin sustento verificable. Los requisitos ausentes y su plan de incorporación se detallan en
+57{,}1\% sin sustento verificable. Los requisitos ausentes y su plan de incorporación se detallan en
 la §7.5. Esta limitación se registra como \id{L-10}.}}
 
 \subsubsection{Funcionalidades simuladas}
@@ -148,7 +159,7 @@ del consolidado.
 La Entrega 3 (2A) consolida un documento de especificación completo sustentado en trabajo de campo
 real. Los resultados verificables son los siguientes.
 
-\textbf{Especificación.} Se pasó de 20 a 39 requisitos funcionales, de 9 a 18 requisitos no
+\textbf{Especificación.} Se pasó de 20 a 42 requisitos funcionales, de 9 a 19 requisitos no
 funcionales cuantificados sobre las nueve características de ISO/IEC 25010:2023, de 7 a 10
 restricciones de diseño, y se incorporaron 8 requisitos legales trazados a la LOPDP. Los 19
 requisitos \emph{Must} cuentan con historia de usuario en formato Connextra, criterios INVEST
@@ -159,7 +170,7 @@ verificados y escenario de aceptación en Gherkin.
 operaciones, tres de secuencia, actividad, dos de estados, componentes y despliegue. Se especificaron
 diez casos de uso de forma textual, con al menos dos flujos alternativos y una excepción cada uno.
 
-\textbf{Trazabilidad.} La matriz enlaza nueve niveles en 48 filas con trece columnas. Se corrigió la
+\textbf{Trazabilidad.} La matriz enlaza nueve niveles en 55 filas con trece columnas. Se corrigió la
 deficiencia señalada en la Entrega 2, en la que dos requisitos funcionales carecían de caso de uso
 asociado; la cobertura requisito-caso de uso es ahora del 100\%.
 
@@ -220,9 +231,10 @@ Se declaran de forma expresa las limitaciones de esta entrega. Ninguna se presen
 \id{L-03} & La segunda ronda incorporó cinco entrevistas, por debajo del objetivo de ocho de la §4.2 de la guía. & Se declara el número real. La saturación temática se reporta en el Apéndice B con la curva correspondiente. \\ \hline
 \id{L-04} & El componente empírico está registrado y diseñado, pero no ejecutado. & El protocolo consta en OSF con fecha anterior a cualquier recolección. Los resultados corresponden formalmente a la Entrega 4. \\ \hline
 \id{L-05} & Los componentes de IA no cuentan con conjunto de datos etiquetado del propio cultivo. & Los valores de \id{RNF-01} y \id{RNF-02} se fijaron a partir de la literatura del dominio \cite{suharjito2021,goh2025,rosbi2024} y se declaran como objetivo, no como resultado medido. \\ \hline
-\id{L-06} & Las sesiones de validación \emph{walkthrough} realizadas son inferiores a las tres exigidas. & Se declara el número efectivo con su acta correspondiente; las restantes se ejecutarán antes de la Entrega 4. \\ \hline
-\id{L-07} & \emph{Resuelta.} La obtención de la hoja de liquidación semanal (\id{EV-13}) incorporó un segundo tipo documental, distinto del plan de labores. & Se dispone de dos tipos documentales de la organización. La obtención de un tercer tipo (hoja de conteo del polinizador o boleta de pesaje) queda como trabajo pendiente. \\ \hline
-\id{L-10} & El prototipo alcanza una cobertura del 47{,}4\% de los requisitos \emph{Must}, por debajo del 60\% exigido por la §3.6 de la guía. & Se declara el valor real verificado por inspección del código, sin computar las funcionalidades simuladas como implementadas. Plan de incorporación en la §7.5. \\ \hline
+\id{L-06} & Las sesiones de validación \emph{walkthrough} realizadas son inferiores a las tres exigidas: se realizó 0 de 3. & Se ejecutarán antes de la Entrega 4. A esta limitación se suma, en sentido contrario, la inspección formal tipo Fagan ejecutada en la PE4 sobre las §1 a §7 (63 páginas efectivas), cuyo registro de defectos constituye una validación documentada adicional. \\ \hline
+\id{L-07} & \emph{Resuelta en v3.0; se conserva la fila por trazabilidad histórica y no se contabiliza como limitación vigente.} La obtención de la hoja de liquidación semanal (\id{EV-13}) incorporó un segundo tipo documental, distinto del plan de labores. & Se dispone de dos tipos documentales de la organización. La obtención de un tercer tipo (hoja de conteo del polinizador o boleta de pesaje) queda como trabajo pendiente. \\ \hline
+\id{L-10} & El prototipo alcanza una cobertura del 38{,}1\% de los 21 requisitos \emph{Must}, por debajo del 60\% exigido por la §3.6 de la guía. & Se declara el valor real verificado por inspección del código, sin computar las funcionalidades simuladas como implementadas. Plan de incorporación en la §7.5. \\ \hline
+\id{L-12} & No se ha declarado el marco de siembra de la plantación, dato necesario para determinar si la precisión GPS de \id{RNF-05} ($\leq 10$ m) permite discriminar palmas contiguas en \id{RF-14}. & \id{RF-14} se acota en v3.1 a la agregación por línea de siembra. El dato se solicitará a la organización antes de la Entrega 4. \\ \hline
 \id{L-11} & El prototipo carece de servicio de respaldo: la persistencia es local al navegador y las credenciales se almacenan sin derivación de clave. & Los requisitos \id{RNF-10}, \id{RNF-11}, \id{RNF-13} y \id{RNF-14} no son verificables sobre el prototipo actual. Se declara en la §6.4 como desviación \id{D-02}. \\ \hline
 \id{L-08} & Seis requisitos no funcionales y una restricción carecen de trazabilidad a evidencia de campo. & Se declaran en la §5.4.2 como derivados de decisiones de arquitectura y de prácticas estándar, sin atribuirles una fuente de elicitación. \\ \hline
 \id{L-09} & El conflicto de interés por consanguinidad entre el analista líder y dos participantes persiste en la segunda ronda. & Se mantienen las seis medidas de mitigación declaradas en el Apéndice A, incluida la triangulación obligatoria y la prohibición de sustentar cualquier requisito exclusivamente en esas fuentes. \\ \hline

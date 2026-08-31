@@ -1,0 +1,155 @@
+% =====================================================================
+%  Apéndice F — Criterios de aceptación en formato BDD
+%  Incorporado en la PE5 para cerrar la métrica M3 (verificabilidad).
+% =====================================================================
+
+\section{Criterios de aceptación en formato BDD de los requisitos sin historia de usuario}
+\label{ap:bdd}
+
+La auditoría de calidad de la Unidad~V midió la verificabilidad como la proporción de requisitos con
+criterio de aceptación redactado en formato Dado--Cuando--Entonces. El valor inicial fue de
+24 sobre 61, es decir, un 39,3\,\% frente al 90\,\% exigido: los únicos requisitos con criterio en
+ese formato eran los 24 de prioridad \emph{Must} que tienen historia de usuario asociada
+(\id{HU-01} a \id{HU-24}).
+
+El resto de los requisitos no carecía de criterio, sino que lo enunciaba en prosa dentro de su ficha.
+La diferencia no es de forma: un criterio en prosa admite que dos evaluadores lleguen a veredictos
+distintos, mientras que la plantilla Dado--Cuando--Entonces obliga a fijar contexto, evento y
+resultado observable, que son las tres condiciones de una comprobación reproducible. Este apéndice
+reescribe los 37 criterios restantes en ese formato, conservando el umbral y la unidad ya
+especificados en la ficha correspondiente.
+
+Los identificadores siguen el formato \id{CB-XX}, distinto de los \id{CA-XX} de las historias de
+usuario, para que la matriz de trazabilidad distinga el criterio nacido de una historia del criterio
+derivado de la ficha del requisito.
+
+% ---------------------------------------------------------------------
+\subsection*{Requisitos funcionales}
+
+\begin{longtable}{|C{1.5cm}|C{1.5cm}|L{12.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Requisito} & \textbf{Criterio de aceptación}\\ \hline
+\endfirsthead
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Requisito} & \textbf{Criterio de aceptación}\\ \hline
+\endhead
+
+\id{CB-01} & \id{RF-06} & \textbf{Dado} un lote con fecha de siembra registrada y variedad asociada, \textbf{cuando} se consulta su ficha, \textbf{entonces} el sistema presenta la etapa del cultivo derivada de esa fecha \textbf{y} la etapa coincide con la que corresponde al intervalo declarado para la variedad. \\ \hline
+
+\id{CB-02} & \id{RF-09} & \textbf{Dado} un diagnóstico positivo de plaga con su etapa del insecto determinada, \textbf{cuando} la persona usuaria abre la ficha técnica, \textbf{entonces} el sistema presenta la acción de control correspondiente a esa etapa, el equipo de protección personal exigido y el intervalo de reingreso al lote. \\ \hline
+
+\id{CB-03} & \id{RF-11} & \textbf{Dado} un lote seleccionado, \textbf{cuando} se registran los resultados de un análisis de suelo o foliar con sus valores de nitrógeno, fósforo, potasio y elementos menores, \textbf{entonces} el registro queda asociado al lote y a la fecha del análisis \textbf{y} aparece en el histórico del lote ordenado cronológicamente. \\ \hline
+
+\id{CB-04} & \id{RF-15} & \textbf{Dado} un recorrido de polinización con marcaciones GPS registradas, \textbf{cuando} la administración consulta el recorrido de esa persona y jornada, \textbf{entonces} el sistema presenta la traza sobre el plano del lote \textbf{y} las marcaciones con precisión degradada (\id{RNF-12}) se distinguen visualmente de las demás. \\ \hline
+
+\id{CB-05} & \id{RF-16} & \textbf{Dado} un período con al menos cinco jornadas de avance registradas para una persona, \textbf{cuando} se solicita su indicador de desempeño, \textbf{entonces} el valor calculado coincide con el promedio ponderado de los tres componentes declarados con una tolerancia de $\pm 1$ punto \textbf{y} el desglose presentado reproduce los valores de entrada. \\ \hline
+
+\id{CB-06} & \id{RF-17} & \textbf{Dado} un lote y un rango de fechas, \textbf{cuando} se consultan los datos climáticos del período, \textbf{entonces} el sistema presenta un registro por día con temperatura y precipitación \textbf{y} los días sin dato se marcan como no disponibles en lugar de omitirse. \\ \hline
+
+\id{CB-07} & \id{RF-20} & \textbf{Dado} un lote con actividades, diagnósticos y eventos registrados, \textbf{cuando} se consulta su historial para un rango de fechas, \textbf{entonces} el sistema presenta los tres tipos de entrada en una sola línea de tiempo ordenada \textbf{y} cada entrada enlaza con el registro que la originó. \\ \hline
+
+\id{CB-08} & \id{RF-23} & \textbf{Dado} un despacho con guía de remisión registrada, \textbf{cuando} el técnico de la extractora introduce la calificación de calidad recibida, \textbf{entonces} la calificación queda asociada a ese despacho \textbf{y} el sistema rechaza registrar dos calificaciones para el mismo despacho. \\ \hline
+
+\id{CB-09} & \id{RF-24} & \textbf{Dado} un despacho calificado con penalización, \textbf{cuando} se consulta su trazabilidad, \textbf{entonces} el sistema identifica la cuadrilla que ejecutó la cosecha del lote de origen \textbf{y} la fecha de corte correspondiente. \\ \hline
+
+\id{CB-10} & \id{RF-25} & \textbf{Dada} una variedad con ventana de corte-entrega configurada en 24 horas, \textbf{cuando} se registra un despacho entregado 30 horas después del corte, \textbf{entonces} el sistema emite la advertencia; \textbf{y cuando} se registra uno entregado a las 23 horas, \textbf{entonces} no la emite. \\ \hline
+
+\id{CB-11} & \id{RF-27} & \textbf{Dada} una labor planificada que cierra la semana con avance inferior a su meta, \textbf{cuando} se genera el plan de la semana siguiente, \textbf{entonces} la cantidad pendiente aparece como arrastre en el nuevo plan \textbf{y} conserva la referencia a la semana de origen. \\ \hline
+
+\id{CB-12} & \id{RF-29} & \textbf{Dada} una persona trabajadora con avance registrado en la semana y tarifas vigentes, \textbf{cuando} consulta su acumulado, \textbf{entonces} el sistema presenta la cantidad ejecutada por labor y la remuneración estimada \textbf{y} el importe coincide con la suma del avance por su tarifa correspondiente. \\ \hline
+
+\id{CB-13} & \id{RF-31} & \textbf{Dada} una visita programada con pendientes asignados, \textbf{cuando} la persona usuaria abre la lista de verificación, \textbf{entonces} el sistema presenta los pendientes no cerrados de visitas anteriores junto a los de la visita actual \textbf{y} permite marcar cada uno como atendido con su fecha. \\ \hline
+
+\id{CB-14} & \id{RF-32} & \textbf{Dada} una estimación de cosecha calculada y autorizada por la administración, \textbf{cuando} se comparte con la planta extractora, \textbf{entonces} el archivo transmitido contiene el volumen estimado y la fecha prevista \textbf{y} no contiene ningún dato de personal, de costos ni de remuneración. \\ \hline
+
+\id{CB-15} & \id{RF-33} & \textbf{Dado} un despacho preparado, \textbf{cuando} se registra su guía de remisión con número, fecha, transportista y peso declarado, \textbf{entonces} el despacho queda en estado enviado \textbf{y} el sistema rechaza un número de guía ya registrado. \\ \hline
+
+\id{CB-16} & \id{RF-34} & \textbf{Dado} un plan semanal aprobado, \textbf{cuando} se registra una solicitud de insumos indicando producto, cantidad y labor de destino, \textbf{entonces} la solicitud queda asociada a esa labor del plan \textbf{y} aparece en el consolidado de insumos de la semana. \\ \hline
+
+\id{CB-17} & \id{RF-38} & \textbf{Dada} una labor ejecutada que no consta en el plan de la semana, \textbf{cuando} se registra su avance indicando el motivo, \textbf{entonces} el registro queda marcado como fuera de presupuesto \textbf{y} se contabiliza aparte en la liquidación semanal. \\ \hline
+
+\id{CB-18} & \id{RF-39} & \textbf{Dada} una liquidación semanal calculada, \textbf{cuando} la administración la aprueba, \textbf{entonces} la liquidación queda en estado aprobado con la identificación de quien aprueba y la fecha \textbf{y} el sistema impide modificar los avances de esa semana salvo mediante rectificación registrada en bitácora (\id{RF-41}). \\ \hline
+
+\caption{Criterios de aceptación en formato BDD de los requisitos funcionales sin historia de usuario}
+\end{longtable}
+
+% ---------------------------------------------------------------------
+\subsection*{Requisitos no funcionales}
+
+\begin{longtable}{|C{1.5cm}|C{1.5cm}|L{12.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Requisito} & \textbf{Criterio de aceptación}\\ \hline
+\endfirsthead
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Requisito} & \textbf{Criterio de aceptación}\\ \hline
+\endhead
+
+\id{CB-19} & \id{RNF-01} & \textbf{Dado} el conjunto de evaluación etiquetado de al menos 200 imágenes descrito en el anexo de datos, \textbf{cuando} se ejecuta la clasificación de madurez sobre la totalidad del conjunto, \textbf{entonces} la exactitud es igual o superior al 85\,\% \textbf{y} la exhaustividad igual o superior al 80\,\%. \\ \hline
+
+\id{CB-20} & \id{RNF-02} & \textbf{Dado} el conjunto de evaluación restringido a las cinco afectaciones más frecuentes del cultivo, \textbf{cuando} se ejecuta la detección sobre la totalidad del conjunto, \textbf{entonces} la exactitud es igual o superior al 80\,\%. \\ \hline
+
+\id{CB-21} & \id{RNF-03} & \textbf{Dada} una prueba de carga con 20 sesiones concurrentes, \textbf{cuando} se ejecutan operaciones de registro y de consulta durante quince minutos, \textbf{entonces} el percentil 95 del tiempo de respuesta es igual o inferior a 3~s. \\ \hline
+
+\id{CB-22} & \id{RNF-04} & \textbf{Dado} un dispositivo con ancho de banda de 5~Mbps, \textbf{cuando} se solicita un diagnóstico por imagen, \textbf{entonces} el resultado se presenta en 10~s o menos desde la captura. \\ \hline
+
+\id{CB-23} & \id{RNF-05} & \textbf{Dado} un recorrido con rastreo GPS activo, \textbf{cuando} se contrastan las marcaciones registradas contra puntos de referencia levantados con equipo topográfico, \textbf{entonces} el error es igual o inferior a 10~m \textbf{y} el intervalo entre marcaciones consecutivas es igual o inferior a 30~s. \\ \hline
+
+\id{CB-24} & \id{RNF-06} & \textbf{Dado} un archivo de exportación generado para la planta extractora, \textbf{cuando} se valida contra el esquema documentado, \textbf{entonces} la validación no arroja error \textbf{y} el archivo se abre sin pérdida de caracteres en una herramienta de hoja de cálculo estándar. \\ \hline
+
+\id{CB-25} & \id{RNF-07} & \textbf{Dado} un dispositivo con Android 9.0, \textbf{cuando} se instala y se ejecuta la aplicación móvil, \textbf{entonces} completa el flujo de registro de labor sin fallo; \textbf{y dado} el panel web en las dos últimas versiones estables de los navegadores declarados, \textbf{entonces} presenta la misma información sin defectos de composición. \\ \hline
+
+\id{CB-26} & \id{RNF-08} & \textbf{Dada} una persona sin experiencia previa con el sistema y con quince minutos de inducción, \textbf{cuando} se le solicita completar un registro de labor y un análisis de imagen, \textbf{entonces} completa ambas tareas sin asistencia \textbf{y} la tasa de error observada no supera el umbral declarado en la ficha. \\ \hline
+
+\id{CB-27} & \id{RNF-09} & \textbf{Dada} cualquier pantalla de la aplicación, \textbf{cuando} se inspecciona su contenido textual, \textbf{entonces} la totalidad de las etiquetas está en español \textbf{y} emplea la terminología del cultivo empleada por la organización, sin términos técnicos de la implementación. \\ \hline
+
+\id{CB-28} & \id{RNF-10} & \textbf{Dado} un mes natural de operación, \textbf{cuando} se totaliza el tiempo de indisponibilidad registrado por el servicio de respaldo, \textbf{entonces} no supera 7~h~12~min, equivalente al 1\,\% de las 720~h del período. \\ \hline
+
+\id{CB-29} & \id{RNF-11} & \textbf{Dado} un dispositivo con registros pendientes creados sin conexión, \textbf{cuando} se restablece la conectividad, \textbf{entonces} el 100\,\% de los registros pendientes queda sincronizado \textbf{y} ningún registro se duplica ni se pierde. \\ \hline
+
+\id{CB-30} & \id{RNF-12} & \textbf{Dado} un recorrido en curso, \textbf{cuando} se pierde la señal GPS, \textbf{entonces} el sistema conserva el registro parcial \textbf{y} lo marca como de precisión degradada, de modo que sea distinguible en la consulta posterior. \\ \hline
+
+\id{CB-31} & \id{RNF-13} & \textbf{Dada} una credencial almacenada, \textbf{cuando} se inspecciona el repositorio, \textbf{entonces} no aparece ninguna contraseña en claro \textbf{y} el valor almacenado corresponde a una función de derivación de clave con sal; \textbf{y cuando} se captura el tráfico entre cliente y servidor, \textbf{entonces} la totalidad viaja cifrada. \\ \hline
+
+\id{CB-32} & \id{RNF-14} & \textbf{Dado} un conjunto de datos de geolocalización almacenado, \textbf{cuando} se inspecciona en reposo, \textbf{entonces} está cifrado; \textbf{y cuando} una persona usuaria accede a él, \textbf{entonces} la bitácora registra su identificación, la fecha y el conjunto consultado. \\ \hline
+
+\id{CB-33} & \id{RNF-15} & \textbf{Dado} el código de la capa de lógica de negocio, \textbf{cuando} se ejecuta la batería de pruebas automatizadas, \textbf{entonces} la cobertura medida es igual o superior al 60\,\%. \\ \hline
+
+\id{CB-34} & \id{RNF-16} & \textbf{Dada} una salida producida por un componente de inteligencia artificial, \textbf{cuando} se presenta a la persona usuaria, \textbf{entonces} aparece acompañada del rasgo determinante y del nivel de confianza en lenguaje natural, sin que la persona tenga que solicitarlo \textbf{y} sin posibilidad de omitir la explicación. \\ \hline
+
+\id{CB-35} & \id{RNF-17} & \textbf{Dado} un entorno de prueba con el servicio de inferencia sustituido por un proveedor alternativo, \textbf{cuando} se ejecuta el cliente móvil sin modificación alguna de su código, \textbf{entonces} el diagnóstico se obtiene con el mismo contrato de interfaz. \\ \hline
+
+\id{CB-36} & \id{RNF-18} & \textbf{Dados} los umbrales de madurez, de porcentaje de fruta verde y de ventana corte-entrega, \textbf{cuando} se modifican desde la configuración para una variedad y un lote, \textbf{entonces} el nuevo valor rige en la siguiente evaluación \textbf{y} no se requiere recompilar ni redesplegar la aplicación. \\ \hline
+
+\id{CB-37} & \id{RNF-19} & \textbf{Dado} el catálogo completo de productos fitosanitarios, \textbf{cuando} se generan las recomendaciones de control para todos ellos, \textbf{entonces} ninguna se presenta sin el equipo de protección personal y el intervalo de reingreso; \textbf{y dado} un producto cuya ficha carece de alguno de los dos datos, \textbf{entonces} el sistema no presenta la recomendación. \\ \hline
+
+\caption{Criterios de aceptación en formato BDD de los requisitos no funcionales}
+\end{longtable}
+
+% ---------------------------------------------------------------------
+\subsection*{Resultado sobre la métrica de verificabilidad}
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Verificabilidad antes y después de la incorporación de los criterios BDD}
+\label{tab:m3-antes-despues}
+\begin{tabular}{|L{5.6cm}|C{3.2cm}|C{3.2cm}|C{2.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Conjunto} & \textbf{Antes} & \textbf{Después} & \textbf{Referencia}\\ \hline
+Requisitos con criterio BDD & 24 & 61 & ---\\ \hline
+Total de requisitos auditados & 61 & 61 & ---\\ \hline
+\textbf{M3 Verificabilidad} & \textbf{39,3\,\%} & \textbf{100\,\%} & $\geq 90$\,\%\\ \hline
+M3b Verificabilidad en requisitos \emph{Must} & 100\,\% & 100\,\% & 100\,\%\\ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+La métrica pasa de incumplir a cumplir, pero conviene precisar qué cambió y qué no. No se
+especificó ningún requisito nuevo ni se modificó ningún umbral: los 37 criterios reescritos
+conservan el valor, la unidad y el método que su ficha ya declaraba. Lo que cambió es la
+\emph{forma} en que se enuncia la condición de aceptación, y con ella la posibilidad de que dos
+evaluadores independientes lleguen al mismo veredicto, que es la definición operativa de
+verificabilidad de ISO/IEC/IEEE 29148:2018 \cite{iso29148}.
+
+Esa distinción importa para no sobreinterpretar el resultado. Un ERS con el 100\,\% de sus
+requisitos en formato BDD no es un ERS correcto: es un ERS cuyos requisitos son comprobables. La
+corrección se mide aparte, con M6, y su valor es peor.

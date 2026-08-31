@@ -1,6 +1,6 @@
 % =====================================================================
 %  SECCION 5 -- PRIORIZACION Y TRAZABILIDAD EXTENDIDA
-%  Se incluye desde ERS_SRS_2A_v1.0.tex mediante \input{seccion5_priorizacion}
+%  Se incluye desde ERS_SRS_2B_v2.0.tex mediante \input{seccion5_priorizacion}
 % =====================================================================
 
 \newpage
@@ -15,8 +15,8 @@ El documento especifica 75 elementos de requisito, distribuidos como sigue.
 \rowcolor{grisclaro}\textbf{Tipo} & \textbf{Cantidad} & \textbf{Identificadores} \\
 \hline
 \endhead
-Requisito funcional (RF) & 39 & \id{RF-01} a \id{RF-39} \\ \hline
-Requisito no funcional (RNF) & 18 & \id{RNF-01} a \id{RNF-18} \\ \hline
+Requisito funcional (RF) & 42 & \id{RF-01} a \id{RF-42} \\ \hline
+Requisito no funcional (RNF) & 19 & \id{RNF-01} a \id{RNF-19} \\ \hline
 Restricción de diseño (RD) & 10 & \id{RD-01} a \id{RD-10} \\ \hline
 Requisito legal (RL) & 8 & \id{RL-01} a \id{RL-08} \\ \hline
 \rowcolor{grisclaro}\textbf{Total} & \textbf{75} & \\ \hline
@@ -24,7 +24,7 @@ Requisito legal (RL) & 8 & \id{RL-01} a \id{RL-08} \\ \hline
 \end{longtable}
 
 \noindent
-La distribución MoSCoW de los requisitos funcionales es de 21 \emph{Must}, 16 \emph{Should} y 2
+La distribución MoSCoW de los requisitos funcionales es de 24 \emph{Must}, 16 \emph{Should} y 2
 \emph{Could}. Los cuatro requisitos incorporados a partir de la hoja de liquidación semanal
 (\id{RF-36} a \id{RF-39}) se clasifican como \emph{Must} los dos primeros ---el catálogo de tarifas
 es prerrequisito del cálculo de remuneración y la liquidación es el cierre del ciclo semanal--- y
@@ -37,7 +37,7 @@ alcance se enuncian a nivel de producto en la §1.2.4 y se argumentan en la §5.
 Conforme a la §3.3 de la guía de la Entrega 3, cada requisito funcional de prioridad \emph{Must}
 cuenta con una historia de usuario en formato Connextra, con los criterios INVEST verificados y un
 escenario de aceptación redactado en Gherkin. Se especifican 19 historias (\id{HU-01} a
-\id{HU-19}), con sus criterios de aceptación (\id{CA-01} a \id{CA-19}).
+\id{HU-24}), con sus criterios de aceptación (\id{CA-01} a \id{CA-24}).
 
 \begin{longtable}{|C{1.3cm}|C{1.3cm}|L{12.4cm}|}
 \hline
@@ -82,6 +82,11 @@ escenario de aceptación redactado en Gherkin. Se especifican 19 historias (\id{
 \id{HU-18} & \id{RF-30} & \textbf{Como} asistente de administración, \textbf{quiero} reportar una afectación con foto y ubicación, \textbf{para} poder volver al punto exacto en mi siguiente visita. \newline \emph{\id{CA-18}:} \textbf{Dado} que reporto una incidencia con GPS activo, \textbf{cuando} la consulto días después, \textbf{entonces} recupero su fotografía y sus coordenadas \textbf{y} la incidencia figura en mi lista de pendientes de verificación. \\ \hline
 
 \id{HU-19} & \id{RF-35} & \textbf{Como} jefe de campo, \textbf{quiero} registrar el avance de quien no tiene teléfono, \textbf{para} que ninguna persona quede sin registrar su trabajo. \newline \emph{\id{CA-19}:} \textbf{Dado} un trabajador sin dispositivo propio, \textbf{cuando} registro su avance de forma delegada, \textbf{entonces} el avance se atribuye a esa persona en su consolidado \textbf{y} la bitácora conserva mi identificación como registrador. \\ \hline
+\id{HU-20} & \id{RF-36} & \textbf{Como} administradora general, \textbf{quiero} mantener el catálogo de tarifas por labor y unidad de avance, \textbf{para} que la liquidación semanal se calcule con el valor vigente y no con el que cada persona recuerde. \newline \emph{\id{CA-20}:} \textbf{Dada} una tarifa vigente para una labor y unidad, \textbf{cuando} registro una tarifa nueva con fecha de vigencia posterior, \textbf{entonces} el sistema conserva la anterior en el histórico \textbf{y} aplica cada tarifa a las semanas comprendidas en su período de vigencia. \\ \hline
+\id{HU-21} & \id{RF-37} & \textbf{Como} administradora general, \textbf{quiero} que el sistema calcule la remuneración semanal a partir del avance ya registrado, \textbf{para} sustituir el cálculo manual en hoja de papel que hoy consume una jornada completa cada semana (\id{EV-13}). \newline \emph{\id{CA-21}:} \textbf{Dado} un período semanal con avance registrado y tarifas vigentes, \textbf{cuando} solicito la liquidación, \textbf{entonces} el sistema calcula el monto por persona como la suma del avance por su tarifa correspondiente \textbf{y} presenta el desglose por labor que permite auditar el resultado. \\ \hline
+\id{HU-22} & \id{RF-40} & \textbf{Como} persona trabajadora, \textbf{quiero} obtener una copia de mis datos personales en un formato que pueda abrir y guardar, \textbf{para} ejercer el derecho de acceso que me reconoce el Art. 12 de la LOPDP. \newline \emph{\id{CA-22}:} \textbf{Dada} mi sesión iniciada, \textbf{cuando} solicito la exportación de mis datos, \textbf{entonces} el sistema genera un archivo con mis datos identificativos, de contacto y de avance registrado \textbf{y} deja constancia de la solicitud en la bitácora. \\ \hline
+\id{HU-23} & \id{RF-41} & \textbf{Como} persona trabajadora, \textbf{quiero} solicitar la corrección de un registro de labor equivocado, \textbf{para} ejercer el derecho de rectificación del Art. 13 sin que se borre la evidencia de lo ocurrido. \newline \emph{\id{CA-23}:} \textbf{Dado} un registro de labor con un dato erróneo, \textbf{cuando} la administración aplica la corrección, \textbf{entonces} el registro muestra el valor corregido \textbf{y} la bitácora conserva el valor anterior, la fecha, la persona que corrigió y el motivo. \\ \hline
+\id{HU-24} & \id{RF-42} & \textbf{Como} administradora general, \textbf{quiero} suprimir los datos personales al término de la relación laboral conservando la producción de forma disociada, \textbf{para} cumplir el Art. 14 de la LOPDP sin perder el histórico productivo de los lotes. \newline \emph{\id{CA-24}:} \textbf{Dada} una relación laboral marcada como terminada, \textbf{cuando} ejecuto la supresión, \textbf{entonces} los datos identificativos y de contacto dejan de ser recuperables \textbf{y} los registros de avance permanecen asociados a un identificador disociado que no permite reidentificar a la persona. \\ \hline
 \caption{Historias de usuario y criterios de aceptación de los requisitos \emph{Must}}
 \end{longtable}
 
@@ -113,7 +118,7 @@ implementación.
 
 \subsubsection{Justificación de la clasificación MoSCoW}
 
-\textbf{\emph{Must} (19 RF).} Corresponden a tres condiciones. Primero, la \textbf{base operativa
+\textbf{\emph{Must} (24 RF).} Corresponden a cuatro condiciones. Primero, la \textbf{base operativa
 indispensable}: sin autenticación por rol (\id{RF-01}), estructura de lotes (\id{RF-02}), personal
 (\id{RF-03}) y registro de labor y avance (\id{RF-04}, \id{RF-28}, \id{RF-35}) el sistema no
 sustituye al proceso manual que pretende reemplazar. Segundo, el \textbf{diferencial de valor}: el
@@ -123,13 +128,31 @@ funciones mejor valoradas por el personal en el cuestionario ($4{,}31$ y $4{,}27
 técnica (\id{EV-02}). Tercero, la \textbf{consecuencia económica directa}: la polinización determina
 la producción de la finca (\id{EV-03}), su conteo condiciona la evaluación del trabajo
 (\id{RF-13}, \id{RF-14}), y el porcentaje de fruta verde determina la penalización del lote en la
-planta extractora (\id{RF-22}, \id{EV-04}).
+planta extractora (\id{RF-22}, \id{EV-04}). A estas condiciones se añaden \id{RF-36} y \id{RF-37},
+incorporados a partir de \id{EV-13}: el catálogo de tarifas por labor y el cálculo de la
+remuneración semanal son el núcleo del proceso de liquidación, que la organización ejecuta todas las
+semanas. El conjunto \emph{Must} queda así en 21 requisitos: \id{RF-01} a \id{RF-05}, \id{RF-07},
+\id{RF-08}, \id{RF-10}, \id{RF-12} a \id{RF-14}, \id{RF-18}, \id{RF-19}, \id{RF-21}, \id{RF-22},
+\id{RF-26}, \id{RF-28}, \id{RF-30}, \id{RF-35}, \id{RF-36} y \id{RF-37}. La aprobación de
+\id{RFC-03} por el Change Control Board incorpora además \id{RF-40}, \id{RF-41} y \id{RF-42}, que
+implementan derechos de la persona titular reconocidos por la LOPDP y son por tanto de cumplimiento
+exigible: el conjunto \emph{Must} queda en 24 requisitos sobre un total de 42.
 
-\textbf{\emph{Should} (14 RF).} Aportan valor sustantivo pero el sistema entrega su propuesta de
+\textbf{\emph{Should} (16 RF).} Aportan valor sustantivo pero el sistema entrega su propuesta de
 valor sin ellos en la primera versión: seguimiento de etapas, ficha de plaga, análisis de
 suelo, recorridos, evaluación de desempeño, clima, historial, registro del ticket de la extractora,
 trazabilidad de la penalización, ventana corte-entrega, arrastre semanal, consulta de remuneración,
-lista de pendientes y exportación hacia la extractora.
+lista de pendientes, exportación hacia la extractora, generación del comprobante de liquidación
+(\id{RF-38}) y exportación del consolidado semanal (\id{RF-39}). El conjunto \emph{Should} queda en
+\id{RF-06}, \id{RF-09}, \id{RF-11}, \id{RF-15} a \id{RF-17}, \id{RF-20}, \id{RF-23} a
+\id{RF-25}, \id{RF-27}, \id{RF-29}, \id{RF-31}, \id{RF-32}, \id{RF-38} y \id{RF-39}.
+
+\noindent\fbox{\parbox{0.97\textwidth}{\small\textbf{Nota de corrección (v3.1).} La versión 3.0
+declaraba en esta subsección 19 \emph{Must}, 14 \emph{Should} y 35 requisitos funcionales, en
+contradicción con la §5.1 del mismo documento, que declaraba 21, 16 y 39. La cifra correcta es la de
+la §5.1: el conteo de las fichas de la §3.2, una por una, arroja 21 \emph{Must}, 16
+\emph{Should} y 2 \emph{Could}. La subsección no se había actualizado tras la incorporación de
+\id{RF-36} a \id{RF-39} desde \id{EV-13}.}}
 
 \textbf{\emph{Could} (2 RF).} \id{RF-33} (guía de remisión) y \id{RF-34} (solicitud de insumos) son
 mejoras deseables de bajo acoplamiento con el núcleo.
@@ -176,8 +199,13 @@ Se aplica el método del Trabajo Ponderado Más Corto Primero:
 \[
 \mathrm{WSJF} = \frac{\text{Valor de negocio} + \text{Criticidad temporal} + \text{Reducción de riesgo}}{\text{Tamaño del trabajo}}
 \]
-Los cuatro componentes se puntúan en escala Fibonacci (1, 2, 3, 5, 8, 13). La tabla presenta los
-diez requisitos evaluados de mayor valor de negocio, ordenados de forma descendente por WSJF.
+Los cuatro componentes se puntúan en escala Fibonacci (1, 2, 3, 5, 8, 13). La tabla presenta diez
+de los requisitos evaluados, ordenados de forma descendente por WSJF. \textbf{No constituye el
+ranking de los diez valores más altos}: \id{RF-10} (WSJF 7,00), \id{RF-05} (4,80) y \id{RF-30}
+(4,80) alcanzan valores superiores a los de ocho de las filas aquí listadas y no figuran en ella.
+Sus valores constan en la Tabla \ref{tab:mvp} de la §6.1.1, y la evaluación completa de los 42
+requisitos con sus cuatro componentes reside en el archivo de priorización referenciado en el
+Apéndice C.
 
 \begin{longtable}{|C{1.4cm}|C{1.3cm}|C{1.3cm}|C{1.3cm}|C{1.3cm}|C{1.4cm}|L{5.4cm}|}
 \hline
@@ -200,8 +228,9 @@ diez requisitos evaluados de mayor valor de negocio, ordenados de forma descende
 
 \noindent
 \textbf{Lectura del resultado.} \id{RF-35} y \id{RF-10} encabezan el orden de implementación con un
-WSJF de 7,00 cada uno,
-pese a no ser el requisito de mayor valor de negocio. La razón es su tamaño reducido frente a un
+WSJF de 7,00 cada uno, pese a no ser los requisitos de mayor valor de negocio. De los dos, solo
+\id{RF-35} figura en la tabla anterior; el valor de \id{RF-10} consta en la Tabla \ref{tab:mvp} de
+la §6.1.1. La razón es su tamaño reducido frente a un
 impacto alto: se trata de una variante del formulario de registro que evita excluir a una de cada
 nueve personas destinatarias. \id{RF-10} alcanza la misma posición por una razón distinta: es
 prerrequisito de \id{RF-21}, dado que el umbral de desprendimiento se obtiene de la variedad del
@@ -225,7 +254,7 @@ Requisito $\rightarrow$ Caso de uso $\rightarrow$ Historia de usuario $\rightarr
 Criterio de aceptación $\rightarrow$ Componente $\rightarrow$ Mockup.
 
 La versión completa, con las trece columnas exigidas por la §8.8 de la guía, reside en
-\id{04\_Trazabilidad/}\allowbreak\id{matriz\_trazabilidad.csv} y contiene \textbf{52 filas}. La tabla siguiente
+\id{04\_Trazabilidad/}\allowbreak\id{matriz\_trazabilidad.csv} y contiene \textbf{55 filas}. La tabla siguiente
 reproduce una vista reducida con las columnas de mayor densidad informativa; se conservan las 48
 filas para permitir la verificación de cobertura. Las cuatro últimas corresponden a los requisitos derivados de la hoja de liquidación semanal (\id{EV-13}).
 
@@ -286,7 +315,10 @@ filas para permitir la verificación de cobertura. Las cuatro últimas correspon
 50 & Administrador & EV-13, EV-11 & RF-37 & RF & CU-07 & --- & MU-02 \\ \hline
 51 & Administrador & EV-13 & RF-38 & RF & CU-07 & --- & MU-02 \\ \hline
 52 & Administrador & EV-13 & RF-39 & RF & CU-07 & --- & MU-02 \\ \hline
-\caption{Matriz de trazabilidad extendida (vista reducida, 52 filas)}
+53 & Trabajador & RL-04 & RF-40 & RF & CU-13 & HU-22 & MU-02 \\ \hline
+54 & Trabajador & RL-05 & RF-41 & RF & CU-13 & HU-23 & MU-02 \\ \hline
+55 & Administrador & RL-06 & RF-42 & RF & CU-13 & HU-24 & MU-02 \\ \hline
+\caption{Matriz de trazabilidad extendida (vista reducida, 55 filas)}
 \end{longtable}
 
 \subsubsection{Diagnóstico de cobertura}
@@ -296,9 +328,9 @@ filas para permitir la verificación de cobertura. Las cuatro últimas correspon
 \rowcolor{grisclaro}\textbf{Indicador} & \textbf{Resultado} & \textbf{Interpretación} \\
 \hline
 \endhead
-Requisitos funcionales trazados a evidencia & 39 / 39 (100\%) & Ningún requisito carece de fuente verificable. \\ \hline
-Requisitos \emph{Must} con caso de uso & 19 / 19 (100\%) & Se corrige la deficiencia de la Entrega 2, donde \id{RF-17} y \id{RF-20} carecían de caso de uso. \\ \hline
-Requisitos \emph{Must} con historia y criterio & 19 / 19 (100\%) & \\ \hline
+Requisitos funcionales trazados a evidencia o a fuente normativa & 42 / 42 (100\%) & Ningún requisito carece de fuente verificable. \id{RF-40} a \id{RF-42} se trazan a la LOPDP (\id{RL-04} a \id{RL-06}) y no a evidencia de campo: su origen es una obligación legal, no una necesidad expresada por una parte interesada. \\ \hline
+Requisitos \emph{Must} con caso de uso & 24 / 24 (100\%) & Se corrige la deficiencia de la Entrega 2, donde \id{RF-17} y \id{RF-20} carecían de caso de uso. \id{RF-40} a \id{RF-42} se asocian a \id{CU-13} (gestión de personal y datos personales). \\ \hline
+Requisitos \emph{Must} con historia y criterio & 24 / 24 (100\%) & Restablecido por \id{RFC-01}, que incorpora \id{HU-20} y \id{HU-21} para \id{RF-36} y \id{RF-37}, y por \id{RFC-03}, que incorpora \id{HU-22} a \id{HU-24} para los tres requisitos de la LOPDP. \\ \hline
 Evidencias que originan al menos un requisito & 12 / 13 (92,3\%) & \id{EV-09} (observación de campo) aporta contexto y respalda requisitos junto con otras fuentes, sin originar ninguno de forma exclusiva. \\ \hline
 Requisitos sustentados en una sola evidencia & 9 / 39 (23,1\%) & Véase el análisis de elementos huérfanos. \\ \hline
 Requisitos con mockup asociado & 36 / 39 (92,3\%) & \id{RF-03}, \id{RF-27} y \id{RF-34} operan sobre pantallas no prototipadas en esta entrega. \\ \hline

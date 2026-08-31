@@ -1,0 +1,299 @@
+% =====================================================================
+%  seccion9_ia.tex — Componentes de inteligencia artificial del SIMPA
+%  Incorporado en la PE5 (Unidad V). Cubre los cinco bloques exigidos
+%  por la guía: descripción, datos, métricas de éxito, requisitos
+%  éticos y de privacidad, y plan de monitoreo.
+% =====================================================================
+
+\section{Componentes de inteligencia artificial}
+\label{sec:ia}
+
+El SIMPA no incorpora inteligencia artificial como añadido tecnológico: la incorpora porque dos
+decisiones del cultivo dependen hoy del criterio visual de una persona con formación desigual y
+consecuencias económicas medibles. La \S2.6 documenta que el diagnóstico fitosanitario depende de la
+visita quincenal de la asesoría técnica, y que entre visitas la afectación avanza sin registro; y la
+evidencia \id{EV-04} documenta que la penalización que aplica la planta extractora por porcentaje de
+fruta verde se decide sobre una estimación visual hecha en el momento del corte.
+
+Esos dos problemas ---y no la disponibilidad de la técnica--- son los que justifican los dos
+componentes que esta sección especifica.
+
+% ---------------------------------------------------------------------
+\subsection{Identificación y justificación de los componentes}
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Componentes de inteligencia artificial del SIMPA}
+\label{tab:comp-ia}
+\begin{tabular}{|C{1.5cm}|L{4.2cm}|L{4.6cm}|L{4.6cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Componente} & \textbf{Problema real que resuelve} & \textbf{Requisitos preexistentes a los que sirve}\\ \hline
+\id{IA-01} & Clasificador fitosanitario por imagen & Entre visitas de la asesoría técnica, una afectación puede avanzar dos semanas sin detección. El componente permite que cualquier persona en campo obtenga un diagnóstico preliminar en el momento. & \id{RF-07}, \id{RF-08}, \id{RF-09}, \id{RF-12}\\ \hline
+\id{IA-02} & Estimador de madurez y de porcentaje de fruta verde & La penalización de la planta extractora se decide sobre una estimación visual del corte. El componente sustituye ese juicio por una medición reproducible y anterior al despacho. & \id{RF-21}, \id{RF-22}, \id{RF-24}, \id{RF-25}\\ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+Ninguno de los dos componentes introduce funcionalidad nueva: ambos automatizan una decisión que el
+ERS ya especificaba y que hasta ahora quedaba en manos del criterio de la persona usuaria. Esa es la
+condición que la práctica exige ---que ningún requisito de IA quede aislado--- y también la razón por
+la que la trazabilidad de la \S\ref{sec:trazabilidad-ia} se cierra sin filas huérfanas.
+
+% =====================================================================
+\subsection{IA-01 --- Clasificador fitosanitario por imagen}
+
+\subsubsection*{Bloque 1. Descripción del componente}
+
+\begin{table}[H]
+\centering\footnotesize
+\begin{tabular}{|L{3.6cm}|L{11.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Aspecto} & \textbf{Descripción}\\ \hline
+Qué decide & Clasifica una fotografía de hoja, raquis o estípite en una de las clases de afectación del catálogo, o en la clase \emph{sin afectación}, y devuelve el nivel de confianza y el rasgo visual determinante.\\ \hline
+Entradas & Fotografía capturada en campo; variedad del lote; etapa del cultivo derivada de \id{RF-06}; fecha y hora de captura.\\ \hline
+Salida & Clase de afectación, nivel de confianza en $[0,1]$ y rasgo visual determinante expresado en lenguaje natural.\\ \hline
+Quién consume el resultado & Asistente de administración y trabajador agrícola, de forma inmediata en el dispositivo. La asesoría técnica lo consulta de forma diferida en el histórico del lote.\\ \hline
+Qué ocurre si se equivoca & Un falso negativo retrasa el control fitosanitario hasta la siguiente visita técnica, que es exactamente la situación actual: el componente no empeora la línea base. Un falso positivo provoca una aplicación innecesaria de producto, con costo económico y exposición del personal.\\ \hline
+Plan de degradación & Si la confianza es inferior al umbral, el componente \textbf{no emite clasificación}: declara el resultado no concluyente e indica qué condición de la captura mejorar. Si el componente no está disponible, el registro de la incidencia con fotografía sigue operando por \id{RF-05}, sin diagnóstico automático. El sistema nunca sustituye a la asesoría técnica en la decisión de aplicar un producto.\\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Bloque 2. Datos de entrenamiento requeridos}
+
+\begin{table}[H]
+\centering\footnotesize
+\begin{tabular}{|L{3.6cm}|L{11.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Aspecto} & \textbf{Especificación}\\ \hline
+Origen & Fotografías capturadas en la propia plantación durante dos ciclos de cosecha, complementadas con conjuntos públicos de fitopatología de palma aceitera cuando exista correspondencia de clase.\\ \hline
+Volumen mínimo & 200 imágenes etiquetadas por clase de afectación para el conjunto de evaluación, y no menos de 1.000 en total para el conjunto de entrenamiento.\\ \hline
+Variables & Imagen; clase de afectación; variedad; etapa del cultivo; condición de iluminación (mañana, mediodía, tarde); gama del dispositivo de captura.\\ \hline
+Etiquetado & Realizado por la persona asesora técnica de la organización. Toda imagen dudosa se descarta en lugar de etiquetarse por mayoría.\\ \hline
+Calidad mínima & Resolución no inferior a $1024\times768$~px; el órgano vegetal afectado ocupa al menos un tercio del área; sin desenfoque de movimiento.\\ \hline
+Sesgos conocidos & \textbf{(i)} La plantación siembra dos variedades en proporción desigual, de modo que un conjunto recogido sin control de esa proporción sobrerrepresenta a una de ellas. \textbf{(ii)} La jornada se concentra entre las 06:00 y las 18:00 (\id{EV-06}), pero la captura tiende a producirse a media mañana, lo que sesga la distribución de iluminación. \textbf{(iii)} El 11,3\,\% del personal no dispone de teléfono inteligente (\id{EV-12}) y el resto usa dispositivos de gamas distintas, de modo que la calidad óptica del conjunto no es uniforme.\\ \hline
+Base legal del tratamiento & La imagen de una palma no es dato personal. Sí lo son la geolocalización de la captura y la identidad de quien captura, que se asocian a la imagen por \id{RF-05}. Su tratamiento se ampara en la ejecución de la relación laboral (Art.~7 de la LOPDP) y no en el consentimiento, por la asimetría de poder que invalidaría este último en el contexto laboral. Para el entrenamiento se emplea la imagen \textbf{disociada} de ambos campos.\\ \hline
+Política de conservación & Las imágenes del conjunto de entrenamiento se conservan mientras el modelo esté en producción. Los metadatos de geolocalización e identidad se suprimen del conjunto en el momento de su incorporación, y no al final del ciclo.\\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Bloque 3. Requisitos funcionales}
+
+\begin{longtable}{|C{2.1cm}|L{13.3cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Requisito}\\ \hline
+\endhead
+\id{RF-IA-01} & El sistema debe clasificar una fotografía capturada en campo en una de las clases de afectación del catálogo o en la clase \emph{sin afectación}, devolviendo la clase, el nivel de confianza en $[0,1]$ y el rasgo visual determinante. \newline \emph{Criterio:} \textbf{Dada} una fotografía que cumple los requisitos mínimos de calidad, \textbf{cuando} se solicita el diagnóstico, \textbf{entonces} el sistema devuelve las tres salidas \textbf{y} la clase pertenece al catálogo declarado. \\ \hline
+\id{RF-IA-02} & El sistema debe abstenerse de emitir clasificación cuando el nivel de confianza sea inferior al umbral configurado, informando en su lugar qué condición de la captura debe mejorarse. \newline \emph{Criterio:} \textbf{Dada} una fotografía cuya inferencia arroja confianza inferior al umbral, \textbf{cuando} se presenta el resultado, \textbf{entonces} no aparece ninguna clase de afectación \textbf{y} sí aparece la indicación de qué mejorar. \\ \hline
+\id{RF-IA-03} & El sistema debe registrar cada inferencia con su entrada disociada, su salida, su nivel de confianza y la versión del modelo que la produjo, para permitir la auditoría posterior del comportamiento del componente. \newline \emph{Criterio:} \textbf{Dada} una inferencia ejecutada, \textbf{cuando} se consulta el registro de decisiones, \textbf{entonces} constan los cuatro campos \textbf{y} la versión del modelo permite reproducir la inferencia. \\ \hline
+\caption{Requisitos funcionales del componente IA-01}
+\end{longtable}
+
+\subsubsection*{Bloque 4. Métricas de éxito y requisitos no funcionales}
+
+\begin{longtable}{|C{2.1cm}|C{2.0cm}|L{11.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Tipo} & \textbf{Requisito, umbral y método de comprobación}\\ \hline
+\endhead
+\id{RNF-IA-01} & Rendimiento & El macro-F1 del clasificador sobre las cinco afectaciones más frecuentes del cultivo no será inferior a \textbf{0,80}, medido sobre el conjunto de evaluación del Anexo de datos antes de cada despliegue. Se emplea macro-F1 y no exactitud porque las clases están desbalanceadas y la exactitud premiaría a un modelo que acertara siempre la clase mayoritaria. \\ \hline
+\id{RNF-IA-02} & Rendimiento & La exhaustividad (\emph{recall}) de la clase \emph{con afectación} frente a \emph{sin afectación} no será inferior a \textbf{0,85}. El umbral es más exigente que el de precisión de forma deliberada: en este dominio un falso negativo cuesta dos semanas de avance de la plaga, mientras que un falso positivo cuesta una verificación humana. \\ \hline
+\id{RNF-IA-03} & Rendimiento & La latencia de inferencia será menor o igual a \textbf{10~s} en el percentil 95, medida en un dispositivo de gama media con Android 9.0 y sin conectividad, conforme a \id{RD-05}. \\ \hline
+\id{RNF-IA-04} & Equidad & La diferencia de macro-F1 entre las dos variedades sembradas (\emph{guineensis} e híbrido) no superará \textbf{5 puntos porcentuales}, medida trimestralmente sobre el registro de decisiones de \id{RF-IA-03}. Un modelo entrenado sobre la variedad mayoritaria diagnosticaría peor los lotes de la otra sin que nadie lo advirtiera, y el efecto recaería sobre el lote entero, no sobre una fotografía aislada. \\ \hline
+\id{RNF-IA-05} & Equidad & La diferencia de macro-F1 entre capturas realizadas con dispositivos de gama baja y de gama media o superior no superará \textbf{7 puntos porcentuales}, medida trimestralmente. La restricción \id{RD-01} establece que el personal emplea su propio teléfono; un modelo que rinda peor con cámaras de menor calidad penalizaría sistemáticamente a las personas con dispositivos más económicos, cuyo trabajo quedaría peor registrado por una causa ajena a su desempeño. \\ \hline
+\id{RNF-IA-06} & Explicabilidad & Toda clasificación emitida se presentará acompañada, sin que la persona usuaria deba solicitarlo y sin posibilidad de omitirla, del rasgo visual determinante en lenguaje natural y del nivel de confianza expresado en términos cualitativos. Cuando la salida incluya recomendación de control fitosanitario, la explicación incorporará el equipo de protección personal y el intervalo de reingreso al lote (\id{RNF-19}). \\ \hline
+\caption{Requisitos no funcionales del componente IA-01}
+\end{longtable}
+
+% =====================================================================
+\subsection{IA-02 --- Estimador de madurez y de porcentaje de fruta verde}
+
+\subsubsection*{Bloque 1. Descripción del componente}
+
+\begin{table}[H]
+\centering\footnotesize
+\begin{tabular}{|L{3.6cm}|L{11.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Aspecto} & \textbf{Descripción}\\ \hline
+Qué decide & Clasifica el grado de madurez de un racimo y estima el porcentaje de fruta verde de un lote a partir de fotografías de la carga preparada para el despacho.\\ \hline
+Entradas & Fotografía del racimo o de la carga; variedad del lote; fecha y hora de corte.\\ \hline
+Salida & Grado de madurez del racimo; porcentaje estimado de fruta verde del lote con su intervalo de confianza.\\ \hline
+Quién consume el resultado & Administración general, antes de autorizar el despacho, y jefe de campo, para decidir si el corte se posterga.\\ \hline
+Qué ocurre si se equivoca & Una subestimación del porcentaje de fruta verde deja pasar una carga que la extractora penaliza, y esa penalización se traza hasta la cuadrilla que ejecutó el corte por \id{RF-24}. Una sobreestimación retiene fruta madura y la expone a superar la ventana corte-entrega de \id{RF-25}. Los dos errores tienen consecuencia económica sobre personas concretas.\\ \hline
+Plan de degradación & La estimación es un insumo para la decisión, nunca la decisión. La autorización del despacho la emite siempre una persona, que puede apartarse de la estimación dejando constancia del motivo. Si el componente no está disponible, el flujo continúa con la estimación visual, que es el procedimiento actual.\\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Bloque 2. Datos de entrenamiento requeridos}
+
+\begin{table}[H]
+\centering\footnotesize
+\begin{tabular}{|L{3.6cm}|L{11.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Aspecto} & \textbf{Especificación}\\ \hline
+Origen & Fotografías de carga preparada para despacho, emparejadas con la calificación de calidad que la planta extractora emitió sobre esa misma carga (\id{RF-23}). El emparejamiento con la calificación externa es lo que convierte la fotografía en dato etiquetado sin necesidad de etiquetado manual.\\ \hline
+Volumen mínimo & 200 cargas emparejadas con su calificación, distribuidas a lo largo de al menos dos ciclos de cosecha para cubrir la variación estacional.\\ \hline
+Variables & Imagen de la carga; porcentaje de fruta verde calificado por la extractora; variedad; fecha de corte; fecha de entrega; cuadrilla responsable.\\ \hline
+Etiquetado & La etiqueta es la calificación emitida por la planta extractora, no un juicio del equipo. Es una fuente externa, verificable y económicamente vinculante.\\ \hline
+Calidad mínima & Fotografía de la carga completa con iluminación natural, sin obstrucción superior al 10\,\% del área de la carga.\\ \hline
+Sesgos conocidos & \textbf{(i)} La calificación de la extractora es la etiqueta, de modo que cualquier sesgo sistemático de esa calificación se transmite al modelo. \textbf{(ii)} Las cargas rechazadas antes del despacho no llegan a calificarse y por tanto no aparecen en el conjunto, que queda sesgado hacia las cargas que el criterio humano ya consideró aceptables. \textbf{(iii)} La distribución de cuadrillas no es uniforme entre lotes, y el campo \emph{cuadrilla} podría actuar como variable indirecta si se incluyera en el entrenamiento; por eso se excluye de las variables de entrada.\\ \hline
+Base legal del tratamiento & La identidad de la cuadrilla es dato personal y se conserva únicamente en el registro de trazabilidad de \id{RF-24}, con base en la ejecución de la relación laboral (Art.~7 LOPDP). \textbf{No forma parte del conjunto de entrenamiento} ni de las variables de entrada del modelo.\\ \hline
+Política de conservación & Las cargas emparejadas se conservan mientras el modelo esté en producción. El vínculo con la cuadrilla se suprime al incorporar la carga al conjunto.\\ \hline
+\end{tabular}
+\end{table}
+
+\subsubsection*{Bloque 3. Requisitos funcionales}
+
+\begin{longtable}{|C{2.1cm}|L{13.3cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Requisito}\\ \hline
+\endhead
+\id{RF-IA-04} & El sistema debe clasificar el grado de madurez de un racimo a partir de su fotografía, devolviendo el grado y el nivel de confianza. \newline \emph{Criterio:} \textbf{Dada} una fotografía de racimo que cumple la calidad mínima, \textbf{cuando} se solicita la clasificación, \textbf{entonces} el sistema devuelve un grado del catálogo de madurez \textbf{y} su nivel de confianza. \\ \hline
+\id{RF-IA-05} & El sistema debe estimar el porcentaje de fruta verde de una carga preparada para despacho y presentarlo siempre acompañado de su intervalo de confianza. \newline \emph{Criterio:} \textbf{Dada} una carga fotografiada, \textbf{cuando} se solicita la estimación, \textbf{entonces} el sistema presenta el porcentaje y su intervalo \textbf{y} en ningún caso presenta el porcentaje como cifra aislada. \\ \hline
+\id{RF-IA-06} & El sistema debe permitir que la persona que autoriza el despacho se aparte de la estimación, registrando el valor humano, el valor del modelo y el motivo de la discrepancia. \newline \emph{Criterio:} \textbf{Dada} una estimación presentada, \textbf{cuando} la persona autoriza el despacho con un valor distinto, \textbf{entonces} el registro conserva los dos valores y el motivo \textbf{y} la discrepancia queda disponible para el seguimiento de deriva. \\ \hline
+\caption{Requisitos funcionales del componente IA-02}
+\end{longtable}
+
+\subsubsection*{Bloque 4. Métricas de éxito y requisitos no funcionales}
+
+\begin{longtable}{|C{2.1cm}|C{2.0cm}|L{11.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{ID} & \textbf{Tipo} & \textbf{Requisito, umbral y método de comprobación}\\ \hline
+\endhead
+\id{RNF-IA-07} & Rendimiento & El error absoluto medio (MAE) de la estimación del porcentaje de fruta verde no superará \textbf{2 puntos porcentuales} frente a la calificación emitida por la planta extractora, medido sobre el conjunto de evaluación antes de cada despliegue. El umbral se fija en 2 puntos porque el de penalización de la extractora está en el 3\,\%: un error mayor haría inservible la estimación justo en el rango en que se toma la decisión. \\ \hline
+\id{RNF-IA-08} & Rendimiento & La exactitud de la clasificación del grado de madurez no será inferior a \textbf{0,85}, medida sobre el conjunto de evaluación. \\ \hline
+\id{RNF-IA-09} & Rendimiento & La estimación de una carga completa se entregará en un tiempo menor o igual a \textbf{15~s} en el percentil 95, en el dispositivo de referencia y sin conectividad. \\ \hline
+\id{RNF-IA-10} & Equidad & La diferencia de MAE entre las cuadrillas de trabajo no superará \textbf{1,5 puntos porcentuales}, medida trimestralmente sobre el registro de decisiones. Es el requisito de equidad de mayor consecuencia del sistema: \id{RF-24} traza la penalización hasta la cuadrilla, de modo que un modelo que estimara peor las cargas de una cuadrilla concreta produciría penalizaciones sistemáticamente injustas sobre personas identificables. La medición se realiza \emph{a posteriori} sobre el registro, precisamente porque la cuadrilla se excluye de las variables de entrada del modelo. \\ \hline
+\id{RNF-IA-11} & Equidad & La diferencia de MAE entre las dos variedades sembradas no superará \textbf{1,5 puntos porcentuales}, medida trimestralmente. La coloración del racimo maduro difiere entre \emph{guineensis} e híbrido, de modo que un modelo entrenado sobre la variedad mayoritaria trasladaría su umbral cromático a la otra y penalizaría de forma sistemática los lotes sembrados con ella. \\ \hline
+\id{RNF-IA-12} & Explicabilidad & Toda estimación presentada incorporará, de forma no omisible, el intervalo de confianza, la región de la imagen que más pesó en el resultado y la comparación con la calificación media histórica de ese lote. Cuando la estimación se sitúe a menos de medio punto porcentual del umbral de penalización, la explicación lo advertirá de forma expresa, por ser el rango en que un error del modelo tiene consecuencia económica directa. \\ \hline
+\caption{Requisitos no funcionales del componente IA-02}
+\end{longtable}
+
+% =====================================================================
+\subsection{Bloque 5. Requisitos éticos, de privacidad y clasificación de riesgo}
+
+\subsubsection*{Clasificación conforme al Reglamento (UE) 2024/1689}
+
+El Reglamento clasifica los sistemas de inteligencia artificial por nivel de riesgo e impone
+obligaciones proporcionales a esa clasificación \cite{aiact2024}. El análisis del SIMPA arroja el
+siguiente resultado, que se declara con su razonamiento y no como afirmación:
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Clasificación de riesgo de los componentes de IA del SIMPA}
+\label{tab:riesgo-ia}
+\begin{tabular}{|L{3.4cm}|C{2.6cm}|L{9.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Categoría} & \textbf{¿Aplica?} & \textbf{Razonamiento}\\ \hline
+Práctica prohibida & No & Ninguno de los dos componentes realiza puntuación social, manipulación subliminal, categorización biométrica ni inferencia de emociones.\\ \hline
+Alto riesgo (Anexo III) & \textbf{No, con matiz} & Ningún epígrafe del Anexo III cubre la gestión agrícola de cultivos. El epígrafe de empleo y gestión de trabajadores sí cubriría un sistema destinado a evaluar el desempeño de las personas trabajadoras, y el SIMPA especifica esa función en \id{RF-16}; pero \id{RF-16} calcula un promedio ponderado con pesos declarados y configurables, es decir, es una función determinista y no un sistema de IA en el sentido del Reglamento. Los dos componentes que sí lo son ---\id{IA-01} e \id{IA-02}--- no evalúan personas: clasifican material vegetal.\\ \hline
+Obligación de transparencia & \textbf{Sí} & Los dos componentes interactúan directamente con personas y producen salidas que estas consumen. La obligación se satisface mediante \id{RNF-16}, \id{RNF-IA-06} y \id{RNF-IA-12}, que hacen no omisible la explicación de toda salida automática.\\ \hline
+Riesgo mínimo & Sí, residualmente & Es la categoría en la que quedan los dos componentes tras el análisis anterior.\\ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+\textbf{Salvaguardas voluntarias y por qué se adoptan.} La clasificación anterior no obliga a aplicar
+el régimen de alto riesgo, pero el equipo lo aplica parcialmente por decisión propia y deja
+constancia del motivo. Existe una vía indirecta entre \id{IA-02} y una consecuencia económica sobre
+personas identificables: la estimación del componente influye en la decisión de despacho, la
+calificación de la extractora determina la penalización y \id{RF-24} traza esa penalización hasta la
+cuadrilla responsable. El Reglamento no alcanza esa cadena porque el componente no evalúa personas,
+pero la cadena existe y produce el mismo tipo de daño que el régimen de alto riesgo previene.
+
+Las tres salvaguardas adoptadas en consecuencia son: la supervisión humana obligatoria de
+\id{RF-IA-06}, que impide que la salida del modelo autorice un despacho por sí sola; el requisito de
+equidad por cuadrilla \id{RNF-IA-10}, que vigila precisamente el sesgo que produciría el daño; y el
+registro completo de decisiones de \id{RF-IA-03}, que permite auditar el comportamiento del modelo
+después del hecho. Declarar un sistema de riesgo mínimo y aplicarle salvaguardas de alto riesgo no es
+una contradicción: es reconocer que la clasificación normativa mide la categoría del sistema, no la
+totalidad de sus consecuencias.
+
+\subsubsection*{Base legal y medidas conforme a la LOPDP}
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Tratamiento de datos personales asociado a los componentes de IA}
+\label{tab:lopdp-ia}
+\begin{tabular}{|L{3.4cm}|L{3.6cm}|L{8.2cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Dato} & \textbf{Base legal} & \textbf{Medida aplicada}\\ \hline
+Geolocalización de la captura & Ejecución de la relación laboral (Art.~7) & Cifrado en reposo y acceso registrado en bitácora (\id{RNF-14}). Se disocia de la imagen antes de incorporarla al conjunto de entrenamiento.\\ \hline
+Identidad de quien captura & Ejecución de la relación laboral (Art.~7) & Se conserva en el registro operativo, no en el conjunto de entrenamiento.\\ \hline
+Identidad de la cuadrilla & Ejecución de la relación laboral (Art.~7) & Excluida de las variables de entrada de \id{IA-02}. Se emplea únicamente \emph{a posteriori} para medir \id{RNF-IA-10}.\\ \hline
+Registro de decisiones del modelo & Interés legítimo del responsable, con finalidad de auditoría & Entrada disociada; conservación limitada a la vida útil del modelo.\\ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+No se recurre al consentimiento como base legal para ningún tratamiento asociado al personal. La
+asimetría de poder propia de la relación laboral hace que un consentimiento otorgado en ese contexto
+difícilmente pueda considerarse libre, de modo que invocarlo daría una apariencia de garantía sin
+sustancia. Los derechos de acceso, rectificación y supresión se ejercen por las vías ya especificadas
+en \id{RF-40}, \id{RF-41} y \id{RF-42}.
+
+\textbf{Minimización.} Los dos componentes reciben como entrada la imagen y los atributos del lote.
+Ninguno recibe datos identificativos de personas. Es una decisión de diseño y no una consecuencia
+técnica: excluir la cuadrilla de \id{IA-02} implica renunciar a una variable potencialmente
+predictiva, y se renuncia a ella precisamente porque su capacidad predictiva sería el mecanismo del
+sesgo que se quiere evitar.
+
+% ---------------------------------------------------------------------
+\subsection{Plan de monitoreo en producción}
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Plan de monitoreo de los componentes de IA}
+\label{tab:monitoreo-ia}
+\begin{tabular}{|L{3.8cm}|C{2.0cm}|C{2.4cm}|L{5.8cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Indicador} & \textbf{Frecuencia} & \textbf{Umbral de alerta} & \textbf{Acción al superarse}\\ \hline
+Macro-F1 de \id{IA-01} sobre muestra verificada por la asesoría técnica & Mensual & Caída $> 5$ p.p. respecto de la medición de despliegue & Revisión del conjunto de entrenamiento; reentrenamiento si la caída persiste dos mediciones consecutivas.\\ \hline
+Tasa de abstención de \id{IA-01} (\id{RF-IA-02}) & Mensual & $> 25\,\%$ de las inferencias & Indica degradación de la calidad de captura o cambio en las condiciones de campo; se revisa antes de tocar el modelo.\\ \hline
+MAE de \id{IA-02} frente a la calificación de la extractora & Por despacho, agregado mensual & $> 2$ p.p. sostenido durante un mes & Reentrenamiento con las cargas del período.\\ \hline
+Brecha de equidad por variedad (\id{RNF-IA-04}, \id{RNF-IA-11}) & Trimestral & Superar el umbral del requisito & Rebalanceo del conjunto de entrenamiento por variedad y nueva medición antes del siguiente despliegue.\\ \hline
+Brecha de equidad por gama de dispositivo (\id{RNF-IA-05}) & Trimestral & $> 7$ p.p. & Ampliación del conjunto con capturas de gama baja.\\ \hline
+Brecha de equidad por cuadrilla (\id{RNF-IA-10}) & Trimestral & $> 1{,}5$ p.p. & \textbf{Suspensión del uso de la estimación como insumo de la decisión de despacho} hasta corregir la brecha. Es la única acción de suspensión del plan, y se justifica porque el daño recae sobre la remuneración de personas identificables.\\ \hline
+Tasa de discrepancia humana (\id{RF-IA-06}) & Mensual & $> 30\,\%$ de los despachos & Señal de que la persona que autoriza no confía en el modelo; se investiga la causa antes de asumir que el modelo está bien y la persona equivocada.\\ \hline
+Deriva de la distribución de entrada & Trimestral & Distancia estadística superior al umbral declarado en el anexo de datos & Reentrenamiento programado.\\ \hline
+\end{tabular}
+\end{table}
+
+\noindent
+\textbf{Criterio de retirada.} Un componente se retira de producción, y no solo se reentrena, cuando
+incumpla su métrica principal en tres mediciones consecutivas tras dos reentrenamientos, o cuando la
+brecha de equidad por cuadrilla se mantenga por encima del umbral tras una acción correctiva. La
+retirada devuelve el sistema al procedimiento manual descrito en el plan de degradación, que es el
+que la organización emplea hoy: retirar el componente no deja al sistema sin función, lo devuelve a
+la línea base.
+
+% ---------------------------------------------------------------------
+\subsection{Trazabilidad de los requisitos de IA}
+\label{sec:trazabilidad-ia}
+
+\begin{longtable}{|C{1.9cm}|C{2.2cm}|C{1.5cm}|C{1.5cm}|L{6.4cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Requisito IA} & \textbf{Requisito preexistente} & \textbf{CU} & \textbf{Proceso} & \textbf{Relación}\\ \hline
+\endhead
+\id{RF-IA-01} & \id{RF-07}, \id{RF-08} & \id{CU-01}, \id{CU-02} & \id{P-05} & Realiza la función de diagnóstico que ambos requisitos especificaban.\\ \hline
+\id{RF-IA-02} & \id{RF-07} & \id{CU-01} & \id{P-05} & Materializa el flujo alternativo B de \id{CU-01} (confianza insuficiente).\\ \hline
+\id{RF-IA-03} & \id{RNF-15}, \id{RNF-17} & \id{CU-18} & \id{P-05} & Aporta el registro sobre el que se sustenta el ciclo de reentrenamiento.\\ \hline
+\id{RF-IA-04} & \id{RF-21} & \id{CU-06} & \id{P-06} & Realiza la clasificación de madurez que \id{RF-21} especificaba.\\ \hline
+\id{RF-IA-05} & \id{RF-22} & \id{CU-06} & \id{P-06} & Sustituye la estimación visual por una medición con intervalo declarado.\\ \hline
+\id{RF-IA-06} & \id{RF-24}, \id{RF-33} & \id{CU-10} & \id{P-06} & Introduce la supervisión humana previa a la autorización del despacho.\\ \hline
+\id{RNF-IA-01} a \id{RNF-IA-03} & \id{RNF-01}, \id{RNF-02}, \id{RNF-04} & \id{CU-01} & \id{P-05} & Precisan y sustituyen los umbrales genéricos de los RNF preexistentes.\\ \hline
+\id{RNF-IA-04}, \id{RNF-IA-05} & \id{RD-01}, \id{RNF-18} & \id{CU-01} & \id{P-05} & Derivan de la restricción de dispositivo propio y de la parametrización por variedad.\\ \hline
+\id{RNF-IA-06} & \id{RNF-16}, \id{RNF-19} & \id{CU-18} & \id{P-05} & Especializa el requisito general de explicabilidad para el componente.\\ \hline
+\id{RNF-IA-07} a \id{RNF-IA-09} & \id{RNF-01}, \id{RNF-04} & \id{CU-06} & \id{P-06} & Fijan umbral y método para el componente de madurez.\\ \hline
+\id{RNF-IA-10}, \id{RNF-IA-11} & \id{RF-24}, \id{RNF-18} & \id{CU-10} & \id{P-06} & Vigilan el sesgo con consecuencia económica sobre personas y por variedad.\\ \hline
+\id{RNF-IA-12} & \id{RNF-16} & \id{CU-18} & \id{P-06} & Especializa la explicabilidad para la estimación de fruta verde.\\ \hline
+\caption{Trazabilidad de los requisitos de IA con los requisitos preexistentes}
+\label{tab:traza-ia}
+\end{longtable}
+
+\noindent
+Ninguno de los dieciocho requisitos de inteligencia artificial queda aislado: los seis funcionales
+realizan una función que el ERS ya especificaba, y los doce no funcionales precisan un umbral que
+antes era genérico o introducen una propiedad ---equidad--- que el catálogo original no contemplaba.
+Esta última observación merece registrarse: el ERS de la Entrega 2A especificaba exactitud, latencia
+y explicabilidad para los componentes automáticos, pero no equidad. La ausencia no era un descuido de
+redacción sino un punto ciego del modelo de calidad empleado, y solo se hizo visible al preguntar
+explícitamente entre qué grupos podía diferir el desempeño del sistema.
