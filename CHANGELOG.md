@@ -5,6 +5,33 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.1.2] - 2026-08-31 - Cierre de P5: métrica M2 sin artefacto de respaldo
+
+### Corregido
+
+- `AnexoA_auditoria_calidad.xlsx`, hoja `Valoracion`: el nivel de la métrica
+  M2 (Consistencia) se ajustó de 4 a 2. Se confirmó que no existe en este
+  repositorio ni en ningún otro lugar accesible al equipo un artefacto que
+  respalde los "210 pares / 2 conflictos" reportados en PE5 (la hoja
+  `Conflictos_M2` referida por el informe original nunca formó parte del
+  Anexo A migrado). El criterio de M2 se actualizó para declarar esta
+  limitación explícitamente, siguiendo el mismo estándar de honestidad ya
+  aplicado a M6.
+- `Portada!B10` del mismo libro apuntaba al aporte individual de M6
+  (`Valoracion!D10`, 0.30) en vez de al total ponderado (`Valoracion!D11`).
+  Se corrigió la referencia.
+- El texto introductorio de la hoja `Valoracion` describía la fórmula como
+  "peso × nivel / 4"; la fórmula real (columna `Aporte`) siempre fue
+  "peso × nivel", sin dividir. Se corrigió el texto para que coincida con
+  la fórmula viva.
+- Como consecuencia de los tres puntos anteriores, la valoración ponderada
+  total pasó de 3,70 a 3,40 sobre 4,00. El cambio en el número es el efecto
+  esperado de declarar una limitación real, no un error a ocultar.
+- `checksums.sha256` se regeneró para reflejar el nuevo hash de
+  `AnexoA_auditoria_calidad.xlsx` (191/191 verificados).
+
+---
+
 ## [4.1.1] - 2026-08-31 - Correcciones post-auditoría de cierre
 
 ### Corregido
