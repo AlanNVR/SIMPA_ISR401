@@ -5,6 +5,41 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.1.1] - 2026-08-31 - Correcciones post-auditoría de cierre
+
+### Corregido
+
+- Se armonizó la identificación del ERS como Entrega 4 (2B), versión 2.0,
+  con fecha 31/08/2026.
+- Se añadió la revisión interna 3.2 correspondiente a ERS v2.0 y se aclaró
+  la relación histórica con la línea base ERS v1.1 de PE5.
+- `CITATION.cff` se actualizó al catálogo vigente de 42 RF y 19 RNF.
+- Se sustituyeron las referencias editables al repositorio anterior por
+  `https://github.com/AlanNVR/SIMPA_ISR401`, preservando sin modificación
+  los documentos firmados.
+- `README_Etica.md` incorpora una tabla de correspondencia entre rutas
+  históricas y rutas vigentes.
+- El criterio muestral se actualizó al umbral vigente de n >= 60,
+  distinguiendo el perfil ocupacional agregado (n=60) de los subperfiles
+  por labor (18, 18, 13 y 11), sin declarar cumplimiento por subperfil.
+- Las referencias a gatekeepers de la Entrega 3 se identificaron
+  explícitamente como criterios históricos de la 2A.
+
+### Bibliografía y reproducibilidad
+
+- Se eliminó el fallback silencioso de IEEEtran a `unsrt`.
+- Se incorporó `IEEEtran.bst` al directorio del ERS para hacer determinista
+  el estilo bibliográfico.
+- Se eliminaron los marcadores de trabajo `[RECIENTE]` de la bibliografía.
+- Se completaron DOI, ISBN o URL verificables en las referencias citadas
+  cuando correspondía.
+- La referencia `arora2024` se corrigió a su publicación bibliográfica
+  verificable.
+- La compilación completa `pdflatex -> bibtex -> pdflatex -> pdflatex`
+  finalizó sin errores LaTeX graves, sin errores de BibTeX y sin citas o
+  referencias indefinidas.
+- El PDF resultante contiene 108 páginas.
+
 ## [4.1.0] - 2026-08-31 - Migración y consolidación de la Entrega PE5
 
 ### Cambiado

@@ -123,7 +123,7 @@ pdflatex ERS_SRS_2B_v2.0.tex
 
 Alternativa sin instalación local: subir el contenido de `01_ERS/` a Overleaf, marcar `ERS_SRS_2B_v2.0.tex` como *Main File* y compilar con pdfLaTeX.
 
-**Resultado esperado:** 79 páginas, sin errores.
+**Resultado esperado:** 108 páginas, sin errores LaTeX graves ni referencias o citas indefinidas.
 
 ### Regenerar los diagramas
 

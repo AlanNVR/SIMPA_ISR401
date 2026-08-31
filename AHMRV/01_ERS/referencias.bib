@@ -1,14 +1,14 @@
 % =====================================================================
-%  referencias.bib -- ERS/SRS SIMPA -- Entrega 3 (2A)
+%  referencias.bib -- ERS/SRS SIMPA -- Entrega 4 (2B)
 %  Equipo AHMRV -- ISR-401 -- UTEQ -- 2026-2027 PPA
 %
-%  28 referencias primarias. Requisito de la guia 2A (Seccion 3.1):
-%  minimo 25 fuentes, al menos 10 de los ultimos tres anios (2023-2026),
-%  indexadas en Scopus o Web of Science.
+%  Base bibliografica acumulada del ERS.
+%  Los conteos de referencias deben obtenerse directamente de este archivo
+%  y de las claves efectivamente citadas en los documentos .tex.
 %
-%  RECUENTO POR ANIO:
-%    2023-2026: 12 referencias (marcadas con [RECIENTE])
-%    Anteriores: 16 referencias (normas y fundamentos)
+%  La recencia se conserva únicamente como metadato interno mediante
+%  comentarios RECENCIA_INTERNA, para evitar que marcadores de trabajo
+%  aparezcan impresos en la bibliografia.
 % =====================================================================
 
 % ---------------------------------------------------------------------
@@ -20,7 +20,8 @@
   title       = {{ISO/IEC/IEEE} 29148:2018 --- Systems and software engineering --- Life cycle processes --- Requirements engineering},
   institution = {International Organization for Standardization / International Electrotechnical Commission / Institute of Electrical and Electronics Engineers},
   address     = {Geneva, Switzerland},
-  year        = {2018}
+  year        = {2018},
+  doi        = {10.1109/IEEESTD.2018.8559686}
 }
 
 @techreport{iso25010,
@@ -28,7 +29,8 @@
   title       = {{ISO/IEC} 25010:2023 --- Systems and software engineering --- Systems and software Quality Requirements and Evaluation ({SQuaRE}) --- Product quality model},
   institution = {International Organization for Standardization / International Electrotechnical Commission},
   address     = {Geneva, Switzerland},
-  year        = {2023}
+  year        = {2023},
+  url        = {https://www.iso.org/standard/78176.html}
 }
 
 @misc{lopdp,
@@ -36,7 +38,8 @@
   title        = {Ley Org\'anica de Protecci\'on de Datos Personales},
   howpublished = {Registro Oficial Suplemento No. 459},
   year         = {2021},
-  address      = {Quito, Ecuador}
+  address      = {Quito, Ecuador},
+  url        = {https://www.registroficial.gob.ec/quinto-suplemento-al-registro-oficial-no-459/}
 }
 
 % ---------------------------------------------------------------------
@@ -48,7 +51,9 @@
   title     = {Requirements Engineering: Fundamentals, Principles, and Techniques},
   publisher = {Springer},
   address   = {Berlin, Heidelberg},
-  year      = {2010}
+  year      = {2010},
+  doi        = {10.1007/978-3-642-12578-2},
+  isbn       = {978-3-642-12577-5}
 }
 
 @techreport{swebok4,
@@ -57,7 +62,7 @@
   institution = {IEEE Computer Society},
   address     = {Los Alamitos, CA, USA},
   year        = {2024},
-  note        = {[RECIENTE]}
+  url        = {https://www.computer.org/education/bodies-of-knowledge/software-engineering}
 }
 
 @book{sommerville2016,
@@ -65,7 +70,8 @@
   title     = {Software Engineering},
   edition   = {10},
   publisher = {Pearson},
-  year      = {2016}
+  year      = {2016},
+  isbn       = {978-0-13-394303-0}
 }
 
 @book{wiegers2013,
@@ -73,7 +79,8 @@
   title     = {Software Requirements},
   edition   = {3},
   publisher = {Microsoft Press},
-  year      = {2013}
+  year      = {2013},
+  isbn       = {978-0-7356-7965-8}
 }
 
 @techreport{ireb2023,
@@ -81,7 +88,7 @@
   title       = {{CPRE} Foundation Level Syllabus v3.1},
   institution = {International Requirements Engineering Board},
   year        = {2023},
-  note        = {[RECIENTE]}
+  url         = {https://www.ireb.org/content/downloads/2-cpre-foundation-level-syllabus-3-0/cpre_foundationlevel_syllabus_en_v.3.1.pdf}
 }
 
 @article{mendez2017,
@@ -129,18 +136,20 @@
   number  = {2},
   pages   = {141--170},
   year    = {2026},
-  note    = {[RECIENTE]}
+  doi        = {10.1002/spe.70029}
 }
 
-@article{arora2024,
-  author  = {Arora, Chetan and Grundy, John and Abdelrazek, Mohamed},
-  title   = {Advancing requirements engineering through generative {AI}: Assessing the role of {LLM}s},
-  journal = {Communications of the ACM},
-  volume  = {67},
-  number  = {6},
-  pages   = {84--91},
-  year    = {2024},
-  note    = {[RECIENTE]}
+@incollection{arora2024,
+  author    = {Arora, Chetan and Grundy, John and Abdelrazek, Mohamed},
+  title     = {Advancing Requirements Engineering Through Generative {AI}: Assessing the Role of {LLM}s},
+  booktitle = {Generative AI for Effective Software Development},
+  editor    = {Nguyen-Duc, Anh and Abrahamsson, Pekka and Khomh, Foutse},
+  publisher = {Springer},
+  address   = {Cham, Switzerland},
+  pages     = {129--148},
+  year      = {2024},
+  doi       = {10.1007/978-3-031-55642-5_6},
+  isbn      = {978-3-031-55641-8},
 }
 
 @techreport{vogelsang2024,
@@ -149,7 +158,7 @@
   institution = {arXiv},
   number      = {2402.13823},
   year        = {2024},
-  note        = {[RECIENTE]}
+  doi        = {10.48550/ARXIV.2402.13823}
 }
 
 % ---------------------------------------------------------------------
@@ -173,7 +182,9 @@
   booktitle = {Proceedings of the 29th IEEE International Requirements Engineering Conference (RE'21)},
   pages     = {197--208},
   publisher = {IEEE},
-  year      = {2021}
+  year      = {2021},
+  doi        = {10.1109/RE51729.2021.00025},
+  isbn       = {978-1-6654-2857-6}
 }
 
 @article{chazette2022,
@@ -196,7 +207,9 @@
   title     = {Experimentation in Software Engineering},
   publisher = {Springer},
   address   = {Berlin, Heidelberg},
-  year      = {2012}
+  year      = {2012},
+  doi        = {10.1007/978-3-642-29044-2},
+  isbn       = {978-3-642-29044-2}
 }
 
 @article{runeson2009,
@@ -287,7 +300,7 @@
   number  = {1},
   pages   = {183--206},
   year    = {2025},
-  note    = {[RECIENTE]}
+  doi        = {10.1007/s11947-024-03483-0}
 }
 
 @article{omar2024,
@@ -297,7 +310,7 @@
   volume  = {55},
   pages   = {110667},
   year    = {2024},
-  note    = {[RECIENTE]}
+  doi        = {10.1016/j.dib.2024.110667}
 }
 
 @article{rosbi2024,
@@ -307,7 +320,7 @@
   volume  = {9},
   pages   = {100691},
   year    = {2024},
-  note    = {[RECIENTE]}
+  doi        = {10.1016/j.atech.2024.100691}
 }
 
 @article{kipli2023,
@@ -317,7 +330,7 @@
   volume  = {5},
   pages   = {100241},
   year    = {2023},
-  note    = {[RECIENTE]}
+  doi        = {10.1016/j.atech.2023.100241}
 }
 
 @article{zaki2025,
@@ -327,7 +340,7 @@
   volume  = {10},
   pages   = {100685},
   year    = {2025},
-  note    = {[RECIENTE]}
+  doi        = {10.1016/j.atech.2024.100685}
 }
 
 @article{rizzo2023,
@@ -338,7 +351,6 @@
   pages   = {44--57},
   year    = {2023},
   doi     = {10.1016/j.aiia.2023.02.004},
-  note    = {[RECIENTE]}
 }
 
 @techreport{kitchenham2007,
@@ -366,7 +378,8 @@
   title        = {Reglamento (UE) 2024/1689 por el que se establecen normas armonizadas en materia de inteligencia artificial ({Ley} de {Inteligencia} {Artificial})},
   howpublished = {Diario Oficial de la Unión Europea, L, 12 de julio de 2024},
   year         = {2024},
-  note         = {En vigor desde el 1 de agosto de 2024; la mayoría de sus obligaciones sustantivas se aplican desde el 2 de agosto de 2026}
+  note         = {En vigor desde el 1 de agosto de 2024; la mayoría de sus obligaciones sustantivas se aplican desde el 2 de agosto de 2026},
+  url        = {https://eur-lex.europa.eu/eli/reg/2024/1689/oj}
 }
 
 @misc{lopdp2021,

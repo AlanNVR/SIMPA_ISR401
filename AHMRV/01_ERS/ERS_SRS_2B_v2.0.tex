@@ -1,6 +1,6 @@
 % =====================================================================
 %  ERS/SRS -- SIMPA: Sistema Inteligente de Mantenimiento de Palma Africana
-%  Entrega 3 (2A) -- Especificacion completa + componente empirico
+%  Entrega 4 (2B) -- Cierre del proyecto
 %  Equipo AHMRV -- ISR-401 -- UTEQ -- Periodo 2026-2027 PPA
 %
 %  COMPILACION (ejecutar en este orden, desde 01_ERS/):
@@ -122,7 +122,7 @@
 \vspace{0.4cm}
 {\Large\bfseries SIMPA --- Sistema Inteligente de Mantenimiento\\[0.2cm] de Palma Africana\par}
 \vspace{0.4cm}
-{\large Entrega 3 (2A) --- Especificación completa\par}
+{\large Entrega 4 (2B) --- Cierre del proyecto\par}
 \vspace{0.5cm}
 \rule{\textwidth}{1.2pt}\par
 \vspace{1.0cm}
@@ -147,11 +147,11 @@ Alcívar Vélez Anderson Adonis & Apoyo Repositorio \\
 {\bfseries Asignatura:} Ingeniería de Requerimientos (ISR-401) --- 4to Nivel\par
 {\bfseries Docente:} Ing. Gleiston Cicerón Guerrero Ulloa, PhD\par
 {\bfseries Estándar:} ISO/IEC/IEEE 29148:2018\par
-{\bfseries Versión:} 1.1 \qquad {\bfseries Fecha:} 17/08/2026
+{\bfseries Versión:} 2.0 \qquad {\bfseries Fecha:} 31/08/2026
 
 \vspace{0.8cm}
 {\bfseries Repositorio del proyecto:}\par
-\url{https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV/tree/main/AHMRV}
+\url{https://github.com/AlanNVR/SIMPA_ISR401}
 
 \vfill
 {\small Quevedo --- Los Ríos --- Ecuador\par}
@@ -178,20 +178,22 @@ ISO/IEC 25010:2023 y corrección de toda métrica por debajo de su valor de refe
 el documento corregido, con registro de los defectos residuales y su cierre; especificación de los
 componentes de inteligencia artificial del sistema con sus requisitos de rendimiento, equidad y
 explicabilidad; incorporación de los diagramas de flujo de datos y cierre de la trazabilidad extremo a
-extremo. La versión declarada no cambia: esta es la v1.1 definitiva del proyecto integrador. \\ \hline
+extremo. En PE5, esta revisión quedó declarada como la línea base ERS v1.1 del proyecto integrador. \\ \hline
+3.2 \newline \textbf{(= ERS v2.0)} & 31/08/2026 & Equipo AHMRV & \textbf{Entrega 4 (2B) --- cierre del proyecto.} Migración y consolidación de PE5 en el repositorio principal: catálogo vigente de 42 RF y 19 RNF, 24 historias de usuario, casos de uso CU-01 a CU-18, matriz extremo a extremo de 73 filas, priorización post-CCB de 24 Must, 16 Should y 2 Could, corrección de la traza de RNF-11 a EV-07 y EV-10, e integración de los anexos de auditoría, CCB y declaración de uso de IA. \\ \hline
 \caption{Historial de versiones del documento}
 \end{longtable}
 
 \vspace{0.4cm}
 \noindent\fbox{\parbox{0.97\textwidth}{%
-\small\textbf{Dos numeraciones, una sola versión declarada.} La columna anterior registra las
+\small\textbf{Dos numeraciones, una línea base vigente.} La columna anterior registra las
 \emph{revisiones internas} con que el equipo ha venido versionando el documento desde la Entrega 1A.
-La asignatura emplea una numeración distinta: designa como \textbf{ERS v1.0} al documento de la
+La asignatura emplea una numeración distinta: designó como \textbf{ERS v1.0} al documento de la
 Entrega 2A ---revisión interna 3.0--- y como \textbf{ERS v1.1} a la versión resultante del Change
-Control Board de la Práctica Experimental de la Unidad IV ---revisión interna 3.1---. La versión
-oficial del documento, la que consta en la portada, en el archivo \id{CHANGELOG.md} y en la etiqueta
-anotada de Git (\id{baseline-v1.1}), es la de la asignatura: \textbf{v1.1}. Las revisiones internas
-se conservan porque documentan la evolución real del documento, pero no son la versión declarada.}}
+Control Board de la Práctica Experimental de la Unidad IV ---revisión interna 3.1---. Tras la
+consolidación de la Entrega 4 (2B), la versión oficial vigente es \textbf{ERS v2.0}. Esta línea base
+se identifica en este repositorio mediante la etiqueta anotada \id{baseline-v2.0}. Las revisiones
+anteriores se conservan porque documentan la evolución real del documento y no deben interpretarse
+como la versión vigente.}}
 
 \vspace{0.3cm}
 \noindent\fbox{\parbox{0.97\textwidth}{%
@@ -322,7 +324,7 @@ menos 10 recientes.
 
 \subsection{Nota sobre el uso de herramientas de asistencia en la redacción}
 
-Conforme a la advertencia global de la guía de la Entrega 3, se deja constancia de que toda
+Conforme a la advertencia global de la guía entonces aplicable a la Entrega 3 (2A), se deja constancia de que toda
 afirmación sustantiva de este documento está anclada a evidencia primaria del repositorio o a
 referencia bibliográfica revisada por pares. El uso de modelos grandes de lenguaje se limitó a
 tareas de asistencia en la redacción y el formato. Esta delimitación es coherente con las guías
@@ -342,7 +344,7 @@ evidencias de campo, la clasificación completa y la matriz de trazabilidad.
 
 \subsection{Incorporación de las observaciones de la Entrega 2 (1B)}
 
-Conforme al gatekeeper G2 de la guía de la Entrega 3, este documento parte de la 1B corregida. La
+Conforme al gatekeeper G2 de la guía entonces aplicable a la Entrega 3 (2A), este documento parte de la 1B corregida. La
 siguiente tabla traza cada observación del informe docente del 01/07/2026 con la acción adoptada.
 
 \begin{longtable}{|C{1.0cm}|L{6.6cm}|L{7.8cm}|}
@@ -584,11 +586,19 @@ El cuestionario se aplicó al personal de campo en dos rondas con \textbf{instru
 el fin de preservar la comparabilidad: una aplicación piloto de cuatro respondientes
 (\id{EV-10}, 30/06/2026) y una aplicación ampliada de 62 respondientes (\id{EV-12}).
 
-\textbf{Definición del perfil dominante.} La guía de la Entrega 3 exige $n \geq 30$ por perfil
-dominante. En este estudio el perfil dominante es el de \textbf{trabajador agrícola de campo}, con
-$n = 60$ (96{,}8\% de la muestra), estratificado en cuatro sub-perfiles según la labor principal.
-Los estratos individuales no alcanzan por separado el umbral de 30; se declara explícitamente que el
-análisis por estrato tiene carácter exploratorio y se reporta como limitación en la §7.
+\textbf{Definición del perfil dominante.} Para la Entrega 4 (2B), la guía vigente establece
+$n \geq 60$ por perfil dominante, o un cálculo de potencia que justifique un tamaño menor.
+El cuestionario reúne $n = 62$ respuestas. A nivel ocupacional amplio,
+\textbf{60 participantes} corresponden a labores agrícolas de campo y 2 a la categoría
+``Otra''; por tanto, el perfil agregado de personal agrícola de campo alcanza
+$n = 60$ (96{,}8\% de la muestra) bajo esta definición.
+
+Dentro de ese perfil, los subperfiles según la labor principal son polinización
+($n = 18$), control fitosanitario ($n = 18$), labores de mantenimiento
+($n = 13$) y riego ($n = 11$). Ningún subperfil individual alcanza por separado
+el umbral de 60. En consecuencia, las inferencias se limitan al perfil ocupacional
+agregado y cualquier análisis comparativo por labor tiene carácter exploratorio.
+No se declara cumplimiento del umbral a nivel de subperfil.
 
 \begin{longtable}{|L{6.8cm}|C{2.0cm}|C{2.0cm}|L{3.6cm}|}
 \hline
@@ -708,7 +718,7 @@ intercambio se realiza mediante exportación de archivos en formato estructurado
 \subsection{Requisitos funcionales}
 
 Cada requisito se documenta con la plantilla de ocho atributos e incluye la referencia explícita al
-identificador de evidencia que lo respalda, conforme a la §3.3 de la guía de la Entrega 3.
+identificador de evidencia que lo respalda, conforme a la §3.3 de la guía entonces aplicable a la Entrega 3 (2A).
 
 \subsubsection{Bloque I --- Gestión de la estructura productiva}
 
@@ -1112,7 +1122,7 @@ criterio de verificación observable.
 
 \subsubsection{RNF-16 --- Requisito de explicabilidad de los componentes de inteligencia artificial}
 
-Conforme al gatekeeper G7 de la guía de la Entrega 3, todo componente basado en inteligencia
+Conforme al gatekeeper G7 de la guía entonces aplicable a la Entrega 3 (2A), todo componente basado en inteligencia
 artificial recibe tratamiento de explicabilidad como requisito no funcional, siguiendo la taxonomía
 de Chazette y Schneider \cite{chazette2020} y el marco de calidad de Chazette, Brunotte y Speith
 \cite{chazette2021,chazette2022}.
@@ -1226,9 +1236,9 @@ del resto del sistema.}}
 \nocite{wohlin2012,runeson2009,molleri2020,hennink2017,cohen1960,wilkinson2016,nosek2018}
 
 % Estilo IEEE si esta disponible (paquete texlive-publishers);
-% en caso contrario se usa unsrt, que produce citas numeradas
+% El estilo IEEEtran se distribuye localmente para garantizar una compilación reproducible.
 % en orden de aparicion y esta presente en toda instalacion base.
-\IfFileExists{IEEEtran.bst}{\bibliographystyle{IEEEtran}}{\bibliographystyle{unsrt}}
+\bibliographystyle{IEEEtran}
 \bibliography{referencias}
 
 % =====================================================================

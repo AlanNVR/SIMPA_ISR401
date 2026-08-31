@@ -94,6 +94,25 @@ Esta operación queda registrada también en `CHANGELOG.md` y referenciada en la
 A.14, conforme a lo exigido por el STOP A del plan de cierre: la corrección no
 sustituye ni oculta la traza de lo ocurrido, se documenta hacia adelante.
 
+### 3.1 Correspondencia de repositorio y rutas históricas
+
+Los anexos firmados de rondas anteriores se conservan sin alteración. Por ello,
+algunas referencias internas reflejan la estructura y el repositorio vigentes
+en el momento de su firma. Para su interpretación durante la evaluación se
+aplica la siguiente correspondencia, coherente con la migración documentada en
+la A.14 y con la reorganización posterior del repositorio:
+
+| Referencia histórica | Referencia vigente | Tratamiento |
+|---|---|---|
+| `https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV/tree/main/AHMRV` | `https://github.com/AlanNVR/SIMPA_ISR401` | El repositorio anterior quedó archivado en privado; el repositorio vigente es `SIMPA_ISR401`. |
+| `AHMRV/06_Etica/` | `AHMRV/08_Etica/` | Cambio de ubicación dentro de la estructura consolidada; no implica modificación del contenido firmado. |
+| `AHMRV/evidencias/` | `AHMRV/02_Evidencias/` | Reorganización de las evidencias dentro del árbol vigente y saneado. |
+
+Esta tabla es de correspondencia documental: **no modifica ni reemplaza los PDF
+firmados**. Su función es permitir que una persona evaluadora resuelva las rutas
+históricas contra el estado actual del repositorio sin alterar los anexos
+originales.
+
 ---
 
 ## 4. Estado de privacidad al cierre
