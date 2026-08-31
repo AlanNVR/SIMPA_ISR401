@@ -1,0 +1,84 @@
+@startuml use_cases_general
+' =====================================================================
+'  SIMPA - General use case diagram
+'  Generate: plantuml -tpng -Sdpi=300 01_use_cases_general.puml
+'            plantuml -tsvg 01_use_cases_general.puml
+' =====================================================================
+left to right direction
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam ActorBorderColor #006633
+skinparam UsecaseBorderColor #006633
+
+actor "General\nadministrator" as ADM
+actor "Administrator /\nTechnical advisor" as AST
+actor "Administrative\nassistant" as ASI
+actor "Pollination\nsupervisor" as JPO
+actor "Farm\nworker" as TRA
+actor "Mill\ntechnician" as EXT
+actor "AI analysis\nservice" as IA
+actor "GPS receiver" as GPS
+
+rectangle "SIMPA" {
+  usecase "CU-11 Log in" as CU11
+  usecase "CU-12 Manage blocks\nand varieties" as CU12
+  usecase "CU-13 Manage staff" as CU13
+  usecase "CU-07 Plan weekly\ntasks" as CU07
+  usecase "CU-04 Record farm\ntask" as CU04
+  usecase "CU-14 Record progress\nper unit" as CU14
+  usecase "CU-08 Check progress\nand pay" as CU08
+  usecase "CU-09 Report incident\nfrom the field" as CU09
+  usecase "CU-15 Record phytosanitary\nmonitoring" as CU15
+  usecase "CU-03 Record pollination\nand GPS count" as CU03
+  usecase "CU-01 Analyze pest\nimage (AI)" as CU01
+  usecase "CU-02 Diagnose nutritional\ndeficiency (AI)" as CU02
+  usecase "CU-06 Classify bunch\nmaturity (AI)" as CU06
+  usecase "CU-16 Generate\nearly alert" as CU16
+  usecase "CU-10 Record mill\ngrading" as CU10
+  usecase "CU-17 Estimate production" as CU17
+  usecase "CU-05 Generate report" as CU05
+  usecase "CU-18 Explain automated\ndecision" as CU18
+}
+
+ADM --> CU11
+ADM --> CU12
+ADM --> CU13
+ADM --> CU07
+ADM --> CU17
+ADM --> CU05
+ADM --> CU10
+AST --> CU02
+AST --> CU15
+ASI --> CU09
+ASI --> CU01
+JPO --> CU03
+TRA --> CU04
+TRA --> CU14
+TRA --> CU08
+EXT --> CU06
+EXT --> CU10
+
+CU01 --> IA
+CU02 --> IA
+CU06 --> IA
+CU03 --> GPS
+CU09 --> GPS
+
+CU04 ..> CU11 : <<include>>
+CU14 ..> CU04 : <<include>>
+CU03 ..> CU11 : <<include>>
+CU01 ..> CU18 : <<include>>
+CU02 ..> CU18 : <<include>>
+CU06 ..> CU18 : <<include>>
+CU16 ..> CU01 : <<extend>>
+CU16 ..> CU02 : <<extend>>
+CU16 ..> CU06 : <<extend>>
+CU16 ..> CU15 : <<extend>>
+CU07 <.. CU05 : <<extend>>
+
+note bottom of CU18
+  CU-18 implements RNF-16 (explainability).
+  It is mandatorily included in every
+  use case with an automated decision.
+end note
+@enduml
