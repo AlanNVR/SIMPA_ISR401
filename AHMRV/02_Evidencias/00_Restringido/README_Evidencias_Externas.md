@@ -43,11 +43,18 @@ participante, SHA-256 y contenedor de origen) está en
    indicada en la tabla anterior (no requiere `git clone` ni `git lfs`).
 2. Descifrar con la contraseña entregada por el canal académico (ver sección 6).
 3. Verificar la integridad del contenido extraído contra
-   [`checksums.sha256`](../../../checksums.sha256), en la raíz del repositorio
-   principal:
+   [`checksums_evidencias.sha256`](../../../checksums_evidencias.sha256), en la
+   raíz del repositorio principal. Copie ese manifiesto a la carpeta donde
+   extrajo el contenedor y ejecute allí:
    ```bash
-   sha256sum -c checksums.sha256
+   sha256sum -c checksums_evidencias.sha256
    ```
+   Las líneas correspondientes a contenedores que no haya descargado aparecerán
+   como `No such file or directory`; eso es esperado.
+
+   > **No use `checksums.sha256` para esta comprobación.** Ese manifiesto
+   > verifica los archivos versionados del repositorio principal, no el
+   > contenido de los contenedores, y sus rutas son distintas.
 4. Contrastar cada archivo contra su fila correspondiente en
    `fichas_tecnicas.csv` para confirmar el código de participante (`ENTR-XX`)
    y la técnica asociada.
