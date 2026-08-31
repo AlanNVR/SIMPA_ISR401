@@ -5,6 +5,30 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.1.3] - 2026-08-31 - P6: declarar el alcance de la trazabilidad de RNF y RD
+
+### Corregido
+
+- `AHMRV/04_Trazabilidad/matriz_e2e.xlsx`: se agregó una nota de alcance
+  (fila 4 de `Matriz_E2E`) que declara que las 73 filas trazan extremo a
+  extremo los 42 RF y los 18 requisitos de IA (60 de 60), mientras que los
+  19 RNF y 10 RD del catálogo se verifican por otra vía. Antes la cabecera
+  no acotaba a qué tipo de requisito aplicaba la cadena, lo que podía leerse
+  como una omisión de 21 filas que en realidad no faltan bajo el alcance
+  decidido en la auditoría de PE5.
+- `AHMRV/04_Trazabilidad/readme.md`: se añadió la sección "Alcance de las 73
+  filas", con la misma tabla y justificación, para que quien audite el
+  repositorio no tenga que inferirlo del cruce manual.
+- `AnexoA_auditoria_calidad.xlsx`, hoja `Valoracion`, celda `E8` (criterio de
+  M4): decía "Cumple en ambos sentidos, sin requisitos huérfanos", una
+  afirmación que abarcaba más que lo medido (M4 se calculó solo sobre los 42
+  RF). Se acotó el texto al alcance real. Esta corrección quedó pendiente
+  del cierre de P5 y se resuelve en este mismo commit por tratarse de la
+  misma declaración de alcance.
+- `checksums.sha256` se regeneró para los 3 archivos modificados.
+
+---
+
 ## [4.1.2] - 2026-08-31 - Cierre de P5: métrica M2 sin artefacto de respaldo
 
 ### Corregido

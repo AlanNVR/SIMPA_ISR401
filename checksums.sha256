@@ -1,23 +1,11 @@
-# =====================================================================
-# checksums.sha256
-# Proyecto SIMPA - Equipo AHMRV - ISR-401 - UTEQ
-# ---------------------------------------------------------------------
-# Integridad de los archivos versionados en ESTE repositorio.
-# Rutas relativas a la raiz del repositorio.
-#
-# VERIFICACION
-#   sha256sum -c checksums.sha256
-#
-# El propio checksums.sha256 se excluye para evitar autorreferencia.
-# =====================================================================
-314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f *AHMRV/01_ERS/IEEEtran.bst
 40df47f2cda4d7923031e8574ec637ee8168c05dc6ef07f76b9c8827e97f3d89 *.gitattributes
 b0cf0f9a1c1ba94e3f1eba0d080e642d76cf95b33b7cedc28becf111ff23d260 *.gitignore
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 *AHMRV/.gitattributes
 39ce32122a2aa0979c31c86a663ae14bfdadb5df4687f72c36243ae6b85c7dba *AHMRV/01_ERS/ERS_SRS_2B_v2.0.pdf
 280f3e4d842947b58c3447375e3b00f1665262e053023dd5cac6c9888ab2ca0c *AHMRV/01_ERS/ERS_SRS_2B_v2.0.tex
+314f0ece704568faf827011bac498650691b2b5ee06320720830e782416d5a5f *AHMRV/01_ERS/IEEEtran.bst
 fefe088a3c1e73d1189eb483f8da84514b20df3591e247e0da712630573b3d15 *AHMRV/01_ERS/anexos/Acta_CCB.pdf
-93d22b72459cfd79d656535dcc158dcf465d562e4ec8e3acc0e58129d60edc37 *AHMRV/01_ERS/anexos/AnexoA_auditoria_calidad.xlsx
+129839dde64c2b5009c4b52c245d0a70d7a45f04bae2ac0ac66bb5d825915e25 *AHMRV/01_ERS/anexos/AnexoA_auditoria_calidad.xlsx
 cd60003d0c73dbb652b6efaf3651254aed9f282d3f885ed6d190e4d558d0d57e *AHMRV/01_ERS/anexos/AnexoB_registro_defectos.xlsx
 fc7ddf8e18bb024f3c0f2cfc9f770d51b86ef0e31ce757d6f8ed6e1b0edd6459 *AHMRV/01_ERS/anexos/RFC-01.pdf
 6e812a161a48c21753723cef8ec1a26231f4238db0976593cf02fa03ccfadc2e *AHMRV/01_ERS/anexos/RFC-02.pdf
@@ -147,10 +135,10 @@ e7e2dfe35efad5a3e52403b9227f83795dc170b00c08298cb07e1d0c04b43a6d *AHMRV/04_Traza
 41645d9271c13921f55474c126996ae639a47691e26e2adce7b334d53fdb0b50 *AHMRV/04_Trazabilidad/Capturas/CAP04_RF-42_Campos_y_Links.png
 ef8f0d8dac7e25cfe78a5edb7c6d06d83439c50c2568a27af4c6283675c1e87f *AHMRV/04_Trazabilidad/Capturas/CAP05_Estadisticas_Proyecto_SIMPA.png
 26f6796074f6c1837ebb8a3cb82cebb8f1fd00d5195d9ece21df0187867d30de *AHMRV/04_Trazabilidad/backlog_export.csv
-33205fb8ebd1088bcc0c6ecde1ea1a5b28f45d7fc17b746324d01b583801b725 *AHMRV/04_Trazabilidad/matriz_e2e.xlsx
+5bb8e1cc82c1dc382fc2133443a92a700dbc5162ddf1bdbe72dae5d49739c111 *AHMRV/04_Trazabilidad/matriz_e2e.xlsx
 7e6a874778cb1ea3643e661294fbe8881a2586ff9d20752c8b45758cf4686830 *AHMRV/04_Trazabilidad/matriz_trazabilidad.csv
 bbd6c3ac6bb505f7cd8c128013a05cdb770166343422ab175294e6af97ebc14d *AHMRV/04_Trazabilidad/priorizacion_moscow_kano.csv
-1ff4b04ac8dd7f2249f5c21b906f2094313b7f1394bf625c7131ada38ad9f86e *AHMRV/04_Trazabilidad/readme.md
+08d5ddd348a6ffc4f059744ce8f0035b634772b859421002c8dd730c4a970669 *AHMRV/04_Trazabilidad/readme.md
 868ad38d096a02b287940de16e99405b6b1deb1a82dcbc841e838b752bd8b1ea *AHMRV/05_MVP/readme.md
 f407de394997df3bc612726a4a4d3f2b9b0b2a68da170b1bda7e88a141d1b2ea *AHMRV/06_Experimento/datos_crudos/readme.md
 a75ee0807b3641e5172eec49b0227108baf4b3e7bcf6bba66ef6097e76aa8cc8 *AHMRV/06_Experimento/datos_procesados/readme.md
@@ -195,7 +183,7 @@ b11167d0ef78ae997580a611d1833f13caec071871f0f86093527d324784a1c2 *AHMRV/08_Etica
 f3d631bccf1e89fefa05005d4d406f1dca62398c2815f0bfaadb7824b6dda910 *AHMRV/08_Etica/README_Etica.md
 007fa557fbd08030f4b5aff9720ca689588c79161d859425fa559ca167477b06 *AHMRV/09_Defensa/readme.md
 bf4d50e7a7432262799d42020548c3c21b9abade92ae17e3cfd0943cf4cad1c2 *AHMRV/Palma_Africana.pdf
-de25d49f598440eae9a1c6cc92ad2837c777f20b5103104ab85c8d0882446a0a *CHANGELOG.md
+83f13a67540ae812a6efb50632988d77133537dc22be81e12cd41ba4153b402b *CHANGELOG.md
 8e2856f7fec1cd0b1f6707b36d7b12148f3cc89370b0f45a62f94d444ba50555 *CITATION.cff
 9e08c5ae2529399149cddf140a0f65854b44cd4890b66b6da65c54615513df47 *LICENSE
 f28888d2ccbb21e8f3c6eedd52f3a8b48a15c49d4ce7b0afbe686c56dc67234b *README.md

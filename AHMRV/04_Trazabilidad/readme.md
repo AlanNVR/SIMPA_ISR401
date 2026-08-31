@@ -37,6 +37,30 @@ Y puede recorrerse en sentido inverso para responder:
 La trazabilidad debe permitir conectar una decisión del sistema con la evidencia
 que la originó.
 
+### Alcance de las 73 filas: qué tipos de requisito cubre y por qué
+
+Las 73 filas de `matriz_e2e.xlsx` trazan **extremo a extremo** (fuente → caso de
+uso → clase/módulo → proceso DFD → estado → criterio BDD → caso de prueba) los
+siguientes tipos de requisito:
+
+| Tipo | En el ERS | Trazados aquí |
+|---|---:|---:|
+| RF | 42 | 42 |
+| RF-IA / RNF-IA | 18 | 18 |
+| RNF (resto) | 19 | 6 |
+| RD | 10 | 2 |
+
+Los **19 RNF y 10 RD** del catálogo **no** se verifican fila a fila en esta
+matriz extremo a extremo; se verifican por otra vía (criterios de aceptación
+específicos y revisión directa contra el ERS). De ellos, 6 RNF y 2 RD sí
+aparecen aquí porque además participan en una cadena funcional trazable.
+
+Esta es una decisión de alcance tomada durante la auditoría de PE5, no un
+vacío de trazabilidad: el indicador que audita esa entrega mide la cadena
+sobre los RF (`RF_ADE = 42`), y esta matriz la satisface con holgura
+(73 filas contra un umbral de 60). Si en algún momento se decide ampliar la
+traza extremo a extremo a RNF y RD, faltarían 21 filas por agregar.
+
 ---
 
 ## 2. Matriz anterior: `matriz_trazabilidad.csv`
