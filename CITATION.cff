@@ -28,7 +28,10 @@ url: 'https://github.com/AlanNVR/SIMPA_ISR401/tree/main/AHMRV'
 identifiers:
   - type: doi
     value: 10.5281/zenodo.22236500
-    description: DOI reservado para el deposito del dataset en Zenodo; registro pendiente de publicacion
+    description: DOI de la version 2.0 publicada del dataset en Zenodo
+  - type: doi
+    value: 10.5281/zenodo.22236499
+    description: DOI conceptual de Zenodo para todas las versiones del dataset
 
 keywords:
   - ingeniería de requisitos
