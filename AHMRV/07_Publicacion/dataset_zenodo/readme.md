@@ -10,48 +10,48 @@ El DOI `10.5281/zenodo.22236500` ha sido reservado en Zenodo. El registro contin
 
 | Archivo | Propósito |
 |---|---|
-| `respuestas_zenodo.csv` | Dataset preparado para depósito abierto |
-| `preparar_dataset_zenodo.py` | Genera reproduciblemente el dataset abierto desde `../respuestas_anonimizadas.csv` |
-| `diccionario_zenodo.md` | Diccionario específico de las 16 columnas publicables |
+| `respuestas_zenodo_agregadas.csv` | Estadística descriptiva agregada de las 15 preguntas sustantivas |
+| `preparar_dataset_zenodo_agregado.py` | Genera reproduciblemente el resumen agregado desde `../respuestas_anonimizadas.csv` |
+| `diccionario_zenodo.md` | Diccionario de las 7 columnas del archivo agregado |
 | `zenodo_metadata.md` | Metadatos previstos para crear el registro en Zenodo |
 | `checksums_zenodo.sha256` | Integridad SHA-256 del paquete de predepósito |
 
 ## Procedencia
 
-El conjunto deriva de `../respuestas_anonimizadas.csv`.
+El resumen deriva de `../respuestas_anonimizadas.csv`, que contiene 62 respuestas al cuestionario.
 
-Ese archivo, a su vez, se genera reproduciblemente desde la exportación cruda del cuestionario mediante `../scripts/anonimizar_encuesta.py`.
+Ese archivo, a su vez, se genera reproduciblemente desde la exportación cruda mediante `../scripts/anonimizar_encuesta.py`.
 
-El archivo crudo original no forma parte del paquete abierto.
+El archivo crudo y los registros individuales no forman parte del paquete abierto.
 
-## Transformaciones para depósito abierto
+## Transformación para depósito abierto
 
-Respecto de `respuestas_anonimizadas.csv`, `respuestas_zenodo.csv`:
+`respuestas_zenodo_agregadas.csv` publica únicamente distribuciones marginales por pregunta y opción:
 
-- conserva los 62 registros;
-- conserva `ID` como número secuencial de recepción, no como identificador personal;
-- conserva las 15 variables sustantivas del cuestionario;
-- elimina `Hora de inicio`;
-- elimina `Hora de finalización`;
-- elimina `Comentarios del cuestionario`;
-- elimina las 15 columnas `Comentarios: ...`;
-- no imputa, recodifica ni modifica las respuestas conservadas.
+- 15 preguntas sustantivas agregadas;
+- 64 filas de categorías agregadas;
+- 7 columnas descriptivas;
+- ninguna fila representa a una persona;
+- no contiene `ID`, nombres, correos, marcas temporales ni comentarios;
+- para preguntas simples, las frecuencias suman el número de respuestas válidas;
+- la pregunta de mayor dificultad es multirrespuesta y usa `;` como separador en el origen, por lo que sus porcentajes pueden sumar más de 100 %;
+- no se publican cruces entre variables ni combinaciones de respuestas por participante.
 
-El resultado tiene 16 columnas.
+La agregación conserva los valores categóricos observados y calcula frecuencia, número de respuestas válidas y porcentaje para cada opción.
 
-## Privacidad
+## Privacidad y alcance ético
 
-Las columnas directas `Nombre` y `Correo electrónico` fueron eliminadas en la etapa previa de anonimización.
+El consentimiento contempla fines académicos y de publicación científica sin divulgar datos identificables.
 
-Para el paquete abierto también se retiran las marcas temporales con precisión individual y todas las columnas de texto libre, aun cuando estas últimas se encontraban vacías en los 62 registros analizados.
+El Plan de Gestión de Datos establece que la encuesta se publica como estadística descriptiva y excluye nombres, cédulas, cargos específicos asociados a declaraciones y demás información identificable.
 
-El paquete no contiene el archivo XLSX crudo ni documentación de consentimiento, nóminas, firmas u otros documentos que puedan contener información identificable.
+Por ello, el paquete abierto contiene únicamente resultados agregados. El archivo XLSX crudo, los registros individuales, consentimientos, firmas, grabaciones y documentación identificable quedan fuera del depósito.
 
 ## Reproducción
 
 Desde la raíz del repositorio:
 
-    python AHMRV/07_Publicacion/dataset_zenodo/preparar_dataset_zenodo.py
+    python AHMRV/07_Publicacion/dataset_zenodo/preparar_dataset_zenodo_agregado.py
 
 La generación es determinista: una segunda ejecución sobre la misma entrada debe producir exactamente el mismo SHA-256.
 
@@ -65,4 +65,4 @@ Desde `AHMRV/07_Publicacion/dataset_zenodo/`:
 
 DOI reservado: `10.5281/zenodo.22236500`. El registro permanece en borrador y todavía no se ha publicado.
 
-La licencia prevista para el depósito es Creative Commons Attribution 4.0 International (CC BY 4.0), de acuerdo con la licencia del material publicado en .
+La licencia prevista para el depósito es Creative Commons Attribution 4.0 International (CC BY 4.0), de acuerdo con la licencia de `AHMRV/07_Publicacion/`.

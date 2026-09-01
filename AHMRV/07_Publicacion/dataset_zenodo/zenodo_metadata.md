@@ -5,11 +5,11 @@
 **Predepósito. DOI reservado; publicación pendiente.**
 
 Este archivo documenta los metadatos que deben utilizarse al crear el registro en Zenodo.
-No sustituye al registro de Zenodo ni asigna por sí mismo un DOI.
+No sustituye al registro de Zenodo ni activa por sí mismo el DOI.
 
 ## Identificación del recurso
 
-- **Título:** SIMPA — Dataset anonimizado del cuestionario de trabajadores para ingeniería de requisitos
+- **Título:** SIMPA — Estadística descriptiva agregada del cuestionario de trabajadores para ingeniería de requisitos
 - **Tipo de recurso:** Dataset
 - **Versión:** 2.0
 - **Fecha del material:** 2026-08-31
@@ -21,11 +21,13 @@ No sustituye al registro de Zenodo ni asigna por sí mismo un DOI.
 
 ## Descripción
 
-Conjunto de datos anonimizado derivado de un cuestionario estructurado aplicado a 62 personas trabajadoras de una unidad productiva de palma africana identificada públicamente mediante el seudónimo `Palmicultora M`.
+Resumen estadístico agregado derivado de un cuestionario estructurado aplicado a 62 personas trabajadoras de una unidad productiva de palma africana identificada públicamente mediante el seudónimo `Palmicultora M`.
 
-La versión preparada para depósito abierto contiene 62 registros y 16 columnas. Conserva un `ID` secuencial de recepción y 15 variables sustantivas del cuestionario. Se excluyen las columnas directas `Nombre` y `Correo electrónico`, las marcas temporales `Hora de inicio` y `Hora de finalización`, `Comentarios del cuestionario` y todas las columnas `Comentarios: ...`.
+La versión preparada para depósito abierto representa 15 preguntas sustantivas mediante 64 filas de categorías agregadas y 7 columnas descriptivas. Cada fila corresponde a una opción dentro de una distribución marginal y no a una persona. El archivo no contiene identificadores individuales, nombres, correos electrónicos, marcas temporales, comentarios ni combinaciones de respuestas por participante.
 
-El paquete incluye el CSV publicable, el script que lo genera reproduciblemente, el diccionario específico del conjunto y un manifiesto SHA-256. El archivo XLSX crudo, consentimientos, firmas, grabaciones y demás material identificable no forman parte del depósito abierto.
+Catorce preguntas son de respuesta simple y una es multirrespuesta. El archivo informa pregunta, tipo de respuesta, opción, frecuencia, número de respuestas válidas y porcentaje. En la pregunta multirrespuesta los porcentajes pueden sumar más de 100 %.
+
+El paquete incluye el CSV agregado, el script que lo genera reproduciblemente, el diccionario del conjunto, estos metadatos y un manifiesto SHA-256. El XLSX crudo, los registros individuales, consentimientos, firmas, grabaciones y demás material identificable no forman parte del depósito abierto.
 
 ## Autores
 
@@ -41,7 +43,8 @@ Los ORCID se incorporarán únicamente si cada autor dispone de un identificador
 ## Palabras clave
 
 - ingeniería de requisitos
-- dataset anonimizado
+- estadística descriptiva
+- datos agregados
 - cuestionario
 - agroindustria
 - palma africana
@@ -53,13 +56,13 @@ Los ORCID se incorporarán únicamente si cada autor dispone de un identificador
 
 - **Repositorio:** https://github.com/AlanNVR/SIMPA_ISR401
 - **Ruta del paquete:** `AHMRV/07_Publicacion/dataset_zenodo/`
-- **Commit fuente del predepósito:** `7bb587c5c575e00b8204e8ff80ae66a77c30e6ea`
+- **Commit con DOI reservado previo a la agregación:** `b5c703e`
 
 ## Archivos previstos para el depósito
 
-- `respuestas_zenodo.csv`
+- `respuestas_zenodo_agregadas.csv`
 - `diccionario_zenodo.md`
-- `preparar_dataset_zenodo.py`
+- `preparar_dataset_zenodo_agregado.py`
 - `readme.md`
 - `zenodo_metadata.md`
 - `checksums_zenodo.sha256`
@@ -69,6 +72,7 @@ Los ORCID se incorporarán únicamente si cada autor dispone de un identificador
 No deben incorporarse al depósito abierto:
 
 - el archivo XLSX crudo del cuestionario;
+- `respuestas_zenodo.csv` ni otros registros fila a fila;
 - archivos de `AHMRV/02_Evidencias/00_Restringido/`;
 - consentimientos con datos personales o firmas;
 - grabaciones de audio o video sin anonimizar;

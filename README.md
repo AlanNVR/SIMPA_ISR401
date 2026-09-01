@@ -70,7 +70,7 @@ Sustituye un proceso que hoy se registra en libretas de papel y se comunica por 
 | Matriz de trazabilidad | [`AHMRV/04_Trazabilidad/`](AHMRV/04_Trazabilidad/) |
 | Prototipo funcional (MVP) | [`AHMRV/05_MVP/`](AHMRV/05_MVP/) |
 | Documentación ética | [`AHMRV/08_Etica/`](AHMRV/08_Etica/) |
-| Dataset anonimizado para Zenodo | [`AHMRV/07_Publicacion/dataset_zenodo/`](AHMRV/07_Publicacion/dataset_zenodo/) · DOI reservado: `10.5281/zenodo.22236500` |
+| Estadística descriptiva agregada para Zenodo | [`AHMRV/07_Publicacion/dataset_zenodo/`](AHMRV/07_Publicacion/dataset_zenodo/) · DOI reservado: `10.5281/zenodo.22236500` |
 
 ---
 
