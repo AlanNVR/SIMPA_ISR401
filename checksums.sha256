@@ -1,3 +1,16 @@
+# =====================================================================
+# checksums.sha256
+# Proyecto SIMPA - Equipo AHMRV - ISR-401 - UTEQ
+# ---------------------------------------------------------------------
+# Integridad de los archivos versionados en ESTE repositorio.
+# Rutas relativas a la raiz del repositorio.
+#
+# VERIFICACION
+#   sha256sum -c checksums.sha256
+#
+# El propio checksums.sha256 se excluye para evitar autorreferencia.
+# =====================================================================
+10e9402b65a584a472e2dd4ed78bfabb8ad17c9d6e27dd60b2862229d030ecef *AHMRV/06_Experimento/osf_registration.pdf
 40df47f2cda4d7923031e8574ec637ee8168c05dc6ef07f76b9c8827e97f3d89 *.gitattributes
 b0cf0f9a1c1ba94e3f1eba0d080e642d76cf95b33b7cedc28becf111ff23d260 *.gitignore
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 *AHMRV/.gitattributes
@@ -67,24 +80,24 @@ d56a249565a19f04cf32fe49eb46cb76a9acc7a4436c0db6aea7242de5da61c5 *AHMRV/02_Evide
 b07cc6c83f3f89d0bb405f6e64ebc16e5e61bb042bfd322f453bb8cfa8de4296 *AHMRV/02_Evidencias/Fotos_Entorno/2026-05-23_Fruta_de_palma_polinizada.jpeg
 ce3d179d8c787ebd67f3a936587c8a0a0a147752d818f69723babf5accfccbf9 *AHMRV/02_Evidencias/Fotos_Entorno/2026-06-27_BombaRiego_Fotografia.jpeg
 2fc7ed651ee7ac01555eb23bc7c8c4ece1b3a03e221726503ec906e37056acff *AHMRV/02_Evidencias/Fotos_Entorno/2026-06-27_Deteccion_Plaga.jpeg
-7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6 *AHMRV/02_Evidencias/Fotos_Entorno/2026-06-27_Evidencia_Trabajo_de_Campo_01.jpeg
+590f1fc9f18be90d667c691929dc3edaeeaf51c54246a7a0a5f869c64bcc2423 *AHMRV/02_Evidencias/Fotos_Entorno/2026-06-27_Evidencia_Trabajo_de_Campo_01.jpeg
 d947dd3e0dad9e7fd64d20becba5d62180a55276cd8716ae5c91fae606123c0b *AHMRV/02_Evidencias/Fotos_Entorno/2026-06-27_Mayon_encontrado_en_la_palma.jpeg
 b0008a27cc23f6bbb8501d339498e1bfc17aa13f0b41acc2c4c9932129726936 *AHMRV/02_Evidencias/Fotos_Entorno/2026-06-27_Prueba_de_humedad.jpeg
 272c613ee9fbdcbde2a6c228e6ca3e05e5ed5e34252cad02316a5a82aa2ea480 *AHMRV/02_Evidencias/Fotos_Entorno/2026-06-27_Vista_general_del_cultivo_de_palma_africana.jpeg
 b10f30e29d240eb50683170f3ef7fba9559d76b4184554d4e096bdf307380046 *AHMRV/02_Evidencias/Fotos_Entorno/2026-07-28_EntrevistaAsistenteAdministracion_ENTR-07_Foto.png
 f0aba37f46cc829e3a649c8a60622a35ac1c99aeeed89e03f60400c182622021 *AHMRV/02_Evidencias/Fotos_Entorno/2026-07-28_EntrevistaTecnicoExtractora_ENTR-04_Foto.png
 74ef9b11d7f9885a8349b127df5f949c9cec15e79334163cd0d62b2f8808b8a1 *AHMRV/02_Evidencias/Fotos_Entorno/2026-07-28_EntrevistaTecnicoExtractora_ENTR-08_Foto.png
-7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6 *AHMRV/02_Evidencias/Fotos_Entorno/2026-07-28_EntrevistaTrabajadorAgricola_ENTR-05_Foto.png
+97fdc579aed09ad55d1bb2dd72d7e3908309ef298b90eb090d72f51456f9d9d1 *AHMRV/02_Evidencias/Fotos_Entorno/2026-07-28_EntrevistaTrabajadorAgricola_ENTR-05_Foto.png
 01238e1090fcb5702f681313ae777e6ba7840d9aaf56345bfd631332cf7e4e10 *AHMRV/02_Evidencias/Fotos_Entorno/2026-07-28_EntrevistaTrabajadorAgricola_ENTR-06_Foto.png
 ef808571d8452b7a3855b6c212d6eebc0e6a55de9e3a5feb2fdc01aea4a4131d *AHMRV/02_Evidencias/Fotos_Entorno/readme.md
 fe47d6db10f6a41553b2f774ce5a7cae7c868f5dd9d1ee3df07a6ba7acb0c413 *AHMRV/02_Evidencias/Member_Checking/readme.md
 323ec9b273ae70c07e120122f6f1b560fef8aadc0af5f9e7c8ef0e73096971f0 *AHMRV/02_Evidencias/Transcripciones/Transcripciones_Entrevistas.md
 b484bc42f193923f0b1815487bfba1421d63414ff1cf7d4fda3b7c65bbd7d337 *AHMRV/02_Evidencias/Transcripciones/readme.md
 fc4e0e5f5d7943bb9c257d77d38e54f0b5bb61569272283c06f93184dcfe7cb1 *AHMRV/02_Evidencias/Validacion_Walkthrough/readme.md
-97012de9eaec1f8c025d504a801c796e0301d35ee66d5b17cc211d234ad7807d *AHMRV/03_Modelado/Diagramas_UML/01_casos_uso_general.puml
-27f4d64e92766b14a5960371475c258d6c5d11631f216b965a8c1946555db29c *AHMRV/03_Modelado/Diagramas_UML/02_clases_refinado.puml
-32b79590f5b8c0e633c53632078179a8c30f798f3dfc1216b8578668e410c19c *AHMRV/03_Modelado/Diagramas_UML/03_secuencia_CU01_analizar_imagen.puml
-ee185823dbdcd3d4db56409477ed5655eaa189c44ec20effbba5da6d7c2e4833 *AHMRV/03_Modelado/Diagramas_UML/04_secuencia_CU03_polinizacion_gps.puml
+7d88c0756dc6b53de27901197d64abf7c38ced7cf5c739544ec8653b4146c43f *AHMRV/03_Modelado/Diagramas_UML/01_use_cases_general.puml
+8eb2ac346615afb92462180bb04cc6bf2d541c871781831b5d3e964cbd684677 *AHMRV/03_Modelado/Diagramas_UML/02_classes_refined.puml
+8c3dec0db005f7652598e2318490fefb001bae4bbd9a5d25af430f0b932d07c6 *AHMRV/03_Modelado/Diagramas_UML/03_sequence_CU01_analyze_image.puml
+84d95dcf7258504ca5b98798cccc72bf4f78e484c1c4bb5e01036adadcc12f49 *AHMRV/03_Modelado/Diagramas_UML/04_sequence_CU03_pollination_gps.puml
 fd679a6c6889892c69ad2abe140bb014b2513027fe5e14513a366f81b9ef4aaa *AHMRV/03_Modelado/Diagramas_UML/05_secuencia_CU06_clasificar_madurez.puml
 62e61ee51fc77d87aec38046174bfaf6a83d6822fb7c177bb3c4ea12d6840125 *AHMRV/03_Modelado/Diagramas_UML/06_actividad_ciclo_semanal.puml
 0db8da3c412c956a86a24c9c5367fe314f6c9b6066356aab8ff2ee13ff5e9eb8 *AHMRV/03_Modelado/Diagramas_UML/07_estados_racimo.puml
@@ -144,9 +157,9 @@ f407de394997df3bc612726a4a4d3f2b9b0b2a68da170b1bda7e88a141d1b2ea *AHMRV/06_Exper
 a75ee0807b3641e5172eec49b0227108baf4b3e7bcf6bba66ef6097e76aa8cc8 *AHMRV/06_Experimento/datos_procesados/readme.md
 be0753bd1484cb3e16a17771290ca8759a8e97cdd7bfb6ff8e26fb24727a8500 *AHMRV/06_Experimento/instrumentos/readme.md
 69f1d0f89bde55a20da120b4b3d82b0e33fbd8986559bc517e8ca6146e605d08 *AHMRV/06_Experimento/prompts_llm/PLANTILLA_registro_consigna.md
-5462dbec47dc63bc5c519608b83d35b11af97a0c49047c203a0b8a28e824f602 *AHMRV/06_Experimento/protocolo.pdf
-52e128b5983754cdcdfefce8312b080b777d43848b0197d6898e8276e70ea91d *AHMRV/06_Experimento/protocolo.tex
-8aa0768dd9863d76529a5ad9809ef8a0844daf7b187b30d942340d567539e22d *AHMRV/06_Experimento/readme.md
+5d194e778b431ac73b45fbe79f7e191942eec7830e2375e2ab3448eb2045a63e *AHMRV/06_Experimento/protocolo.pdf
+f0746f632fe59534abc4b6c7a45b156b202f1f6d675df5537c1c10e9bfc64e7e *AHMRV/06_Experimento/protocolo.tex
+c5e701972dc3a581858d1ab66958c350898e0a9ee551c5ca92637981c958f25f *AHMRV/06_Experimento/readme.md
 749a61f5e230427287a778662182e213b11979a5f349e6e316df607b8c32d035 *AHMRV/06_Experimento/resultados/readme.md
 9052cfca5ea930f87801f764a5e6d637785f7691baccf0bcf70e3b8febd7892d *AHMRV/06_Experimento/scripts_analisis/readme.md
 c84abc3b2dc958e62c77b1d781791b463a6cf3e0f2f289e121fd5885457414b3 *AHMRV/07_Publicacion/analisis_revistas.md

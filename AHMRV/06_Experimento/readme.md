@@ -4,7 +4,14 @@ Enfoque 1 de la Sección 5 de la guía: comparación de la calidad de los requis
 
 ## Estado
 
-**Protocolo diseñado y registrado. Experimento no ejecutado.**
+**Protocolo diseñado y registrado públicamente en OSF. Experimento no ejecutado.**
+
+**Registro público OSF:** https://osf.io/4z35d/
+
+El registro OSF conserva la versión del protocolo presentada al momento del registro.
+La versión 1.1 mantenida en el repositorio incorpora únicamente la URL y el estado
+administrativo del registro, sin modificar hipótesis, variables, muestra,
+procedimiento ni plan de análisis.
 
 En consecuencia, el ERS/SRS de la Entrega 3 (2A) no contiene sección de resultados ni de discusión de este estudio. Ambas corresponden a la Entrega 4 (2B), una vez recogidos y analizados los datos primarios.
 
@@ -14,7 +21,7 @@ En consecuencia, el ERS/SRS de la Entrega 3 (2A) no contiene sección de resulta
 |---|---|---|
 | `protocolo.pdf` | PICOC, hipótesis, variables, procedimiento, plan de análisis estadístico y amenazas a la validez | ✅ |
 | `protocolo.tex` | Fuente LaTeX del protocolo | ✅ |
-| `osf_registration.pdf` | Comprobante de registro previo con URL persistente y marca temporal | ⏳ pendiente |
+| `osf_registration.pdf` | Comprobante del registro público OSF: https://osf.io/4z35d/ | ✅ |
 | `instrumentos/` | Guiones, cuestionario, rúbrica y consentimientos | 🟡 parcial |
 | `prompts_llm/` | Consignas exactas con modelo, temperatura, top-p y semilla | ⏳ pendiente de ejecución |
 | `resultados/` | Datos crudos y procesados, tablas y figuras | ⏳ pendiente de ejecución |
