@@ -9,6 +9,7 @@ Prototipo funcional de interfaz desarrollado para el proyecto grupal de Ingenier
 - Repositorio grupal y documentación: https://github.com/AlanNVR/SIMPA_ISR401
 - Repositorio del código del prototipo: https://github.com/jmaciasherr4/Prottotipo_Simpa
 - Commit evaluado del prototipo: `ba33002dcf680f8b39d42df04553733bd5389f6d` (2026-08-31)
+- Árbol canónico evaluado de la V2: `prototipo_v2/Prottotipo_Simpa-main/Prototipo/`. La carpeta `Prototipo/` ubicada en la raíz del repositorio externo no corresponde al árbol utilizado para la evaluación de la V2.
 
 ## Prototipos en vivo
 
