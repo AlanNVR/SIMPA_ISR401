@@ -18,11 +18,11 @@ Los archivos originales del trabajo de campo, en su estado sin enmascarar:
 
 | Tipo | Cantidad | Participantes |
 |---|---|---|
-| Audios de entrevista (`.mp3`) | 8 | ENTR-01 a ENTR-16 |
+| Audios de entrevista (`.mp3`) | 16 | ENTR-01 a ENTR-16 |
 | Videos de entrevista (`.mp4`) | 22 archivos | ENTR-01 a ENTR-16 (ENTR-03 en 7 partes) |
-| Consentimientos originales firmados | 8 | ENTR-01 a ENTR-16 |
+| Consentimientos originales firmados | 16 | ENTR-01 a ENTR-16 |
 
-Total inventariado: **38 archivos**, cada uno con una fila propia en
+Total inventariado: **54 archivos**, cada uno con una fila propia en
 `fichas_tecnicas.csv`.
 
 ## 2. Por qué no están publicados aquí
@@ -49,7 +49,7 @@ el material seguiría sin publicarse en abierto.
 
 | Archivo | Qué es | Para qué sirve |
 |---|---|---|
-| `fichas_tecnicas.csv` | Inventario de los 38 archivos, una fila por archivo | Es el índice. Ver sección 4 |
+| `fichas_tecnicas.csv` | Inventario de los 54 archivos, una fila por archivo | Es el índice. Ver sección 4 |
 | `README_Evidencias_Externas.md` | Ubicación de los contenedores y procedimiento de descarga | Explica dónde está el material y cómo obtenerlo |
 | `readme.md` | Este documento | Orientación general |
 
