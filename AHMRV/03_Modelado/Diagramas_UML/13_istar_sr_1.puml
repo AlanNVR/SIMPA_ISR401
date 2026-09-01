@@ -1,0 +1,109 @@
+@startuml istar_sr
+' SIMPA - i* Strategic Rationale (SR) model for the General administrator actor
+skinparam shadowing false
+left to right direction
+skinparam componentStyle rectangle
+
+skinparam usecase {
+  BackgroundColor<<goal>> #DCEBF7
+  BorderColor<<goal>> #2E6DA4
+  BackgroundColor<<task>> #FDEBD0
+  BorderColor<<task>> #B8860B
+  BackgroundColor<<res>> #E5E5E5
+  BorderColor<<res>> #666666
+  BackgroundColor<<soft>> #F2DCF7
+  BorderColor<<soft>> #7B4397
+}
+skinparam rectangle {
+  BackgroundColor<<ext>> #E8F4EC
+  BorderColor<<ext>> #006633
+  BackgroundColor<<sistema>> #006633
+  FontColor<<sistema>> #FFFFFF
+}
+
+package "Actor: General administrator" {
+  usecase "O: Keep the crop\nin a productive state" <<goal>> as G0
+
+  usecase "T: Supervise\nwork teams" <<task>> as T1
+  usecase "T: Control\nphytosanitary status" <<task>> as T2
+  usecase "T: Ensure\nsoil moisture" <<task>> as T3
+  usecase "T: Verify compliance with\nthe weekly budget" <<task>> as T4
+
+  usecase "T: Tour\nthe plantation" <<task>> as T11
+  usecase "T: Evaluate staff\nperformance" <<task>> as T12
+  usecase "T: Monitor pests\nand diseases" <<task>> as T21
+  usecase "T: Decide the\napplicable control" <<task>> as T22
+  usecase "T: Compare target\nagainst completed" <<task>> as T41
+  usecase "T: Carry over\nthe remainder" <<task>> as T42
+
+  usecase "R: Count of\npollinated flowers" <<res>> as R1
+  usecase "R: Diagnosis of\nthe damage" <<res>> as R2
+  usecase "R: Rainfall\nreading" <<res>> as R3
+  usecase "R: Progress per\ntask unit" <<res>> as R4
+
+  usecase "OB: Timeliness\nof diagnosis" <<soft>> as S1
+  usecase "OB: Reliability\nof the count" <<soft>> as S2
+  usecase "OB: Less dependence on\nexpert knowledge" <<soft>> as S3
+  usecase "OB: Fairness in\nprogress recording" <<soft>> as S4
+}
+
+rectangle "SIMPA" <<sistema>> as SYS
+rectangle "Farm\nworker" <<ext>> as TRA
+rectangle "Administrative\nassistant" <<ext>> as ASI
+
+' --- task decomposition (means-ends and task-decomposition)
+G0 --> T1 : decomposition
+G0 --> T2 : decomposition
+G0 --> T3 : decomposition
+G0 --> T4 : decomposition
+
+T1 --> T11
+T1 --> T12
+T2 --> T21
+T2 --> T22
+T4 --> T41
+T4 --> T42
+
+T12 --> R1
+T22 --> R2
+T3 --> R3
+T41 --> R4
+
+' --- contributions to softgoals
+R2 ..> S1 : help
+T11 ..> S1 : hurt
+R1 ..> S2 : help
+R2 ..> S3 : help
+R4 ..> S4 : help
+
+' --- external dependencies
+R1 --> SYS
+R2 --> SYS
+R3 --> SYS
+R4 --> TRA
+R4 --> ASI
+
+note right of T11
+  T11 contributes negatively to S1:
+  touring the whole plantation takes
+  a week (EV-01) and on-site verification
+  happens twice a week (EV-07). That
+  latency is what the system aims to
+  reduce.
+end note
+
+note bottom of S4
+  S4 stems from EV-12: 11.3% of staff
+  do not have their own device. Delegated
+  recording (RF-35) prevents that segment
+  from being excluded from progress and
+  pay calculations.
+end note
+
+note bottom of S3
+  S3 addresses the problem declared as
+  most critical by the administration:
+  the shortage and turnover of skilled
+  labor (EV-01).
+end note
+@enduml
