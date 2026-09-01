@@ -13,11 +13,11 @@ Prototipo funcional de interfaz desarrollado para el proyecto grupal de Ingenier
 
 ### V1 — versión anterior
 
-`https://prototipo-simpa.netlify.app/`
+https://prototipo-simpa.netlify.app/
 
 ### V2 — versión actual recomendada
 
-`https://simpav2-prototipo.netlify.app/`
+https://simpav2-prototipo.netlify.app/
 
 ### Cuentas de demostración
 
