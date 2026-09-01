@@ -12,6 +12,6 @@ recolectada como parte del trabajo de campo.
 | `Presupuesto_finca_02.png` | Ejemplo de presupuesto de la finca en cuaderno |
 | `presupuesto_vs_resumenSemanal.png` | Ejemplo de presupuesto semanal usado |
 
-Ambos reportes fueron anonimizados antes de subirse: se removieron nombres
+Todos los reportes fueron anonimizados antes de subirse: se removieron nombres
 propios, cifras identificables de nómina y cualquier dato que permitiera
 identificar a la unidad productiva o a su personal.
