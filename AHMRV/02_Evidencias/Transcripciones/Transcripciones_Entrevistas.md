@@ -1,6 +1,6 @@
 # Entrevistas anonimizadas
 
-> Los nombres personales y las referencias directas a la hacienda y a la extractora fueron reemplazados por identificadores y descripciones generales. Las entrevistas se presentan en el orden solicitado.
+> Se sustituyeron identificadores directos y combinaciones de alto riesgo de reidentificación (nombres personales, institución, empleadores explícitos y ubicaciones precisas vinculadas a participantes) por marcadores generales. Se conservaron referencias geográficas o institucionales cuando describen el dominio y no identifican a una persona concreta. Las entrevistas se presentan en el orden solicitado.
 
 ---
 
@@ -658,15 +658,15 @@ También sería útil que permitiera registrar las coordenadas del lugar donde s
 
 ## Entrevista-09: ENTREVISTADO-09
 
-**Rol:** Ingeniero Agrónomo / Asistente técnico
+**Rol:** Profesional del área agrícola
 
-**Entrevistador:** Bueno, muy buenas noches, ingeniero. El día de hoy estamos aquí con el ingeniero Joel Bonilla. Yo soy estudiante de la Universidad Técnica Estatal de Quevedo y estas preguntas van a ser de ayuda para un documento sobre el proyecto de un sistema inteligente para el mantenimiento de la palma africana. ¿Usted me da el consentimiento para poder realizar toda esta entrevista?
+**Entrevistador:** Bueno, muy buenas noches, ingeniero. El día de hoy estamos aquí con el ingeniero [NOMBRE]. Yo soy estudiante de la [UNIVERSIDAD] y estas preguntas van a ser de ayuda para un documento sobre el proyecto de un sistema inteligente para el mantenimiento de la palma africana. ¿Usted me da el consentimiento para poder realizar toda esta entrevista?
 
 **Entrevistado:** Claro que sí.
 
 **Entrevistador:** Ya, vamos a continuar con la primera pregunta. ¿Cuál es su profesión y a qué se dedica actualmente?
 
-**Entrevistado:** Bueno, mi profesión es ingeniero agrónomo y actualmente trabajo para una empresa siendo asistente técnico, manejando plantaciones de palma aceitera aquí en la provincia de Los Ríos.
+**Entrevistado:** Bueno, mi profesión es ingeniero agrónomo y actualmente trabajo para una empresa siendo asistente técnico, manejando plantaciones de palma aceitera aquí en [PROVINCIA].
 
 **Entrevistador:** ¿Qué relación ha tenido usted con el cultivo de palma y si ha trabajado o visitado plantaciones?
 
@@ -718,9 +718,9 @@ También sería útil que permitiera registrar las coordenadas del lugar donde s
 
 ## Entrevista-10: ENTREVISTADO-10
 
-**Rol:** Estudiante de Agropecuaria
+**Rol:** Estudiante de carrera afín
 
-**Entrevistador:** Hola, gracias por darme unos minutos. Soy Alan Villafuerte, de la carrera de Software. Estamos armando para nuestra materia de Ingeniería de Requerimientos una propuesta de aplicación para ayudar a manejar el cultivo de la palma picana. No hace falta que sepas de palma, en serio, al revés. Queremos saber qué se entiende y qué no se entiende cuando uno llega a esta experiencia. Eso es justamente lo que nos sirve. Más o menos calculamos unos 15 minutos de conversación y no hay respuestas buenas ni malas. No te estamos evaluando y eso no tiene nada que ver con ninguna nota. Tu nombre no va a aparecer en ningún lado, usamos un código para anonimizarlo. Y antes de empezar, ¿tienes alguna pregunta?
+**Entrevistador:** Hola, gracias por darme unos minutos. Soy [ENTREVISTADOR], de la carrera de Software. Estamos armando para nuestra materia de Ingeniería de Requerimientos una propuesta de aplicación para ayudar a manejar el cultivo de la palma picana. No hace falta que sepas de palma, en serio, al revés. Queremos saber qué se entiende y qué no se entiende cuando uno llega a esta experiencia. Eso es justamente lo que nos sirve. Más o menos calculamos unos 15 minutos de conversación y no hay respuestas buenas ni malas. No te estamos evaluando y eso no tiene nada que ver con ninguna nota. Tu nombre no va a aparecer en ningún lado, usamos un código para anonimizarlo. Y antes de empezar, ¿tienes alguna pregunta?
 
 **Entrevistado:** Ninguna.
 
@@ -828,9 +828,9 @@ También sería útil que permitiera registrar las coordenadas del lugar donde s
 
 ## Entrevista-11: ENTREVISTADO-11
 
-**Rol:** Estudiante de Ingeniería Agropecuaria
+**Rol:** Estudiante de carrera afín
 
-**Entrevistador:** Hola, gracias por darme unos minutos. Soy Andrés Fuerte, de la carrera de Software, y estamos armando para la materia de Ingeniería de Requerimientos una propuesta de aplicación para ayudar a mejorar el manejo de un cultivo de palma africana. No hace falta que sepas de palma, de hecho, al revés: queremos saber qué se entiende y qué no se entiende cuando uno llega como principiante, y eso es justamente lo que nos sirve. Son más o menos 15 minutos de conversación, no hay respuestas buenas ni malas, nos estamos evaluando y eso no tiene nada que ver con ninguna nota. Tu nombre no va a aparecer en ningún lado, se va a anonimizar. Antes de empezar, ¿tienes alguna pregunta?
+**Entrevistador:** Hola, gracias por darme unos minutos. Soy [ENTREVISTADOR], de la carrera de Software, y estamos armando para la materia de Ingeniería de Requerimientos una propuesta de aplicación para ayudar a mejorar el manejo de un cultivo de palma africana. No hace falta que sepas de palma, de hecho, al revés: queremos saber qué se entiende y qué no se entiende cuando uno llega como principiante, y eso es justamente lo que nos sirve. Son más o menos 15 minutos de conversación, no hay respuestas buenas ni malas, nos estamos evaluando y eso no tiene nada que ver con ninguna nota. Tu nombre no va a aparecer en ningún lado, se va a anonimizar. Antes de empezar, ¿tienes alguna pregunta?
 
 **Entrevistado:** No, todavía.
 
@@ -964,9 +964,9 @@ También sería útil que permitiera registrar las coordenadas del lugar donde s
 
 ## Entrevista-12: ENTREVISTADO-12
 
-**Rol:** Ingeniera en Biotecnología / Asistente de laboratorio
+**Rol:** Profesional del área agrícola
 
-**Entrevistador:** Buenas tardes, buenas noches, buenos días. Hola, ¿cómo estás? Soy Andrea Fuertes, estudiante de la Universidad Tecnológica Estatal de Quibelo, y estamos desarrollando como proyecto académico una aplicación para el manejo del cultivo hispano-mexicano. Ya conversamos con personas que trabajan directamente en el cultivo y ahora queremos la opinión de alguien de afuera, como una mirada de ingeniero, que nos diga si lo que estamos armando tiene sentido.
+**Entrevistador:** Buenas tardes, buenas noches, buenos días. Hola, ¿cómo estás? Soy [ENTREVISTADOR], estudiante de la [UNIVERSIDAD], y estamos desarrollando como proyecto académico una aplicación para el manejo del cultivo hispano-mexicano. Ya conversamos con personas que trabajan directamente en el cultivo y ahora queremos la opinión de alguien de afuera, como una mirada de ingeniero, que nos diga si lo que estamos armando tiene sentido.
 
 No le vamos a pedir que sea especialista en palmas. Nos interesa su criterio profesional sobre cómo se organiza el trabajo en el campo y sobre la herramienta que le vamos a mostrar. Son un promedio de 10 minutos y no hay respuestas correctas ni incorrectas. Si algo no lo maneja, con decirnos que no lo maneja es más que suficiente.
 
@@ -1046,13 +1046,13 @@ Porque para hacerlo necesitas tener en cuenta muchas variables, muchos factores 
 
 ## Entrevista-13: ENTREVISTADO-13
 
-**Rol:** Ingeniero Agrónomo / Representante de empresa agroindustrial
+**Rol:** Profesional del área agrícola
 
-**Entrevistador:** Ya. Bueno, muy buenos días, ingeniero Jorge Delgado. El día de hoy estamos aquí con el ingeniero Jorge Delgado. Yo soy estudiante de la Universidad Técnica Estatal de Quevedo y el motivo de esta entrevista es que vamos a realizar un proyecto, un sistema inteligente para el mantenimiento de la palma africana. Ya tenemos conocimientos de parte técnica de otras personas. Ahora necesitamos información de un ingeniero con una vista un poco más de parte de empresa. A continuación, voy a hacer la parte de las preguntas.
+**Entrevistador:** Ya. Bueno, muy buenos días, ingeniero [NOMBRE]. El día de hoy estamos aquí con el ingeniero [NOMBRE]. Yo soy estudiante de la [UNIVERSIDAD] y el motivo de esta entrevista es que vamos a realizar un proyecto, un sistema inteligente para el mantenimiento de la palma africana. Ya tenemos conocimientos de parte técnica de otras personas. Ahora necesitamos información de un ingeniero con una vista un poco más de parte de empresa. A continuación, voy a hacer la parte de las preguntas.
 
 ¿Cuál es su profesión y a qué se dedica actualmente?
 
-**Entrevistado:** Bueno, muy buenos días. Mi nombre es Jorge Delgado. Yo soy ingeniero agrónomo. Trabajo para el grupo agroindustrial La Fabril, una empresa relacionada a la compra y procesamiento de palma africana y también al cultivo de palma en la zona norte de Esmeraldas, San Lorenzo, específicamente.
+**Entrevistado:** Bueno, muy buenos días. Mi nombre es [NOMBRE]. Yo soy ingeniero agrónomo. Trabajo para el [EMPRESA], una empresa relacionada a la compra y procesamiento de palma africana y también al cultivo de palma en [PROVINCIA], [LOCALIDAD].
 
 **Entrevistador:** Listo, muchas gracias. ¿Cuánto tiempo lleva en esta labor? ¿Cuántos años de experiencia tiene?
 
@@ -1068,7 +1068,7 @@ Porque para hacerlo necesitas tener en cuenta muchas variables, muchos factores 
 
 **Entrevistador:** Ya. ¿Cómo cree usted que se lleva el control de lo que hace cada trabajador día a día?
 
-**Entrevistado:** Como le decía, inicialmente, en las fincas pequeñas, muchos llevan registros empíricos. Se lleva una libreta, una agenda, donde se registran las labores que hacen en el día. Ya en las fincas grandes, como en la que yo trabajé en Energy Palma, en San Lorenzo, ya se lleva un control más estricto. Se lleva todo mediante un sistema contable que lleva incluso todas las labores agrícolas registradas día a día, incluso la cosecha.
+**Entrevistado:** Como le decía, inicialmente, en las fincas pequeñas, muchos llevan registros empíricos. Se lleva una libreta, una agenda, donde se registran las labores que hacen en el día. Ya en las fincas grandes, como en la que yo trabajé en [EMPRESA ANTERIOR], en [LOCALIDAD], ya se lleva un control más estricto. Se lleva todo mediante un sistema contable que lleva incluso todas las labores agrícolas registradas día a día, incluso la cosecha.
 
 **Entrevistador:** ¿Y cómo hace usted esos controles para saber si, digamos, la fruta de la palma está de una manera óptima para comprarla? ¿Tienen algún control para eso ustedes los compradores?
 
@@ -1142,11 +1142,11 @@ Más que todo, que sea una aplicación fácil de manejar, fácil de llevar, incl
 
 ## Entrevista-14: ENTREVISTADO-14
 
-**Rol:** Ingeniero Agropecuario / Administrador de finca bananera
+**Rol:** Profesional del área agrícola
 
-**Entrevistadora:** Buenas tardes, ingeniero. El día de hoy estamos aquí con el ingeniero Pedro Chávez. Bueno, ingeniero Pedro Chávez, como le indiqué antes, esta es una entrevista para lo que sería el proyecto de un sistema inteligente para el mantenimiento de la palma africana. A continuación, vamos a realizar las preguntas. ¿Cuál es su profesión y a qué se dedica actualmente?
+**Entrevistadora:** Buenas tardes, ingeniero. El día de hoy estamos aquí con el ingeniero [NOMBRE]. Bueno, ingeniero [NOMBRE], como le indiqué antes, esta es una entrevista para lo que sería el proyecto de un sistema inteligente para el mantenimiento de la palma africana. A continuación, vamos a realizar las preguntas. ¿Cuál es su profesión y a qué se dedica actualmente?
 
-**Entrevistado:** Soy ingeniero agropecuario. Actualmente administro una finca bananera en el sector La Federico, del cantón Valencia.
+**Entrevistado:** Soy ingeniero agropecuario. Actualmente administro una finca bananera en el [LOCALIDAD].
 
 **Entrevistadora:** Listo. ¿Y usted ha tenido alguna relación con el cultivo de la palma o ha trabajado o visitado plantaciones?
 
@@ -1206,10 +1206,10 @@ Más que todo, que sea una aplicación fácil de manejar, fácil de llevar, incl
 
 ---
 
-**Entrevista-15: ENTREVISTADO-15**
-**Rol:** Estudiante de Agroecología (9.º semestre)
+## Entrevista-15: ENTREVISTADO-15
+**Rol:** Estudiante de carrera afín
 
-**Entrevistador:** Muy buenas tardes, ingeniero Gleiston. El día de hoy estamos aquí con el compañero Jhon Medranda, el cual es estudiante de...
+**Entrevistador:** Muy buenas tardes, ingeniero [NOMBRE]. El día de hoy estamos aquí con el compañero [NOMBRE], el cual es estudiante de...
 
 **Entrevistado:** Soy estudiante de la carrera Agroecología, noveno semestre.
 
@@ -1263,10 +1263,10 @@ Más que todo, que sea una aplicación fácil de manejar, fácil de llevar, incl
 
 ---
 
-**Entrevista-16: ENTREVISTADO-16**
-**Rol:** Ingeniero en Sistemas
+## Entrevista-16: ENTREVISTADO-16
+**Rol:** Profesional del área tecnológica
 
-**Entrevistador:** Buenos días, ingeniero Gleiston. Somos estudiantes de la Universidad Técnica Estatal de Quevedo y estamos desarrollando como proyecto académico una aplicación para el manejo de cultivo de la palma africana. Ya conversamos con personas que trabajan directamente en el cultivo y ahora queremos la opinión de alguien de afuera, con mirada de ingeniero, que nos diga si lo que estamos armando tiene sentido. No le voy a pedir que sea especialista en palma; nos interesa su criterio profesional sobre cómo se organiza el trabajo en el campo y sobre la herramienta que le vamos a mostrar. Son unos 10 minutos, no hay respuestas correctas ni incorrectas y si algo no lo maneja, con decirnos que no lo maneja sea suficiente. ¿Nos autoriza a grabar esta conversación?
+**Entrevistador:** Buenos días, ingeniero [NOMBRE]. Somos estudiantes de la [UNIVERSIDAD] y estamos desarrollando como proyecto académico una aplicación para el manejo de cultivo de la palma africana. Ya conversamos con personas que trabajan directamente en el cultivo y ahora queremos la opinión de alguien de afuera, con mirada de ingeniero, que nos diga si lo que estamos armando tiene sentido. No le voy a pedir que sea especialista en palma; nos interesa su criterio profesional sobre cómo se organiza el trabajo en el campo y sobre la herramienta que le vamos a mostrar. Son unos 10 minutos, no hay respuestas correctas ni incorrectas y si algo no lo maneja, con decirnos que no lo maneja sea suficiente. ¿Nos autoriza a grabar esta conversación?
 
 **Entrevistado:** ¿Ahí me escuchas? Sí, claro, autorizo la grabación.
 
