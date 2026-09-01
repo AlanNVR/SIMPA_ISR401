@@ -1,8 +1,67 @@
-# Dataset en Zenodo
+# Dataset SIMPA — paquete de predepósito Zenodo
 
-**Estado: pendiente.**
+## Estado
 
-Esta carpeta documentará el depósito del dataset en Zenodo (DOI, metadatos,
-enlace) una vez creado. Por ahora no existe ningún depósito de Zenodo para
-este proyecto — no se inventa un DOI ni se crea un depósito público antes de
-verificar la anonimización y los permisos de publicación aplicables.
+**Paquete preparado para revisión previa al depósito. DOI pendiente.**
+
+No se debe inventar ni publicar un DOI hasta completar la revisión del paquete y confirmar los permisos y metadatos de publicación aplicables.
+
+## Contenido
+
+| Archivo | Propósito |
+|---|---|
+| `respuestas_zenodo.csv` | Dataset preparado para depósito abierto |
+| `preparar_dataset_zenodo.py` | Genera reproduciblemente el dataset abierto desde `../respuestas_anonimizadas.csv` |
+| `diccionario_zenodo.md` | Diccionario específico de las 16 columnas publicables |
+| `checksums_zenodo.sha256` | Integridad SHA-256 del paquete de predepósito |
+
+## Procedencia
+
+El conjunto deriva de `../respuestas_anonimizadas.csv`.
+
+Ese archivo, a su vez, se genera reproduciblemente desde la exportación cruda del cuestionario mediante `../scripts/anonimizar_encuesta.py`.
+
+El archivo crudo original no forma parte del paquete abierto.
+
+## Transformaciones para depósito abierto
+
+Respecto de `respuestas_anonimizadas.csv`, `respuestas_zenodo.csv`:
+
+- conserva los 62 registros;
+- conserva `ID` como número secuencial de recepción, no como identificador personal;
+- conserva las 15 variables sustantivas del cuestionario;
+- elimina `Hora de inicio`;
+- elimina `Hora de finalización`;
+- elimina `Comentarios del cuestionario`;
+- elimina las 15 columnas `Comentarios: ...`;
+- no imputa, recodifica ni modifica las respuestas conservadas.
+
+El resultado tiene 16 columnas.
+
+## Privacidad
+
+Las columnas directas `Nombre` y `Correo electrónico` fueron eliminadas en la etapa previa de anonimización.
+
+Para el paquete abierto también se retiran las marcas temporales con precisión individual y todas las columnas de texto libre, aun cuando estas últimas se encontraban vacías en los 62 registros analizados.
+
+El paquete no contiene el archivo XLSX crudo ni documentación de consentimiento, nóminas, firmas u otros documentos que puedan contener información identificable.
+
+## Reproducción
+
+Desde la raíz del repositorio:
+
+    python AHMRV/07_Publicacion/dataset_zenodo/preparar_dataset_zenodo.py
+
+La generación es determinista: una segunda ejecución sobre la misma entrada debe producir exactamente el mismo SHA-256.
+
+## Integridad
+
+Desde `AHMRV/07_Publicacion/dataset_zenodo/`:
+
+    sha256sum -c checksums_zenodo.sha256
+
+## DOI y licencia
+
+El DOI todavía no ha sido asignado.
+
+La licencia definitiva del depósito debe confirmarse al crear el registro Zenodo y antes de hacerlo público.

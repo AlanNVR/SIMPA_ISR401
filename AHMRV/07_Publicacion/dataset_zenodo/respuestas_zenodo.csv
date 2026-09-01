@@ -1,0 +1,63 @@
+﻿ID,¿Qué labor realiza principalmente?,¿Cuántos años de experiencia tiene en el cultivo de palma? ,¿Cómo se registra hoy lo que usted realiza en el día?,¿Cuál es la mayor dificultad en su trabajo diario?,¿Con qué frecuencia observa plagas o enfermedades en las palmas? ,¿Usa teléfono inteligente (smartphone)?,¿Qué tan cómodo se siente usando aplicaciones en el teléfono? (escala 1 a 5) 1 = Nada cómodo  →  5 = Muy cómodo,¿Hay señal de internet en las zonas donde usted trabaja?,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la palma y que la app le indique si tiene una plaga o enfermedad y qué...",Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la hoja y que la app le indique si a la planta le falta algún nutriente. ,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5. Registrar en el teléfono las labores que realiza (riego, polinización, etc.)","Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Que la app cuente automáticamente por GPS las flores polinizadas, sin tener que anotar planta por planta. ",Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Recibir alertas cuando se detecte un problema en el cultivo, ¿Le preocuparía que la aplicación registre por GPS su recorrido durante la jornada? ,"Si la aplicación fuera fácil de usar y estuviera en español, ¿la usaría en su trabajo?"
+1,Polinización,De 1 a 5 años,No se registra,Llevar la cuenta de lo que realizo;,A veces,si,4,Casi nunca,5,5,4,4,5,No me preocupa,Sí
+2,Polinización,Menos de 1 año,En papel,Detectar plagas o enfermedades a tiempo;,Rara vez,no,3,Casi nunca,4,3,3,4,3,No me preocupa,Sí
+3,"Labores de mantenimiento (chapía, corona, poda)",Más de 10 años,En papel,El clima;,Rara vez,si,3,A veces,5,5,5,5,4,Me preocupa un poco,Sí
+4,"Labores de mantenimiento (chapía, corona, poda)",De 1 a 5 años,En papel,Llevar la cuenta de lo que realizo;La comunicación con el administrador;,Frecuentemente,si, 5,A veces,5,5,5,5,5,No me preocupa,Sí
+5,Control fitosanitario (plagas y enfermedades),De 1 a 5 años,En papel,Saber qué producto aplicar;,A veces,no,4,A veces,3,3,3,3,3,No me preocupa,Sí
+6,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,En papel,Detectar plagas o enfermedades a tiempo;,A veces,si, 5,A veces,3,3,3,3,3,No me preocupa,Sí
+7,"Labores de mantenimiento (chapía, corona, poda)",De 1 a 5 años,El administrador lo anota,Saber qué producto aplicar;,Rara vez,si,4,A veces,3,2,4,4,4,No me preocupa,Sí
+8,Polinización,De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;,Frecuentemente,si,4,A veces,5,5,4,5,5,Me preocupa un poco,Sí
+9,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,En papel,Saber qué producto aplicar;,Muy frecuentemente,si,3,A veces,5,4,4,4,5,No me preocupa,Sí
+10,"Labores de mantenimiento (chapía, corona, poda)",Más de 10 años,El administrador lo anota,El clima;,A veces,no,1,Casi nunca,4,3,2,3,4,No me preocupa,Tal vez
+11,Riego,De 1 a 5 años,No se registra,La comunicación con el administrador;,Rara vez,si, 5,Siempre,5,5,5,4,5,Me preocupa un poco,Sí
+12,Polinización,De 6 a 10 años,En papel,Llevar la cuenta de lo que realizo;,A veces,si,4,A veces,4,4,5,5,4,No me preocupa,Sí
+13,Control fitosanitario (plagas y enfermedades),Más de 10 años,En papel,Detectar plagas o enfermedades a tiempo;,Frecuentemente,si,3,Casi nunca,5,5,3,4,5,Me preocupa mucho,Tal vez
+14,"Labores de mantenimiento (chapía, corona, poda)",De 1 a 5 años,El administrador lo anota,El clima;,Rara vez,no,2,Nunca,3,3,2,2,3,No me preocupa,No
+15,Riego,Menos de 1 año,No se registra,La comunicación con el administrador;,A veces,si, 5,Siempre,5,5,5,5,5,No me preocupa,Sí
+16,Polinización,De 6 a 10 años,En papel,Llevar la cuenta de lo que realizo;,Frecuentemente,si,4,A veces,5,5,5,5,5,Me preocupa un poco,Sí
+17,Otra,Más de 10 años,Otro,Otra;,A veces,si,3,Casi nunca,4,4,4,3,4,Me preocupa mucho,Tal vez
+18,Control fitosanitario (plagas y enfermedades),De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;,Muy frecuentemente,si,4,A veces,5,5,4,4,5,No me preocupa,Sí
+19,"Labores de mantenimiento (chapía, corona, poda)",De 6 a 10 años,El administrador lo anota,El clima;,Rara vez,si,3,A veces,4,3,3,3,4,Me preocupa un poco,Sí
+20,Polinización,Más de 10 años,En papel,Llevar la cuenta de lo que realizo;,Frecuentemente,no,2,Casi nunca,4,4,2,3,4,Me preocupa mucho,Tal vez
+21,Riego,De 1 a 5 años,No se registra,La comunicación con el administrador;,A veces,si, 5,Siempre,5,5,5,5,5,No me preocupa,Sí
+22,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,En papel,Saber qué producto aplicar;,Frecuentemente,si,4,A veces,5,5,4,4,5,Me preocupa un poco,Sí
+23,"Labores de mantenimiento (chapía, corona, poda)",De 1 a 5 años,El administrador lo anota,El clima;,Rara vez,si,3,A veces,4,4,4,3,4,No me preocupa,Sí
+24,Polinización,Menos de 1 año,No se registra,Llevar la cuenta de lo que realizo;,A veces,si, 5,Siempre,5,5,5,5,5,No me preocupa,Sí
+25,Control fitosanitario (plagas y enfermedades),Más de 10 años,En papel,Detectar plagas o enfermedades a tiempo;,Muy frecuentemente,si,2,Casi nunca,5,5,3,4,5,Me preocupa mucho,Tal vez
+26,Riego,De 6 a 10 años,El administrador lo anota,El clima;,Rara vez,si,4,A veces,4,4,4,4,4,Me preocupa un poco,Sí
+27,"Labores de mantenimiento (chapía, corona, poda)",De 1 a 5 años,En papel,La comunicación con el administrador;,A veces,si,4,A veces,5,4,5,4,5,No me preocupa,Sí
+28,Polinización,De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;El clima;,Rara vez,si,3,Siempre,5,5,5,3,3,No me preocupa,Tal vez
+29,Polinización,Menos de 1 año,En papel,Detectar plagas o enfermedades a tiempo;Otra;,Rara vez,si,2,A veces,3,3,4,3,4,Me preocupa un poco,Tal vez
+30,Control fitosanitario (plagas y enfermedades),Menos de 1 año,El administrador lo anota,Saber qué producto aplicar;El clima;,Frecuentemente,si, 5,Siempre,5,5,5,5,5,No me preocupa,Sí
+31,Polinización,De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;,Nunca,no,1,A veces,4,2,2,1,1,No me preocupa,No
+32,Control fitosanitario (plagas y enfermedades),Menos de 1 año,En papel,Detectar plagas o enfermedades a tiempo;El clima;,Frecuentemente,si,3,A veces,3,3,3,3,3,No me preocupa,Sí
+33,"Labores de mantenimiento (chapía, corona, poda)",De 1 a 5 años,En papel,El clima;Otra;,Frecuentemente,si,4,Siempre,4,4,4,3,4,No me preocupa,Sí
+34,Polinización,De 1 a 5 años,En papel,Saber qué producto aplicar;Llevar la cuenta de lo que realizo;Otra;,A veces,si,2,Siempre,3,4,5,5,4,Me preocupa un poco,Sí
+35,"Labores de mantenimiento (chapía, corona, poda)",Menos de 1 año,En papel,El clima;Llevar la cuenta de lo que realizo;La comunicación con el administrador;,Frecuentemente,si, 5,Siempre,4,4,4,4,4,No me preocupa,Sí
+36,Riego,De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;Llevar la cuenta de lo que realizo;El clima;,Rara vez,si, 5,Siempre,5,5,5,5,5,Me preocupa mucho,Sí
+37,Control fitosanitario (plagas y enfermedades),De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;,A veces,si, 5,Siempre,3,3,3,3,4,No me preocupa,Sí
+38,Riego,Menos de 1 año,En papel,El clima;Otra;,A veces,si, 5,A veces,3,3,3,3,3,No me preocupa,Sí
+39,Polinización,De 1 a 5 años,En papel,El clima;Otra;,Frecuentemente,si,3,Siempre,3,4,5,3,5,No me preocupa,Sí
+40,Control fitosanitario (plagas y enfermedades),Menos de 1 año,En papel,Saber qué producto aplicar;Detectar plagas o enfermedades a tiempo;El clima;Otra;,A veces,si, 5,Siempre,5,5,5,5,5,No me preocupa,Sí
+41,Riego,De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;Saber qué producto aplicar;,Rara vez,si,3,Siempre,3,3,3,3,3,No me preocupa,Sí
+42,Polinización,De 1 a 5 años,En papel,Detectar plagas o enfermedades a tiempo;Otra;,Nunca,si,1,A veces,1,1,1,1,3,No me preocupa,Sí
+43,Polinización,Menos de 1 año,En papel,Detectar plagas o enfermedades a tiempo;Otra;,A veces,si, 5,Siempre,5,5,5,5,5,Me preocupa un poco,Sí
+44,Riego,Menos de 1 año,En papel,El clima;Otra;,A veces,si, 5,Siempre,3,3,3,3,3,No me preocupa,Sí
+45,Control fitosanitario (plagas y enfermedades),Menos de 1 año,En papel,Detectar plagas o enfermedades a tiempo;Saber qué producto aplicar;,Frecuentemente,si,4,A veces,5,5,5,5,5,No me preocupa,Sí
+46,Polinización,De 1 a 5 años,En papel,Llevar la cuenta de lo que realizo;,A veces,si,3,Casi nunca,5,5,5,5,5,No me preocupa,Sí
+47,Riego,De 1 a 5 años,En papel,Saber qué producto aplicar;,A veces,si, 5,Casi nunca,5,5,5,5,5,No me preocupa,Sí
+48,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,En papel,Detectar plagas o enfermedades a tiempo;,Frecuentemente,si, 5,A veces,4,5,3,3,5,No me preocupa,Sí
+49,Riego,De 1 a 5 años,El administrador lo anota,El clima;,Rara vez,si, 5,A veces,4,4,4,4,4,No me preocupa,Sí
+50,"Labores de mantenimiento (chapía, corona, poda)",De 6 a 10 años,El administrador lo anota,Detectar plagas o enfermedades a tiempo;Saber qué producto aplicar;,A veces,si, 5,A veces,4,4,4,4,4,Me preocupa un poco,Sí
+51,Riego,Menos de 1 año,En papel,El clima;,A veces,si, 5,A veces,4,3,5,4,5,No me preocupa,Sí
+52,"Labores de mantenimiento (chapía, corona, poda)",Menos de 1 año,En papel,Llevar la cuenta de lo que realizo;,Frecuentemente,si,3,Casi nunca,5,5,5,5,5,No me preocupa,Sí
+53,Polinización,De 6 a 10 años,El administrador lo anota,Detectar plagas o enfermedades a tiempo;Llevar la cuenta de lo que realizo;,A veces,si,4,A veces,5,5,5,5,5,No me preocupa,Sí
+54,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,En papel,Detectar plagas o enfermedades a tiempo;,Frecuentemente,si, 5,A veces,5,4,4,5,5,No me preocupa,Sí
+55,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,En papel,Detectar plagas o enfermedades a tiempo;,Frecuentemente,si, 5,A veces,4,3,3,4,4,No me preocupa,Sí
+56,Polinización,De 6 a 10 años,No se registra,El clima;,Rara vez,si,4,A veces,4,3,3,4,5,No me preocupa,Sí
+57,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,El administrador lo anota,Detectar plagas o enfermedades a tiempo;Saber qué producto aplicar;,Muy frecuentemente,no,4,A veces,5,5,3,4,5,No me preocupa,Sí
+58,Otra,De 1 a 5 años,El administrador lo anota,El clima;,Frecuentemente,si, 5,Casi nunca,5,5,5,5,5,No me preocupa,Sí
+59,"Labores de mantenimiento (chapía, corona, poda)",De 1 a 5 años,En papel,Llevar la cuenta de lo que realizo;,Frecuentemente,si, 5,Casi nunca,5,5,5,5,5,No me preocupa,Sí
+60,Control fitosanitario (plagas y enfermedades),De 6 a 10 años,En papel,Detectar plagas o enfermedades a tiempo;,Frecuentemente,si, 5,A veces,5,4,3,3,4,No me preocupa,Sí
+61,Control fitosanitario (plagas y enfermedades),Más de 10 años,El administrador lo anota,Detectar plagas o enfermedades a tiempo;El clima;,Frecuentemente,si, 5,A veces,5,4,3,4,4,No me preocupa,Sí
+62,Polinización,De 1 a 5 años,En papel,Saber qué producto aplicar;,Frecuentemente,si,4,Casi nunca,5,5,5,5,5,No me preocupa,Sí
