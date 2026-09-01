@@ -1,0 +1,80 @@
+@startuml components
+' SIMPA - Component diagram
+skinparam shadowing false
+left to right direction
+skinparam ComponentBorderColor #006633
+
+package "Mobile client (Android 9.0+)" {
+  [Field UI] as UI
+  [Capture manager\n(camera + GPS)] as CAP
+  [Offline-first\nlocal storage] as LOCAL
+  [Sync engine] as SYNC
+  [API client] as CLI
+}
+
+package "Administration web panel" {
+  [Admin UI] as WEB
+  [Reporting\nmodule] as REP
+}
+
+package "Cloud backend" {
+  [REST API] as API
+  [Authentication and\nroles service] as AUTH
+  [Consent\nmanager] as CONS
+  [Alert rules\nengine] as RULES
+  [AI orchestrator] as ORCH
+  [Explanation engine] as EXPL
+  [Traceability\nservice] as TRACE
+  [Export\nservice] as EXPORT
+  [Access log] as LOG
+}
+
+package "External services" {
+  [Pest detection\nmodel] as M1
+  [Nutritional diagnosis\nmodel] as M2
+  [Maturity classification\nmodel] as M3
+  [Weather data\nservice] as CLIMA
+}
+
+database "Relational\ndatabase" as BD
+database "Image\nstore" as BLOB
+
+UI --> CAP
+UI --> LOCAL
+LOCAL --> SYNC
+SYNC --> CLI
+CLI --> API : HTTPS/JSON
+WEB --> API : HTTPS/JSON
+REP --> API
+
+API --> AUTH
+API --> CONS
+API --> ORCH
+API --> RULES
+API --> TRACE
+API --> EXPORT
+API --> BD
+API --> BLOB
+AUTH --> LOG
+CONS --> LOG : logs geolocation\naccess
+
+ORCH --> M1
+ORCH --> M2
+ORCH --> M3
+ORCH --> EXPL
+EXPL --> API
+RULES --> BD
+API --> CLIMA
+
+note bottom of CONS
+  RL-03 / RNF-14: verifies consent
+  is active before exposing
+  geolocation data.
+end note
+
+note bottom of EXPORT
+  RD-09 / RF-32: filters personal
+  and financial data before exporting
+  to the mill.
+end note
+@enduml
