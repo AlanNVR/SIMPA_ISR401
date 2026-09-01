@@ -91,7 +91,7 @@ Abre `SIMPA_V2_COMPLETO.html` directamente en un navegador moderno. El archivo c
 
 ## Video demostrativo
 
-`https://github.com/AlanNVR/SIMPA_ISR401/releases/download/v1.0-mvp-demo/video_demo.mp4`
+https://github.com/AlanNVR/SIMPA_ISR401/releases/download/v1.0-mvp-demo/video_demo.mp4
 
 ## Trabajo pendiente para una versión productiva
 
