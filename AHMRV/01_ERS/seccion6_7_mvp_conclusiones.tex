@@ -34,42 +34,43 @@ cuyo resultado no proviene de un procesamiento real.
 \id{RF-03} & Gestión de personal y equipos & 3,67 & Implementado & Personal \\ \hline
 \id{RF-04} & Registro de labores agrícolas & 4,20 & Implementado & Labores \\ \hline
 \id{RF-05} & Registro de monitoreo fitosanitario & 4,80 & Implementado & Análisis \\ \hline
-\id{RF-12} & Generación de alertas tempranas & 4,20 & Implementado & Alertas \\ \hline
-\id{RF-19} & Generación de reportes & 3,20 & Implementado & Reportes \\ \hline
-\id{RF-30} & Reporte de incidencia desde campo & 4,80 & Implementado & Análisis \\ \hline
-\id{RF-13} & Registro del proceso de polinización & 4,20 & Parcial & Labores \\ \hline
-\id{RF-28} & Registro de avance por unidad de labor & 3,60 & Parcial & Labores \\ \hline
 \id{RF-07} & Detección de plagas por imagen & 3,62 & \textbf{Simulado} & Análisis \\ \hline
+\id{RF-08} & Diagnóstico nutricional por imagen & 2,25 & \textbf{Simulado} & Análisis \\ \hline
+\id{RF-10} & Gestión de variedades y umbrales & 7,00 & Implementado & --- \\ \hline
+\id{RF-12} & Generación de alertas tempranas & 4,20 & Implementado & Alertas \\ \hline
+\id{RF-13} & Registro del proceso de polinización & 4,20 & Implementado & Labores \\ \hline
 \id{RF-14} & Conteo georreferenciado de flores & 3,25 & \textbf{Simulado} & Mapa GPS \\ \hline
-\id{RF-08} & Diagnóstico nutricional por imagen & 2,25 & No implementado & --- \\ \hline
-\id{RF-10} & Gestión de variedades y umbrales & 7,00 & No implementado & --- \\ \hline
-\id{RF-18} & Estimación de producción y rendimiento & 3,60 & No implementado & --- \\ \hline
-\id{RF-21} & Clasificación de madurez del racimo & 4,25 & No implementado & --- \\ \hline
-\id{RF-22} & Alerta preventiva de fruta verde & 4,25 & No implementado & --- \\ \hline
-\id{RF-26} & Planificación semanal con presupuesto & 3,60 & No implementado & --- \\ \hline
-\id{RF-35} & Registro delegado del avance & 7,00 & No implementado & --- \\ \hline
-\id{RF-36} & Catálogo de tarifas por labor & --- & No implementado & --- \\ \hline
-\id{RF-37} & Cálculo de la remuneración semanal & --- & No implementado & --- \\ \hline
-\caption{Cobertura verificada del MVP sobre los 21 requisitos funcionales \emph{Must}}
+\id{RF-18} & Estimación de producción y rendimiento & 3,60 & Implementado & --- \\ \hline
+\id{RF-19} & Generación de reportes & 3,20 & Implementado & Reportes \\ \hline
+\id{RF-21} & Clasificación de madurez del racimo & 4,25 & \textbf{Simulado} & --- \\ \hline
+\id{RF-22} & Alerta preventiva de fruta verde & 4,25 & Implementado & --- \\ \hline
+\id{RF-26} & Planificación semanal con presupuesto & 3,60 & Implementado & --- \\ \hline
+\id{RF-28} & Registro de avance por unidad de labor & 3,60 & Implementado & Labores \\ \hline
+\id{RF-30} & Reporte de incidencia desde campo & 4,80 & Implementado & Análisis \\ \hline
+\id{RF-35} & Registro delegado del avance & 7,00 & Implementado & --- \\ \hline
+\id{RF-36} & Catálogo de tarifas por labor & --- & Implementado & --- \\ \hline
+\id{RF-37} & Cálculo de la remuneración semanal & --- & Implementado & --- \\ \hline
+\id{RF-40} & Exportación de datos personales & --- & Implementado & --- \\ \hline
+\id{RF-41} & Rectificación con bitácora & --- & Implementado & --- \\ \hline
+\id{RF-42} & Supresión/disociación del histórico & --- & Implementado & --- \\ \hline
+\caption{Cobertura verificada del MVP V2 sobre los 24 requisitos funcionales \emph{Must}}
 \label{tab:mvp}
 \end{longtable}
 
 \noindent
-\textbf{Cobertura alcanzada.} De los 21 requisitos funcionales \emph{Must} vigentes al momento de
-construir el prototipo, 8 se encuentran implementados de forma completa, 2 de forma parcial y 2 en
-estado simulado. La cobertura efectiva sobre ese conjunto es de $8/21 = 38{,}1\%$, o de
-$9/21 = 42{,}9\%$ contabilizando las implementaciones parciales con peso medio. Sobre el catálogo
-posterior al Change Control Board, que eleva los \emph{Must} a 24 con la incorporación de
-\id{RF-40} a \id{RF-42}, la cobertura desciende a $8/24 = 33{,}3\%$. Se declaran ambos
-denominadores: el primero mide el prototipo contra el alcance que tenía cuando se construyó; el
-segundo, contra el alcance vigente.
+\textbf{Cobertura alcanzada.} La verificación de la versión V2 del prototipo contra el catálogo
+vigente posterior al Change Control Board identifica los 24 requisitos funcionales \emph{Must}
+representados en el prototipo. De ellos, 20 cuentan con flujo funcional y cuatro se mantienen como
+interfaz o comportamiento simulado: \id{RF-07}, \id{RF-08}, \id{RF-14} y \id{RF-21}. Estos cuatro
+últimos no se contabilizan como funcionales. En consecuencia, la cobertura funcional verificable
+es de $20/24 = 83{,}3\%$, superior al umbral mínimo del 80\% establecido para el criterio C3.
 
-\noindent\fbox{\parbox{0.97\textwidth}{\small\textbf{Nota de corrección (v3.1).} La versión 3.0
-declaraba una cobertura de $9/19 = 47{,}4\%$. Ese cálculo incorporaba en el numerador a \id{RF-20}
-(implementado) y a \id{RF-15} (parcial), que sus fichas de la §3.2 clasifican como \emph{Should}, y
-omitía del denominador a \id{RF-36} y \id{RF-37}, que son \emph{Must}. Depurado el conjunto, la
-cobertura real es menor que la declarada. Se corrige a la baja en lugar de conservar la cifra más
-favorable.}}
+\noindent\fbox{\parbox{0.97\textwidth}{\small\textbf{Nota histórica de corrección (v3.1, MVP V1).}
+La versión 3.0 declaraba una cobertura de $9/19 = 47{,}4\%$. La revisión v3.1 corrigió ese cálculo
+a $8/21 = 38{,}1\%$ para el alcance existente durante la construcción de la V1 y a
+$8/24 = 33{,}3\%$ frente al catálogo post-CCB. Esas cifras se conservan únicamente como
+trazabilidad histórica. La cobertura vigente del prototipo V2 es la verificada en la tabla anterior:
+$20/24 = 83{,}3\%$, sin contabilizar como funcionales los cuatro requisitos simulados.}}
 
 \noindent\fbox{\parbox{0.97\textwidth}{%
 \small\textbf{Declaración de incumplimiento del mínimo.} La §3.6 de la guía exige una cobertura de
@@ -233,7 +234,7 @@ Se declaran de forma expresa las limitaciones de esta entrega. Ninguna se presen
 \id{L-05} & Los componentes de IA no cuentan con conjunto de datos etiquetado del propio cultivo. & Los valores de \id{RNF-01} y \id{RNF-02} se fijaron a partir de la literatura del dominio \cite{suharjito2021,goh2025,rosbi2024} y se declaran como objetivo, no como resultado medido. \\ \hline
 \id{L-06} & Las sesiones de validación \emph{walkthrough} realizadas son inferiores a las tres exigidas: se realizó 0 de 3. & Se ejecutarán antes de la Entrega 4. A esta limitación se suma, en sentido contrario, la inspección formal tipo Fagan ejecutada en la PE4 sobre las §1 a §7 (63 páginas efectivas), cuyo registro de defectos constituye una validación documentada adicional. \\ \hline
 \id{L-07} & \emph{Resuelta en v3.0; se conserva la fila por trazabilidad histórica y no se contabiliza como limitación vigente.} La obtención de la hoja de liquidación semanal (\id{EV-13}) incorporó un segundo tipo documental, distinto del plan de labores. & Se dispone de dos tipos documentales de la organización. La obtención de un tercer tipo (hoja de conteo del polinizador o boleta de pesaje) queda como trabajo pendiente. \\ \hline
-\id{L-10} & El prototipo alcanza una cobertura del 38{,}1\% de los 21 requisitos \emph{Must}, por debajo del 60\% exigido por la §3.6 de la guía. & Se declara el valor real verificado por inspección del código, sin computar las funcionalidades simuladas como implementadas. Plan de incorporación en la §7.5. \\ \hline
+\id{L-10} & \emph{Resuelta en MVP V2; se conserva la fila por trazabilidad histórica y no se contabiliza como limitación vigente.} La V1 alcanzaba una cobertura funcional de 38{,}1\% sobre 21 requisitos \emph{Must}. & La V2 alcanza $20/24 = 83{,}3\%$ de cobertura funcional sobre el catálogo vigente. \id{RF-07}, \id{RF-08}, \id{RF-14} y \id{RF-21} permanecen simulados y no se contabilizan como funcionales. \\ \hline
 \id{L-12} & No se ha declarado el marco de siembra de la plantación, dato necesario para determinar si la precisión GPS de \id{RNF-05} ($\leq 10$ m) permite discriminar palmas contiguas en \id{RF-14}. & \id{RF-14} se acota en v3.1 a la agregación por línea de siembra. El dato se solicitará a la organización antes de la Entrega 4. \\ \hline
 \id{L-11} & El prototipo carece de servicio de respaldo: la persistencia es local al navegador y las credenciales se almacenan sin derivación de clave. & Los requisitos \id{RNF-10}, \id{RNF-11}, \id{RNF-13} y \id{RNF-14} no son verificables sobre el prototipo actual. Se declara en la §6.4 como desviación \id{D-02}. \\ \hline
 \id{L-08} & Seis requisitos no funcionales y una restricción carecen de trazabilidad a evidencia de campo. & Se declaran en la §5.4.2 como derivados de decisiones de arquitectura y de prácticas estándar, sin atribuirles una fuente de elicitación. \\ \hline
@@ -279,7 +280,6 @@ Alta & Ejecutar el componente empírico registrado en OSF con al menos tres pers
 Alta & Completar las sesiones de validación \emph{walkthrough} con actas firmadas & Cobertura de las seis sesiones acumuladas del objetivo 2B \\ \hline
 Alta & Construir el conjunto de datos etiquetado del cultivo & Habilita la medición real de \id{RNF-01} y \id{RNF-02} \\ \hline
 Media & Ampliar la ronda de entrevistas hasta el objetivo acumulado & Curva de saturación con evidencia de estabilización \\ \hline
-Alta & Elevar la cobertura del MVP por encima del 60\% incorporando \id{RF-10}, \id{RF-26} y \id{RF-35} & Cumplimiento del mínimo de la §3.6; los tres son de implementación acotada \\ \hline
 Alta & Corregir las desviaciones \id{D-01} a \id{D-03} del prototipo & Coherencia entre el prototipo y el dominio real documentado \\ \hline
 Media & Completar la implementación de los componentes de IA y del conteo georreferenciado & Sustitución de las funcionalidades simuladas por procesamiento real \\ \hline
 Media & Obtener un tercer tipo documental de la organización & Completa la triangulación documental (\id{L-07}) \\ \hline
