@@ -6,8 +6,8 @@ Prototipo funcional de interfaz desarrollado para el proyecto grupal de Ingenier
 
 ## Repositorios
 
-- Repositorio grupal y documentación: `https://github.com/AlanNVR/SIMPA_ISR401`
-- Repositorio del código del prototipo: `https://github.com/jmaciasherr4/Prottotipo_Simpa`
+- Repositorio grupal y documentación: https://github.com/AlanNVR/SIMPA_ISR401
+- Repositorio del código del prototipo: https://github.com/jmaciasherr4/Prottotipo_Simpa
 
 ## Prototipos en vivo
 
