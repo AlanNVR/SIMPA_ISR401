@@ -73,27 +73,26 @@ trazabilidad histórica. La cobertura vigente del prototipo V2 es la verificada 
 $20/24 = 83{,}3\%$, sin contabilizar como funcionales los cuatro requisitos simulados.}}
 
 \noindent\fbox{\parbox{0.97\textwidth}{%
-\small\textbf{Declaración de incumplimiento del mínimo.} La §3.6 de la guía exige una cobertura de
-al menos el 60\% de los requisitos \emph{Debe tener}. El prototipo entregado no alcanza ese umbral.
-Se declara de forma expresa el valor real (38{,}1\% completo, 42{,}9\% ponderado) en lugar de
-computar como implementadas las funcionalidades simuladas, lo que habría permitido reportar un
-57{,}1\% sin sustento verificable. Los requisitos ausentes y su plan de incorporación se detallan en
-la §7.5. Esta limitación se registra como \id{L-10}.}}
+\small\textbf{Declaración de cumplimiento del mínimo.} La §3.6 de la guía exige una cobertura de
+al menos el 60\% de los requisitos \emph{Debe tener}. La versión V2 alcanza una cobertura funcional
+verificable de $20/24 = 83{,}3\%$, sin contabilizar como implementadas las funcionalidades
+simuladas. Por tanto, supera tanto el mínimo de la §3.6 como el umbral del 80\% utilizado para el
+criterio C3. La limitación histórica asociada se conserva como \id{L-10}, marcada como resuelta.}}
 
 \subsubsection{Funcionalidades simuladas}
 
-Dos funcionalidades presentan interfaz completa con resultado no real, y así se declaran tanto en
-este documento como en el archivo \id{README.md} del repositorio del prototipo:
+Cuatro requisitos presentan interfaz o comportamiento demostrativo sin procesamiento real, y así se
+declaran tanto en este documento como en el archivo \id{README.md} del repositorio del prototipo:
 
 \begin{itemize}[nosep]
-  \item \textbf{Análisis de imagen (\id{RF-07}).} La pantalla captura la imagen, muestra el
-        indicador de calidad y presenta un resultado de diagnóstico, pero dicho resultado se genera
-        mediante una función pseudoaleatoria y no mediante inferencia sobre la imagen. La
-        arquitectura de integración ---orquestador, interfaz del servicio y presentación de la
-        explicación--- sí está construida.
-  \item \textbf{Conteo georreferenciado (\id{RF-14}).} El mapa presenta recorridos y totales de
-        polinización a partir de datos de ejemplo fijos; no se consulta el receptor GPS del
-        dispositivo.
+  \item \textbf{Detección de plagas por imagen (\id{RF-07}).} La interfaz permite recorrer el flujo
+        de análisis, pero no ejecuta inferencia real sobre la imagen.
+  \item \textbf{Diagnóstico nutricional por imagen (\id{RF-08}).} El flujo visual está representado,
+        pero no existe un modelo entrenado del dominio que produzca un diagnóstico real.
+  \item \textbf{Conteo georreferenciado (\id{RF-14}).} El mapa emplea información demostrativa y
+        no consulta necesariamente el receptor GPS real del dispositivo.
+  \item \textbf{Clasificación de madurez del racimo (\id{RF-21}).} El flujo de clasificación se
+        presenta de forma demostrativa y no ejecuta inferencia visual real sobre el racimo.
 \end{itemize}
 
 \subsection{Decisión de alcance: por qué la IA no se implementó}
