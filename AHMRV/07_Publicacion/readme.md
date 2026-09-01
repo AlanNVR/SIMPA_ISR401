@@ -8,6 +8,9 @@ Material orientado a la publicación de los resultados del proyecto.
 | `dataset_zenodo/` | Instantánea exacta del depósito publicado en Zenodo — DOI de versión `10.5281/zenodo.22236500` |
 | `fair_assessment.pdf` | Evidencia visual de la evaluación FAIR realizada con F-UJI |
 | `fair_assessment.json` | Resultado estructurado y reproducible de la evaluación F-UJI |
+| `manuscrito_final.tex` | Fuente LaTeX autónoma del Research Preview prerregistrado, sin resultados experimentales |
+| `manuscrito_final.pdf` | Versión interna no anónima compilada del manuscrito |
+| `referencias.bib` | Bibliografía específica del manuscrito, con 23 entradas citadas |
 
 ## Evaluación FAIR con F-UJI
 
@@ -24,7 +27,6 @@ La evaluación comprendió 17 métricas. Los resultados completos se conservan e
 
 La carpeta `dataset_zenodo/` se conserva sin modificaciones como instantánea exacta de los seis archivos depositados en la versión 2.0. Por trazabilidad, sus archivos `readme.md` y `zenodo_metadata.md` mantienen el estado de predepósito que tenían al momento de la carga. Esto preserva la correspondencia con `checksums_zenodo.sha256` y con los archivos publicados en Zenodo.
 
-El manuscrito completo todavía no existe como artefacto separado; se
-redactará una vez que el componente experimental (`../06_Experimento/`) esté
-ejecutado, siguiendo el principio del plan operativo de no incorporar
-resultados que aún no existen.
+El manuscrito científico se conserva como un **Research Preview prerregistrado**: describe el protocolo, el contexto, las preguntas de investigación y el plan de análisis, pero **no incorpora resultados experimentales**, ya que el experimento permanece pendiente de ejecución. La fuente `manuscrito_final.tex` es autónoma y compila junto con `referencias.bib`; la versión interna no anónima actual genera un PDF de 9 páginas y contiene 23 referencias bibliográficas citadas.
+
+Los tres archivos del manuscrito (`manuscrito_final.tex`, `manuscrito_final.pdf` y `referencias.bib`) están expresamente excluidos del alcance de la licencia CC BY 4.0 general del material de publicación; véase la sección 4 del `LICENSE` en la raíz del repositorio.
