@@ -13,6 +13,7 @@ No se debe inventar ni publicar un DOI hasta completar la revisión del paquete 
 | `respuestas_zenodo.csv` | Dataset preparado para depósito abierto |
 | `preparar_dataset_zenodo.py` | Genera reproduciblemente el dataset abierto desde `../respuestas_anonimizadas.csv` |
 | `diccionario_zenodo.md` | Diccionario específico de las 16 columnas publicables |
+| `zenodo_metadata.md` | Metadatos previstos para crear el registro en Zenodo |
 | `checksums_zenodo.sha256` | Integridad SHA-256 del paquete de predepósito |
 
 ## Procedencia
@@ -64,4 +65,4 @@ Desde `AHMRV/07_Publicacion/dataset_zenodo/`:
 
 El DOI todavía no ha sido asignado.
 
-La licencia definitiva del depósito debe confirmarse al crear el registro Zenodo y antes de hacerlo público.
+La licencia prevista para el depósito es Creative Commons Attribution 4.0 International (CC BY 4.0), de acuerdo con la licencia del material publicado en .
