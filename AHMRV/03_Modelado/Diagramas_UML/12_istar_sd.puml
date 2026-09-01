@@ -1,0 +1,92 @@
+@startuml istar_sd
+' SIMPA - i* Strategic Dependency (SD) model
+' Notation: O = goal, T = task, R = resource,
+'           OB = softgoal
+skinparam shadowing false
+left to right direction
+skinparam componentStyle rectangle
+skinparam ArrowColor #444444
+
+skinparam rectangle {
+  BackgroundColor<<actor>> #E8F4EC
+  BorderColor<<actor>> #006633
+  BackgroundColor<<sistema>> #006633
+  FontColor<<sistema>> #FFFFFF
+}
+skinparam usecase {
+  BackgroundColor<<goal>> #DCEBF7
+  BorderColor<<goal>> #2E6DA4
+  BackgroundColor<<task>> #FDEBD0
+  BorderColor<<task>> #B8860B
+  BackgroundColor<<res>> #E5E5E5
+  BorderColor<<res>> #666666
+  BackgroundColor<<soft>> #F2DCF7
+  BorderColor<<soft>> #7B4397
+}
+
+rectangle "Owner" <<actor>> as PROP
+rectangle "General\nadministrator" <<actor>> as ADM
+rectangle "Administrator /\nTechnical advisor" <<actor>> as AST
+rectangle "Administrative\nassistant" <<actor>> as ASI
+rectangle "Pollination\nsupervisor" <<actor>> as JPO
+rectangle "Pollinator" <<actor>> as POL
+rectangle "Farm\nworker" <<actor>> as TRA
+rectangle "Mill R" <<actor>> as EXT
+rectangle "SIMPA" <<sistema>> as SYS
+
+usecase "O: Yield of\n40-45 t/ha/year" <<goal>> as G1
+usecase "R: Daily progress\nreport" <<res>> as R1
+usecase "T: Perform the\nbudgeted task" <<task>> as T1
+usecase "R: Block assignment\nand pay per progress" <<res>> as R2
+usecase "OB: Timeliness in\ndetecting damage" <<soft>> as S1
+usecase "T: Correctly apply\nthe pollinator" <<task>> as T2
+usecase "OB: Fruit with sufficient\ndetachment" <<soft>> as S2
+usecase "R: Weighing ticket\nwith grading" <<res>> as R3
+usecase "R: Tonnage estimate\nfor capacity planning" <<res>> as R4
+usecase "R: Remote nutritional\ndiagnosis" <<res>> as R5
+usecase "OB: Reliability of the\npollination count" <<soft>> as S3
+usecase "OB: Less dependence on\nexpert knowledge" <<soft>> as S4
+
+PROP --> G1
+G1 --> ADM
+
+ADM --> R1
+R1 --> ASI
+
+ADM --> T1
+T1 --> TRA
+
+TRA --> R2
+R2 --> ADM
+
+ADM --> S1
+S1 --> ASI
+
+JPO --> T2
+T2 --> POL
+
+EXT --> S2
+S2 --> TRA
+
+ADM --> R3
+R3 --> EXT
+
+EXT --> R4
+R4 --> ADM
+
+AST --> R5
+R5 --> SYS
+
+JPO --> S3
+S3 --> SYS
+
+ADM --> S4
+S4 --> SYS
+
+note bottom
+  Dependencies on SIMPA (R5, S3, S4): the system takes on dependencies
+  that currently fall on people. S4 addresses the problem declared as
+  most critical by general administration: the shortage and turnover
+  of skilled labor (EV-01).
+end note
+@enduml
