@@ -17,6 +17,8 @@ ALCANCE
   - AHMRV/04_Trazabilidad/   matriz de trazabilidad y priorización
   - AHMRV/06_Experimento/    protocolo experimental e instrumentos
   - AHMRV/07_Publicacion/    conjunto de datos anonimizado y material de replicación
+                             EXCEPTO los archivos del manuscrito científico
+                             indicados expresamente en la sección 4
   - AHMRV/02_Evidencias/     ÚNICAMENTE el material de zona pública:
                              transcripciones anonimizadas, respuestas de
                              cuestionario sin columnas identificativas,
@@ -93,6 +95,22 @@ FUNDAMENTO
   La tabla de correspondencia entre códigos de participante y personas reales
   permanece bajo custodia del docente responsable y no forma parte de este
   repositorio.
+
+===============================================================================
+ 4. MANUSCRITO CIENTÍFICO — FUERA DEL ALCANCE DE CC BY 4.0
+===============================================================================
+
+ALCANCE
+  - AHMRV/07_Publicacion/manuscrito_final.tex
+  - AHMRV/07_Publicacion/manuscrito_final.pdf
+  - AHMRV/07_Publicacion/referencias.bib
+
+Estos archivos se publican en el repositorio únicamente como versión preliminar
+académica. No quedan licenciados por la licencia CC BY 4.0 de la sección 1 ni
+por la licencia MIT de la sección 2. Salvo indicación expresa posterior, este
+repositorio no concede una licencia abierta adicional sobre el manuscrito.
+Los derechos y condiciones aplicables a una eventual versión editorial se
+regirán por las políticas de la sede de publicación correspondiente.
 
 ===============================================================================
  NOTA SOBRE SEUDONIMIZACIÓN
