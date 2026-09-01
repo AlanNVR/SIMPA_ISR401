@@ -1,0 +1,44 @@
+@startuml activity_weekly_cycle
+' SIMPA - Activity: weekly planning and execution cycle (RF-26, RF-27)
+skinparam shadowing false
+skinparam ActivityBorderColor #006633
+|Administration|
+start
+:Define weekly plan per block\n(target, unit, task type);
+note right: RF-26 - derived from EV-11
+:Publish plan;
+|Field supervisor|
+:Assign daily tasks;
+|Farm worker|
+repeat
+  :Perform task on the block;
+  if (Has own device?) then (yes)
+    :Record progress in the app;
+  else (no)
+    |Field supervisor|
+    :Record progress on their behalf;
+    note right: RF-35 / RD-10 - 11.3% without\na device (EV-12)
+    |Farm worker|
+  endif
+  if (Has connectivity?) then (yes)
+    :Sync immediately;
+  else (no)
+    :Queue locally;
+    note right: RNF-11
+  endif
+repeat while (Days remaining in the week?) is (yes)
+->no;
+|Administration|
+:Close the week;
+:Compare completed against target;
+if (Target met?) then (yes)
+  :Mark task as completed;
+else (no)
+  :Calculate remainder;
+  :Generate pending task\nfor the following week;
+  note right: RF-27 - "(CONTINUES)" pattern\nobserved in EV-11
+endif
+:Generate weekly summary;
+note right: RF-19
+stop
+@enduml
