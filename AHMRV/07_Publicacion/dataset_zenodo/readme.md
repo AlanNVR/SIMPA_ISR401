@@ -2,9 +2,9 @@
 
 ## Estado
 
-**Paquete preparado para revisión previa al depósito. DOI pendiente.**
+**Paquete preparado para revisión previa al depósito. DOI reservado: `10.5281/zenodo.22236500`; publicación pendiente.**
 
-No se debe inventar ni publicar un DOI hasta completar la revisión del paquete y confirmar los permisos y metadatos de publicación aplicables.
+El DOI `10.5281/zenodo.22236500` ha sido reservado en Zenodo. El registro continúa como borrador y el DOI se activará al publicar el depósito.
 
 ## Contenido
 
@@ -63,6 +63,6 @@ Desde `AHMRV/07_Publicacion/dataset_zenodo/`:
 
 ## DOI y licencia
 
-El DOI todavía no ha sido asignado.
+DOI reservado: `10.5281/zenodo.22236500`. El registro permanece en borrador y todavía no se ha publicado.
 
 La licencia prevista para el depósito es Creative Commons Attribution 4.0 International (CC BY 4.0), de acuerdo con la licencia del material publicado en .

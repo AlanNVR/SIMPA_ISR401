@@ -25,6 +25,11 @@ license: CC-BY-4.0
 repository-code: 'https://github.com/AlanNVR/SIMPA_ISR401'
 url: 'https://github.com/AlanNVR/SIMPA_ISR401/tree/main/AHMRV'
 
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22236500
+    description: DOI reservado para el deposito del dataset en Zenodo; registro pendiente de publicacion
+
 keywords:
   - ingeniería de requisitos
   - ISO/IEC/IEEE 29148

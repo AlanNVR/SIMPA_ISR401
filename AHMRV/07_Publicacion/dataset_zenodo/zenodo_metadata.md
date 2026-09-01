@@ -2,7 +2,7 @@
 
 ## Estado
 
-**Predepósito. DOI pendiente.**
+**Predepósito. DOI reservado; publicación pendiente.**
 
 Este archivo documenta los metadatos que deben utilizarse al crear el registro en Zenodo.
 No sustituye al registro de Zenodo ni asigna por sí mismo un DOI.
@@ -77,6 +77,6 @@ No deben incorporarse al depósito abierto:
 
 ## DOI
 
-**Pendiente de reserva/asignación en Zenodo.**
+**DOI reservado en Zenodo: `10.5281/zenodo.22236500`. Registro pendiente de publicación.**
 
-Una vez reservado el DOI, debe registrarse en este archivo, en `dataset_zenodo/readme.md`, en `CITATION.cff` y en los demás puntos documentales que correspondan antes de la publicación final.
+El DOI reservado debe mantenerse sincronizado con `dataset_zenodo/readme.md`, `CITATION.cff` y los demás puntos documentales correspondientes antes de la publicación final.
