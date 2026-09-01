@@ -5,6 +5,30 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.1.4] - 2026-08-31 - P9: reubicar Palma_Africana.pdf; reconciliar checksums de diagramas traducidos
+
+### Corregido
+
+- `AHMRV/Palma_Africana.pdf` (propuesta inicial del 5 de mayo de 2026) estaba
+  suelto en la raíz de `AHMRV/`, sin pertenecer a ninguna de las nueve
+  carpetas del árbol obligatorio. Se movió a
+  `AHMRV/01_ERS/antecedentes/2026-05-05_Propuesta_Inicial_1A.pdf`.
+- `checksums.sha256` no reflejaba la traducción al inglés de los 13 diagramas
+  de `AHMRV/03_Modelado/Diagramas_UML/` (fuentes `.puml`, `.png` y `.svg`,
+  39 archivos): los nombres cambiaron de español a inglés y varias rutas
+  quedaron registradas contra archivos que ya no existían. Se regeneraron
+  las 39 entradas de esa carpeta desde el estado actual.
+- `checksums.sha256` verificado íntegro: 192/192.
+
+### Nota
+
+- `AHMRV/01_ERS/img/` (usada para compilar `ERS_SRS_2B_v2.0.tex`) conserva
+  los diagramas en español; `03_Modelado/Diagramas_UML/` ya está en inglés.
+  No es una referencia rota — son dos copias independientes — pero queda
+  como inconsistencia de idioma pendiente de resolver por el equipo.
+
+---
+
 ## [4.1.3] - 2026-08-31 - P6: declarar el alcance de la trazabilidad de RNF y RD
 
 ### Corregido
