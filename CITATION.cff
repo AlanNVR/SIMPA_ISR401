@@ -32,7 +32,7 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.22236499
     description: DOI conceptual de Zenodo para todas las versiones del dataset
- - type: swh
+  - type: swh
     value: "swh:1:dir:c1cdc888223b62b9a95aba78b617cda7eb848811;origin=https://github.com/AlanNVR/SIMPA_ISR401;visit=swh:1:snp:80b5c3030928e545450543ccc66681549753b392;anchor=swh:1:rev:abdf60d2d2083ec842b25b70bd1103561a709b1b"
     description: Copia archivada de forma permanente en Software Heritage
 
