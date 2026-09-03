@@ -18,9 +18,9 @@ Uso:
     python3 anonimizar_encuesta.py <ruta_xlsx_crudo> [--out ruta_salida.csv]
 
 Ejemplo real (desde la raíz del repo):
-    python3 07_Publicacion/scripts/anonimizar_encuesta.py \\
+    python3 07_Datos/scripts/anonimizar_encuesta.py \\
         "02_Evidencias/Cuestionario/Respuestas/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx" \\
-        --out 07_Publicacion/respuestas_anonimizadas.csv
+        --out 07_Datos/datos_procesados/respuestas_anonimizadas.csv
 
 Requiere: openpyxl (pip install --break-system-packages openpyxl)
 """

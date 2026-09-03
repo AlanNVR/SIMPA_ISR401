@@ -28,7 +28,7 @@ está documentada en `07_Publicacion/diccionario_datos.md`.
   transcripciones.
 - Registros de tiempo y de identificación de tratamiento por unidad experimental.
 - Cualquier medición registrada durante la ejecución del protocolo descrito en
-  `../protocolo.pdf`.
+  `../../06_Experimento/protocolo.pdf`.
 
 ## Estado de las dependencias
 
