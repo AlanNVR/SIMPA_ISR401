@@ -134,24 +134,30 @@ La restricción está documentada también en `07_Datos/LICENSE-DATA.txt`.
 
 ---
 
-## D-06 — Orquestador único de análisis todavía pendiente
+## D-06 — Orquestador único de análisis
 
-**Estado:** abierta.
+**Estado:** cerrada el 2026-09-03.
 
-Los scripts principales ya se encuentran centralizados en:
-
-`07_Datos/scripts/`
-
-pero todavía no existe el punto de entrada definitivo:
+Se implementó:
 
 `07_Datos/scripts/run_all.py`
 
-La exigencia de ejecutar la cadena reproducible mediante una sola orden se
-considerará cumplida únicamente después de implementar y probar ese
-orquestador sobre los datos reales disponibles.
+La cadena reproducible disponible puede ejecutarse desde la raíz mediante:
 
-Hasta entonces no se declara que la cadena completa de análisis cumple el
-requisito de ejecución única.
+`python 07_Datos/scripts/run_all.py`
+
+La ejecución fue verificada sobre los datos reales y reproduce:
+
+- 62 filas × 34 columnas en `respuestas_anonimizadas.csv`;
+- 64 filas × 7 columnas en `respuestas_zenodo_agregadas.csv`;
+- 8 filas × 7 columnas en `tabla_saturacion.csv`;
+- el SHA-256 publicado del dataset agregado de Zenodo.
+
+También se verificaron dos ejecuciones consecutivas con resultados idénticos
+para los productos de saturación.
+
+Esta desviación queda cerrada sin extender el alcance al experimento
+humano–LLM todavía pendiente.
 
 ---
 

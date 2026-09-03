@@ -192,23 +192,36 @@ Para cada columna se documenta:
 
 ## 9. Reproducibilidad
 
-La cadena actual puede ejecutarse mediante scripts individuales versionados.
-
-La guía de entrega exige además un único punto de entrada reproducible.
-
-El punto de entrada previsto es:
+La cadena de datos y análisis actualmente disponible se ejecuta mediante un
+único punto de entrada:
 
 `07_Datos/scripts/run_all.py`
 
-**Estado actual: pendiente de implementación y verificación.**
+Ejecución desde la raíz del repositorio:
 
-No se declara todavía cumplimiento de ejecución mediante una sola orden.
+`python 07_Datos/scripts/run_all.py`
 
-El orquestador deberá ejecutar únicamente transformaciones y análisis
-respaldados por datos reales existentes en el repositorio.
+**Estado: implementado y verificado.**
 
-No deberá fabricar resultados para componentes experimentales que todavía no
-han sido ejecutados.
+El orquestador ejecuta, en orden:
+
+1. anonimización reproducible del XLSX crudo;
+2. generación del dataset agregado para Zenodo;
+3. análisis de codificación temática y saturación.
+
+La verificación automática comprueba:
+
+- `respuestas_anonimizadas.csv`: 62 filas × 34 columnas;
+- `respuestas_zenodo_agregadas.csv`: 64 filas × 7 columnas;
+- `tabla_saturacion.csv`: 8 filas × 7 columnas;
+- SHA-256 del dataset Zenodo publicado:
+  `b40ab460fc1d3d931beebaf5dd3037f564db8774559feee1ec1d371fa01b39b9`.
+
+Dos ejecuciones consecutivas fueron verificadas con salidas idénticas para la
+tabla y las figuras de saturación.
+
+El orquestador ejecuta únicamente análisis respaldados por datos reales y no
+genera resultados del experimento humano–LLM todavía pendiente.
 
 ## 10. Integridad
 

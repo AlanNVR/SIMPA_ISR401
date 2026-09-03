@@ -25,7 +25,7 @@ En consecuencia, el ERS/SRS de la Entrega 3 (2A) no contiene sección de resulta
 | `instrumentos/` | Guiones, cuestionario, rúbrica y consentimientos | 🟡 parcial |
 | `prompts_llm/` | Consignas exactas con modelo, temperatura, top-p y semilla | ⏳ pendiente de ejecución |
 | `../07_Datos/` | Datos crudos, procesados, scripts y resultados | 🟡 estructura activa; experimento principal pendiente |
-| `../07_Datos/scripts/` | Scripts Python de transformación y análisis | 🟡 cadena parcial; orquestador único pendiente |
+| `../07_Datos/scripts/` | Scripts Python de transformación y análisis | ✅ cadena reproducible disponible mediante `run_all.py` |
 
 ## Secuencia obligatoria
 

@@ -144,7 +144,7 @@ ax2.spines[["top", "right"]].set_visible(False)
 # tight_layout omitido: incompatible con los axvspan del panel superior
 plt.savefig(SALIDA_DIR / "curva_saturacion.png", dpi=300, bbox_inches="tight",
             facecolor="white")
-plt.savefig(SALIDA_DIR / "curva_saturacion.pdf", bbox_inches="tight", facecolor="white")
+plt.savefig(SALIDA_DIR / "curva_saturacion.pdf", bbox_inches="tight", facecolor="white", metadata={"CreationDate": None, "ModDate": None})
 
 # ------------------------------------------------------------ resumen
 print(f"Entrada: {ENTRADA}")
