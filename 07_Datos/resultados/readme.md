@@ -1,8 +1,31 @@
-# Resultados del experimento
+# Resultados
 
-**Estado: pendiente — depende de que el experimento se ejecute.**
+Esta carpeta contiene resultados generados reproduciblemente por los scripts
+versionados en `../scripts/`.
 
-Esta carpeta alojará las tablas y figuras de resultados una vez ejecutado el
-experimento descrito en `../readme.md` y `../protocolo.pdf`. Actualmente no
-contiene resultados porque el experimento aún no se ha llevado a cabo — no se
-publican cifras simuladas ni resultados hipotéticos.
+## Análisis de saturación
+
+Actualmente están disponibles:
+
+- `tabla_saturacion.csv`
+- `curva_saturacion.png`
+- `curva_saturacion.pdf`
+
+Estos archivos se generan mediante:
+
+`../scripts/curva_saturacion.py`
+
+La ejecución vigente utiliza la codificación real de EV-01 a EV-08 y produce:
+
+- 138 fragmentos codificados;
+- 68 códigos únicos.
+
+## Experimento humano–LLM
+
+Los archivos anteriores corresponden al análisis cualitativo de entrevistas.
+
+No corresponden al experimento comparativo humano–LLM prerregistrado en
+`06_Experimento/`, cuya ejecución completa continúa pendiente.
+
+No se incorporan resultados hipotéticos ni cifras simuladas para completar ese
+experimento.

@@ -1,0 +1,102 @@
+LICENCIA DE DATOS — PROYECTO SIMPA
+Sistema Inteligente de Mantenimiento de Palma Africana
+Equipo AHMRV — Universidad Técnica Estatal de Quevedo
+Año: 2026
+
+===============================================================================
+1. DATOS ABIERTOS
+===============================================================================
+
+Los siguientes conjuntos de datos y productos derivados se distribuyen bajo
+Creative Commons Atribución 4.0 Internacional (CC BY 4.0):
+
+- datos_crudos/codificacion.csv
+- datos_procesados/respuestas_anonimizadas.csv
+- datos_procesados/respuestas_zenodo_agregadas.csv
+- resultados/tabla_saturacion.csv
+- resultados/curva_saturacion.png
+- resultados/curva_saturacion.pdf
+- diccionario_datos.csv
+- README_datos.md
+- desviaciones.md
+- registro_deposito.md
+
+Se permite compartir y adaptar estos materiales para cualquier finalidad,
+incluida la comercial, siempre que se reconozca adecuadamente la autoría,
+se proporcione un enlace a la licencia y se indiquen los cambios realizados.
+
+Texto de la licencia:
+https://creativecommons.org/licenses/by/4.0/
+
+Atribución sugerida:
+
+Equipo AHMRV (2026). SIMPA — Datos y artefactos de análisis.
+Universidad Técnica Estatal de Quevedo. CC BY 4.0.
+
+
+===============================================================================
+2. ARCHIVO CRUDO RESTRINGIDO
+===============================================================================
+
+El archivo:
+
+datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx
+
+es la exportación primaria del cuestionario aplicado durante el proyecto.
+
+Este archivo queda EXPRESAMENTE FUERA del alcance de la licencia CC BY 4.0
+establecida en la sección anterior y NO debe incorporarse al depósito público
+de datos.
+
+Su conservación dentro del repositorio de trabajo tiene fines de
+reproducibilidad y trazabilidad del procesamiento.
+
+Para análisis y publicación deben utilizarse las versiones derivadas:
+
+- datos_procesados/respuestas_anonimizadas.csv
+- datos_procesados/respuestas_zenodo_agregadas.csv
+
+El tratamiento, conservación y eventual eliminación del material restringido
+se rigen por las disposiciones de protección de datos y conservación
+documentadas en el LICENSE principal y en los documentos éticos del proyecto.
+
+
+===============================================================================
+3. CÓDIGO DE ANÁLISIS
+===============================================================================
+
+Los archivos contenidos en:
+
+scripts/
+
+son software y no quedan licenciados mediante este archivo.
+
+Su régimen de licencia corresponde a la licencia de código establecida en el
+LICENSE ubicado en la raíz del repositorio.
+
+
+===============================================================================
+4. DEPÓSITO ABIERTO
+===============================================================================
+
+La versión destinada al depósito abierto está representada por:
+
+datos_procesados/respuestas_zenodo_agregadas.csv
+
+El conjunto agregado no contiene filas individuales identificables y su
+depósito se documenta en:
+
+registro_deposito.md
+
+La existencia de esta licencia no amplía el alcance de publicación del archivo
+XLSX crudo, grabaciones, consentimientos, firmas ni otro material declarado
+restringido por el proyecto.
+
+
+===============================================================================
+5. PREVALENCIA DE RESTRICCIONES
+===============================================================================
+
+Cuando exista conflicto entre una autorización general de reutilización y una
+restricción expresa de privacidad, protección de datos o consentimiento,
+prevalece la restricción aplicable al material protegido.

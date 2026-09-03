@@ -24,8 +24,8 @@ En consecuencia, el ERS/SRS de la Entrega 3 (2A) no contiene sección de resulta
 | `osf_registration.pdf` | Comprobante del registro público OSF: https://osf.io/4z35d/ | ✅ |
 | `instrumentos/` | Guiones, cuestionario, rúbrica y consentimientos | 🟡 parcial |
 | `prompts_llm/` | Consignas exactas con modelo, temperatura, top-p y semilla | ⏳ pendiente de ejecución |
-| `resultados/` | Datos crudos y procesados, tablas y figuras | ⏳ pendiente de ejecución |
-| `scripts_analisis/` | Scripts en R o Python que reproducen cada tabla y figura | ⏳ pendiente |
+| `../07_Datos/` | Datos crudos, procesados, scripts y resultados | 🟡 estructura activa; experimento principal pendiente |
+| `../07_Datos/scripts/` | Scripts Python de transformación y análisis | 🟡 cadena parcial; orquestador único pendiente |
 
 ## Secuencia obligatoria
 
