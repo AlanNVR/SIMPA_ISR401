@@ -1,0 +1,9 @@
+Orden;ID_evidencia;Perfil;Codigos_totales;Codigos_nuevos;Acumulado;Porcentaje_nuevos
+1;EV-01;Administrador general;24;24;24;100.0
+2;EV-02;Asesor técnico;21;10;34;47.6
+3;EV-03;Jefe de polinización;14;6;40;42.9
+4;EV-04;Extractora (supervisor);26;17;57;65.4
+5;EV-05;Trabajador agrícola I;9;4;61;44.4
+6;EV-06;Trabajador agrícola II;11;1;62;9.1
+7;EV-07;Asistente de administración;15;4;66;26.7
+8;EV-08;Extractora (técnico);18;2;68;11.1

@@ -4,18 +4,19 @@
 Curva de saturación temática — Proyecto SIMPA
 Equipo AHMRV · ISR-401 · UTEQ
 
-Lee codificacion.csv y produce:
+Lee 07_Datos/datos_crudos/codificacion.csv y produce en 07_Datos/resultados/:
   - curva_saturacion.png / .pdf   figura para el ERS
   - tabla_saturacion.csv          tabla de aportación por entrevista
 
 Uso:
-    python3 curva_saturacion.py [codificacion.csv]
+    python3 07_Datos/scripts/curva_saturacion.py [ruta_codificacion.csv]
 
 Requiere: matplotlib
 """
 
 import csv
 import sys
+from pathlib import Path
 from collections import OrderedDict
 
 try:
@@ -25,7 +26,12 @@ try:
 except ImportError:
     sys.exit("Falta matplotlib.  Instalar con:  pip install matplotlib")
 
-ENTRADA = sys.argv[1] if len(sys.argv) > 1 else "codificacion.csv"
+ROOT = Path(__file__).resolve().parents[2]
+ENTRADA = Path(sys.argv[1]) if len(sys.argv) > 1 else (
+    ROOT / "07_Datos" / "datos_crudos" / "codificacion.csv"
+)
+SALIDA_DIR = ROOT / "07_Datos" / "resultados"
+SALIDA_DIR.mkdir(parents=True, exist_ok=True)
 
 # Orden cronológico de las entrevistas. La curva de saturación depende del
 # orden de recolección, no del alfabético: alterarlo invalida la lectura.
@@ -63,7 +69,7 @@ for ev in ORDEN:
     totales.append(len(codigos))
 
 # ------------------------------------------------------------ tabla CSV
-with open("tabla_saturacion.csv", "w", newline="", encoding="utf-8") as f:
+with open(SALIDA_DIR / "tabla_saturacion.csv", "w", newline="", encoding="utf-8") as f:
     w = csv.writer(f, delimiter=";")
     w.writerow(["Orden", "ID_evidencia", "Perfil", "Codigos_totales",
                 "Codigos_nuevos", "Acumulado", "Porcentaje_nuevos"])
@@ -136,9 +142,9 @@ ax2.set_axisbelow(True)
 ax2.spines[["top", "right"]].set_visible(False)
 
 # tight_layout omitido: incompatible con los axvspan del panel superior
-plt.savefig("curva_saturacion.png", dpi=300, bbox_inches="tight",
+plt.savefig(SALIDA_DIR / "curva_saturacion.png", dpi=300, bbox_inches="tight",
             facecolor="white")
-plt.savefig("curva_saturacion.pdf", bbox_inches="tight", facecolor="white")
+plt.savefig(SALIDA_DIR / "curva_saturacion.pdf", bbox_inches="tight", facecolor="white")
 
 # ------------------------------------------------------------ resumen
 print(f"Entrada: {ENTRADA}")
@@ -159,4 +165,4 @@ print(f"({nuevos[3]} códigos nuevos) demuestra que era una saturación APARENTE
 print("correspondía al agotamiento de un dominio, no del problema completo.")
 print(f"La caída de EV-08 ({nuevos[7]} códigos), pese a pertenecer al mismo")
 print("dominio nuevo, indica que ese dominio sí saturó con dos fuentes.")
-print("\nGenerados: curva_saturacion.png, curva_saturacion.pdf, tabla_saturacion.csv")
+print(f"\nGenerados en: {SALIDA_DIR}")

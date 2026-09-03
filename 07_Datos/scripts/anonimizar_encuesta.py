@@ -19,7 +19,7 @@ Uso:
 
 Ejemplo real (desde la raíz del repo):
     python3 07_Datos/scripts/anonimizar_encuesta.py \\
-        "02_Evidencias/Cuestionario/Respuestas/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx" \\
+        "07_Datos/datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx" \\
         --out 07_Datos/datos_procesados/respuestas_anonimizadas.csv
 
 Requiere: openpyxl (pip install --break-system-packages openpyxl)

@@ -20,7 +20,7 @@ Cada archivo llevará junto a sí la indicación del script que lo produce, en e
 
 | Figura | Ubicación | Script que la genera |
 |---|---|---|
-| Curva de saturación temática | `02_Evidencias/Codificacion_Tematica/curva_saturacion.png` | `02_Evidencias/Codificacion_Tematica/curva_saturacion.py` |
+| Curva de saturación temática | `07_Datos/resultados/curva_saturacion.png` | `07_Datos/scripts/curva_saturacion.py` |
 
 Se mantiene en su carpeta de evidencia. Se incorporará al manuscrito cuando la
 curva se recalcule sobre el conjunto completo de entrevistas; la versión actual

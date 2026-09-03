@@ -20,14 +20,14 @@
 ## 2. Procedencia y procesamiento
 
 El archivo **crudo** es la exportación directa de Google Forms:
-`02_Evidencias/Cuestionario/Respuestas/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx`.
+`07_Datos/datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx`.
 Ese archivo permanece intacto como evidencia primaria y **no se modifica**.
 
 Este CSV es su única versión procesada. Se genera de forma reproducible con:
 
 ```bash
 python3 07_Publicacion/scripts/anonimizar_encuesta.py \
-  "02_Evidencias/Cuestionario/Respuestas/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx" \
+  "07_Datos/datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx" \
   --out 07_Publicacion/respuestas_anonimizadas.csv
 ```
 

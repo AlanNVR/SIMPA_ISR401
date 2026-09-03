@@ -32,7 +32,7 @@ formato CSV y no se duplican aquí:
 |---|---|
 | Matriz de trazabilidad | `04_Trazabilidad/matriz_trazabilidad.csv` |
 | Priorización MoSCoW/Kano | `04_Trazabilidad/priorizacion_moscow_kano.csv` |
-| Codificación temática | `02_Evidencias/Codificacion_Tematica/codificacion.csv` |
+| Codificación temática | `07_Datos/datos_crudos/codificacion.csv` |
 
 Su conversión a formato LaTeX se hará cuando el manuscrito las requiera, mediante
 script y no a mano.
