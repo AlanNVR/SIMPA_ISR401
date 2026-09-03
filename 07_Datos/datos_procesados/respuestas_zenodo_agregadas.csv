@@ -1,0 +1,65 @@
+﻿pregunta_id,pregunta,tipo_respuesta,opcion,frecuencia,n_validos,porcentaje
+P01,¿Qué labor realiza principalmente?,simple,Control fitosanitario (plagas y enfermedades),18,62,29.0
+P01,¿Qué labor realiza principalmente?,simple,"Labores de mantenimiento (chapía, corona, poda)",13,62,21.0
+P01,¿Qué labor realiza principalmente?,simple,Otra,2,62,3.2
+P01,¿Qué labor realiza principalmente?,simple,Polinización,18,62,29.0
+P01,¿Qué labor realiza principalmente?,simple,Riego,11,62,17.7
+P02,¿Cuántos años de experiencia tiene en el cultivo de palma? ,simple,De 1 a 5 años,26,62,41.9
+P02,¿Cuántos años de experiencia tiene en el cultivo de palma? ,simple,De 6 a 10 años,15,62,24.2
+P02,¿Cuántos años de experiencia tiene en el cultivo de palma? ,simple,Menos de 1 año,14,62,22.6
+P02,¿Cuántos años de experiencia tiene en el cultivo de palma? ,simple,Más de 10 años,7,62,11.3
+P03,¿Cómo se registra hoy lo que usted realiza en el día?,simple,El administrador lo anota,13,62,21.0
+P03,¿Cómo se registra hoy lo que usted realiza en el día?,simple,En papel,42,62,67.7
+P03,¿Cómo se registra hoy lo que usted realiza en el día?,simple,No se registra,6,62,9.7
+P03,¿Cómo se registra hoy lo que usted realiza en el día?,simple,Otro,1,62,1.6
+P04,¿Cuál es la mayor dificultad en su trabajo diario?,multiple,Detectar plagas o enfermedades a tiempo,25,62,40.3
+P04,¿Cuál es la mayor dificultad en su trabajo diario?,multiple,El clima,21,62,33.9
+P04,¿Cuál es la mayor dificultad en su trabajo diario?,multiple,La comunicación con el administrador,6,62,9.7
+P04,¿Cuál es la mayor dificultad en su trabajo diario?,multiple,Llevar la cuenta de lo que realizo,13,62,21.0
+P04,¿Cuál es la mayor dificultad en su trabajo diario?,multiple,Otra,10,62,16.1
+P04,¿Cuál es la mayor dificultad en su trabajo diario?,multiple,Saber qué producto aplicar,13,62,21.0
+P05,¿Con qué frecuencia observa plagas o enfermedades en las palmas? ,simple,A veces,21,62,33.9
+P05,¿Con qué frecuencia observa plagas o enfermedades en las palmas? ,simple,Frecuentemente,21,62,33.9
+P05,¿Con qué frecuencia observa plagas o enfermedades en las palmas? ,simple,Muy frecuentemente,4,62,6.5
+P05,¿Con qué frecuencia observa plagas o enfermedades en las palmas? ,simple,Nunca,2,62,3.2
+P05,¿Con qué frecuencia observa plagas o enfermedades en las palmas? ,simple,Rara vez,14,62,22.6
+P06,¿Usa teléfono inteligente (smartphone)?,simple,no,7,62,11.3
+P06,¿Usa teléfono inteligente (smartphone)?,simple,si,55,62,88.7
+P07,¿Qué tan cómodo se siente usando aplicaciones en el teléfono? (escala 1 a 5) 1 = Nada cómodo  →  5 = Muy cómodo,simple,1,3,62,4.8
+P07,¿Qué tan cómodo se siente usando aplicaciones en el teléfono? (escala 1 a 5) 1 = Nada cómodo  →  5 = Muy cómodo,simple,2,5,62,8.1
+P07,¿Qué tan cómodo se siente usando aplicaciones en el teléfono? (escala 1 a 5) 1 = Nada cómodo  →  5 = Muy cómodo,simple,3,13,62,21.0
+P07,¿Qué tan cómodo se siente usando aplicaciones en el teléfono? (escala 1 a 5) 1 = Nada cómodo  →  5 = Muy cómodo,simple,4,16,62,25.8
+P07,¿Qué tan cómodo se siente usando aplicaciones en el teléfono? (escala 1 a 5) 1 = Nada cómodo  →  5 = Muy cómodo,simple,5,25,62,40.3
+P08,¿Hay señal de internet en las zonas donde usted trabaja?,simple,A veces,32,62,51.6
+P08,¿Hay señal de internet en las zonas donde usted trabaja?,simple,Casi nunca,13,62,21.0
+P08,¿Hay señal de internet en las zonas donde usted trabaja?,simple,Nunca,1,62,1.6
+P08,¿Hay señal de internet en las zonas donde usted trabaja?,simple,Siempre,16,62,25.8
+P09,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la palma y que la app le indique si tiene una plaga o enfermedad y qué...",simple,1,1,62,1.6
+P09,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la palma y que la app le indique si tiene una plaga o enfermedad y qué...",simple,3,12,62,19.4
+P09,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la palma y que la app le indique si tiene una plaga o enfermedad y qué...",simple,4,17,62,27.4
+P09,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la palma y que la app le indique si tiene una plaga o enfermedad y qué...",simple,5,32,62,51.6
+P10,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la hoja y que la app le indique si a la planta le falta algún nutriente. ,simple,1,1,62,1.6
+P10,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la hoja y que la app le indique si a la planta le falta algún nutriente. ,simple,2,2,62,3.2
+P10,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la hoja y que la app le indique si a la planta le falta algún nutriente. ,simple,3,15,62,24.2
+P10,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la hoja y que la app le indique si a la planta le falta algún nutriente. ,simple,4,16,62,25.8
+P10,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Tomar una foto de la hoja y que la app le indique si a la planta le falta algún nutriente. ,simple,5,28,62,45.2
+P11,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5. Registrar en el teléfono las labores que realiza (riego, polinización, etc.)",simple,1,1,62,1.6
+P11,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5. Registrar en el teléfono las labores que realiza (riego, polinización, etc.)",simple,2,4,62,6.5
+P11,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5. Registrar en el teléfono las labores que realiza (riego, polinización, etc.)",simple,3,17,62,27.4
+P11,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5. Registrar en el teléfono las labores que realiza (riego, polinización, etc.)",simple,4,15,62,24.2
+P11,"Para cada función, indique qué tan útil le parecería en una escala de 1 a 5. Registrar en el teléfono las labores que realiza (riego, polinización, etc.)",simple,5,25,62,40.3
+P12,"Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Que la app cuente automáticamente por GPS las flores polinizadas, sin tener que anotar planta por planta. ",simple,1,2,62,3.2
+P12,"Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Que la app cuente automáticamente por GPS las flores polinizadas, sin tener que anotar planta por planta. ",simple,2,1,62,1.6
+P12,"Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Que la app cuente automáticamente por GPS las flores polinizadas, sin tener que anotar planta por planta. ",simple,3,18,62,29.0
+P12,"Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Que la app cuente automáticamente por GPS las flores polinizadas, sin tener que anotar planta por planta. ",simple,4,19,62,30.6
+P12,"Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Que la app cuente automáticamente por GPS las flores polinizadas, sin tener que anotar planta por planta. ",simple,5,22,62,35.5
+P13,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Recibir alertas cuando se detecte un problema en el cultivo,simple,1,1,62,1.6
+P13,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Recibir alertas cuando se detecte un problema en el cultivo,simple,3,10,62,16.1
+P13,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Recibir alertas cuando se detecte un problema en el cultivo,simple,4,19,62,30.6
+P13,Indique qué tan útil le parecería en una escala de 1 a 5 (1 = Nada útil → 5 = Muy útil). Recibir alertas cuando se detecte un problema en el cultivo,simple,5,32,62,51.6
+P14, ¿Le preocuparía que la aplicación registre por GPS su recorrido durante la jornada? ,simple,Me preocupa mucho,5,62,8.1
+P14, ¿Le preocuparía que la aplicación registre por GPS su recorrido durante la jornada? ,simple,Me preocupa un poco,11,62,17.7
+P14, ¿Le preocuparía que la aplicación registre por GPS su recorrido durante la jornada? ,simple,No me preocupa,46,62,74.2
+P15,"Si la aplicación fuera fácil de usar y estuviera en español, ¿la usaría en su trabajo?",simple,No,2,62,3.2
+P15,"Si la aplicación fuera fácil de usar y estuviera en español, ¿la usaría en su trabajo?",simple,Sí,53,62,85.5
+P15,"Si la aplicación fuera fácil de usar y estuviera en español, ¿la usaría en su trabajo?",simple,Tal vez,7,62,11.3
