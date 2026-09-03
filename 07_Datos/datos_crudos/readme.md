@@ -1,7 +1,8 @@
 # Datos crudos
 
-**Estado: pendiente para el experimento — los datos crudos ya existentes residen
-en su carpeta de evidencia original y no se duplican aquí.**
+**Estado: parcialmente poblada.** Contiene los dos datos crudos ya existentes,
+centralizados aquí como fuente canónica. Los datos crudos del componente
+experimental siguen pendientes de la ejecución del protocolo.
 
 Esta carpeta alojará los datos en bruto del componente experimental, tal como se
 obtengan, sin transformación alguna.
