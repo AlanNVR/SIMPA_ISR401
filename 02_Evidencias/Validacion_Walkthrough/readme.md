@@ -19,9 +19,9 @@ el dato que la sesión pretende recoger.
 
 | Archivo | Zona | Descripción |
 |---|---|---|
-| `AAAA-MM-DD_Walkthrough_ENTR-XX_Enmascarado.pdf` | [P] | Acta con la firma enmascarada, participante identificado sólo por código |
-| `AAAA-MM-DD_Walkthrough_ENTR-XX_Original.pdf` | [R] | Acta original firmada, en el contenedor cifrado |
-| `AAAA-MM-DD_Walkthrough_ENTR-XX_Pantalla.mp4` | [R] | Grabación de pantalla, cuando el participante lo autorice |
+| `AAAA-MM-DD_Walkthrough_<Perfil>_WT-XX_Consentimiento.pdf` | [P] | Acta con la firma enmascarada, participante identificado sólo por código |
+| `AAAA-MM-DD_Walkthrough_<Perfil>_WT-XX_Consentimiento_Original.pdf` | [R] | Acta original firmada, en el contenedor cifrado |
+| `AAAA-MM-DD_Walkthrough_<Perfil>_WT-XX_Pantalla.mp4` | [R] | Grabación de pantalla, cuando el participante lo autorice |
 | `hallazgos_usabilidad.md` | [P] | Consolidado de hallazgos con el requisito afectado por cada uno |
 
 Cada acta registrará la clasificación del participante como técnico o no técnico
@@ -30,7 +30,7 @@ manifestada, no del cargo ni de la condición académica.
 
 ## Estado de las dependencias
 
-- Sesiones realizadas: **0**.
+- Sesiones realizadas: **2**.
 - Participantes convocados: **pendiente**.
 
 No se deposita ningún acta de una sesión que no se haya celebrado, ni se
