@@ -18,11 +18,11 @@ deja de ser verificable.
 
 | Dato | Ubicación | Naturaleza |
 |---|---|---|
-| Exportación del cuestionario aplicado (62 respuestas) | `07_Datos/datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx` | Exportación directa de Google Forms, intacta |
+| Exportación del cuestionario aplicado (62 respuestas) | `07_Datos/datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx` | Exportación directa de Microsoft Forms, intacta |
 | Codificación temática de entrevistas | `07_Datos/datos_crudos/codificacion.csv` | Codificación cualitativa utilizada por la cadena de análisis |
 
 El archivo se conserva aquí como fuente canónica de datos crudos. Su transformación
-está documentada en `07_Publicacion/diccionario_datos.md`.
+está documentada en `08_Publicacion/diccionario_datos.md`.
 
 ## Contenido previsto
 
