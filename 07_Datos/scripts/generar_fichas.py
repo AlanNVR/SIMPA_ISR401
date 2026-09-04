@@ -58,6 +58,44 @@ PATRON_NOMBRE = re.compile(
     r"(?P<fecha>\d{4}-\d{2}-\d{2}).*?(?P<entr>(?:ENTR|WT)-\d{2})", re.IGNORECASE
 )
 
+# Patron alterno para archivos ya publicados dentro de contenedores, cuyo nombre
+# interno no puede cambiarse sin resubir el contenedor: P01_video_01.mp4
+PATRON_ALTERNO = re.compile(r"^P(?P<num>\d{2})_", re.IGNORECASE)
+
+# Mapa ENTR-XX -> fecha, construido en tiempo de ejecucion desde los nombres de
+# los consentimientos. NUNCA se rellena a mano.
+MAPA_FECHAS = {}
+
+
+def cargar_mapa_fechas(carpeta):
+    """Construye {ENTR-XX: fecha} leyendo los nombres de archivo de una carpeta.
+
+    Se usa para resolver la fecha de archivos cuyo nombre interno no la lleva.
+    La fecha procede de un consentimiento real, no de una suposicion.
+    """
+    carpeta = Path(carpeta)
+    if not carpeta.is_dir():
+        error(f"--fechas-desde: '{carpeta}' no es una carpeta valida.")
+    encontrados = 0
+    for ruta in carpeta.rglob("*"):
+        if not ruta.is_file():
+            continue
+        m = PATRON_NOMBRE.search(ruta.name)
+        if m:
+            codigo = m.group("entr").upper()
+            fecha = m.group("fecha")
+            previa = MAPA_FECHAS.get(codigo)
+            if previa and previa != fecha:
+                error(f"Fecha contradictoria para {codigo}: '{previa}' y '{fecha}'. "
+                      "Revisa los nombres antes de continuar.")
+            MAPA_FECHAS[codigo] = fecha
+            encontrados += 1
+    if not encontrados:
+        error(f"--fechas-desde: no se reconocio ningun nombre con patron "
+              f"AAAA-MM-DD_..._ENTR-XX_... en '{carpeta}'.")
+    print(f"Mapa de fechas construido desde '{carpeta}': "
+          f"{len(MAPA_FECHAS)} codigos.")
+
 
 def error(msg):
     sys.exit(f"ERROR: {msg}\nEl script se detiene aquí — no se escribe PENDIENTE.")
@@ -105,14 +143,29 @@ def ffprobe_info(ruta):
 
 def extraer_fecha_participante(nombre_archivo):
     m = PATRON_NOMBRE.search(nombre_archivo)
-    if not m:
-        error(
-            f"'{nombre_archivo}' no sigue el patrón AAAA-MM-DD_..._ENTR-XX_... "
-            "ni AAAA-MM-DD_..._WT-XX_...; "
-            "no se puede inferir fecha/código de participante de forma segura. "
-            "Renombra el archivo antes de procesarlo."
-        )
-    return m.group("fecha"), m.group("entr").upper()
+    if m:
+        return m.group("fecha"), m.group("entr").upper()
+
+    # Nombre interno ya publicado, del tipo P01_video_01.mp4
+    a = PATRON_ALTERNO.search(nombre_archivo)
+    if a:
+        codigo = "ENTR-%s" % a.group("num")
+        fecha = MAPA_FECHAS.get(codigo)
+        if not fecha:
+            error(
+                f"'{nombre_archivo}' resuelve a {codigo}, pero no hay fecha para "
+                f"ese codigo. Ejecuta con --fechas-desde apuntando a la carpeta "
+                "de consentimientos, para que la fecha proceda de un documento "
+                "real y no de una suposicion."
+            )
+        return fecha, codigo
+
+    error(
+        f"'{nombre_archivo}' no sigue el patrón AAAA-MM-DD_..._ENTR-XX_... "
+        "ni AAAA-MM-DD_..._WT-XX_... ni PNN_...; "
+        "no se puede inferir fecha/código de participante de forma segura. "
+        "Renombra el archivo antes de procesarlo."
+    )
 
 
 def procesar_archivo(ruta, contenedor, ruta_en_contenedor, repositorio, url_release):
@@ -179,6 +232,9 @@ def main():
         elif resto[i] == "--actualizar":
             actualizar = True
             i += 1
+        elif resto[i] == "--fechas-desde":
+            cargar_mapa_fechas(resto[i + 1])
+            i += 2
         else:
             error(f"Argumento no reconocido: {resto[i]}")
 
