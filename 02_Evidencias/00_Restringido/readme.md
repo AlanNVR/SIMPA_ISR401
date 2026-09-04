@@ -19,11 +19,17 @@ Los archivos originales del trabajo de campo, en su estado sin enmascarar:
 | Tipo | Cantidad | Participantes |
 |---|---|---|
 | Audios de entrevista (`.mp3`) | 16 | ENTR-01 a ENTR-16 |
-| Videos de entrevista (`.mp4`) | 22 archivos | ENTR-01 a ENTR-16 (ENTR-03 en 7 partes) |
+| Videos de entrevista (`.mp4`, `.MOV`) | 16 | ENTR-01 a ENTR-16 |
 | Consentimientos originales firmados | 16 | ENTR-01 a ENTR-16 |
+| Grabaciones de pantalla de walkthrough (`.mp4`) | 6 | WT-01 a WT-06 |
+| Consentimientos originales de walkthrough (`.pdf`) | 6 | WT-01 a WT-06 |
 
-Total inventariado: **54 archivos**, cada uno con una fila propia en
+Total inventariado: **60 archivos**, cada uno con una fila propia en
 `fichas_tecnicas.csv`.
+
+Los fragmentos en que originalmente se dividió la sesión de ENTR-03 se
+unificaron en un archivo por participante al regenerar el contenedor
+`evidencias_entrevistas_videos_03.7z`.
 
 ## 2. Por qué no están publicados aquí
 
@@ -49,7 +55,7 @@ el material seguiría sin publicarse en abierto.
 
 | Archivo | Qué es | Para qué sirve |
 |---|---|---|
-| `fichas_tecnicas.csv` | Inventario de los 54 archivos, una fila por archivo | Es el índice. Ver sección 4 |
+| `fichas_tecnicas.csv` | Inventario de los 60 archivos, una fila por archivo | Es el índice. Ver sección 4 |
 | `README_Evidencias_Externas.md` | Ubicación de los contenedores y procedimiento de descarga | Explica dónde está el material y cómo obtenerlo |
 | `readme.md` | Este documento | Orientación general |
 
@@ -66,7 +72,7 @@ Quince columnas. Las que importan para verificar:
 | `codec` | Códec real del flujo, no la extensión del archivo |
 | `tamano_bytes` | Tamaño exacto |
 | `sha256` | Hash calculado **antes** de cifrar el contenedor |
-| `contenedor` | Contenedor `.7z` que lo incluye |
+| `contenedor` | Contenedor `.7z` o `.zip` que lo incluye |
 | `ruta_en_contenedor` | Ruta interna, relativa a la raíz del contenedor |
 | `repositorio` / `url_release` | Dónde descargarlo |
 
@@ -84,7 +90,7 @@ parecen corrupción y no lo son.
 | `checksums_evidencias.sha256` | Raíz del repositorio | El **contenido interno** de los contenedores `.7z` | Desde la carpeta donde se extrajo el contenedor |
 
 El segundo no puede ejecutarse contra el repositorio: sus rutas
-(`audios/…`, `videos/…`) son internas al contenedor. Su cabecera explica el
+(`audios/…`, `videos/…`, `Walkthrough_Tecnico/…`) son internas al contenedor. Su cabecera explica el
 procedimiento paso a paso.
 
 Los hashes de `checksums_evidencias.sha256` son los mismos que figuran en la
