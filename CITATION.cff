@@ -23,7 +23,7 @@ version: '2.0'
 date-released: '2026-08-31'
 license: CC-BY-4.0
 repository-code: 'https://github.com/AlanNVR/SIMPA_ISR401'
-url: 'https://github.com/AlanNVR/SIMPA_ISR401/tree/main/AHMRV'
+url: 'https://github.com/AlanNVR/SIMPA_ISR401'
 
 identifiers:
   - type: doi
