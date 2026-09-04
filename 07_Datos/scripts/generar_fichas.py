@@ -18,10 +18,13 @@ Uso:
         [--csv ruta/a/fichas_tecnicas.csv] [--actualizar]
 
 Ejemplo real:
-    python3 generar_fichas.py ./tmp_extraido/audios evidencias_entrevistas_audios_01.7z \
+    python3 07_Datos/scripts/generar_fichas.py ./tmp_extraido/audios \
+        evidencias_entrevistas_audios.7z \
         https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias \
-        https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias/releases/download/v1.0-evidencias/evidencias_entrevistas_audios_01.7z \
-        --csv AHMRV/02_Evidencias/00_Restringido/fichas_tecnicas.csv --actualizar
+        https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias/releases/download/v1.0-evidencias/evidencias_entrevistas_audios.7z \
+        --csv 02_Evidencias/00_Restringido/fichas_tecnicas.csv --actualizar
+
+Codigos de participante reconocidos: ENTR-XX (entrevistas) y WT-XX (walkthrough).
 
 Requiere: ffprobe (parte de ffmpeg) para audio/video. No requiere nada extra
 para calcular tamaño o SHA-256 (usa la librería estándar de Python).
@@ -46,10 +49,13 @@ CABECERA = [
 EXT_AUDIO = {".mp3", ".wav", ".m4a", ".aac", ".ogg", ".flac"}
 EXT_VIDEO = {".mp4", ".mov", ".mkv", ".avi", ".webm"}
 EXT_IMAGEN = {".jpg", ".jpeg", ".png", ".heic"}
+EXT_DOC = {".pdf"}
 
-# Patrón de nomenclatura del proyecto: AAAA-MM-DD_Tipo_ENTR-XX_Tecnica.ext
+# Patrones de nomenclatura del proyecto:
+#   Entrevistas: AAAA-MM-DD_Rol_ENTR-XX_Tecnica.ext
+#   Walkthrough: AAAA-MM-DD_Walkthrough_Perfil_WT-XX_Tipo.ext
 PATRON_NOMBRE = re.compile(
-    r"(?P<fecha>\d{4}-\d{2}-\d{2}).*?(?P<entr>ENTR-\d{2})", re.IGNORECASE
+    r"(?P<fecha>\d{4}-\d{2}-\d{2}).*?(?P<entr>(?:ENTR|WT)-\d{2})", re.IGNORECASE
 )
 
 
@@ -101,7 +107,8 @@ def extraer_fecha_participante(nombre_archivo):
     m = PATRON_NOMBRE.search(nombre_archivo)
     if not m:
         error(
-            f"'{nombre_archivo}' no sigue el patrón AAAA-MM-DD_..._ENTR-XX_...; "
+            f"'{nombre_archivo}' no sigue el patrón AAAA-MM-DD_..._ENTR-XX_... "
+            "ni AAAA-MM-DD_..._WT-XX_...; "
             "no se puede inferir fecha/código de participante de forma segura. "
             "Renombra el archivo antes de procesarlo."
         )
@@ -120,6 +127,9 @@ def procesar_archivo(ruta, contenedor, ruta_en_contenedor, repositorio, url_rele
         duracion, codec = ffprobe_info(ruta)
     elif ext in EXT_IMAGEN:
         tipo = "imagen"
+        duracion, codec = "N/A", "N/A"
+    elif ext in EXT_DOC:
+        tipo = "documento"
         duracion, codec = "N/A", "N/A"
     else:
         error(f"Extensión no reconocida en '{nombre}' ({ext}). "
