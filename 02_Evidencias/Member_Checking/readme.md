@@ -38,6 +38,14 @@ Los participantes se identifican únicamente por su código `ENTR-XX`, el mismo
 que en las entrevistas semiestructuradas, porque se trata del mismo estudio y de
 las mismas personas.
 
+> **El acta consolidada no tiene fila propia en el inventario.** Corresponde a
+> la ronda completa y no a un participante individual, mientras que
+> `../00_Restringido/fichas_tecnicas.csv` se organiza por participante. Su
+> original firmado sí se deposita en el contenedor cifrado
+> `Actas_MemberCheck_Originales.7z`, junto a las tres actas individuales, y su
+> copia enmascarada está en `Actas_consolidada/`. La excepción se declara
+> también en el readme de la zona restringida.
+
 ## Dónde está el material original — zona restringida
 
 Los originales firmados sin enmascarar no residen en este repositorio. Se
