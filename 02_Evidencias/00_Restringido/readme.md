@@ -23,13 +23,22 @@ Los archivos originales del trabajo de campo, en su estado sin enmascarar:
 | Consentimientos originales firmados | 16 | ENTR-01 a ENTR-16 |
 | Grabaciones de pantalla de walkthrough (`.mp4`) | 6 | WT-01 a WT-06 |
 | Consentimientos originales de walkthrough (`.pdf`) | 6 | WT-01 a WT-06 |
+| Actas originales de walkthrough (`.pdf`) | 6 | WT-01 a WT-06 |
+| Actas originales de member-checking (`.pdf`) | 3 | ENTR-01, ENTR-02, ENTR-13 |
 
-Total inventariado: **60 archivos**, cada uno con una fila propia en
-`fichas_tecnicas.csv`.
+Total inventariado: **69 archivos**, cada uno con una fila propia en
+`fichas_tecnicas.csv`, distribuidos en **once contenedores cifrados**.
 
 Los fragmentos en que originalmente se dividió la sesión de ENTR-03 se
 unificaron en un archivo por participante al regenerar el contenedor
 `evidencias_entrevistas_videos_03.7z`.
+
+**Excepción declarada.** El acta consolidada de la ronda de member-checking
+(`2026-09-04_MemberChecking_ActaConsolidada_Original.pdf`) se deposita en el
+contenedor `Actas_MemberCheck_Originales.7z` pero **no figura como fila propia**
+en el inventario: corresponde a la ronda completa y no a un participante
+individual, y este índice se organiza por participante. Su copia enmascarada
+está en `../Member_Checking/Actas_consolidada/`.
 
 ## 2. Por qué no están publicados aquí
 
@@ -38,9 +47,9 @@ Por dos motivos distintos, y conviene no confundirlos.
 **Motivo de privacidad.** Estos archivos contienen voz, rostro, nombre manuscrito
 y firma de personas reales. Publicarlos violaría el compromiso adquirido con cada
 participante y la normativa de protección de datos personales. Las versiones
-publicables —consentimientos enmascarados, transcripciones anonimizadas,
-fotografías sin rostros— están en las carpetas hermanas de `02_Evidencias/` y son
-artefactos distintos, no copias.
+publicables —consentimientos enmascarados, actas enmascaradas, transcripciones
+anonimizadas, fotografías sin rostros— están en las carpetas hermanas de
+`02_Evidencias/` y son artefactos distintos, no copias.
 
 **Motivo técnico.** Los contenedores cifrados suman varios gigabytes. Se alojaban
 en este repositorio mediante Git LFS hasta que la cuota se agotó, lo que llegó a
@@ -51,11 +60,17 @@ LFS.
 Estos dos motivos son independientes: aunque el problema de cuota no existiera,
 el material seguiría sin publicarse en abierto.
 
-## 3. Los tres archivos de esta carpeta
+**Cifrado de cabecera.** Los contenedores `.7z` se generan con cifrado de
+cabecera activado, de modo que sin la contraseña no puede listarse siquiera el
+nombre de los archivos. Es una medida relevante porque esos nombres incluyen el
+rol o el perfil del participante.
+
+## 3. Los archivos de esta carpeta
 
 | Archivo | Qué es | Para qué sirve |
 |---|---|---|
-| `fichas_tecnicas.csv` | Inventario de los 60 archivos, una fila por archivo | Es el índice. Ver sección 4 |
+| `fichas_tecnicas.csv` | Inventario de los 69 archivos, una fila por archivo | Es el índice. Ver sección 4 |
+| `verificacion_fichas.md` | Reporte que comprueba por petición HTTP que cada contenedor declarado existe | Evidencia de que el índice resuelve. Ver sección 4 |
 | `README_Evidencias_Externas.md` | Ubicación de los contenedores y procedimiento de descarga | Explica dónde está el material y cómo obtenerlo |
 | `readme.md` | Este documento | Orientación general |
 
@@ -66,20 +81,47 @@ Quince columnas. Las que importan para verificar:
 | Columna | Contenido |
 |---|---|
 | `id_archivo` | Nombre del archivo dentro del contenedor |
-| `tipo` | `audio`, `video` o `consentimiento` |
-| `codigo_participante` | `ENTR-XX`. **Nunca el nombre de la persona** |
-| `duracion_segundos` | Medida con `ffprobe`, con decimales |
+| `tipo` | `audio`, `video`, `imagen` o `documento` |
+| `codigo_participante` | `ENTR-XX` o `WT-XX`. **Nunca el nombre de la persona** |
+| `duracion_segundos` | Medida con `ffprobe`, con decimales. `N/A` en imágenes y documentos |
 | `codec` | Códec real del flujo, no la extensión del archivo |
 | `tamano_bytes` | Tamaño exacto |
 | `sha256` | Hash calculado **antes** de cifrar el contenedor |
-| `contenedor` | Contenedor `.7z` o `.zip` que lo incluye |
+| `contenedor` | Contenedor `.7z` que lo incluye |
 | `ruta_en_contenedor` | Ruta interna, relativa a la raíz del contenedor |
 | `repositorio` / `url_release` | Dónde descargarlo |
 
 **Ninguna celda contiene el valor `PENDIENTE`.** Cada dato procede de una medición
-real sobre el archivo, no de una estimación.
+real sobre el archivo, no de una estimación. El inventario se genera con
+`07_Datos/scripts/generar_fichas.py`, que **se detiene con error** si algún dato
+no puede obtenerse, en lugar de escribir un marcador de relleno.
 
-## 5. Relación con los archivos de checksums
+### Reporte de verificación
+
+`verificacion_fichas.md` se genera con `07_Datos/scripts/verificar_fichas.py` y
+comprueba, mediante petición HTTP sobre la URL de descarga, que cada contenedor
+declarado en el inventario existe con ese nombre exacto. Incluye el estado por
+contenedor y el detalle fila por fila.
+
+Estado en la última ejecución: **las 69 filas apuntan a un contenedor que existe
+con ese nombre exacto.**
+
+## 5. Dos series de códigos
+
+El inventario cubre dos estudios distintos, con series independientes:
+
+| Serie | Estudio | Rango |
+|---|---|---|
+| `ENTR-XX` | Entrevistas semiestructuradas y member-checking | ENTR-01 a ENTR-16 |
+| `WT-XX` | Validación por walkthrough | WT-01 a WT-06 |
+
+Las series no se cruzan. Las actas de member-checking usan `ENTR-XX` porque
+corresponden a las mismas personas y al mismo estudio que las entrevistas.
+Cuando un participante de walkthrough fue también entrevistado, recibe
+igualmente un código `WT-XX` propio, y la correspondencia entre ambos se
+registra únicamente en esta zona restringida.
+
+## 6. Relación con los archivos de checksums
 
 Hay dos manifiestos y comprueban cosas distintas. Confundirlos produce fallos que
 parecen corrupción y no lo son.
@@ -90,26 +132,27 @@ parecen corrupción y no lo son.
 | `checksums_evidencias.sha256` | Raíz del repositorio | El **contenido interno** de los contenedores `.7z` | Desde la carpeta donde se extrajo el contenedor |
 
 El segundo no puede ejecutarse contra el repositorio: sus rutas
-(`audios/…`, `videos/…`, `Walkthrough_Tecnico/…`) son internas al contenedor. Su cabecera explica el
-procedimiento paso a paso.
+(`audios/…`, `videos/…`, `Walkthrough_Tecnico/…`) son internas al contenedor. Su
+cabecera explica el procedimiento paso a paso.
 
 Los hashes de `checksums_evidencias.sha256` son los mismos que figuran en la
 columna `sha256` de `fichas_tecnicas.csv`. Son dos presentaciones del mismo dato:
 una para verificación automática, otra para inspección por participante.
 
-## 6. Cómo debe interpretar esta carpeta un evaluador
+## 7. Cómo debe interpretar esta carpeta un evaluador
 
 **Lo que puede comprobar sin la contraseña:** que el inventario está completo, que
 ninguna celda queda sin valor, que cada archivo declarado tiene código de
-participante y hash, y que la URL de descarga responde.
+participante y hash, y que la URL de descarga responde. Este último punto está
+además ya ejecutado y registrado en `verificacion_fichas.md`.
 
 **Lo que requiere la contraseña:** descifrar un contenedor, ejecutar `ffprobe`
 sobre un archivo y contrastar duración, códec, tamaño y hash contra su fila. Esa
 es la verificación completa, y la cadena está diseñada para soportarla:
 
 ```text
-ENTR-XX → archivo → fila en fichas_tecnicas.csv → SHA-256
-        → contenedor .7z → Release del repositorio complementario → URL
+ENTR-XX / WT-XX → archivo → fila en fichas_tecnicas.csv → SHA-256
+                → contenedor .7z → Release del repositorio complementario → URL
 ```
 
 **La contraseña no está en ningún repositorio**, ni en este ni en el
