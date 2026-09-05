@@ -19,7 +19,7 @@ https://prototipo-simpa.netlify.app/
 
 ### V2 — versión actual recomendada
 
-https://simpav2-prototipo.netlify.app/
+https://prototipov2-correcion.netlify.app/
 
 ### Cuentas de demostración
 
@@ -74,7 +74,7 @@ La V2 incorpora o refuerza los siguientes flujos:
 
 React · Vite · TypeScript/JavaScript · Tailwind CSS · Radix UI · Recharts · Lucide.
 
-También se proporciona un archivo `SIMPA_V2_COMPLETO.html` independiente para demostración rápida sin instalar dependencias.
+También se proporciona, en el árbol V1 del repositorio (`Prototipo/SIMPA_COMPLETO.html`), un archivo HTML independiente para demostración rápida sin instalar dependencias. Este archivo pertenece al árbol V1, no al árbol canónico V2 evaluado.
 
 ## Ejecución local del proyecto V2
 
@@ -87,9 +87,9 @@ npm run dev
 
 Vite mostrará en la terminal la URL local, normalmente `http://localhost:5173`.
 
-## Ejecución del HTML independiente
+## Ejecución del HTML independiente (árbol V1)
 
-Abre `SIMPA_V2_COMPLETO.html` directamente en un navegador moderno. El archivo contiene HTML, CSS y JavaScript en un solo documento y guarda los registros de demostración en `localStorage`.
+Abre `Prototipo/SIMPA_COMPLETO.html` directamente en un navegador moderno. El archivo contiene HTML, CSS y JavaScript en un solo documento y guarda los registros de demostración en `localStorage`. Nota: este archivo corresponde al árbol V1 del prototipo; el árbol V2 evaluado no incluye una versión HTML independiente equivalente.
 
 ## Video demostrativo
 
