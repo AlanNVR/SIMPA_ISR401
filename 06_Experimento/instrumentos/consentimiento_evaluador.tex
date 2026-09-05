@@ -1,0 +1,157 @@
+% =====================================================================
+%  Consentimiento informado -- persona evaluadora del cuasi-experimento
+%  Proyecto SIMPA -- Equipo AHMRV -- ISR-401 -- UTEQ -- 2026-2027 PPA
+%  Compilacion: pdflatex consentimiento_evaluador.tex  (x2)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage{titlesec}
+
+\definecolor{uteqverde}{HTML}{1F6F3C}
+\definecolor{grisclaro}{HTML}{F2F2F2}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\titleformat{\section}{\normalfont\normalsize\bfseries\color{uteqverde}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{9pt}{3pt}
+
+\setlength{\parskip}{3pt}
+\setlength{\parindent}{0pt}
+\pagestyle{empty}
+
+\newcommand{\casilla}{$\square$}
+
+\begin{document}
+
+\begin{center}
+{\footnotesize UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\\
+Facultad de Ciencias de la Computación --- Carrera de Software}\\[8pt]
+{\large\bfseries\color{uteqverde} CONSENTIMIENTO INFORMADO}\\[2pt]
+{\normalsize Persona evaluadora --- estudio de calidad de requisitos}\\[2pt]
+{\footnotesize Protocolo registrado en OSF \texttt{4z35d}}
+\end{center}
+
+\vspace{2pt}
+
+\section{En qué consiste su participación}
+
+Se le pide leer un conjunto de \textbf{50 requisitos funcionales} de un sistema
+de gestión de cultivo de palma africana y puntuarlos en cinco dimensiones de
+calidad, siguiendo una rúbrica que se le entrega y se le explica antes de
+comenzar.
+
+Los requisitos provienen de dos fuentes distintas y \textbf{usted no sabrá cuál
+corresponde a cada uno}. Esta condición es parte del diseño del estudio: su
+finalidad es que la valoración no se vea influida por la procedencia. Al
+terminar la sesión se le informará de cuáles eran esas fuentes.
+
+Duración estimada: entre 60 y 90 minutos, con los descansos que necesite.
+
+\section{Qué se hace con sus respuestas}
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+  \item Sus puntuaciones se identifican con un \textbf{código} (E1, E2, E3\dots),
+        nunca con su nombre.
+  \item Se analizan de forma agregada junto con las de las demás personas
+        evaluadoras, y se comparan entre sí para medir el grado de acuerdo.
+  \item Los datos anonimizados pueden depositarse en un repositorio público de
+        datos abiertos como parte del paquete de replicación del proyecto.
+  \item Su nombre no aparece en ningún archivo publicado.
+\end{itemize}
+
+\section{Qué NO se evalúa}
+
+\begin{tcolorbox}[colback=grisclaro,colframe=uteqverde,boxrule=0.6pt,arc=2pt]
+\textbf{No se le evalúa a usted.} Sus puntuaciones no son un examen, no se
+califican, no se comunican al profesorado de ninguna asignatura y no tienen
+efecto alguno sobre su situación académica. Lo que se estudia es la calidad de
+los requisitos, no su criterio.
+\end{tcolorbox}
+
+\section{Carácter voluntario}
+
+Su participación es voluntaria. Puede interrumpirla en cualquier momento y sin
+dar explicaciones, y puede pedir que sus datos se retiren del estudio hasta el
+momento en que se publiquen de forma agregada.
+
+No recibe compensación económica ni beneficio académico por participar.
+
+\section{Riesgos}
+
+No se prevén riesgos derivados de esta participación. La tarea consiste en leer
+y puntuar textos técnicos, y no se recogen datos personales sensibles.
+
+\section{Autorizaciones}
+
+Marque lo que autorice. \textbf{Las tres son independientes} y puede aceptar
+unas y rechazar otras.
+
+\vspace{3pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{C{1cm} L{15cm}}
+\casilla & Autorizo el uso de mis puntuaciones, de forma anonimizada, en el
+análisis del estudio. \\
+\casilla & Autorizo que mis puntuaciones anonimizadas se publiquen como parte
+del paquete de datos abiertos del proyecto. \\
+\casilla & Autorizo que se conserve mi hoja de puntuación firmada como evidencia
+del estudio, en zona restringida y cifrada. \\
+\end{tabular}
+
+\vspace{4pt}
+{\footnotesize Si no marca la primera casilla, sus puntuaciones no se incorporan
+al análisis y la hoja se destruye al terminar la sesión.}
+
+\section{Tratamiento de datos personales}
+
+El único dato personal que se recoge es su nombre y su firma en este documento,
+con la finalidad exclusiva de acreditar el consentimiento. Ese documento se
+conserva en zona restringida, cifrado, y no se publica. Sus puntuaciones se
+disocian de su identidad mediante un código antes de cualquier análisis.
+
+Puede ejercer sus derechos de acceso, rectificación y supresión dirigiéndose al
+equipo responsable por el correo institucional que consta al pie.
+
+\section{Declaración}
+
+He leído este documento, he podido preguntar lo que he querido y he recibido
+respuesta. Acepto participar en los términos que he marcado.
+
+\vspace{6pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{L{5.5cm} L{5.2cm} L{5cm}}
+\toprule
+\rowcolor{grisclaro}
+\textbf{Nombre completo} & \textbf{Código asignado} & \textbf{Fecha} \\
+\midrule
+\rule{0pt}{4.5ex} & & \\
+\bottomrule
+\end{tabular}
+
+\vspace{20pt}
+
+\begin{center}
+\begin{tabular}{C{7cm} C{7cm}}
+\rule{6.2cm}{0.4pt} & \rule{6.2cm}{0.4pt} \\
+{\footnotesize Firma de la persona evaluadora} &
+{\footnotesize Firma de quien modera la sesión} \\
+\end{tabular}
+\end{center}
+
+\vfill
+{\footnotesize
+Equipo AHMRV --- Ingeniería de Requerimientos (ISR-401) --- Universidad Técnica
+Estatal de Quevedo --- Período 2026--2027 PPA.\\
+Docente responsable: Ing. Gleiston Cicerón Guerrero Ulloa, PhD ---
+\texttt{gguerrero@uteq.edu.ec}}
+
+\end{document}
