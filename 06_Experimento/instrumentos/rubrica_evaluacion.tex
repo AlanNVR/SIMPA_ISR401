@@ -1,0 +1,204 @@
+% =====================================================================
+%  Rubrica de evaluacion de calidad de requisitos funcionales
+%  Proyecto SIMPA -- Equipo AHMRV -- ISR-401 -- UTEQ -- 2026-2027 PPA
+%  Instrumento del cuasi-experimento del Enfoque 1
+%  Compilacion: pdflatex rubrica_evaluacion.tex  (x2)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{uteqverde}{HTML}{1F6F3C}
+\definecolor{grisclaro}{HTML}{F2F2F2}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{uteqverde}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\footnotesize\color{uteqverde}Rúbrica de evaluación de requisitos}
+\rhead{\footnotesize SIMPA --- Equipo AHMRV}
+\cfoot{\footnotesize Página \thepage\ de \pageref{LastPage}}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\newcommand{\dimtitulo}[1]{\subsection*{\color{uteqverde}#1}}
+
+\begin{document}
+
+\begin{center}
+{\footnotesize UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\\
+Facultad de Ciencias de la Computación --- Carrera de Software}\\[10pt]
+{\Large\bfseries\color{uteqverde} RÚBRICA DE EVALUACIÓN}\\[3pt]
+{\large Calidad de requisitos funcionales}\\[2pt]
+{\footnotesize Instrumento del estudio registrado en OSF \texttt{4z35d}}
+\end{center}
+
+\vspace{6pt}
+
+\section*{Qué se le pide}
+
+Usted va a leer \textbf{50 requisitos funcionales} de un sistema de gestión de
+cultivo de palma africana y puntuar cada uno en \textbf{cinco dimensiones de
+calidad}, con una escala de 1 a 5.
+
+\begin{tcolorbox}[colback=grisclaro,colframe=uteqverde,boxrule=0.6pt,arc=2pt]
+\textbf{Tres condiciones del estudio:}
+\begin{itemize}[nosep,leftmargin=1.4em]
+  \item Los requisitos proceden de \textbf{dos fuentes distintas}, y usted no
+        sabe cuál corresponde a cada uno. Es deliberado: si lo supiera, su
+        juicio podría verse afectado.
+  \item Puntúe \textbf{de forma independiente}, sin comentar sus puntuaciones
+        con las otras personas evaluadoras durante la sesión.
+  \item \textbf{No se evalúa el sistema ni a sus autores}, sino la calidad de
+        redacción de cada requisito como enunciado.
+\end{itemize}
+\end{tcolorbox}
+
+\section{Escala común}
+
+Las cinco dimensiones usan la misma escala:
+
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{C{1.2cm} L{13.5cm}}
+\toprule
+\rowcolor{grisclaro}
+\textbf{Nivel} & \textbf{Significado} \\
+\midrule
+\endhead
+\textbf{1} & La propiedad está \textbf{ausente}. \\
+\textbf{2} & Presente de forma \textbf{marginal}. \\
+\textbf{3} & Presente con \textbf{deficiencias apreciables}. \\
+\textbf{4} & Presente con \textbf{deficiencias menores}. \\
+\textbf{5} & \textbf{Plenamente presente}. \\
+\bottomrule
+\end{longtable}
+
+Si duda entre dos niveles, elija el \textbf{menor}. Es preferible una
+puntuación conservadora y consistente que una generosa y variable.
+
+\section{Las cinco dimensiones}
+
+\dimtitulo{1. Completitud}
+
+\textbf{Pregunta guía:} ¿el requisito contiene toda la información necesaria
+para ser implementado, sin que haga falta consultar otra fuente?
+
+Un requisito completo indica \emph{quién} realiza la acción, \emph{qué} hace el
+sistema y \emph{bajo qué condiciones}. Si faltan datos que un desarrollador
+tendría que adivinar, la dimensión está afectada.
+
+\begin{tcolorbox}[colback=white,colframe=uteqverde!45,boxrule=0.5pt,arc=2pt]
+\textbf{Nivel 5.} «El sistema debe permitir al supervisor registrar una labor
+agrícola indicando lote, tipo de labor, fecha, cuadrilla asignada y avance en
+hectáreas, y almacenarla asociada al lote seleccionado.»\\[4pt]
+\textbf{Nivel 1.} «El sistema debe gestionar labores.»
+\end{tcolorbox}
+
+\dimtitulo{2. Ausencia de ambigüedad}
+
+\textbf{Pregunta guía:} ¿el requisito admite una sola interpretación?
+
+Términos como «rápido», «amigable», «adecuado», «si es necesario» o «entre
+otros» introducen ambigüedad. También la introduce una conjunción que permita
+leer dos comportamientos distintos.
+
+\begin{tcolorbox}[colback=white,colframe=uteqverde!45,boxrule=0.5pt,arc=2pt]
+\textbf{Nivel 5.} «El sistema debe mostrar la alerta en la pantalla de inicio
+del usuario cuyo rol sea supervisor o administrador.»\\[4pt]
+\textbf{Nivel 1.} «El sistema debe notificar oportunamente a los usuarios
+correspondientes cuando sea adecuado.»
+\end{tcolorbox}
+
+\dimtitulo{3. Verificabilidad}
+
+\textbf{Pregunta guía:} ¿se puede diseñar una prueba que determine, sin
+discusión, si el requisito se cumple?
+
+Un requisito verificable produce un resultado observable. Si para comprobarlo
+hiciera falta un juicio subjetivo, la dimensión está afectada.
+
+\begin{tcolorbox}[colback=white,colframe=uteqverde!45,boxrule=0.5pt,arc=2pt]
+\textbf{Nivel 5.} «Al guardar un registro fitosanitario, el sistema debe
+mostrarlo en la tabla de historial del lote seleccionado dentro de la misma
+sesión.»\\[4pt]
+\textbf{Nivel 1.} «El sistema debe ofrecer una buena experiencia de registro
+fitosanitario.»
+\end{tcolorbox}
+
+\dimtitulo{4. Corrección respecto de la fuente}
+
+\textbf{Pregunta guía:} ¿lo que el requisito afirma es coherente con el dominio
+descrito en el material de contexto que se le ha entregado?
+
+Se evalúa aquí si el requisito introduce elementos que el dominio no sostiene,
+o si contradice lo descrito. Un requisito puede estar impecablemente redactado
+y ser incorrecto.
+
+\begin{tcolorbox}[colback=white,colframe=uteqverde!45,boxrule=0.5pt,arc=2pt]
+\textbf{Nivel 5.} «El sistema debe registrar el conteo de flores polinizadas
+por recorrido del trabajador.»\\[4pt]
+\textbf{Nivel 1.} «El sistema debe calcular automáticamente el precio
+internacional del aceite de palma para fijar el salario de la cuadrilla.»
+\end{tcolorbox}
+
+\dimtitulo{5. Consistencia interna}
+
+\textbf{Pregunta guía:} ¿el requisito es coherente consigo mismo y con la
+terminología que emplea?
+
+Se evalúa si el enunciado usa el mismo término para el mismo concepto de
+principio a fin, y si sus partes no se contradicen.
+
+\begin{tcolorbox}[colback=white,colframe=uteqverde!45,boxrule=0.5pt,arc=2pt]
+\textbf{Nivel 5.} «El sistema debe permitir al operario consultar las labores
+asignadas a su cuadrilla, y solo esas labores.»\\[4pt]
+\textbf{Nivel 1.} «El sistema debe permitir al operario consultar todas las
+parcelas, restringiendo el acceso del operario a las parcelas de su lote.»
+\end{tcolorbox}
+
+\section{Antes de empezar}
+
+\begin{enumerate}[leftmargin=1.6em]
+  \item Lea esta rúbrica completa y plantee sus dudas \textbf{antes} de puntuar
+        el primer requisito. Una vez iniciada la sesión, no se resuelven dudas
+        de criterio, porque afectarían a la comparabilidad entre evaluadores.
+  \item Puntúe los requisitos \textbf{en el orden en que aparecen} en el
+        cuadernillo.
+  \item Puntúe \textbf{las cinco dimensiones} de cada requisito antes de pasar
+        al siguiente.
+  \item Si un requisito le resulta imposible de puntuar en alguna dimensión,
+        anótelo en la columna de observaciones en lugar de dejarlo en blanco.
+\end{enumerate}
+
+\begin{tcolorbox}[colback=grisclaro,colframe=uteqverde,boxrule=0.6pt,arc=2pt]
+\textbf{Sobre la duración.} Son 50 requisitos por 5 dimensiones: 250
+puntuaciones. Se estima entre 60 y 90 minutos. Puede tomar los descansos que
+necesite. No hay ventaja en terminar antes.
+\end{tcolorbox}
+
+\vfill
+{\footnotesize
+Instrumento del protocolo registrado en OSF \texttt{4z35d}. Proyecto SIMPA ---
+Equipo AHMRV --- Ingeniería de Requerimientos (ISR-401) --- Universidad Técnica
+Estatal de Quevedo --- Período 2026--2027 PPA.}
+
+\end{document}
