@@ -1,7 +1,8 @@
 # Miembro-verificación (*member checking*)
 
-**Estado: ejecutada.** Ronda celebrada el 4 de septiembre de 2026 con tres
-participantes de rondas anteriores: `ENTR-01`, `ENTR-02` y `ENTR-13`.
+**Estado: ejecutada y ratificada.** Ronda celebrada el 4 de septiembre de 2026
+con tres participantes de rondas anteriores: `ENTR-01`, `ENTR-02` y `ENTR-13`.
+Decisiones ratificadas en reunión de equipo del 5 de septiembre de 2026.
 
 ## En qué consiste
 
@@ -25,7 +26,7 @@ rechazaban.
 | `Actas/` | Tres actas individuales con las firmas enmascaradas, una por participante |
 | `Actas_consolidada/` | Acta consolidada de la ronda, con las tres posiciones enfrentadas enunciado por enunciado |
 | `sintesis_hallazgos.pdf` | Material presentado a los participantes, en lenguaje no técnico |
-| `correcciones_aplicadas.md` | Registro de los desacuerdos y de la decisión del equipo sobre cada uno |
+| `correcciones_aplicadas.md` | Registro de los desacuerdos y de la decisión ratificada sobre cada uno |
 
 Nomenclatura empleada:
 
@@ -74,17 +75,40 @@ que lo permita. Elegir una versión por comodidad narrativa produciría un
 hallazgo más limpio y menos cierto.
 
 Si el equipo mantiene una interpretación pese a la objeción de un participante,
-lo justifica por escrito y lo declara como amenaza a la validez.
+lo justifica por escrito y lo declara como amenaza a la validez. Es lo que
+ocurre con el caso D-02.
 
-## Estado de las decisiones
+## Resultado de la ronda
 
-Las decisiones registradas en `correcciones_aplicadas.md` figuran como
-**propuesta del equipo** y deben ratificarse en reunión antes del cierre de la
-entrega. Una vez ratificada cada una, su estado pasa a *Aplicada*, con
-responsable y fecha.
+De los doce enunciados sometidos a verificación:
 
-El documento declara ese estado de forma expresa en lugar de presentar las
-decisiones como ya adoptadas.
+| Salida | Casos |
+|---|---|
+| Se mantienen sin cambios | 3 enunciados confirmados sin discrepancia |
+| Se reformulan | 5 casos — D-01, D-03, D-04, D-05, D-06 |
+| Se conserva reportando la discrepancia | 1 caso — D-02 |
+| Se amplían con precisiones no contradictorias | 2 casos — A-01, A-02 |
+
+Las ocho decisiones fueron ratificadas en reunión de equipo, cada una con
+responsable asignado. La ratificación admitía tres salidas —ratificar, modificar
+o rechazar la propuesta— y una de ellas se modificó: la propuesta inicial de
+A-02 describía incorrectamente la acción necesaria, porque el criterio de
+madurez diferenciado por variedad ya existía en la especificación.
+
+## Convergencia con la validación por walkthrough
+
+Dos de las decisiones encuentran respaldo independiente en la otra técnica de
+validación del proyecto:
+
+- **D-03**, sobre la barrera de adopción, converge con el hallazgo `H-05` de
+  `../Validacion_Walkthrough/hallazgos_usabilidad.md` —ausencia de orientación
+  sobre el flujo de trabajo—, que fue el más repetido de aquella ronda.
+- **D-06** coincide con `H-06`, que recoge cuatro términos que detuvieron a
+  participantes de perfiles distintos.
+
+Que dos técnicas independientes, con participantes distintos y en momentos
+distintos, converjan sobre la misma interpretación la sostiene más de lo que
+podría hacerlo cualquiera de las dos por separado.
 
 ## Limitaciones declaradas
 
@@ -93,6 +117,13 @@ decisiones como ya adoptadas.
 - Los tres pertenecen a estratos distintos —`ENTR-01` y `ENTR-02` al estrato de
   dominio, `ENTR-13` al de contraste—, lo que aporta variedad de perspectiva
   pero impide tratar la ronda como validación por estrato.
+- **Dos enunciados no fueron abordados por todos los participantes.** La
+  sub-sesión de `ENTR-02` concluyó antes de los enunciados 10 y 11, de modo que
+  las decisiones D-05 y D-06 se toman sobre dos posiciones y no sobre tres.
+- **El caso D-06 responde a un defecto de instrumento del propio equipo:** la
+  formulación del enunciado 11 admitía dos lecturas, lo que redujo de tres a dos
+  las posiciones obtenibles. No se recabó de nuevo la posición de `ENTR-01` por
+  encontrarse cerrado el trabajo de campo.
 - Los enunciados sometidos a verificación se derivan de la codificación
   disponible, que hoy cubre `EV-01` a `EV-08`. La ampliación de la codificación
   al resto de las entrevistas está pendiente y podría generar enunciados nuevos
