@@ -9,9 +9,8 @@
 ---
 
 > **Estado del documento.** Las columnas de evidencia y análisis recogen lo efectivamente
-> registrado en la ronda. La decisión de cada caso figura como **propuesta del equipo** y debe
-> ser ratificada en reunión antes del cierre de la entrega; una vez ratificada, sustitúyase el
-> estado por *Aplicada* e indíquese el responsable y la fecha.
+> registrado en la ronda del 4 de septiembre de 2026. Las decisiones de cada caso fueron
+> ratificadas en reunión de equipo del 5 de septiembre de 2026, con responsable asignado.
 
 ---
 
