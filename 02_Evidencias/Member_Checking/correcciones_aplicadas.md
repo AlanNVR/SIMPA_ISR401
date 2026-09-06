@@ -43,7 +43,7 @@ de las fuentes tiene razón salvo que exista evidencia documental independiente 
 | **Análisis** | Las tres posiciones son compatibles si el enunciado se delimita: ENTR-01 describe la existencia de formatos por función a nivel sectorial; ENTR-02 la condiciona a la escala de la explotación; ENTR-13 confirma la práctica observada. Lo que no se sostiene es la formulación absoluta. |
 | **Decisión propuesta** | **Reformular con delimitación de alcance.** Nueva redacción: *«En la unidad de estudio el registro diario se realiza en libreta y se comunica por WhatsApp. Existen formatos establecidos por función a nivel sectorial, cuya aplicación depende de la escala de la explotación y de la gestión de la persona responsable.»* |
 | **Impacto en requisitos** | Revisar los requisitos de captura de labores: el sistema no debe presuponer ausencia de formato, sino permitir configurar formatos por tipo de labor. |
-| **Estado** | Ratificada en reunión de equipo del [2026/09/05] |
+| **Estado** | Ratificada en reunión de equipo del 2026/09/05 |
 | **Responsable** | Villafuerte Rosero Allan Noe |
 
 ---
@@ -60,7 +60,7 @@ de las fuentes tiene razón salvo que exista evidencia documental independiente 
 | **Análisis** | La posición de ENTR-01 puede reflejar la exigencia normativa del proceso; las de ENTR-02 y ENTR-13, su cumplimiento efectivo. No se dispone de evidencia documental independiente que permita adjudicar entre ambas lecturas. |
 | **Decisión propuesta** | **Conservar el enunciado y reportar la discrepancia.** Se mantiene la interpretación por contar con el respaldo de dos de tres fuentes, dejando constancia expresa de la posición divergente en el apartado de amenazas a la validez, sin conciliarla. |
 | **Impacto en requisitos** | Ninguno inmediato. Refuerza la pertinencia de los requisitos de validación de completitud en el registro. |
-| **Estado** | Ratificada en reunión de equipo del [2026/09/05] |
+| **Estado** | Ratificada en reunión de equipo del 2026/09/05 |
 | **Responsable** | Huilcapi León Denisses Fabiola |
 
 ---
@@ -77,7 +77,7 @@ de las fuentes tiene razón salvo que exista evidencia documental independiente 
 | **Análisis** | Las tres posiciones convergen si la barrera se formula como **condicionada y transitoria** —dependiente de la formación recibida y de la familiaridad previa— en lugar de como un atributo del perfil ocupacional. |
 | **Decisión propuesta** | **Reformular.** Nueva redacción: *«La barrera de adopción no reside en el perfil ocupacional sino en la familiaridad previa con herramientas digitales y en la formación recibida. Es una barrera condicionada y reducible mediante capacitación.»* |
 | **Impacto en requisitos** | Refuerza los requisitos de usabilidad —interfaz sencilla, pocas pantallas, apoyo gráfico— y añade la necesidad de material de apoyo o introducción guiada, coincidente con el hallazgo del walkthrough 06. |
-| **Estado** | Ratificada en reunión de equipo del [2026/09/05] |
+| **Estado** | Ratificada en reunión de equipo del 2026/09/05 |
 | **Responsable** | Huilcapi León Denisses Fabiola |
 
 ---
@@ -94,7 +94,7 @@ de las fuentes tiene razón salvo que exista evidencia documental independiente 
 | **Análisis** | ENTR-01 no niega la existencia de los dos modos de registro, sino que discute su causa. La corrección es sustantiva: si el factor es la gestión y no la escala, el sistema no puede segmentarse por tamaño de explotación. |
 | **Decisión propuesta** | **Reformular incorporando la gestión como variable explicativa.** Nueva redacción: *«Coexisten dos modos de registro: empírico en libreta y formalizado con paso posterior a sistema. La adopción de uno u otro depende principalmente de la gestión de la persona responsable, y de forma secundaria de la escala de la explotación.»* |
 | **Impacto en requisitos** | El sistema debe soportar ambos modos de registro con independencia del tamaño de la explotación. |
-| **Estado** | Ratificada en reunión de equipo del [2026/09/05] |
+| **Estado** | Ratificada en reunión de equipo del 2026/09/05 |
 | **Responsable** | Villafuerte Rosero Allan Noe |
 
 ---
@@ -111,7 +111,7 @@ de las fuentes tiene razón salvo que exista evidencia documental independiente 
 | **Análisis** | Ninguno de los dos participantes que abordaron el enunciado respalda la atribución de desconfianza. Ambos confirman el uso de instrumentos. La observación directa coexiste con la instrumentación en lugar de sustituirla. |
 | **Decisión propuesta** | **Reformular eliminando la atribución de desconfianza.** Nueva redacción: *«La programación de las labores diarias combina la observación directa de las condiciones con el uso de instrumentos de medición —pluviómetro— e información climática consultada.»* |
 | **Impacto en requisitos** | Sostiene el requisito de registro de lluvia y refuerza la pertinencia de integrar información climática, que el enunciado original desaconsejaba implícitamente. |
-| **Estado** | Ratificada en reunión de equipo del [2026/09/05] |
+| **Estado** | Ratificada en reunión de equipo del 2026/09/05 |
 | **Responsable** | Huilcapi León Denisses Fabiola |
 
 ---
@@ -128,7 +128,7 @@ de las fuentes tiene razón salvo que exista evidencia documental independiente 
 | **Análisis** | El fallo es del equipo, no del participante. La ambigüedad redujo de tres a dos las posiciones obtenibles sobre este enunciado. |
 | **Decisión propuesta** | **Reformular el enunciado** sustituyendo *herramienta* por *aplicación o programa de computadora*, y **declarar el defecto** en el apartado de amenazas a la validez. No se recaba nuevamente la posición de ENTR-01 por encontrarse cerrado el trabajo de campo. |
 | **Impacto en requisitos** | Ninguno. El contenido sustantivo mantiene el respaldo de ENTR-13 y coincide con los hallazgos de los walkthroughs. |
-| **Estado** | Ratificada en reunión de equipo del [2026/09/05] |
+| **Estado** | Ratificada en reunión de equipo del 2026/09/05 |
 | **Responsable** | Rizzo Vélez Edson Nagib |
 
 ---
@@ -151,7 +151,7 @@ reportada.
 
 **Precisión sobre el alcance de la acción.** El caso de uso asociado a \id{RF-12} ya contempla que el sistema «determina el tipo de alerta y su criticidad», de modo que el concepto de criticidad existe en la especificación. Lo que no consta es que esa criticidad se derive de la naturaleza —agrícola o sanitaria— de la incidencia. La acción no consiste, por tanto, en crear el concepto, sino en afinar el disparador para que la naturaleza de la incidencia determine el nivel de urgencia asignado.
 
-Estado: Ratificada en reunión de equipo del [2026/09/05]. Responsable: Macías Herrera Josthyn Esteban.
+Estado: Ratificada en reunión de equipo del 2026/09/05. Responsable: Macías Herrera Josthyn Esteban.
 
 ### A-02 · Enunciado 9 — Criterio de madurez por variedad
 
@@ -171,7 +171,7 @@ En consecuencia se acuerda:
 2. Incorporar la precisión de ENTR-13 sobre la existencia de factores adicionales al desprendimiento como indicadores de madurez.
 3. Dejar constancia de que el umbral vigente procede de \id{EV-04} y que esta ronda de miembro-verificación aporta una fuente adicional sobre el mismo parámetro.
 
-Estado: Ratificada en reunión de equipo del [2026/09/05]. Responsable: Macías Herrera Josthyn Esteban.
+Estado: Ratificada en reunión de equipo del 2026/09/05. Responsable: Macías Herrera Josthyn Esteban.
 
 ---
 
@@ -219,7 +219,7 @@ Cada caso registrado en este documento debe reflejarse en:
 ## 5. Ratificación
  
 Las decisiones recogidas en este documento fueron sometidas a ratificación del
-equipo en reunión celebrada el **[2026/09/05]**, con la participación de
+equipo en reunión celebrada el **2026/09/05**, con la participación de
 los seis integrantes.
  
 **Criterio aplicado en la ratificación.** Cada caso admitía tres salidas
