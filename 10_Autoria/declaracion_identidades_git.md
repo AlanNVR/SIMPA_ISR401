@@ -24,7 +24,8 @@ repositorio y resuelve el hallazgo de identidades fragmentadas (P4, criterio de 
 | `Fabi06-ux <fabiolahuilcapi309@gmail.com>` | Huilcapi León Denisses Fabiola | Cuenta personal secundaria |
 | `Huilcapi León Denisses Fabiola <dhuilcapil@uteq.edu.ec>` / `Denisses Fabiola Huilcapi León <dhuilcapil@uteq.edu.ec>` | Huilcapi León Denisses Fabiola | Mismo correo, nombre completo escrito en distinto orden en distintos commits |
 | `erizzov-boop <erizzov@uteq.edu.ec>` | Rizzo Vélez Edson Nagib | Identidad única, sin fragmentación |
-| `AdonisAlcivar <aalcivarv4@uteq.edu.ec>` | Alcívar Vélez Anderson Adonis | Identidad única, sin fragmentación |
+| `AdonisAlcivar <aalcivarv4@uteq.edu.ec>` | Alcívar Vélez Anderson Adonis | Cuenta principal |
+| `erizzov-boop <aalcivarv4@uteq.edu.ec>` | Alcívar Vélez Anderson Adonis | Correo institucional propio con nombre de usuario ajeno, heredado de la configuración local de Git del equipo utilizado. 3 commits del 04/09/2026 |
 
 Todas las correspondencias anteriores están reflejadas en el archivo `.mailmap`
 de la raíz del repositorio, que unifica el conteo de contribuciones sin alterar
