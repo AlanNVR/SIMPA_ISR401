@@ -39,7 +39,7 @@ recomendado por el docente responsable de la asignatura.
 
 El inventario detallado por archivo individual (nombre, tipo, fecha, código
 de participante, duración/tamaño, SHA-256 y contenedor de origen) está en
-[`fichas_tecnicas.csv`](https://github.com/AlanNVR/SIMPA_ISR401/blob/main/AHMRV/02_Evidencias/00_Restringido/fichas_tecnicas.csv)
+[`fichas_tecnicas.csv`](https://github.com/AlanNVR/SIMPA_ISR401/blob/main/02_Evidencias/00_Restringido/fichas_tecnicas.csv)
 del repositorio principal — no se duplica aquí.
 
 ## 4. Procedimiento de descarga, descifrado y verificación
