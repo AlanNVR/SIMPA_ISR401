@@ -49,6 +49,36 @@ La única excepción es `dataset_zenodo/`, que es la instantánea congelada de l
 depositado bajo el DOI `10.5281/zenodo.22236500` y se conserva sin modificar,
 incluidas sus rutas internas históricas.
 
+### Correspondencia de rutas y estado del snapshot Zenodo
+
+Los archivos de `dataset_zenodo/` conservan el estado de predepósito que tenían al
+momento de la carga. **No se corrigen**, porque `checksums_zenodo.sha256` incluye el
+hash de `readme.md` y cualquier edición invalidaría la correspondencia con el
+material depositado. Esta sección traduce ese estado al del repositorio actual.
+
+**Estado de publicación.** El `readme.md` del snapshot declara el DOI como reservado
+y la publicación como pendiente. Esa declaración era correcta al momento de la carga
+y hoy está superada: el depósito se publicó el **2026-09-01** como **versión 2.0**,
+en acceso abierto, bajo el DOI de versión `10.5281/zenodo.22236500`
+(concept DOI `10.5281/zenodo.22236499`), verificable en
+<https://zenodo.org/records/22236500>.
+
+**Rutas.** Los archivos del snapshot citan rutas con el prefijo `AHMRV/` y la
+numeración `07_Publicacion`, eliminadas en la reestructuración del 2026-09-03. La
+equivalencia con el árbol actual es la siguiente:
+
+| Ruta citada en el snapshot | Ruta vigente |
+|---|---|
+| `AHMRV/07_Publicacion/` | `08_Publicacion/` |
+| `AHMRV/07_Publicacion/dataset_zenodo/` | `08_Publicacion/dataset_zenodo/` |
+| `../respuestas_anonimizadas.csv` | `07_Datos/datos_procesados/respuestas_anonimizadas.csv` |
+| `../scripts/anonimizar_encuesta.py` | `07_Datos/scripts/anonimizar_encuesta.py` |
+
+**Script duplicado.** `preparar_dataset_zenodo_agregado.py` existe en dos versiones
+con hash distinto: la congelada en `dataset_zenodo/` (`edb58364…`) y la viva en
+`07_Datos/scripts/` (`72995db5…`). La divergencia es deliberada: la primera
+documenta cómo se generó el depósito, la segunda es la que ejecuta `run_all.py`.
+
 Se retiraron de esta carpeta tres archivos que duplicaban o contradecían a
 `07_Datos/`: `respuestas_anonimizadas.csv`, `diccionario_datos.md` y
 `checksums_paquete.sha256`. El motivo se registra en
