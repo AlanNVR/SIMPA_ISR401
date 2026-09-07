@@ -1,0 +1,44 @@
+========================================================================
+ACC-14 — VERIFICACIÓN DE CONSISTENCIA RF/RNF
+Fuente de verdad: 01_ERS/*.tex
+Matriz vigente: 04_Trazabilidad/matriz_e2e.xlsx (PE5, 73 filas)
+========================================================================
+
+ERS declara 42 RF, 19 RNF y 18 req. de IA.
+
+--- ERS (RF) -> matriz_e2e.xlsx ---
+Total en fuente (ERS): 42 | Total en matriz_e2e.xlsx: 42
+OK: todos los IDs de la fuente están presentes en matriz_e2e.xlsx
+
+--- ERS (RNF) -> matriz_e2e.xlsx ---
+Total en fuente (ERS): 19 | Total en matriz_e2e.xlsx: 6
+NOTA: cobertura parcial esperada por decisión de alcance documentada (solo 6/19 RNF trazan E2E por decisión de auditoría PE5, ver 04_Trazabilidad/readme.md §Alcance)
+Ausentes en matriz_e2e.xlsx (13): RNF-02, RNF-03, RNF-04, RNF-06, RNF-07, RNF-09, RNF-10, RNF-12, RNF-13, RNF-15, RNF-17, RNF-18, RNF-19
+
+--- ERS (IA) -> matriz_e2e.xlsx ---
+Total en fuente (ERS): 18 | Total en matriz_e2e.xlsx: 18
+OK: todos los IDs de la fuente están presentes en matriz_e2e.xlsx
+
+--- ERS (RF) -> backlog_export.csv ---
+Total en fuente (ERS): 42 | Total en backlog_export.csv: 42
+OK: todos los IDs de la fuente están presentes en backlog_export.csv
+
+--- ERS (RNF) -> backlog_export.csv ---
+Total en fuente (ERS): 19 | Total en backlog_export.csv: 19
+OK: todos los IDs de la fuente están presentes en backlog_export.csv
+
+--- ERS (IA) -> backlog_export.csv ---
+Total en fuente (ERS): 18 | Total en backlog_export.csv: 18
+OK: todos los IDs de la fuente están presentes en backlog_export.csv
+
+--- ERS -> manuscrito_final.tex ---
+El manuscrito no cita RF-XX/RNF-XX individuales por diseño: es un
+estudio de calidad de requisitos (humano vs. LLM), no una sección
+de trazabilidad. Cita el total agregado '42 requisitos funcionales,
+19 no funcionales' (coincide con el ERS). No se evalúa fila a fila.
+
+========================================================================
+CONCLUSIÓN: no se detectaron discrepancias reales sobre la matriz
+vigente (matriz_e2e.xlsx). El CSV matriz_trazabilidad.csv es una
+versión histórica superada y no debe usarse como referencia.
+========================================================================
