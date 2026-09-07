@@ -16,3 +16,24 @@ diseño antes y durante la implementación del MVP (`05_MVP/`).
 
 Estos mockups corresponden a la etapa de diseño; la interfaz final implementada
 en `05_MVP/` puede diferir en detalles menores respecto a estos bocetos.
+
+## Archivo fuente
+
+Los mockups se diseñaron en **Figma Make** (no en Figma Design clásico), un
+proyecto de generación de interfaces con IA:
+
+https://www.figma.com/make/5MrAzZyo16I8KiEjPtRLNu/SIMPA-App-Interfaces-Design
+
+Figma Make no permite exportar un `.fig` editable en Figma Design (limitación
+de la herramienta, no del equipo). Como fuente editable se conserva en su
+lugar:
+
+- `SIMPA_App_Interfaces_Design.make` — copia local guardada desde Figma Make
+  (`File > Save local copy`), reabrible solo en Figma Make.
+- `SIMPA_mockups_codigo/` — código fuente generado por Figma Make
+  (`Code > Download code`), que sí es editable de forma estándar (proyecto
+  React con TypeScript).
+
+El enlace de Figma Make requiere haber iniciado sesión con acceso al proyecto
+para ver o editar; para solo visualizar, solicitar acceso de lectura al
+propietario del archivo.
