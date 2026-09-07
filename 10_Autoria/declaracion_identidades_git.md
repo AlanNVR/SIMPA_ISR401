@@ -52,7 +52,7 @@ incorporaciones de archivos) los realicé yo, subiendo los cambios directamente
 desde la interfaz web de GitHub en lugar de mi entorno local configurado con
 `jmaciasherr4`.
 
-Firma: _____________________  C.I.: _____________________  Fecha: __________
+Firma: josthynmacias  C.I.: 1206991026  Fecha: 7/09/2026
 
 **Arboleda Yanza Francisco Javier** — Confirmo que `farboleda074-oss
 <farboleda074@gmail.com>` corresponde a commits realizados por mí desde una
