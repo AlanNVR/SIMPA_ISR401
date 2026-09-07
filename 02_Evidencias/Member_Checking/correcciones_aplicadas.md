@@ -27,6 +27,14 @@ en este documento por no requerir corrección.
 sobre un mismo hecho, la discrepancia **se reporta, no se concilia**. El equipo no adjudica cuál
 de las fuentes tiene razón salvo que exista evidencia documental independiente que lo permita.
 
+> **Alcance de la numeración `D-NN`.** Los códigos `D-01` a `D-06` de este
+> documento identifican **casos de desacuerdo de la ronda de
+> miembro-verificación** y son independientes de los códigos `D-NN` de
+> `07_Datos/desviaciones.md`, que identifican **desviaciones metodológicas del
+> protocolo**. Ambas numeraciones coexisten, tienen alcances distintos y no
+> deben cruzarse. Al citar un código fuera de este documento debe indicarse
+> siempre el archivo de origen.
+
 ---
 
 ## 2. Registro de desacuerdos y decisiones
