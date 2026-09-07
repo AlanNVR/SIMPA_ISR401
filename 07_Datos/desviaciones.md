@@ -2,7 +2,7 @@
 
 Proyecto SIMPA — Sistema Inteligente de Mantenimiento de Palma Africana
 Equipo AHMRV
-Fecha de actualización: 2026-09-03
+Fecha de actualización: 2026-09-06
 
 Este documento registra únicamente desviaciones, limitaciones y estados
 verificados del trabajo realizado. No contiene resultados simulados ni
@@ -158,6 +158,35 @@ para los productos de saturación.
 
 Esta desviación queda cerrada sin extender el alcance al experimento
 humano–LLM todavía pendiente.
+
+---
+
+## D-07 — Rutas históricas del snapshot Zenodo no corregidas
+
+**Estado:** control deliberado de integridad, documentado el 2026-09-06.
+
+Los seis archivos de `08_Publicacion/dataset_zenodo/` citan rutas con el prefijo
+`AHMRV/` y la numeración `07_Publicacion`, ambas eliminadas en la reestructuración
+del repositorio del 2026-09-03.
+
+Su `readme.md` declara además el DOI como reservado y la publicación como
+pendiente, estado que era correcto al momento de la carga.
+
+Estas referencias no se corrigen. El manifiesto:
+
+`08_Publicacion/dataset_zenodo/checksums_zenodo.sha256`
+
+incluye el hash del propio `readme.md` de la carpeta, por lo que cualquier edición
+del snapshot invalidaría la correspondencia con el material efectivamente
+depositado bajo el DOI `10.5281/zenodo.22236500`, publicado el 2026-09-01 como
+versión 2.0.
+
+**Medida aplicada.** La equivalencia entre rutas históricas y rutas vigentes, junto
+con el estado real de publicación del depósito, se documenta en
+`08_Publicacion/readme.md`, fuera del snapshot.
+
+**Verificación.** Tras la edición, `sha256sum -c checksums_zenodo.sha256` ejecutado
+desde `08_Publicacion/dataset_zenodo/` devuelve 5 de 5 OK.
 
 ---
 
