@@ -42,7 +42,7 @@ corresponde a commits realizados por mí, bajo el mismo correo institucional, en
 entorno de trabajo donde el nombre de usuario de Git local no estaba configurado
 con mi nombre de cuenta principal.
 
-Firma: _____________________  C.I.: _____________________  Fecha: __________
+Firma: AllanVillafuerte  C.I.: 1251073951  Fecha: 07/09/2026
 
 **Macías Herrera Josthyn Esteban** — Confirmo que la cuenta de GitHub `artyjmt`
 (ID 117947536, correo `117947536+artyjmt@users.noreply.github.com`) es de mi
