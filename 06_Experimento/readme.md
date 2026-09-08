@@ -4,13 +4,21 @@ Enfoque 1 de la Sección 5 de la guía: comparación de la calidad de los requis
 
 ## Estado
 
-**Protocolo diseñado y registrado públicamente en OSF. Experimento no ejecutado.**
+**Protocolo diseñado y registrado públicamente en OSF. El registro es retrospectivo respecto a la recolección del material fuente y anterior a la ejecución del experimento humano–LLM, que permanece pendiente.**
 
 **Registro público OSF:** https://osf.io/4z35d/
 
+### Aclaración temporal del registro
+
+El registro OSF **no se presenta como prerregistro de la recolección de entrevistas ni del proyecto completo**. Al momento de formalizarlo ya existía material fuente procedente de entrevistas realizadas durante el desarrollo de SIMPA.
+
+Su alcance temporal es más preciso: constituye un **registro retrospectivo respecto a la recolección del material fuente**, pero fue realizado **antes de ejecutar el experimento comparativo humano–LLM** descrito en este protocolo. Ese experimento continúa pendiente.
+
+Por tanto, el registro se utiliza para dejar congelados y públicamente trazables la pregunta de investigación, las hipótesis, las variables, el procedimiento y el plan de análisis del experimento comparativo, sin afirmar una secuencia temporal que el historial no sostiene.
+
 El registro OSF conserva la versión del protocolo presentada al momento del registro.
-La versión 1.1 mantenida en el repositorio incorpora únicamente la URL y el estado
-administrativo del registro, sin modificar hipótesis, variables, muestra,
+La versión 1.2 mantenida en el repositorio incorpora esta aclaración documental
+del alcance temporal del registro, sin modificar hipótesis, variables, muestra,
 procedimiento ni plan de análisis.
 
 En consecuencia, el ERS/SRS de la Entrega 3 (2A) no contiene sección de resultados ni de discusión de este estudio. Ambas corresponden a la Entrega 4 (2B), una vez recogidos y analizados los datos primarios.
@@ -30,16 +38,18 @@ En consecuencia, el ERS/SRS de la Entrega 3 (2A) no contiene sección de resulta
 ## Secuencia obligatoria
 
 ```
-registrar el protocolo en OSF
+material fuente de entrevistas ya disponible
         ↓
-ejecutar el experimento
+registrar públicamente el protocolo experimental en OSF
         ↓
-analizar los datos con los scripts versionados
+ejecutar el experimento comparativo humano–LLM
         ↓
-recién entonces redactar los resultados
+analizar los datos experimentales con los scripts versionados
+        ↓
+recién entonces redactar los resultados del experimento
 ```
 
-⚠️ Redactar resultados hipotéticos «para completar la estructura», o hacer que un modelo invente cifras para llenar las tablas, es fabricación de evidencia. El plan de análisis de la Sección 8 del protocolo se fijó **antes** de disponer de datos y no se modificará en función de los resultados obtenidos.
+⚠️ Redactar resultados hipotéticos «para completar la estructura», o hacer que un modelo invente cifras para llenar las tablas, es fabricación de evidencia. El plan de análisis de la Sección 8 quedó fijado antes de disponer de los **datos producidos por el experimento humano–LLM** y no se modificará en función de sus resultados. Esta afirmación no se extiende al material fuente de entrevistas, que ya existía.
 
 ## Limitación declarada de antemano
 
