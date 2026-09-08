@@ -1,168 +1,381 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Curva de saturación temática — Proyecto SIMPA
+Curvas de saturación temática estratificadas — Proyecto SIMPA
 Equipo AHMRV · ISR-401 · UTEQ
 
-Lee 07_Datos/datos_crudos/codificacion.csv y produce en 07_Datos/resultados/:
-  - curva_saturacion.png / .pdf   figura para el ERS
-  - tabla_saturacion.csv          tabla de aportación por entrevista
+Integra dos fuentes de codificación sin modificar los archivos históricos:
+  - 07_Datos/datos_crudos/codificacion.csv
+      Codificación histórica de las primeras ocho entrevistas (EV-01..EV-08).
+  - 07_Datos/datos_procesados/codificacion_tercera_ronda.csv
+      Codificación de la tercera ronda (ENTR-09..ENTR-16).
+
+Produce en 07_Datos/resultados/:
+  - tabla_saturacion.csv
+  - curva_saturacion_dominio.png / .pdf
+  - curva_saturacion_contraste.png / .pdf
+  - curva_saturacion_agregada.png / .pdf
+
+La separación por estratos responde a la adenda A.14/R-14.7: la curva agregada
+se conserva como descripción global, pero no debe interpretarse como evidencia
+de saturación homogénea entre poblaciones distintas.
 
 Uso:
-    python3 07_Datos/scripts/curva_saturacion.py [ruta_codificacion.csv]
+    python 07_Datos/scripts/curva_saturacion.py
+
+Opcionalmente:
+    python 07_Datos/scripts/curva_saturacion.py <legacy.csv> <tercera_ronda.csv>
 
 Requiere: matplotlib
 """
 
+from __future__ import annotations
+
 import csv
 import sys
-from pathlib import Path
 from collections import OrderedDict
+from pathlib import Path
 
 try:
     import matplotlib
+
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 except ImportError:
-    sys.exit("Falta matplotlib.  Instalar con:  pip install matplotlib")
+    sys.exit("Falta matplotlib. Instalar con: pip install matplotlib")
 
 ROOT = Path(__file__).resolve().parents[2]
-ENTRADA = Path(sys.argv[1]) if len(sys.argv) > 1 else (
-    ROOT / "07_Datos" / "datos_crudos" / "codificacion.csv"
+DATOS = ROOT / "07_Datos"
+
+LEGACY = (
+    Path(sys.argv[1])
+    if len(sys.argv) > 1
+    else DATOS / "datos_crudos" / "codificacion.csv"
 )
-SALIDA_DIR = ROOT / "07_Datos" / "resultados"
+TERCERA = (
+    Path(sys.argv[2])
+    if len(sys.argv) > 2
+    else DATOS / "datos_procesados" / "codificacion_tercera_ronda.csv"
+)
+SALIDA_DIR = DATOS / "resultados"
 SALIDA_DIR.mkdir(parents=True, exist_ok=True)
 
-# Orden cronológico de las entrevistas. La curva de saturación depende del
-# orden de recolección, no del alfabético: alterarlo invalida la lectura.
-ORDEN = ["EV-01", "EV-02", "EV-03", "EV-04", "EV-05", "EV-06", "EV-07", "EV-08"]
+DOMINIO_FUENTE = [f"EV-{i:02d}" for i in range(1, 9)]
+DOMINIO_ENTREVISTA = [f"ENTR-{i:02d}" for i in range(1, 9)]
+CONTRASTE = [f"ENTR-{i:02d}" for i in range(9, 17)]
 
-ETIQUETA = {
-    "EV-01": "Administrador\ngeneral",
-    "EV-02": "Asesor\ntécnico",
-    "EV-03": "Jefe de\npolinización",
-    "EV-04": "Extractora\n(supervisor)",
-    "EV-05": "Trabajador\nagrícola I",
-    "EV-06": "Trabajador\nagrícola II",
-    "EV-07": "Asistente de\nadministración",
-    "EV-08": "Extractora\n(técnico)",
+MAPEO_DOMINIO = dict(zip(DOMINIO_FUENTE, DOMINIO_ENTREVISTA))
+
+PERFILES = {
+    "ENTR-01": "Administrador general",
+    "ENTR-02": "Asesor técnico",
+    "ENTR-03": "Jefe de polinización",
+    "ENTR-04": "Extractora (supervisor)",
+    "ENTR-05": "Trabajador agrícola I",
+    "ENTR-06": "Trabajador agrícola II",
+    "ENTR-07": "Asistente de administración",
+    "ENTR-08": "Extractora (técnico)",
+    "ENTR-09": "Profesional agrónomo",
+    "ENTR-10": "Estudiante de agronomía",
+    "ENTR-11": "Estudiante de agronomía",
+    "ENTR-12": "Profesional en biotecnología",
+    "ENTR-13": "Profesional agrónomo",
+    "ENTR-14": "Ingeniería agropecuaria",
+    "ENTR-15": "Estudiante de agroecología",
+    "ENTR-16": "Ingeniería de sistemas",
 }
 
-# ---------------------------------------------------------------- lectura
-por_entrevista = OrderedDict((e, []) for e in ORDEN)
-with open(ENTRADA, encoding="utf-8") as f:
-    for fila in csv.DictReader(f, delimiter=";"):
-        ev = fila["ID_evidencia"].strip()
-        if ev in por_entrevista:
-            por_entrevista[ev].append(fila["Codigo"].strip())
+CABECERA_REQUERIDA = {
+    "Fragmento",
+    "Codigo",
+    "Categoria",
+    "Requisito_derivado",
+    "ID_evidencia",
+    "Analista_codificador",
+}
 
-# ------------------------------------------------------------ acumulación
-vistos = set()
-nuevos, acumulado, totales = [], [], []
-for ev in ORDEN:
-    codigos = por_entrevista[ev]
-    # Un codigo repetido dentro de la MISMA entrevista aporta una sola vez
-    unicos_nuevos = {c for c in codigos if c not in vistos}
-    vistos.update(codigos)
-    nuevos.append(len(unicos_nuevos))
-    acumulado.append(len(vistos))
-    totales.append(len(codigos))
 
-# ------------------------------------------------------------ tabla CSV
-with open(SALIDA_DIR / "tabla_saturacion.csv", "w", newline="", encoding="utf-8") as f:
-    w = csv.writer(f, delimiter=";")
-    w.writerow(["Orden", "ID_evidencia", "Perfil", "Codigos_totales",
-                "Codigos_nuevos", "Acumulado", "Porcentaje_nuevos"])
-    for i, ev in enumerate(ORDEN):
-        pct = 100 * nuevos[i] / totales[i] if totales[i] else 0
-        w.writerow([i + 1, ev, ETIQUETA[ev].replace("\n", " "),
-                    totales[i], nuevos[i], acumulado[i], f"{pct:.1f}"])
+def leer_codificacion(path: Path) -> list[dict[str, str]]:
+    if not path.is_file():
+        raise FileNotFoundError(f"No existe el archivo requerido: {path}")
 
-# ------------------------------------------------------------ figura
-VERDE = "#006633"
-NARANJA = "#B8860B"
+    with path.open("r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f, delimiter=";")
+        campos = set(reader.fieldnames or [])
+        faltan = CABECERA_REQUERIDA - campos
+        if faltan:
+            raise ValueError(
+                f"{path.name} no contiene las columnas requeridas: "
+                + ", ".join(sorted(faltan))
+            )
+        return list(reader)
 
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(9.5, 7.4),
-                               sharex=True,
-                               gridspec_kw={"height_ratios": [2, 1.15],
-                                            "hspace": 0.14})
 
-x = range(1, len(ORDEN) + 1)
+def agrupar(rows: list[dict[str, str]], orden: list[str]) -> OrderedDict[str, list[str]]:
+    grupos = OrderedDict((identificador, []) for identificador in orden)
+    observados = set()
 
-# --- panel superior: códigos nuevos por entrevista
-barras = ax1.bar(x, nuevos, color=VERDE, alpha=0.82, width=0.62,
-                 edgecolor="white", linewidth=0.8)
-# destacar el repunte
-barras[3].set_color(NARANJA)
-barras[3].set_alpha(0.95)
+    for fila in rows:
+        ident = fila["ID_evidencia"].strip()
+        codigo = fila["Codigo"].strip()
+        if not codigo:
+            raise ValueError(f"Código vacío encontrado en {ident or '[sin ID]'}")
+        observados.add(ident)
+        if ident in grupos:
+            grupos[ident].append(codigo)
 
-for i, v in enumerate(nuevos):
-    ax1.text(i + 1, v + 0.55, str(v), ha="center", va="bottom",
-             fontsize=9.5, fontweight="bold",
-             color=NARANJA if i == 3 else "#333333")
+    esperados = set(orden)
+    faltantes = [x for x in orden if not grupos[x]]
+    extras = sorted(observados - esperados)
 
-ax1.set_ylabel("Códigos nuevos aportados", fontsize=10.5)
-ax1.set_ylim(0, max(nuevos) * 1.28)
-ax1.grid(axis="y", alpha=0.22, linestyle=":")
-ax1.set_axisbelow(True)
-ax1.spines[["top", "right"]].set_visible(False)
+    if faltantes:
+        raise ValueError(
+            "Faltan entrevistas codificadas: " + ", ".join(faltantes)
+        )
+    if extras:
+        raise ValueError(
+            "Se encontraron identificadores fuera del alcance esperado: "
+            + ", ".join(extras)
+        )
 
-# anotación del repunte
-ax1.annotate(
-    "Repunte: la extractora abre\nun dominio no explorado",
-    xy=(4, nuevos[3]), xytext=(5.15, nuevos[3] + 4.2),
-    fontsize=9, color=NARANJA,
-    arrowprops=dict(arrowstyle="->", color=NARANJA, lw=1.3,
-                    connectionstyle="arc3,rad=-0.22"))
+    return grupos
 
-ax1.axvspan(0.5, 3.5, color="#006633", alpha=0.05)
-ax1.axvspan(3.5, 8.5, color="#B8860B", alpha=0.05)
-ax1.text(2.0, max(nuevos) * 1.17, "Primera ronda", ha="center",
-         fontsize=9, style="italic", color="#555555")
-ax1.text(6.0, max(nuevos) * 1.17, "Segunda ronda", ha="center",
-         fontsize=9, style="italic", color="#555555")
 
-ax1.set_title("Curva de saturación temática — 8 entrevistas, 68 códigos",
-              fontsize=12.5, fontweight="bold", pad=13)
+def calcular_estrato(grupos: OrderedDict[str, list[str]]) -> list[dict[str, object]]:
+    vistos: set[str] = set()
+    salida: list[dict[str, object]] = []
 
-# --- panel inferior: acumulado
-ax2.plot(x, acumulado, marker="o", color=VERDE, linewidth=2.1,
-         markersize=6.5, markerfacecolor="white", markeredgewidth=1.9)
-for i, v in enumerate(acumulado):
-    ax2.text(i + 1, v + 2.3, str(v), ha="center", fontsize=8.6, color="#333333")
+    for ident_fuente, codigos in grupos.items():
+        unicos = set(codigos)
+        nuevos = unicos - vistos
+        vistos.update(unicos)
+        salida.append(
+            {
+                "id_fuente": ident_fuente,
+                "fragmentos": len(codigos),
+                "codigos_unicos": len(unicos),
+                "nuevos": len(nuevos),
+                "acumulado": len(vistos),
+            }
+        )
 
-ax2.set_ylabel("Códigos acumulados", fontsize=10.5)
-ax2.set_xlabel("Entrevista, en orden cronológico de recolección", fontsize=10.5)
-ax2.set_xticks(list(x))
-ax2.set_xticklabels([f"{ORDEN[i]}\n{ETIQUETA[ORDEN[i]]}" for i in range(len(ORDEN))],
-                    fontsize=8.1)
-ax2.set_ylim(0, max(acumulado) * 1.16)
-ax2.grid(axis="y", alpha=0.22, linestyle=":")
-ax2.set_axisbelow(True)
-ax2.spines[["top", "right"]].set_visible(False)
+    return salida
 
-# tight_layout omitido: incompatible con los axvspan del panel superior
-plt.savefig(SALIDA_DIR / "curva_saturacion.png", dpi=300, bbox_inches="tight",
-            facecolor="white")
-plt.savefig(SALIDA_DIR / "curva_saturacion.pdf", bbox_inches="tight", facecolor="white", metadata={"CreationDate": None, "ModDate": None})
 
-# ------------------------------------------------------------ resumen
-print(f"Entrada: {ENTRADA}")
-print(f"Total de fragmentos codificados: {sum(totales)}")
-print(f"Códigos únicos: {acumulado[-1]}\n")
-print(f"{'#':>2}  {'EV':<7}{'total':>7}{'nuevos':>8}{'acum':>7}{'% nuevos':>10}")
-print("-" * 44)
-for i, ev in enumerate(ORDEN):
-    pct = 100 * nuevos[i] / totales[i] if totales[i] else 0
-    print(f"{i+1:>2}  {ev:<7}{totales[i]:>7}{nuevos[i]:>8}"
-          f"{acumulado[i]:>7}{pct:>9.1f}%")
+def construir_tabla(
+    dominio: OrderedDict[str, list[str]],
+    contraste: OrderedDict[str, list[str]],
+) -> list[dict[str, object]]:
+    dominio_stats = calcular_estrato(dominio)
+    contraste_stats = calcular_estrato(contraste)
 
-print("\nLectura de la curva")
-print("-" * 44)
-print("La aportación desciende de forma sostenida hasta EV-03, lo que sugería")
-print("saturación al cierre de la primera ronda. El repunte de EV-04")
-print(f"({nuevos[3]} códigos nuevos) demuestra que era una saturación APARENTE:")
-print("correspondía al agotamiento de un dominio, no del problema completo.")
-print(f"La caída de EV-08 ({nuevos[7]} códigos), pese a pertenecer al mismo")
-print("dominio nuevo, indica que ese dominio sí saturó con dos fuentes.")
-print(f"\nGenerados en: {SALIDA_DIR}")
+    vistos_agregado: set[str] = set()
+    filas: list[dict[str, object]] = []
+
+    for orden_global, stat in enumerate(dominio_stats, start=1):
+        id_fuente = str(stat["id_fuente"])
+        id_entrevista = MAPEO_DOMINIO[id_fuente]
+        codigos = set(dominio[id_fuente])
+        nuevos_agregado = codigos - vistos_agregado
+        vistos_agregado.update(codigos)
+        filas.append(
+            {
+                "Orden_global": orden_global,
+                "ID_entrevista": id_entrevista,
+                "ID_fuente": id_fuente,
+                "Estrato": "dominio",
+                "Perfil": PERFILES[id_entrevista],
+                "Fragmentos_codificados": stat["fragmentos"],
+                "Codigos_unicos_entrevista": stat["codigos_unicos"],
+                "Codigos_nuevos_estrato": stat["nuevos"],
+                "Codigos_acumulados_estrato": stat["acumulado"],
+                "Codigos_nuevos_agregado": len(nuevos_agregado),
+                "Codigos_acumulados_agregado": len(vistos_agregado),
+            }
+        )
+
+    for offset, stat in enumerate(contraste_stats, start=9):
+        id_fuente = str(stat["id_fuente"])
+        id_entrevista = id_fuente
+        codigos = set(contraste[id_fuente])
+        nuevos_agregado = codigos - vistos_agregado
+        vistos_agregado.update(codigos)
+        filas.append(
+            {
+                "Orden_global": offset,
+                "ID_entrevista": id_entrevista,
+                "ID_fuente": id_fuente,
+                "Estrato": "contraste",
+                "Perfil": PERFILES[id_entrevista],
+                "Fragmentos_codificados": stat["fragmentos"],
+                "Codigos_unicos_entrevista": stat["codigos_unicos"],
+                "Codigos_nuevos_estrato": stat["nuevos"],
+                "Codigos_acumulados_estrato": stat["acumulado"],
+                "Codigos_nuevos_agregado": len(nuevos_agregado),
+                "Codigos_acumulados_agregado": len(vistos_agregado),
+            }
+        )
+
+    return filas
+
+
+def escribir_tabla(filas: list[dict[str, object]]) -> Path:
+    path = SALIDA_DIR / "tabla_saturacion.csv"
+    campos = [
+        "Orden_global",
+        "ID_entrevista",
+        "ID_fuente",
+        "Estrato",
+        "Perfil",
+        "Fragmentos_codificados",
+        "Codigos_unicos_entrevista",
+        "Codigos_nuevos_estrato",
+        "Codigos_acumulados_estrato",
+        "Codigos_nuevos_agregado",
+        "Codigos_acumulados_agregado",
+    ]
+
+    with path.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=campos, delimiter=";")
+        writer.writeheader()
+        writer.writerows(filas)
+
+    return path
+
+
+def guardar_curva(
+    ids: list[str],
+    acumulados: list[int],
+    nuevos: list[int],
+    titulo: str,
+    nombre: str,
+    nota: str,
+) -> None:
+    fig, ax = plt.subplots(figsize=(10.5, 5.8))
+    x = list(range(1, len(ids) + 1))
+
+    ax.plot(x, acumulados, marker="o", linewidth=2)
+    for i, (acum, nuevo) in enumerate(zip(acumulados, nuevos), start=1):
+        ax.annotate(
+            f"{acum} (+{nuevo})",
+            (i, acum),
+            textcoords="offset points",
+            xytext=(0, 8),
+            ha="center",
+            fontsize=8,
+        )
+
+    ax.set_title(titulo)
+    ax.set_xlabel("Entrevista en orden de análisis")
+    ax.set_ylabel("Códigos únicos acumulados")
+    ax.set_xticks(x)
+    ax.set_xticklabels(ids, rotation=45, ha="right")
+    ax.grid(axis="y", alpha=0.25, linestyle=":")
+    ax.text(
+        0.01,
+        -0.23,
+        nota,
+        transform=ax.transAxes,
+        fontsize=8.5,
+        va="top",
+        wrap=True,
+    )
+    fig.subplots_adjust(bottom=0.30)
+
+    fig.savefig(SALIDA_DIR / f"{nombre}.png", dpi=300, bbox_inches="tight")
+    fig.savefig(
+        SALIDA_DIR / f"{nombre}.pdf",
+        bbox_inches="tight",
+        metadata={"CreationDate": None, "ModDate": None},
+    )
+    plt.close(fig)
+
+
+def main() -> None:
+    legacy_rows = leer_codificacion(LEGACY)
+    tercera_rows = leer_codificacion(TERCERA)
+
+    dominio = agrupar(legacy_rows, DOMINIO_FUENTE)
+    contraste = agrupar(tercera_rows, CONTRASTE)
+
+    filas = construir_tabla(dominio, contraste)
+    tabla_path = escribir_tabla(filas)
+
+    dominio_filas = [f for f in filas if f["Estrato"] == "dominio"]
+    contraste_filas = [f for f in filas if f["Estrato"] == "contraste"]
+
+    guardar_curva(
+        [str(f["ID_entrevista"]) for f in dominio_filas],
+        [int(f["Codigos_acumulados_estrato"]) for f in dominio_filas],
+        [int(f["Codigos_nuevos_estrato"]) for f in dominio_filas],
+        "Saturación temática — estrato de dominio",
+        "curva_saturacion_dominio",
+        "ENTR-01..ENTR-08. La fuente histórica conserva IDs EV-01..EV-08; "
+        "la normalización ENTR se usa únicamente para el orden analítico.",
+    )
+
+    guardar_curva(
+        [str(f["ID_entrevista"]) for f in contraste_filas],
+        [int(f["Codigos_acumulados_estrato"]) for f in contraste_filas],
+        [int(f["Codigos_nuevos_estrato"]) for f in contraste_filas],
+        "Saturación temática — estrato de contraste",
+        "curva_saturacion_contraste",
+        "ENTR-09..ENTR-16. El acumulado se reinicia al comenzar el estrato "
+        "para evitar confundir mezcla de poblaciones con saturación.",
+    )
+
+    guardar_curva(
+        [str(f["ID_entrevista"]) for f in filas],
+        [int(f["Codigos_acumulados_agregado"]) for f in filas],
+        [int(f["Codigos_nuevos_agregado"]) for f in filas],
+        "Saturación temática — vista agregada de 16 entrevistas",
+        "curva_saturacion_agregada",
+        "Vista descriptiva. La inflexión entre estratos puede reflejar la mezcla de "
+        "poblaciones y no debe interpretarse por sí sola como saturación homogénea.",
+    )
+
+    codigos_dominio = {c for codigos in dominio.values() for c in codigos}
+    codigos_contraste = {c for codigos in contraste.values() for c in codigos}
+    codigos_agregados = codigos_dominio | codigos_contraste
+
+    print(f"Fuente dominio: {LEGACY}")
+    print(f"Fuente contraste: {TERCERA}")
+    print(f"Fragmentos dominio: {sum(len(v) for v in dominio.values())}")
+    print(f"Fragmentos contraste: {sum(len(v) for v in contraste.values())}")
+    print(f"Fragmentos totales: {sum(len(v) for v in dominio.values()) + sum(len(v) for v in contraste.values())}")
+    print()
+    print(f"Códigos únicos — dominio: {len(codigos_dominio)}")
+    print(f"Códigos únicos — contraste: {len(codigos_contraste)}")
+    print(f"Códigos compartidos entre estratos: {len(codigos_dominio & codigos_contraste)}")
+    print(f"Códigos nuevos exclusivos del contraste: {len(codigos_contraste - codigos_dominio)}")
+    print(f"Códigos únicos — agregado: {len(codigos_agregados)}")
+    print()
+    print("Aportación de códigos nuevos dentro del estrato de contraste:")
+    print(
+        ", ".join(
+            f"{f['ID_entrevista']}={f['Codigos_nuevos_estrato']}"
+            for f in contraste_filas
+        )
+    )
+    print("Aportación de códigos nuevos a la vista agregada (ENTR-09..ENTR-16):")
+    print(
+        ", ".join(
+            f"{f['ID_entrevista']}={f['Codigos_nuevos_agregado']}"
+            for f in contraste_filas
+        )
+    )
+    print()
+    print(f"Tabla: {tabla_path}")
+    print("Figuras generadas:")
+    print("  - curva_saturacion_dominio.png / .pdf")
+    print("  - curva_saturacion_contraste.png / .pdf")
+    print("  - curva_saturacion_agregada.png / .pdf")
+    print()
+    print("Lectura metodológica:")
+    print("  * dominio y contraste se interpretan por separado;")
+    print("  * la vista agregada es descriptiva;")
+    print("  * no se infiere estrato técnico/no técnico a partir del cargo del participante.")
+
+
+if __name__ == "__main__":
+    main()

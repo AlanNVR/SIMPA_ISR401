@@ -46,10 +46,20 @@ codificacion.csv,Categoria,categórica nominal,categoría,categoría temática d
 codificacion.csv,Requisito_derivado,texto/identificador,requisito,requisito asociado o vacío,vacío permitido solo cuando conceptualmente no aplica,Análisis de requisitos,Requisito relacionado con el fragmento.
 codificacion.csv,ID_evidencia,identificador,evidencia,EV-01 | EV-02 | EV-03 | EV-04 | EV-05 | EV-06 | EV-07 | EV-08,vacío no permitido,Inventario de entrevistas,Evidencia de origen del fragmento.
 codificacion.csv,Analista_codificador,identificador,analista,VER,vacío no permitido,Registro de codificación,Identificador del analista codificador.
-tabla_saturacion.csv,Orden,entero,posición,1-8,vacío no permitido,Generado por curva_saturacion.py,Orden cronológico del análisis.
-tabla_saturacion.csv,ID_evidencia,identificador,evidencia,EV-01 a EV-08,vacío no permitido,Generado por curva_saturacion.py,Entrevista utilizada.
-tabla_saturacion.csv,Perfil,categórica nominal,perfil,perfil documentado,vacío no permitido,Generado por curva_saturacion.py,Perfil resumido de la evidencia.
-tabla_saturacion.csv,Codigos_totales,entero,códigos,>= 0,vacío no permitido,Generado por curva_saturacion.py,Número total de códigos de la entrevista.
-tabla_saturacion.csv,Codigos_nuevos,entero,códigos,>= 0 y <= Codigos_totales,vacío no permitido,Generado por curva_saturacion.py,Códigos no observados previamente.
-tabla_saturacion.csv,Acumulado,entero,códigos únicos,>= 0,vacío no permitido,Generado por curva_saturacion.py,Número acumulado de códigos únicos.
-tabla_saturacion.csv,Porcentaje_nuevos,decimal,porcentaje,0-100,vacío no permitido,Generado por curva_saturacion.py,Porcentaje de códigos nuevos.
+codificacion_tercera_ronda.csv,Fragmento,texto,fragmento textual,texto UTF-8 no vacío,vacío no permitido,Transcripciones anonimizadas de tercera ronda,Fragmento utilizado en la codificación temática de ENTR-09 a ENTR-16.
+codificacion_tercera_ronda.csv,Codigo,categórica nominal,código,código temático no vacío,vacío no permitido,Codificación temática,Código asignado al fragmento.
+codificacion_tercera_ronda.csv,Categoria,categórica nominal,categoría,categoría temática documentada,vacío no permitido,Codificación temática,Categoría que agrupa el código.
+codificacion_tercera_ronda.csv,Requisito_derivado,texto/identificador,requisito,requisito asociado o vacío,vacío permitido cuando conceptualmente no aplica,Análisis de requisitos,Requisito relacionado con el fragmento cuando existe correspondencia verificable.
+codificacion_tercera_ronda.csv,ID_evidencia,identificador,entrevista,ENTR-09 a ENTR-16,vacío no permitido,Inventario de entrevistas,Identificador seudonimizado de la entrevista de tercera ronda.
+codificacion_tercera_ronda.csv,Analista_codificador,identificador,analista,AVR,vacío no permitido,Registro de codificación,Identificador del analista codificador.
+tabla_saturacion.csv,Orden_global,entero,posición,1-16,vacío no permitido,Generado por curva_saturacion.py,Orden global utilizado en la vista agregada.
+tabla_saturacion.csv,ID_entrevista,identificador,entrevista,ENTR-01 a ENTR-16,vacío no permitido,Generado por curva_saturacion.py,Identificador normalizado de la entrevista para el análisis.
+tabla_saturacion.csv,ID_fuente,identificador,fuente,EV-01 a EV-08 | ENTR-09 a ENTR-16,vacío no permitido,Generado por curva_saturacion.py,Identificador conservado en el archivo fuente de codificación.
+tabla_saturacion.csv,Estrato,categórica nominal,estrato,dominio | contraste,vacío no permitido,Generado por curva_saturacion.py,Estrato metodológico de la entrevista.
+tabla_saturacion.csv,Perfil,categórica nominal,perfil,perfil resumido documentado,vacío no permitido,Generado por curva_saturacion.py,Perfil descriptivo utilizado como etiqueta; no determina estrato técnico/no técnico.
+tabla_saturacion.csv,Fragmentos_codificados,entero,fragmentos,>= 1,vacío no permitido,Generado por curva_saturacion.py,Número de fragmentos codificados de la entrevista.
+tabla_saturacion.csv,Codigos_unicos_entrevista,entero,códigos,>= 1,vacío no permitido,Generado por curva_saturacion.py,Número de códigos distintos observados dentro de la entrevista.
+tabla_saturacion.csv,Codigos_nuevos_estrato,entero,códigos,>= 0,vacío no permitido,Generado por curva_saturacion.py,Códigos que aparecen por primera vez dentro de su propio estrato.
+tabla_saturacion.csv,Codigos_acumulados_estrato,entero,códigos únicos,>= 0,vacío no permitido,Generado por curva_saturacion.py,Total acumulado de códigos únicos dentro del estrato.
+tabla_saturacion.csv,Codigos_nuevos_agregado,entero,códigos,>= 0,vacío no permitido,Generado por curva_saturacion.py,Códigos nuevos frente a todas las entrevistas anteriores de la vista agregada.
+tabla_saturacion.csv,Codigos_acumulados_agregado,entero,códigos únicos,>= 0,vacío no permitido,Generado por curva_saturacion.py,Total acumulado de códigos únicos en la vista agregada.

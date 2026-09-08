@@ -1,40 +1,48 @@
-# Datos crudos
+# Datos crudos y fuente histórica
 
-**Estado: parcialmente poblada.** Contiene los dos datos crudos ya existentes,
-centralizados aquí como fuente canónica. Los datos crudos del componente
-experimental siguen pendientes de la ejecución del protocolo.
+**Estado:** parcialmente poblada.
 
-Esta carpeta alojará los datos en bruto del componente experimental, tal como se
-obtengan, sin transformación alguna.
+La carpeta conserva las fuentes primarias disponibles y, por razones de
+trazabilidad histórica, un artefacto de codificación temprana cuya ubicación no
+se cambia durante el cierre.
 
 ## Principio de conservación
 
-El archivo crudo es evidencia primaria y **no se modifica nunca**. Toda limpieza,
-recodificación o anonimización produce un archivo distinto, que se deposita en
-`../datos_procesados/` junto con el script que lo genera. Un dato crudo alterado
-deja de ser verificable.
+Los archivos que constituyen evidencia primaria se conservan sin modificación.
+Las transformaciones posteriores deben producir archivos distintos y quedar
+documentadas.
 
-## Datos crudos que ya existen en el repositorio
+## Contenido actual
 
 | Dato | Ubicación | Naturaleza |
 |---|---|---|
-| Exportación del cuestionario aplicado (62 respuestas) | `07_Datos/datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx` | Exportación directa de Microsoft Forms, intacta |
-| Codificación temática de entrevistas | `07_Datos/datos_crudos/codificacion.csv` | Codificación cualitativa utilizada por la cadena de análisis |
+| Exportación del cuestionario aplicado (62 respuestas) | `07_Datos/datos_crudos/Sistema Inteligente de Mantenimiento de Palma Africana(1-62).xlsx` | Exportación primaria conservada para trazabilidad |
+| Codificación temática de las primeras ocho entrevistas | `07_Datos/datos_crudos/codificacion.csv` | Artefacto analítico histórico, no dato crudo en sentido estricto |
 
-El archivo se conserva aquí como fuente canónica de datos crudos. Su transformación
-está documentada en `08_Publicacion/diccionario_datos.md`.
+### Aclaración sobre `codificacion.csv`
 
-## Contenido previsto
+`codificacion.csv` fue ubicado históricamente en `datos_crudos/`, pero su
+contenido corresponde a una codificación cualitativa derivada.
 
-- Salidas sin procesar de las ejecuciones del modelo de lenguaje sobre las
-  transcripciones.
-- Registros de tiempo y de identificación de tratamiento por unidad experimental.
-- Cualquier medición registrada durante la ejecución del protocolo descrito en
-  `../../06_Experimento/protocolo.pdf`.
+Durante el cierre no se mueve ni se reescribe, para no alterar innecesariamente
+su trazabilidad histórica. El análisis actualizado lo consume como fuente
+heredada y combina sus resultados con:
 
-## Estado de las dependencias
+`../datos_procesados/codificacion_tercera_ronda.csv`
 
-El experimento aún no se ha ejecutado, de modo que estos datos todavía no
-existen. No se depositan datos sintéticos, simulados ni de ejemplo en esta
-carpeta: un archivo con forma de dato crudo que no procede de una medición real
-es indistinguible de un dato fabricado una vez que pasa al análisis.
+El archivo histórico conserva:
+
+- identificadores `EV-01` a `EV-08`;
+- 138 fragmentos;
+- 68 códigos únicos;
+- analista `VER`.
+
+El mapeo hacia `ENTR-01` a `ENTR-08` ocurre únicamente dentro del script de
+análisis y de la tabla de resultados.
+
+## Datos pendientes del experimento humano–LLM
+
+Los datos crudos específicos del experimento comparativo todavía dependen de la
+ejecución del protocolo.
+
+No se depositan datos sintéticos o simulados para aparentar esa ejecución.

@@ -7,7 +7,9 @@ utilizados por `07_Datos/`.
 
 Desde la raíz del repositorio:
 
-`python 07_Datos/scripts/run_all.py`
+```bash
+python 07_Datos/scripts/run_all.py
+```
 
 El orquestador ejecuta:
 
@@ -16,23 +18,49 @@ El orquestador ejecuta:
 3. `curva_saturacion.py`
 
 La ejecución reproduce y verifica los datasets procesados y los resultados de
-saturación disponibles actualmente.
+saturación disponibles.
 
 ## Scripts
 
 - `run_all.py`: punto de entrada único de la cadena reproducible.
 - `anonimizar_encuesta.py`: genera `respuestas_anonimizadas.csv`.
 - `preparar_dataset_zenodo_agregado.py`: genera el dataset agregado de Zenodo.
-- `curva_saturacion.py`: genera la tabla y figuras de saturación.
+- `curva_saturacion.py`: integra los dos bloques reales de codificación y genera
+  la tabla de 16 entrevistas y tres curvas de saturación.
 - `generar_fichas.py`: utilidad para fichas técnicas de archivos audiovisuales.
 
-`generar_fichas.py` no forma parte de la ejecución automática de `run_all.py`,
-porque requiere como entrada una carpeta de material audiovisual y pertenece al
-flujo de documentación de evidencias.
+`generar_fichas.py` no forma parte de la ejecución automática de `run_all.py`
+porque requiere como entrada material audiovisual y pertenece al flujo de
+documentación de evidencias.
+
+## Análisis de saturación
+
+`curva_saturacion.py` utiliza:
+
+- `../datos_crudos/codificacion.csv` para el estrato de dominio;
+- `../datos_procesados/codificacion_tercera_ronda.csv` para el estrato de contraste.
+
+Genera:
+
+- `../resultados/tabla_saturacion.csv`
+- `../resultados/curva_saturacion_dominio.png/.pdf`
+- `../resultados/curva_saturacion_contraste.png/.pdf`
+- `../resultados/curva_saturacion_agregada.png/.pdf`
+
+La vista agregada es descriptiva; dominio y contraste se interpretan
+separadamente.
 
 ## Estado
 
-La cadena disponible fue ejecutada y verificada localmente el 2026-09-03.
+La cadena ampliada fue ejecutada y verificada localmente el 2026-09-07.
+
+La verificación confirmó:
+
+- 62 × 34 en respuestas anonimizadas;
+- 64 × 7 en el dataset agregado de Zenodo;
+- 16 × 11 en la tabla de saturación;
+- 79 códigos únicos agregados;
+- conservación del SHA-256 publicado del dataset Zenodo.
 
 El experimento comparativo humano–LLM permanece pendiente y `run_all.py` no
 genera resultados simulados para ese componente.

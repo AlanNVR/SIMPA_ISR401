@@ -1,39 +1,50 @@
 # Datos procesados
 
-**Estado: pendiente para el experimento — el único dato procesado existente
-reside en `07_Publicacion/` junto a su diccionario.**
+Esta carpeta contiene conjuntos derivados y documentados utilizados por la
+cadena reproducible de `07_Datos/`.
 
-Esta carpeta alojará los conjuntos derivados del componente experimental: los
-datos crudos ya limpiados, recodificados y listos para el análisis.
+## Contenido actual
+
+| Dato | Naturaleza | Generación / procedencia |
+|---|---|---|
+| `respuestas_anonimizadas.csv` | Cuestionario anonimizado, 62 filas × 34 columnas | Generado por `../scripts/anonimizar_encuesta.py` desde el XLSX crudo |
+| `respuestas_zenodo_agregadas.csv` | Distribuciones agregadas para publicación, 64 filas × 7 columnas | Generado por `../scripts/preparar_dataset_zenodo_agregado.py` |
+| `codificacion_tercera_ronda.csv` | Codificación temática de `ENTR-09` a `ENTR-16`, 89 fragmentos | Elaborada a partir de transcripciones anonimizadas y revisada de forma cruzada |
+
+También se conserva:
+
+`diccionario_codificacion_tercera_ronda.csv`
+
+como diccionario específico del bloque de codificación de tercera ronda.
+
+## Codificación de tercera ronda
+
+`codificacion_tercera_ronda.csv` contiene:
+
+- 8 entrevistas;
+- 89 fragmentos;
+- 31 códigos distintos;
+- 20 códigos compartidos con la codificación histórica;
+- 11 códigos nuevos frente al estrato de dominio;
+- analista `AVR`.
+
+Su fuente documental son las transcripciones anonimizadas versionadas en
+`02_Evidencias/Transcripciones/`.
+
+Se integra a la cadena mediante `../scripts/curva_saturacion.py`.
 
 ## Regla de reproducibilidad
 
-Ningún archivo entra en esta carpeta sin cumplir tres condiciones:
+Las transformaciones automáticas deben poder regenerarse desde su fuente y el
+script correspondiente.
 
-1. Procede de un archivo de `../datos_crudos/`, que permanece intacto.
-2. Existe el script versionado que lo produce, en `../scripts/`.
-3. La transformación aplicada está documentada en un diccionario de datos.
+La codificación temática es un producto analítico humano: no se presenta como
+salida automática. Su trazabilidad se mantiene mediante los fragmentos
+codificados, el identificador de entrevista y el analista registrado.
 
-Si un archivo procesado no puede regenerarse ejecutando su script sobre el dato
-crudo, no es un dato procesado: es un dato nuevo.
+## Experimento humano–LLM
 
-## Datos procesados que ya existen en el repositorio
+Los conjuntos analíticos específicos del experimento comparativo permanecen
+pendientes porque dicho experimento todavía no ha sido ejecutado completamente.
 
-| Dato | Ubicación | Script que lo genera | Diccionario |
-|---|---|---|---|
-| Respuestas del cuestionario anonimizadas (62 registros, 34 columnas) | `07_Datos/datos_procesados/respuestas_anonimizadas.csv` | `07_Datos/scripts/anonimizar_encuesta.py` | `07_Publicacion/diccionario_datos.md` |
-
-Se mantiene en `07_Publicacion/` porque forma parte del paquete destinado al
-depósito abierto, cuya integridad se verifica con
-`07_Publicacion/checksums_paquete.sha256`. No se duplica aquí.
-
-## Contenido previsto
-
-- Conjunto analítico del experimento, una fila por unidad experimental.
-- Corpus de salidas del modelo de lenguaje, normalizado y etiquetado.
-- Diccionario de datos correspondiente.
-
-## Estado de las dependencias
-
-Depende de que existan datos crudos del experimento, que a su vez dependen de la
-ejecución del protocolo. Ambas cosas están pendientes.
+No se crean datasets sintéticos para sustituir esa evidencia.

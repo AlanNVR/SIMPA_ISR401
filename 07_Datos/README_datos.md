@@ -35,12 +35,9 @@ El primer nivel de esta carpeta está definido como:
 - `desviaciones.md`
 - `registro_deposito.md`
 
-`checksums_datos.sha256` se generará cuando el contenido del paquete quede
-estabilizado.
+## 3. Fuentes de datos
 
-## 3. Datos crudos
-
-### 3.1. Cuestionario
+### 3.1 Cuestionario
 
 Archivo:
 
@@ -52,25 +49,49 @@ participantes.
 Se conserva para trazabilidad y reproducibilidad, pero está excluido del
 depósito abierto. Consulte `LICENSE-DATA.txt`.
 
-### 3.2. Codificación temática
+### 3.2 Codificación temática histórica — estrato de dominio
 
 Archivo:
 
 `datos_crudos/codificacion.csv`
 
-Contiene la codificación temática actualmente disponible para EV-01 a EV-08.
+Contiene la codificación histórica de las primeras ocho entrevistas. Su
+ubicación se conserva por trazabilidad histórica; aunque se encuentra bajo
+`datos_crudos/`, se reconoce que es un artefacto analítico derivado y no una
+captura primaria sin transformación.
 
-La ejecución vigente del análisis produce:
+Esta fuente contiene:
 
+- 8 entrevistas de dominio;
 - 138 fragmentos codificados;
 - 68 códigos únicos.
 
-La cobertura pendiente de entrevistas posteriores se documenta en
-`desviaciones.md`.
+Para el análisis actual, los identificadores históricos `EV-01` a `EV-08` se
+mapean únicamente en la salida analítica a `ENTR-01` a `ENTR-08`. El archivo
+histórico no se reescribe.
+
+### 3.3 Codificación temática de tercera ronda — estrato de contraste
+
+Archivo:
+
+`datos_procesados/codificacion_tercera_ronda.csv`
+
+Contiene la codificación de `ENTR-09` a `ENTR-16`, revisada de forma cruzada
+antes de integrarla al análisis de saturación.
+
+Esta fuente contiene:
+
+- 8 entrevistas de contraste;
+- 89 fragmentos codificados;
+- 31 códigos temáticos distintos;
+- 20 códigos compartidos con el estrato de dominio;
+- 11 códigos que aparecen por primera vez en el estrato de contraste.
+
+El identificador del analista de este bloque es `AVR`.
 
 ## 4. Datos procesados
 
-### 4.1. Respuestas anonimizadas
+### 4.1 Respuestas anonimizadas
 
 Archivo:
 
@@ -80,10 +101,15 @@ Se genera desde el XLSX crudo mediante:
 
 `07_Datos/scripts/anonimizar_encuesta.py`
 
+La ejecución vigente produce:
+
+- 62 filas;
+- 34 columnas.
+
 El procesamiento elimina columnas identificativas y artefactos del formulario
 sin imputar ni modificar las respuestas sustantivas.
 
-### 4.2. Dataset agregado para Zenodo
+### 4.2 Dataset agregado para Zenodo
 
 Archivo:
 
@@ -115,34 +141,61 @@ Actualmente incluyen:
 - `anonimizar_encuesta.py`
 - `preparar_dataset_zenodo_agregado.py`
 - `curva_saturacion.py`
+- `run_all.py`
 - `generar_fichas.py`
 
-Estos archivos constituyen las copias canónicas de los scripts de datos y
-análisis dentro del repositorio.
+`run_all.py` es el punto de entrada de la cadena reproducible.
 
-## 6. Resultados
+## 6. Resultados del análisis de saturación
 
 Los resultados reproducibles se encuentran en:
 
 `07_Datos/resultados/`
 
-Actualmente están disponibles los productos del análisis de saturación:
+La ejecución actual genera:
 
 - `tabla_saturacion.csv`
-- `curva_saturacion.png`
-- `curva_saturacion.pdf`
+- `curva_saturacion_dominio.png`
+- `curva_saturacion_dominio.pdf`
+- `curva_saturacion_contraste.png`
+- `curva_saturacion_contraste.pdf`
+- `curva_saturacion_agregada.png`
+- `curva_saturacion_agregada.pdf`
 
 Se regeneran mediante:
 
 `07_Datos/scripts/curva_saturacion.py`
 
-La ejecución vigente procesa la codificación real de EV-01 a EV-08 y produce:
+### 6.1 Resultado global verificado
 
-- 138 fragmentos codificados;
-- 68 códigos únicos.
+La ejecución del 2026-09-07 produjo:
 
-Estos resultados corresponden al análisis cualitativo de entrevistas y no al
-experimento comparativo humano–LLM prerregistrado.
+- 138 fragmentos en el estrato de dominio;
+- 89 fragmentos en el estrato de contraste;
+- 227 fragmentos en total;
+- 68 códigos únicos en dominio;
+- 31 códigos únicos en contraste;
+- 20 códigos compartidos entre ambos estratos;
+- 11 códigos nuevos exclusivos del contraste frente al dominio;
+- 79 códigos únicos en la vista agregada.
+
+### 6.2 Interpretación por estratos
+
+La adenda A.14 establece que la mezcla indiferenciada de poblaciones puede
+introducir una inflexión artificial en la curva de saturación.
+
+Por esa razón se reportan tres vistas:
+
+1. **Estrato de dominio:** `ENTR-01` a `ENTR-08`.
+2. **Estrato de contraste:** `ENTR-09` a `ENTR-16`.
+3. **Vista agregada:** las 16 entrevistas en orden, utilizada únicamente como
+   descripción global.
+
+La vista agregada no se interpreta como evidencia de una saturación homogénea
+entre poblaciones distintas.
+
+La clasificación adicional como técnico/no técnico no se infiere a partir del
+cargo o condición de docente/estudiante.
 
 ## 7. Experimento humano–LLM
 
@@ -160,11 +213,10 @@ Por esta razón, no se presentan como resultados reales:
 - tamaño del efecto con IC del 95 %;
 - análisis estadístico final del experimento.
 
-No se generan cifras hipotéticas o simuladas para completar estos entregables.
+Los resultados de `07_Datos/resultados/` corresponden al análisis cualitativo
+de entrevistas y no al experimento comparativo humano–LLM.
 
-El estado y las limitaciones asociadas se registran en:
-
-`desviaciones.md`
+No se generan cifras hipotéticas o simuladas para completar esos entregables.
 
 ## 8. Diccionario de datos
 
@@ -172,12 +224,17 @@ El archivo:
 
 `diccionario_datos.csv`
 
-documenta 54 columnas pertenecientes a cuatro conjuntos:
+documenta los conjuntos de datos y resultados utilizados por la cadena
+reproducible.
+
+Tras integrar la tercera ronda y la tabla de saturación estratificada, el
+diccionario cubre 64 columnas pertenecientes a cinco conjuntos:
 
 - `respuestas_anonimizadas.csv`: 34 columnas;
 - `respuestas_zenodo_agregadas.csv`: 7 columnas;
 - `codificacion.csv`: 6 columnas;
-- `tabla_saturacion.csv`: 7 columnas.
+- `codificacion_tercera_ronda.csv`: 6 columnas;
+- `tabla_saturacion.csv`: 11 columnas.
 
 Para cada columna se documenta:
 
@@ -192,51 +249,49 @@ Para cada columna se documenta:
 
 ## 9. Reproducibilidad
 
-La cadena de datos y análisis actualmente disponible se ejecuta mediante un
-único punto de entrada:
+La cadena de datos y análisis se ejecuta mediante:
 
 `07_Datos/scripts/run_all.py`
 
-Ejecución desde la raíz del repositorio:
+Desde la raíz del repositorio:
 
-`python 07_Datos/scripts/run_all.py`
+```bash
+python 07_Datos/scripts/run_all.py
+```
 
-**Estado: implementado y verificado.**
+**Estado: implementado y verificado el 2026-09-07.**
 
 El orquestador ejecuta, en orden:
 
 1. anonimización reproducible del XLSX crudo;
 2. generación del dataset agregado para Zenodo;
-3. análisis de codificación temática y saturación.
+3. análisis de saturación temática estratificado.
 
-La verificación automática comprueba:
+La verificación automática confirma:
 
 - `respuestas_anonimizadas.csv`: 62 filas × 34 columnas;
 - `respuestas_zenodo_agregadas.csv`: 64 filas × 7 columnas;
-- `tabla_saturacion.csv`: 8 filas × 7 columnas;
-- SHA-256 del dataset Zenodo publicado:
+- `tabla_saturacion.csv`: 16 filas × 11 columnas;
+- 8 entrevistas en el estrato de dominio;
+- 8 entrevistas en el estrato de contraste;
+- 79 códigos agregados al cierre;
+- SHA-256 del dataset Zenodo:
   `b40ab460fc1d3d931beebaf5dd3037f564db8774559feee1ec1d371fa01b39b9`.
-
-Dos ejecuciones consecutivas fueron verificadas con salidas idénticas para la
-tabla y las figuras de saturación.
 
 El orquestador ejecuta únicamente análisis respaldados por datos reales y no
 genera resultados del experimento humano–LLM todavía pendiente.
 
 ## 10. Integridad
 
-El manifiesto específico del paquete será:
+El manifiesto específico del paquete es:
 
 `checksums_datos.sha256`
 
-Este archivo se generará después de estabilizar el contenido definitivo de
-`07_Datos/`.
+Debe regenerarse después de estabilizar los cambios de esta carpeta para que
+incluya la codificación de tercera ronda, la documentación actualizada y las
+tres curvas de saturación vigentes.
 
-No se mantiene durante cada cambio intermedio de la reestructuración para evitar
-registrar hashes transitorios.
-
-Una vez creado, deberá permitir verificar la integridad de los componentes
-versionados del paquete de datos mediante SHA-256.
+Una vez regenerado, debe verificarse mediante SHA-256.
 
 ## 11. Licencia y privacidad
 
@@ -272,13 +327,13 @@ La carpeta:
 
 `08_Publicacion/dataset_zenodo/`
 
-se conserva como snapshot histórico congelado y no debe modificarse para adaptar
-su contenido a reorganizaciones posteriores del repositorio.
+se conserva como snapshot histórico congelado y no debe modificarse para
+adaptar su contenido a reorganizaciones posteriores del repositorio.
 
 ## 13. Desviaciones y limitaciones
 
-Las desviaciones, limitaciones metodológicas y pendientes conocidos se registran
-en:
+Las desviaciones, limitaciones metodológicas y pendientes conocidos se
+registran en:
 
 `desviaciones.md`
 

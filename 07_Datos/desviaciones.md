@@ -2,7 +2,7 @@
 
 Proyecto SIMPA — Sistema Inteligente de Mantenimiento de Palma Africana
 Equipo AHMRV
-Fecha de actualización: 2026-09-06
+Fecha de actualización: 2026-09-07
 
 Este documento registra únicamente desviaciones, limitaciones y estados
 verificados del trabajo realizado. No contiene resultados simulados ni
@@ -29,11 +29,11 @@ para alcanzar la potencia objetivo bajo esos supuestos.
 No se incrementará artificialmente el tamaño muestral mediante duplicación de
 requisitos u observaciones.
 
-Esta condición deberá reportarse como amenaza a la validez de conclusión
-cuando se ejecute el experimento.
+Esta condición deberá reportarse como amenaza a la validez de conclusión cuando
+se ejecute el experimento.
 
 **Fuente documental:**
-`06_Experimento/readme.md` y protocolo prerregistrado.
+`06_Experimento/readme.md` y protocolo experimental.
 
 ---
 
@@ -54,40 +54,61 @@ En consecuencia, actualmente no se presentan como resultados reales:
 - análisis estadístico final del experimento;
 - conclusiones derivadas de dicho experimento.
 
-Los resultados actualmente existentes dentro de `07_Datos/resultados/`
-pertenecen al análisis de codificación temática y saturación de entrevistas y
-no deben confundirse con los resultados del experimento humano–LLM.
+Los resultados existentes dentro de `07_Datos/resultados/` pertenecen al
+análisis de codificación temática y saturación de entrevistas y no deben
+confundirse con los resultados del experimento humano–LLM.
 
 No se incorporarán cifras hipotéticas para completar los entregables.
 
 ---
 
-## D-03 — Codificación temática limitada a EV-01–EV-08
+## D-03 — Codificación temática limitada inicialmente a las primeras ocho entrevistas
 
-**Estado:** abierta.
+**Estado:** cerrada el 2026-09-07.
 
-La versión actualmente documentada de:
+La versión histórica de:
 
 `07_Datos/datos_crudos/codificacion.csv`
 
-contiene la codificación real disponible para las evidencias EV-01 a EV-08.
+continúa conservando la codificación de las primeras ocho entrevistas:
 
-La ejecución de:
+- 138 fragmentos;
+- 68 códigos únicos;
+- identificadores históricos `EV-01` a `EV-08`.
+
+La tercera ronda se codificó de forma separada en:
+
+`07_Datos/datos_procesados/codificacion_tercera_ronda.csv`
+
+con:
+
+- `ENTR-09` a `ENTR-16`;
+- 89 fragmentos;
+- 31 códigos distintos;
+- 20 códigos ya presentes en el estrato de dominio;
+- 11 códigos nuevos frente al estrato de dominio.
+
+El script:
 
 `07_Datos/scripts/curva_saturacion.py`
 
-produce actualmente:
+integra ambas fuentes sin reescribir la codificación histórica.
 
-- 138 fragmentos codificados;
-- 68 códigos únicos;
-- análisis de ocho evidencias.
+La ejecución verificada produce:
 
-Aunque el proyecto dispone de entrevistas adicionales, EV-09 a EV-16 no están
-incorporadas todavía en la codificación temática versionada.
+- 227 fragmentos totales;
+- 79 códigos únicos en la vista agregada;
+- 8 entrevistas en el estrato de dominio;
+- 8 entrevistas en el estrato de contraste;
+- tres curvas separadas: dominio, contraste y agregada;
+- `tabla_saturacion.csv` con 16 filas × 11 columnas.
 
-Por esta razón, el script y la curva permanecen limitados a las ocho evidencias
-efectivamente codificadas. No se añaden entrevistas a la secuencia sin contar
-con una codificación real asociada.
+La separación por estratos responde a la medida metodológica declarada en la
+adenda A.14 frente al riesgo de contaminar la interpretación de saturación al
+mezclar poblaciones diferentes.
+
+La vista agregada se conserva como descripción global y no como prueba de
+saturación homogénea.
 
 ---
 
@@ -136,28 +157,32 @@ La restricción está documentada también en `07_Datos/LICENSE-DATA.txt`.
 
 ## D-06 — Orquestador único de análisis
 
-**Estado:** cerrada el 2026-09-03.
+**Estado:** cerrada; verificación ampliada el 2026-09-07.
 
 Se implementó:
 
 `07_Datos/scripts/run_all.py`
 
-La cadena reproducible disponible puede ejecutarse desde la raíz mediante:
+La cadena reproducible puede ejecutarse desde la raíz mediante:
 
-`python 07_Datos/scripts/run_all.py`
+```bash
+python 07_Datos/scripts/run_all.py
+```
 
-La ejecución fue verificada sobre los datos reales y reproduce:
+La ejecución verificada sobre datos reales reproduce y comprueba:
 
 - 62 filas × 34 columnas en `respuestas_anonimizadas.csv`;
 - 64 filas × 7 columnas en `respuestas_zenodo_agregadas.csv`;
-- 8 filas × 7 columnas en `tabla_saturacion.csv`;
-- el SHA-256 publicado del dataset agregado de Zenodo.
+- 16 filas × 11 columnas en `tabla_saturacion.csv`;
+- 8 entrevistas de dominio;
+- 8 entrevistas de contraste;
+- 79 códigos agregados al cierre;
+- el SHA-256 publicado del dataset agregado de Zenodo:
+  `b40ab460fc1d3d931beebaf5dd3037f564db8774559feee1ec1d371fa01b39b9`.
 
-También se verificaron dos ejecuciones consecutivas con resultados idénticos
-para los productos de saturación.
-
-Esta desviación queda cerrada sin extender el alcance al experimento
-humano–LLM todavía pendiente.
+La ampliación de la cadena incorpora la codificación real de la tercera ronda y
+las tres vistas de saturación sin extender el alcance al experimento humano–LLM
+todavía pendiente.
 
 ---
 
@@ -166,8 +191,8 @@ humano–LLM todavía pendiente.
 **Estado:** control deliberado de integridad, documentado el 2026-09-06.
 
 Los seis archivos de `08_Publicacion/dataset_zenodo/` citan rutas con el prefijo
-`AHMRV/` y la numeración `07_Publicacion`, ambas eliminadas en la reestructuración
-del repositorio del 2026-09-03.
+`AHMRV/` y la numeración histórica `07_Publicacion`, eliminadas en la
+reestructuración del repositorio.
 
 Su `readme.md` declara además el DOI como reservado y la publicación como
 pendiente, estado que era correcto al momento de la carga.
@@ -176,17 +201,12 @@ Estas referencias no se corrigen. El manifiesto:
 
 `08_Publicacion/dataset_zenodo/checksums_zenodo.sha256`
 
-incluye el hash del propio `readme.md` de la carpeta, por lo que cualquier edición
-del snapshot invalidaría la correspondencia con el material efectivamente
-depositado bajo el DOI `10.5281/zenodo.22236500`, publicado el 2026-09-01 como
-versión 2.0.
+incluye el hash del propio `readme.md` de la carpeta, por lo que editar el
+snapshot rompería la correspondencia con el material efectivamente depositado
+bajo el DOI `10.5281/zenodo.22236500`.
 
-**Medida aplicada.** La equivalencia entre rutas históricas y rutas vigentes, junto
-con el estado real de publicación del depósito, se documenta en
-`08_Publicacion/readme.md`, fuera del snapshot.
-
-**Verificación.** Tras la edición, `sha256sum -c checksums_zenodo.sha256` ejecutado
-desde `08_Publicacion/dataset_zenodo/` devuelve 5 de 5 OK.
+La equivalencia entre rutas históricas y rutas vigentes, junto con el estado
+real de publicación del depósito, se documenta fuera del snapshot.
 
 ---
 
@@ -195,6 +215,6 @@ desde `08_Publicacion/dataset_zenodo/` devuelve 5 de 5 OK.
 Una desviación solo puede marcarse como cerrada cuando exista evidencia
 versionada que demuestre su resolución.
 
-La eliminación de una entrada de este registro no sustituye su cierre:
-las desviaciones resueltas deben conservarse con su estado actualizado para
-mantener trazabilidad histórica.
+La eliminación de una entrada de este registro no sustituye su cierre: las
+desviaciones resueltas deben conservarse con su estado actualizado para mantener
+trazabilidad histórica.
