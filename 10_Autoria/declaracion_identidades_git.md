@@ -133,3 +133,18 @@ Esta comprobación se incorpora a la rutina de cierre del repositorio.
 
 El resultado debe mostrar seis líneas, una por integrante del equipo AHMRV, sin
 ninguna identidad ajena al equipo.
+
+---
+
+## Versión firmada
+
+Este documento fue impreso, firmado a mano por los seis integrantes y
+escaneado. La copia pública, con firma y cédula enmascaradas, es
+`2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf`, en esta misma carpeta.
+El original sin enmascarar se deposita cifrado en el repositorio
+complementario, contenedor `Declaracion_Identidades_git_original.7z`, con su
+fila propia en `../02_Evidencias/00_Restringido/fichas_tecnicas.csv` bajo el
+código `CONSOLIDADA-EQUIPO`.
+
+Las líneas de firma de este archivo permanecen en blanco a propósito: el
+documento con valor probatorio es el PDF escaneado, no esta fuente.
