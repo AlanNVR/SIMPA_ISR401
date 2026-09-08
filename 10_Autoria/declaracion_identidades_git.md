@@ -42,7 +42,7 @@ corresponde a commits realizados por mí, bajo el mismo correo institucional, en
 entorno de trabajo donde el nombre de usuario de Git local no estaba configurado
 con mi nombre de cuenta principal.
 
-Firma: AllanVillafuerte  C.I.: 1251073951  Fecha: 07/09/2026
+Firma: _____________________  C.I.: _____________________  Fecha: __________
 
 **Macías Herrera Josthyn Esteban** — Confirmo que la cuenta de GitHub `artyjmt`
 (ID 117947536, correo `117947536+artyjmt@users.noreply.github.com`) es de mi
@@ -52,7 +52,7 @@ incorporaciones de archivos) los realicé yo, subiendo los cambios directamente
 desde la interfaz web de GitHub en lugar de mi entorno local configurado con
 `jmaciasherr4`.
 
-Firma: josthynmacias  C.I.: 1206991026  Fecha: 7/09/2026
+Firma: _____________________  C.I.: _____________________  Fecha: __________
 
 **Arboleda Yanza Francisco Javier** — Confirmo que `farboleda074-oss
 <farboleda074@gmail.com>` corresponde a commits realizados por mí desde una
