@@ -42,7 +42,7 @@ SIMPA_ISR401/
 ├── 03_Modelado/       13 diagramas UML e i* en PlantUML (PNG y SVG) + mockups
 ├── 04_Trazabilidad/   Matriz extremo a extremo, matriz CSV, backlog de Jira, priorización
 ├── 05_MVP/            Documentación del prototipo y puntero al repositorio de código
-├── 06_Experimento/    Protocolo, registro previo en OSF, consignas de LLM
+├── 06_Experimento/    Protocolo, registro OSF con alcance temporal aclarado, consignas de LLM
 ├── 07_Datos/          Paquete de datos: crudos, procesados, scripts, resultados, diccionario
 ├── 08_Publicacion/    Manuscrito LNCS, evaluación FAIR, instantánea del depósito Zenodo
 ├── 09_Etica/          Anexos A01–A14, adendas, documentación de Categoría C
@@ -160,13 +160,23 @@ python 07_Datos/scripts/run_all.py
 La cadena parte de los datos crudos y regenera todo lo derivado:
 
 ```
-XLSX del cuestionario  → anonimizar_encuesta.py            → respuestas_anonimizadas.csv
-                       → preparar_dataset_zenodo_agregado.py → respuestas_zenodo_agregadas.csv
-codificacion.csv       → curva_saturacion.py               → tabla_saturacion.csv
-                                                           → curva_saturacion.png / .pdf
+XLSX del cuestionario
+  → anonimizar_encuesta.py
+  → respuestas_anonimizadas.csv
+
+XLSX del cuestionario
+  → preparar_dataset_zenodo_agregado.py
+  → respuestas_zenodo_agregadas.csv
+
+codificacion.csv + codificacion_tercera_ronda.csv
+  → curva_saturacion.py
+  → tabla_saturacion.csv
+  → curva_saturacion_dominio.png / .pdf
+  → curva_saturacion_contraste.png / .pdf
+  → curva_saturacion_agregada.png / .pdf
 ```
 
-**Resultado esperado:** 62 × 34, 64 × 7 y 8 × 7 respectivamente.
+**Resultado esperado:** 62 × 34 en respuestas anonimizadas, 64 × 7 en el dataset agregado para Zenodo y 16 × 11 en la tabla de saturación. El análisis integra 16 entrevistas y cierra con 79 códigos únicos en la vista agregada.
 
 Verificar la integridad de lo regenerado:
 
@@ -182,11 +192,13 @@ Cada columna de cada conjunto está documentada en [`07_Datos/diccionario_datos.
 
 ## Estudio empírico
 
-El protocolo está registrado en OSF con fecha anterior a cualquier recolección de datos. El material reside en `06_Experimento/`.
+El protocolo experimental está registrado públicamente en OSF y el material reside en `06_Experimento/`.
 
-**Estado: protocolo diseñado y preregistrado; ejecución pendiente.** El cuasi-experimento comparativo requiere evaluadores externos y no se ha realizado. En consecuencia, el manuscrito no contiene secciones de resultados ni de discusión, y así lo declara su propio encabezado.
+El alcance temporal del registro está aclarado de forma explícita: es retrospectivo respecto a la recolección del material fuente de entrevistas, pero anterior a la ejecución del experimento comparativo humano–LLM.
 
-Esta limitación se declara en lugar de suplirse con cifras estimadas.
+**Estado: protocolo diseñado y registrado públicamente; experimento humano–LLM pendiente.** El cuasi-experimento requiere evaluadores externos y no se ha realizado. En consecuencia, no se presentan resultados experimentales inventados ni se atribuye al registro una condición de prerregistro de las entrevistas ya realizadas.
+
+Esta limitación se declara de forma transparente en lugar de suplirse con cifras estimadas.
 
 ---
 
