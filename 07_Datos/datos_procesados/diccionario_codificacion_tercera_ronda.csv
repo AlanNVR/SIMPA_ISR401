@@ -1,0 +1,7 @@
+dataset;columna;tipo;unidad;rango_admisible;codificacion_perdidos;procedencia;descripcion
+codificacion_tercera_ronda.csv;Fragmento;texto;fragmento textual;texto UTF-8 no vacio;vacio no permitido;Transcripciones anonimizadas ENTR-09 a ENTR-16;Fragmento analitico resumido utilizado en la codificacion tematica
+codificacion_tercera_ronda.csv;Codigo;categorica nominal;codigo;codigo tematico no vacio;vacio no permitido;Codificacion tematica;Codigo asignado al fragmento
+codificacion_tercera_ronda.csv;Categoria;categorica nominal;categoria;categoria tematica documentada;vacio no permitido;Codificacion tematica;Categoria que agrupa el codigo
+codificacion_tercera_ronda.csv;Requisito_derivado;texto/identificador;requisito;RF-XX | RNF-XX | RD-XX | vacio;vacio permitido cuando no existe correspondencia verificable;ERS vigente;Requisito relacionado con el fragmento cuando la asociacion esta sustentada
+codificacion_tercera_ronda.csv;ID_evidencia;identificador;entrevista;ENTR-09 | ENTR-10 | ENTR-11 | ENTR-12 | ENTR-13 | ENTR-14 | ENTR-15 | ENTR-16;vacio no permitido;A.14 y transcripciones anonimizadas;Identificador de la entrevista de origen
+codificacion_tercera_ronda.csv;Analista_codificador;identificador;analista;AVR;vacio no permitido;Registro de codificacion;Identificador del responsable de la codificacion de tercera ronda

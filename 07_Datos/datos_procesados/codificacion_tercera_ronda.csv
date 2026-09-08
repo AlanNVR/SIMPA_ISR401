@@ -1,0 +1,90 @@
+Fragmento;Codigo;Categoria;Requisito_derivado;ID_evidencia;Analista_codificador
+El administrador de la hacienda reparte las labores diarias al personal;SUPERVISION_RECORRIDO;Organizacion del trabajo;RF-03;ENTR-09;AVR
+El control del trabajo se apoya en conteos de avance para determinar lo realizado y el pago;UNIDAD_DE_AVANCE;Registro operativo;RF-28;ENTR-09;AVR
+Se utiliza Avenza Maps para controlar el recorrido del personal;SUPERVISION_RECORRIDO;Organizacion del trabajo;RF-15;ENTR-09;AVR
+La herramienta permite marcar en el lote plantas enfermas o novedades;GEORREFERENCIA_INCIDENCIA;Deteccion de afectaciones;RF-30;ENTR-09;AVR
+Las novedades de campo se reportan mediante capturas compartidas;EVIDENCIA_FOTOGRAFICA;Deteccion de afectaciones;RF-30;ENTR-09;AVR
+Las herramientas nuevas se abandonan cuando el personal no las conoce o no recibe capacitacion;CAPACITACION_USO;Tecnologia;RNF-08;ENTR-09;AVR
+El diagnostico por fotografia con inteligencia artificial serviria como apoyo al criterio tecnico;DIAGNOSTICO_POR_IMAGEN;Tecnologia;RF-07;ENTR-09;AVR
+La recomendacion automatica debe ayudar a confirmar el problema observado en la planta;RECOMENDACION_ACCIONABLE;Tecnologia;RNF-16;ENTR-09;AVR
+Para planificar labores futuras se necesita conocer recorridos y conteos de trabajo realizados;PLANIFICACION_LABORES;Organizacion del trabajo;RF-26;ENTR-09;AVR
+Una aplicacion para personal con poca escolaridad debe ser sencilla;USUARIO_NO_EXPERTO;Tecnologia;RNF-08;ENTR-09;AVR
+La adopcion de la herramienta requiere capacitacion por parte del responsable de la finca;CAPACITACION_USO;Tecnologia;RNF-08;ENTR-09;AVR
+Para organizarse se utilizan aplicaciones informales como notas y mensajeria;CANAL_INFORMAL;Registro operativo;;ENTR-10;AVR
+La falta de una herramienta de registro puede provocar olvidos y perdida de informacion;CANAL_INFORMAL;Registro operativo;;ENTR-10;AVR
+Para decidir actividades se considera util disponer de pronostico y semana de polinizacion;REGISTRO_CLIMA;Clima;RF-17;ENTR-10;AVR
+Para creer una alerta de posible plaga se necesita informacion y fotografias;VERIFICACION_DIAGNOSTICO;Tecnologia;RNF-16;ENTR-10;AVR
+Un error de la aplicacion reduce la confianza, que puede recuperarse con resultados posteriores correctos;CONFIANZA_DIAGNOSTICO;Tecnologia;RNF-16;ENTR-10;AVR
+El registro GPS del recorrido y las zonas cubiertas se considera util;SUPERVISION_RECORRIDO;Organizacion del trabajo;RF-15;ENTR-10;AVR
+Enseñar la herramienta a una persona sin experiencia podria requerir uno o dos dias;CAPACITACION_USO;Tecnologia;RNF-08;ENTR-10;AVR
+La primera pantalla debe mostrar las funciones principales y ofrecer ayuda sobre cada modulo;TUTORIAL_GUIADO;Tecnologia;RNF-08;ENTR-10;AVR
+Los avisos importantes deben ser especificos y de longitud moderada;RECOMENDACION_ACCIONABLE;Tecnologia;RNF-16;ENTR-10;AVR
+Antes de usar funciones como GPS conviene explicar para que sirven;TUTORIAL_GUIADO;Tecnologia;RNF-08;ENTR-10;AVR
+En trabajos agricolas el registro diario se realiza en papel;REGISTRO_PAPEL;Registro operativo;RF-04;ENTR-11;AVR
+La informacion tardia sobre una afectacion permitio que insectos dañaran la plantacion;LATENCIA_VERIFICACION;Deteccion de afectaciones;;ENTR-11;AVR
+Para conocer lo realizado anteriormente se recurre al administrador con experiencia;HISTORIAL_LOTE;Reportes;RF-20;ENTR-11;AVR
+Para decidir se considera util disponer de una fotografia y un informe;EVIDENCIA_FOTOGRAFICA;Deteccion de afectaciones;RF-30;ENTR-11;AVR
+Una alerta de plaga debe incluir evidencia visual y confirmarse en campo;VERIFICACION_DIAGNOSTICO;Tecnologia;RNF-16;ENTR-11;AVR
+Un error de la aplicacion puede llevar al usuario a recurrir a otro metodo;CONFIANZA_DIAGNOSTICO;Tecnologia;RNF-16;ENTR-11;AVR
+El registro GPS del recorrido del personal se considera aceptable;SUPERVISION_RECORRIDO;Organizacion del trabajo;RF-15;ENTR-11;AVR
+La capacitacion inicial para alguien sin experiencia se estima en alrededor de una hora;CAPACITACION_USO;Tecnologia;RNF-08;ENTR-11;AVR
+La primera interfaz debe explicar el funcionamiento y el beneficio de la herramienta;INTERFAZ_SIMPLE;Tecnologia;RNF-08;ENTR-11;AVR
+Los avisos importantes se prefieren acompañados de una fotografia;EVIDENCIA_FOTOGRAFICA;Deteccion de afectaciones;RF-30;ENTR-11;AVR
+Una herramienta que no ayuda a organizar al personal puede ser abandonada;RESISTENCIA_CAMBIO;Tecnologia;RNF-08;ENTR-11;AVR
+El usuario prefiere recibir una explicacion antes de empezar a utilizar la aplicacion;TUTORIAL_GUIADO;Tecnologia;RNF-08;ENTR-11;AVR
+La jornada puede organizarse a partir de una inspeccion y un cronograma de trabajo;PLANIFICACION_LABORES;Organizacion del trabajo;RF-26;ENTR-12;AVR
+Las aplicaciones de control se consideran utiles para obtener resultados con mayor trazabilidad;HISTORIAL_LOTE;Reportes;RF-20;ENTR-12;AVR
+El desconocimiento de una herramienta puede explicar que deje de utilizarse;CAPACITACION_USO;Tecnologia;RNF-08;ENTR-12;AVR
+El tablero principal permite observar lotes, superficie, alertas, avances, produccion y clima;CONSOLIDADO_SEMANAL;Reportes;RF-19;ENTR-12;AVR
+Para personal con poca escolaridad se prefieren elementos interactivos y diagramas reconocibles;INTERFAZ_VISUAL;Tecnologia;RNF-08;ENTR-12;AVR
+La interfaz no deberia depender solo de numeros estadisticos;INTERFAZ_VISUAL;Tecnologia;RNF-08;ENTR-12;AVR
+La herramienta debe adaptarse a una vision sencilla para facilitar su uso;INTERFAZ_SIMPLE;Tecnologia;RNF-08;ENTR-12;AVR
+El estado diario de la plantacion es informacion prioritaria para administrar;MONITOREO_VISUAL;Deteccion de afectaciones;RF-05;ENTR-12;AVR
+La asignacion del trabajo cambia segun el tamaño de la finca, pero responde a una estructura de responsables;EQUIPOS_TRABAJO;Organizacion del trabajo;RF-03;ENTR-13;AVR
+En fincas pequeñas las labores se registran en libreta o agenda;REGISTRO_PAPEL;Registro operativo;RF-04;ENTR-13;AVR
+En fincas grandes las labores agricolas se registran diariamente en un sistema;HISTORIAL_LOTE;Reportes;RF-20;ENTR-13;AVR
+La cosecha se programa cuando se observa desprendimiento de frutos;UMBRAL_DESPRENDIMIENTO;Calidad de la fruta;RF-21;ENTR-13;AVR
+Las condiciones climaticas pueden obligar a reprogramar fertilizacion o control de malezas;REGISTRO_CLIMA;Clima;RF-17;ENTR-13;AVR
+Los reportes meteorologicos complementan la observacion directa del clima para programar actividades;REGISTRO_CLIMA;Clima;RF-17;ENTR-13;AVR
+En fincas grandes los formatos de campo se ingresan al sistema y permiten obtener un informe semanal;CONSOLIDADO_SEMANAL;Reportes;RF-19;ENTR-13;AVR
+La resistencia al cambio puede hacer que el personal abandone una herramienta nueva;RESISTENCIA_CAMBIO;Tecnologia;RNF-08;ENTR-13;AVR
+Una interfaz con graficos y manejo sencillo facilita la adopcion;INTERFAZ_VISUAL;Tecnologia;RNF-08;ENTR-13;AVR
+El diagnostico por inteligencia artificial se considera un apoyo util para el trabajo agricola;DIAGNOSTICO_POR_IMAGEN;Tecnologia;RF-07;ENTR-13;AVR
+Para administrar se requiere conocer labores pendientes, realizadas y calendarios de trabajo;PLANIFICACION_LABORES;Organizacion del trabajo;RF-26;ENTR-13;AVR
+Para personal con poca escolaridad el registro debe resolverse con pocos pasos;INTERFAZ_SIMPLE;Tecnologia;RNF-08;ENTR-13;AVR
+La dificultad principal puede ser lograr que las personas adopten el sistema;RESISTENCIA_CAMBIO;Tecnologia;RNF-08;ENTR-13;AVR
+La organizacion semanal puede documentarse mediante una bitacora firmada por el administrador;PLANIFICACION_LABORES;Organizacion del trabajo;RF-26;ENTR-14;AVR
+Parte del trabajo se registra por escrito y parte se comunica de manera empirica al trabajador;REGISTRO_PAPEL;Registro operativo;RF-04;ENTR-14;AVR
+El control de insumos debe considerar que productos quimicos y fertilizantes lleguen y sean aplicados;CONTROL_INSUMOS;Registro operativo;RF-34;ENTR-14;AVR
+Una plataforma en telefono puede mejorar el control de la finca;SUPERVISION_RECORRIDO;Organizacion del trabajo;RF-15;ENTR-14;AVR
+La falta de practica con una herramienta nueva dificulta su adopcion;RESISTENCIA_CAMBIO;Tecnologia;RNF-08;ENTR-14;AVR
+El diagnostico automatizado debe ser preciso respecto de la necesidad de la planta;CONFIANZA_DIAGNOSTICO;Tecnologia;RNF-16;ENTR-14;AVR
+La administracion requiere tener a mano las labores previstas para la semana siguiente;PLANIFICACION_LABORES;Organizacion del trabajo;RF-26;ENTR-14;AVR
+El uso de GPS presupone que el trabajador disponga de una herramienta adecuada;DISPONIBILIDAD_MOVIL;Tecnologia;RD-01;ENTR-14;AVR
+Parte del personal de campo desconoce el uso de tecnologia;USUARIO_NO_EXPERTO;Tecnologia;RNF-08;ENTR-14;AVR
+Lograr que el personal use la herramienta se percibe mas dificil que desarrollarla;RESISTENCIA_CAMBIO;Tecnologia;RNF-08;ENTR-14;AVR
+Las labores diarias suelen registrarse en reportes de papel;REGISTRO_PAPEL;Registro operativo;RF-04;ENTR-15;AVR
+Los reportes de labores tambien se utilizan para dar seguimiento al pago;TRANSPARENCIA_PAGO;Remuneracion;RF-29;ENTR-15;AVR
+El retraso del papeleo de bodega retrasa la entrega de productos y herramientas necesarios;CONTROL_INSUMOS;Registro operativo;RF-34;ENTR-15;AVR
+Un sistema deberia controlar lo que se necesita, lo que se retira y lo que se entrega;CONTROL_INSUMOS;Registro operativo;RF-34;ENTR-15;AVR
+Para conocer lo realizado en un lote se recurre al personal responsable que lleva el seguimiento;HISTORIAL_LOTE;Reportes;RF-20;ENTR-15;AVR
+La prioridad diaria depende de labores atrasadas, personal disponible y estado de los equipos;PLANIFICACION_LABORES;Organizacion del trabajo;RF-26;ENTR-15;AVR
+Ante una alerta de plaga se debe acudir al lote, monitorear y decidir el control correspondiente;RECOMENDACION_ACCIONABLE;Tecnologia;RNF-16;ENTR-15;AVR
+Un error reduce la confianza, pero avisos posteriores correctos pueden recuperarla;CONFIANZA_DIAGNOSTICO;Tecnologia;RNF-16;ENTR-15;AVR
+El seguimiento GPS por si solo no demuestra que la labor fue realizada;GPS_EVIDENCIA_LABOR;Tecnologia;RF-15;ENTR-15;AVR
+El recorrido georreferenciado deberia complementarse con una fotografia de la labor;GPS_EVIDENCIA_LABOR;Tecnologia;RF-15;ENTR-15;AVR
+Una persona con poca experiencia tecnologica necesita un tutorial con pasos claros;TUTORIAL_GUIADO;Tecnologia;RNF-08;ENTR-15;AVR
+En gran parte del campo no existe señal de internet;CONECTIVIDAD_PARCIAL;Tecnologia;RNF-11;ENTR-15;AVR
+La aplicacion deberia permitir recorrido, fotografia y coordenadas sin conexion y sincronizar despues;OPERACION_OFFLINE;Tecnologia;RNF-11;ENTR-15;AVR
+Las fotografias de campo deberian conservar coordenadas especificas del lugar;GEORREFERENCIA_INCIDENCIA;Deteccion de afectaciones;RF-30;ENTR-15;AVR
+La organizacion del trabajo depende del tamaño de la finca y de su jerarquia administrativa;EQUIPOS_TRABAJO;Organizacion del trabajo;RF-03;ENTR-16;AVR
+En una finca empresarial las actividades se organizan mediante un cronograma;PLANIFICACION_LABORES;Organizacion del trabajo;RF-26;ENTR-16;AVR
+Las enfermedades de los cultivos y los cambios climaticos son problemas frecuentes;ESTACIONALIDAD_PLAGA;Clima;RF-17;ENTR-16;AVR
+La falta de familiarizacion y costumbre puede provocar abandono de una solucion tecnologica;RESISTENCIA_CAMBIO;Tecnologia;RNF-08;ENTR-16;AVR
+Las jornadas de capacitacion son necesarias al introducir tecnologia al personal;CAPACITACION_USO;Tecnologia;RNF-08;ENTR-16;AVR
+Las soluciones deben mantener una usabilidad simple para personal con poca experiencia tecnologica;INTERFAZ_SIMPLE;Tecnologia;RNF-08;ENTR-16;AVR
+Para administrar interesa la trazabilidad de cosecha, parcelas y manejo del fruto;HISTORIAL_LOTE;Reportes;RF-20;ENTR-16;AVR
+El sistema tambien debe permitir consultar trabajadores y sus actividades;SUPERVISION_RECORRIDO;Organizacion del trabajo;RF-15;ENTR-16;AVR
+La interfaz debe minimizar el choque tecnologico de personas con poca escolaridad o costumbre digital;USUARIO_NO_EXPERTO;Tecnologia;RNF-08;ENTR-16;AVR
+Los cambios importantes o nuevas funcionalidades requieren acompañamiento y capacitacion continua;CAPACITACION_USO;Tecnologia;RNF-08;ENTR-16;AVR
+La adopcion por parte de los usuarios se considera mas compleja que el desarrollo tecnico;RESISTENCIA_CAMBIO;Tecnologia;RNF-08;ENTR-16;AVR
