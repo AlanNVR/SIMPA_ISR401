@@ -18,7 +18,7 @@
 | 3 | Requisitos y modelado | 3 | Josthyn | 42 RF, 19 RNF, 18 CU, MoSCoW/Kano, 13 diagramas UML versionados como código |
 | 4 | Componente inteligente | 2 | Allan | 18 requisitos de IA, clasificación de riesgo bajo el Reglamento (UE) 2024/1689 |
 | 5 | **Demostración del prototipo** | 5 | Francisco | Ver `guion_demostracion.md` |
-| 6 | Validación y evidencia | 3 | Edson | Fagan, walkthrough con 6 sesiones, trazabilidad E2E, inventario de 60 archivos verificado |
+| 6 | Validación y evidencia | 3 | Edson | Fagan, walkthrough con 6 sesiones, trazabilidad E2E, inventario de 71 archivos verificado |
 | 7 | Reproducibilidad y FAIR | 2 | Anderson | Zenodo con DOI, 92,31 % FAIR, SWHID, cadena `run_all.py` |
 | 8 | Limitaciones y cierre | 1 | Allan | Qué no se ejecutó y por qué. Correcciones desde la 2B |
 | | **Turno de preguntas** | — | Todos | Ver `preguntas_previsibles.md` |
