@@ -18,6 +18,7 @@ todavía no hayan sido verificados.**
 | Archivo | Qué es |
 |---|---|
 | `aporte_individual.md` | Declaración consolidada del aporte individual verificable de los seis integrantes del equipo AHMRV, sustentada en historial Git, artefactos versionados e identidades documentadas |
+| `retrospectiva.md` | Retrospectiva formal del cierre: problemas, causas, impactos, acciones correctivas, responsables, estado y evidencia verificable |
 | `declaracion_identidades_git.md` | Declaración de identidades Git del equipo, con las correspondencias entre cuentas y personas, y la firma de cada integrante |
 | `2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf` | Copia pública de la declaración firmada, con cédula y firma manuscrita enmascaradas |
 | `registro_reestructuracion_2026-09-03.md` | Resumen y commits de las correcciones realizadas durante la reestructuración del repositorio |

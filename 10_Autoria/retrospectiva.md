@@ -1,0 +1,38 @@
+# Retrospectiva formal del proyecto SIMPA
+
+**Proyecto:** Sistema Inteligente de Mantenimiento de Palma Africana (SIMPA)
+**Equipo:** AHMRV — ISR-401 — UTEQ
+**Período:** 2026–2027 PPA
+**Fecha de consolidación:** 8 de septiembre de 2026
+
+## Propósito
+
+Esta retrospectiva documenta problemas reales detectados durante el cierre del proyecto, sus causas e impactos, las acciones correctivas aplicadas y la evidencia versionada que permite verificarlas.
+
+No se reconstruyen actividades inexistentes ni se incorporan evidencias retrospectivas que no puedan comprobarse mediante artefactos, commits o documentos del repositorio.
+
+## Registro de retrospectiva
+
+| Problema detectado | Causa | Impacto | Acción correctiva aplicada | Responsable(s) | Estado | Evidencia verificable |
+|---|---|---|---|---|---|---|
+| La codificación temática y el análisis de saturación cubrían inicialmente solo las primeras ocho entrevistas, aunque la tercera ronda amplió el corpus a 16. | La tercera ronda fue realizada después de la construcción inicial de la cadena de análisis y sus nuevos datos todavía no habían sido integrados al cálculo de saturación. | La curva existente no representaba el corpus completo y no permitía analizar por separado el estrato de dominio y el estrato de contraste comprometidos metodológicamente. | Se codificaron ENTR-09 a ENTR-16, se integraron ambas rondas en la cadena reproducible y se generaron curvas separadas de dominio, contraste y vista agregada, además de una tabla de saturación de 16 entrevistas. | Villafuerte Rosero Allan Noe; revisión cruzada de la codificación por Macías Herrera Josthyn Esteban. | Cerrado | Commits `cbcdab5` — `Codificar entrevistas de tercera ronda` y `5337230` — `feat: integrar analisis de saturacion de 16 entrevistas`; `07_Datos/datos_procesados/codificacion_tercera_ronda.csv`; `07_Datos/resultados/tabla_saturacion.csv`. |
+| Las decisiones derivadas del member-checking permanecieron inicialmente como propuestas pendientes de ratificación y sin responsable definitivo. | El documento fue elaborado primero como registro de hallazgos y requería una decisión posterior del equipo antes de convertir las propuestas en acciones formales. | No era posible propagar legítimamente las correcciones al manuscrito ni declarar cerradas las discrepancias mientras continuaran en estado provisional. | El equipo ratificó las ocho decisiones, asignó responsables y posteriormente incorporó al manuscrito los casos D-02 y D-06 como amenazas del componente cualitativo. | Rizzo Vélez Edson Nagib en la coordinación de ratificación; Huilcapi León Denisses Fabiola en la incorporación al manuscrito. | Cerrado | Commit `6ff131d` — `ratificar las ocho decisiones de member-checking`; commit `7e16365` — `docs: incorporar amenazas del componente cualitativo a la validez`; `02_Evidencias/Member_Checking/correcciones_aplicadas.md`; `08_Publicacion/manuscrito_final.tex`. |
+| El historial de Git contenía identidades fragmentadas y tres commits con el nombre local de un integrante y el correo institucional de otro. | En un equipo utilizado durante una sesión previa quedó heredada una configuración local de `user.name`; posteriormente se cambió la cuenta utilizada para publicar, pero no se corrigió esa configuración antes de confirmar nuevos cambios. | El historial podía atribuir incorrectamente contribuciones y afectar la evaluación individual del equipo. | Se documentaron las identidades reales, se aclaró el caso cruzado, se normalizó la visualización mediante `.mailmap` y se preservó el historial sin reescribir commits compartidos. | Alcívar Vélez Anderson Adonis y Rizzo Vélez Edson Nagib; consolidación documental del equipo. | Cerrado | Commit `bc8ad0a` — `aclarar la identidad cruzada`; `10_Autoria/declaracion_identidades_git.md`; `.mailmap`; copia pública firmada `10_Autoria/2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf`. |
+| El proyecto no disponía de un documento único que consolidara el aporte individual verificable de los seis integrantes. | La evidencia de contribución se encontraba distribuida entre el historial Git, artefactos, actas y distintas identidades normalizadas. | La evaluación individual requería reconstruir manualmente la participación y podía confundirse cantidad de commits con autoría o porcentaje de contribución. | Se creó un documento consolidado que describe el aporte verificable de cada integrante y relaciona sus contribuciones con commits, artefactos e identidades documentadas. | Villafuerte Rosero Allan Noe, con apoyo de Alcívar Vélez Anderson Adonis. | Cerrado | Commit `01639b5` — `docs: documentar aporte individual del equipo AHMRV`; `10_Autoria/aporte_individual.md`; actualización posterior de `10_Autoria/README.md` en `1b0c17d`. |
+| La instantánea depositada en Zenodo conservaba rutas y un estado de predepósito anteriores a la reestructuración del repositorio. | El paquete de Zenodo fue congelado antes de que la estructura `AHMRV/.../07_Publicacion` migrara a las rutas actuales del repositorio. Modificar el snapshot habría roto su correspondencia con los hashes del depósito. | Las rutas históricas podían parecer referencias rotas o dar la impresión de que el DOI continuaba pendiente, aunque el depósito ya había sido publicado. | Se preservó intacto el snapshot y se documentó externamente la correspondencia entre rutas antiguas y actuales, además del estado vigente del depósito. | Huilcapi León Denisses Fabiola. | Cerrado | Commit `84adf94` — `docs: documentar correspondencia de rutas y estado del snapshot Zenodo`; `08_Publicacion/readme.md`; snapshot congelado `08_Publicacion/dataset_zenodo/`. |
+| La documentación del registro OSF podía interpretarse como si el protocolo hubiese sido prerregistrado antes de todo el trabajo de campo, aunque el material fuente de entrevistas ya existía. | Se utilizó inicialmente una formulación amplia sobre prerregistro que no distinguía entre la recolección previa del material fuente y la ejecución futura del experimento humano–LLM. | La cronología podía ser interpretada incorrectamente y generar una afirmación metodológica más fuerte de la que sostenía el historial del proyecto. | Se aclaró que el registro es retrospectivo respecto a la recolección del material fuente, pero anterior a la ejecución del experimento comparativo humano–LLM; no se presenta como prerregistro de las entrevistas ni del proyecto completo. | Villafuerte Rosero Allan Noe. | Cerrado | Commit `734a42f` — `docs: aclarar alcance temporal del registro OSF`; `06_Experimento/protocolo.tex`; `06_Experimento/readme.md`. |
+
+## Lecciones obtenidas
+
+1. Los artefactos derivados deben regenerarse cuando cambia el conjunto de datos que los alimenta.
+2. Las decisiones metodológicas provisionales no deben propagarse como definitivas hasta que exista una ratificación verificable.
+3. La identidad Git debe comprobarse antes de cada jornada de trabajo, especialmente en equipos compartidos.
+4. La evidencia de aporte individual debe consolidarse durante el proyecto y no únicamente al final.
+5. Los depósitos científicos congelados deben conservarse intactos; los cambios estructurales posteriores se documentan mediante tablas de correspondencia externas.
+6. La terminología de prerregistro debe expresar con precisión qué actividad ocurrió antes y cuál después del registro.
+
+## Estado final
+
+Las seis situaciones anteriores cuentan con una acción correctiva aplicada y con evidencia verificable en el repositorio.
+
+La retrospectiva no implica que todo posible trabajo futuro del proyecto esté cerrado; documenta únicamente los problemas de cierre aquí enumerados y las medidas que efectivamente fueron ejecutadas.
