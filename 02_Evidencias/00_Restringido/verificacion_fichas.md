@@ -1,6 +1,6 @@
 # Verificacion de fichas_tecnicas.csv
 
-**Fecha de verificacion:** 2026-09-04
+**Fecha de verificacion:** 2026-09-07
 
 **Metodo:** peticion HTTP HEAD siguiendo redirecciones sobre la
 URL de descarga de cada contenedor declarado.
@@ -11,9 +11,9 @@ URL de descarga de cada contenedor declarado.
 
 | Concepto | Valor |
 |---|---:|
-| Filas del inventario | 69 |
-| Contenedores distintos declarados | 11 |
-| Filas que resuelven | 69 |
+| Filas del inventario | 71 |
+| Contenedores distintos declarados | 13 |
+| Filas que resuelven | 71 |
 | Filas que NO resuelven | 0 |
 | Celdas afectadas | 0 |
 
@@ -22,8 +22,10 @@ URL de descarga de cada contenedor declarado.
 | Contenedor declarado | HTTP | Filas | Veredicto |
 |---|---:|---:|---|
 | `Actas_MemberCheck_Originales.7z` | 200 | 3 | resuelve |
+| `Actas_MemberCheck_consolidada_original.7z` | 200 | 1 | resuelve |
 | `Actas_Walkthrough_Originales.7z` | 200 | 6 | resuelve |
 | `Consentimientos_Walkthrough_Originales.7z` | 200 | 6 | resuelve |
+| `Declaracion_Identidades_git_original.7z` | 200 | 1 | resuelve |
 | `evidencias_entrevistas_audios.7z` | 200 | 16 | resuelve |
 | `evidencias_entrevistas_consentimientos.7z` | 200 | 16 | resuelve |
 | `evidencias_entrevistas_videos_01.7z` | 200 | 1 | resuelve |
@@ -106,7 +108,9 @@ URL de descarga de cada contenedor declarado.
 | 2026-09-04_MemberCheck_ENTR-01_Acta_Original.pdf | ENTR-01 | `Actas_MemberCheck_Originales.7z` | 200 |
 | 2026-09-04_MemberCheck_ENTR-02_Acta_Original.pdf | ENTR-02 | `Actas_MemberCheck_Originales.7z` | 200 |
 | 2026-09-04_MemberCheck_ENTR-13_Acta_Original.pdf | ENTR-13 | `Actas_MemberCheck_Originales.7z` | 200 |
+| 2026-09-04_MemberChecking_ActaConsolidada_Original.pdf | CONSOLIDADA-MC | `Actas_MemberCheck_consolidada_original.7z` | 200 |
+| 2026-09-06_DeclaracionIdentidadesGit_Original.pdf | CONSOLIDADA-EQUIPO | `Declaracion_Identidades_git_original.7z` | 200 |
 
 ## Conclusion
 
-Las 69 filas apuntan a un contenedor que existe con ese nombre exacto.
+Las 71 filas apuntan a un contenedor que existe con ese nombre exacto.
