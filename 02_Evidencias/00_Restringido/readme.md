@@ -25,9 +25,16 @@ Los archivos originales del trabajo de campo, en su estado sin enmascarar:
 | Consentimientos originales de walkthrough (`.pdf`) | 6 | WT-01 a WT-06 |
 | Actas originales de walkthrough (`.pdf`) | 6 | WT-01 a WT-06 |
 | Actas originales de member-checking (`.pdf`) | 3 | ENTR-01, ENTR-02, ENTR-13 |
+| Acta consolidada de member-checking (`.pdf`) | 1 | Ronda completa — código `CONSOLIDADA-MC` |
+| Declaración de identidades Git (`.pdf`) | 1 | Equipo AHMRV — código `CONSOLIDADA-EQUIPO` |
 
-Total inventariado: **69 archivos**, cada uno con una fila propia en
-`fichas_tecnicas.csv`, distribuidos en **once contenedores cifrados**.
+Total inventariado: **71 archivos**, cada uno con una fila propia en
+`fichas_tecnicas.csv`, distribuidos en **trece contenedores cifrados**.
+
+Dos de los setenta y un archivos no corresponden a un participante individual
+sino a documentos colectivos —la ronda de member-checking en su conjunto y la
+firma del equipo completo—, y por eso llevan un código propio en lugar de
+`ENTR-XX` o `WT-XX`.
 
 Los fragmentos en que originalmente se dividió la sesión de ENTR-03 se
 unificaron en un archivo por participante al regenerar el contenedor
@@ -69,7 +76,7 @@ rol o el perfil del participante.
 
 | Archivo | Qué es | Para qué sirve |
 |---|---|---|
-| `fichas_tecnicas.csv` | Inventario de los 69 archivos, una fila por archivo | Es el índice. Ver sección 4 |
+| `fichas_tecnicas.csv` | Inventario de los 71 archivos, una fila por archivo | Es el índice. Ver sección 4 |
 | `verificacion_fichas.md` | Reporte que comprueba por petición HTTP que cada contenedor declarado existe | Evidencia de que el índice resuelve. Ver sección 4 |
 | `README_Evidencias_Externas.md` | Ubicación de los contenedores y procedimiento de descarga | Explica dónde está el material y cómo obtenerlo |
 | `readme.md` | Este documento | Orientación general |
