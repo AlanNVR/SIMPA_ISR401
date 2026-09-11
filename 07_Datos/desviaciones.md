@@ -210,6 +210,48 @@ real de publicación del depósito, se documenta fuera del snapshot.
 
 ---
 
+## D-08 — Cambio de diseño analítico: de contraste apareado a modelo mixto independiente
+
+**Estado:** abierta / declarada antes de la ejecución.
+
+El protocolo prerregistrado (https://osf.io/4z35d/) prevé un contraste
+apareado sobre 25 pares de requisitos. Al revisar el diseño antes de
+recoger puntuación alguna, se detectó que no existe correspondencia uno a
+uno defendible entre cada requisito elicitado por el equipo humano y uno
+generado por el LLM sobre el mismo material fuente (`ENTR-04`): ambos
+conjuntos no describen necesariamente las mismas funciones, por lo que el
+emparejamiento carece de fundamento y el contraste apareado sería inválido.
+
+En consecuencia:
+
+- Los dos conjuntos se tratan como grupos independientes, no apareados.
+- El análisis principal pasa a un modelo mixto de vínculo acumulativo para
+  respuesta ordinal (`origen` como efecto fijo; `evaluador` y `requisito`
+  como interceptos aleatorios cruzados), con la prueba U de Mann-Whitney +
+  δ de Cliff como análisis de reserva si el modelo no converge.
+- El coeficiente de acuerdo entre evaluadoras cambia de κ nominal
+  (Cohen/Fleiss) a α de Krippendorff ordinal como medida principal, con κ
+  ponderado cuadrático como medida secundaria.
+
+Esta desviación agrava la limitación de potencia ya declarada en D-01: con
+25 requisitos por grupo, la potencia de sensibilidad estimada es de
+aproximadamente 0,41 (frente al objetivo de 0,80), y alcanzar 0,80
+requeriría unos 64 requisitos por grupo. No se ampliará la muestra a
+posteriori para corregir esta limitación; se priorizará el tamaño del
+efecto con su intervalo de confianza al 95 % sobre la significación
+estadística.
+
+Detalle completo, especificación exacta del modelo y justificación en:
+`06_Experimento/osf_deviations.md`.
+
+**Fuente documental:** `manuscrito_final.tex`, sección 6.1–6.3; commit
+`2a5412b` (2026-09-01), primer registro verificable de este razonamiento.
+
+**Responsable de reflejar esta desviación en la plataforma OSF:** Allan
+Villafuerte.
+
+---
+
 ## Cierre de desviaciones
 
 Una desviación solo puede marcarse como cerrada cuando exista evidencia
