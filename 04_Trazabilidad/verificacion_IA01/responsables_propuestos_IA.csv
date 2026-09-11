@@ -1,0 +1,19 @@
+ID;Aspecto;Componente;Caso_de_uso;Caso_de_prueba;Responsable_propuesto;Rol
+RF-IA-01;Predicción;IA-01;CU-01;CP-56;Macías Herrera Josthyn Esteban;Modelador
+RF-IA-02;Predicción;IA-01;CU-01;CP-57;Macías Herrera Josthyn Esteban;Modelador
+RF-IA-03;Explicabilidad;IA-01;CU-18;CP-58;Macías Herrera Josthyn Esteban;Modelador
+RF-IA-04;Predicción;IA-02;CU-06;CP-59;Macías Herrera Josthyn Esteban;Modelador
+RF-IA-05;Predicción;IA-02;CU-06;CP-60;Macías Herrera Josthyn Esteban;Modelador
+RF-IA-06;Supervisión humana;IA-02;CU-10;CP-61;Villafuerte Rosero Allan Noe;Analista líder
+RNF-IA-01;Predicción;IA-01;CU-01;CP-62;Macías Herrera Josthyn Esteban;Modelador
+RNF-IA-02;Predicción;IA-01;CU-01;CP-63;Macías Herrera Josthyn Esteban;Modelador
+RNF-IA-03;Predicción;IA-01;CU-01;CP-64;Macías Herrera Josthyn Esteban;Modelador
+RNF-IA-04;Equidad;IA-01;CU-01;CP-65;Huilcapi León Denisses Fabiola;Documentadora
+RNF-IA-05;Equidad;IA-01;CU-01;CP-66;Huilcapi León Denisses Fabiola;Documentadora
+RNF-IA-06;Explicabilidad;IA-01;CU-18;CP-67;Macías Herrera Josthyn Esteban;Modelador
+RNF-IA-07;Predicción;IA-02;CU-06;CP-68;Macías Herrera Josthyn Esteban;Modelador
+RNF-IA-08;Predicción;IA-02;CU-06;CP-69;Macías Herrera Josthyn Esteban;Modelador
+RNF-IA-09;Predicción;IA-02;CU-06;CP-70;Macías Herrera Josthyn Esteban;Modelador
+RNF-IA-10;Equidad;IA-02;CU-10;CP-71;Huilcapi León Denisses Fabiola;Documentadora
+RNF-IA-11;Equidad;IA-02;CU-10;CP-72;Huilcapi León Denisses Fabiola;Documentadora
+RNF-IA-12;Explicabilidad;IA-02;CU-18;CP-73;Macías Herrera Josthyn Esteban;Modelador
