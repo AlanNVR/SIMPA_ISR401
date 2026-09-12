@@ -196,6 +196,29 @@ dato tratado, la base legal invocada y la medida aplicada.
 
 ---
 
+### 4.2 Finalidad del tratamiento
+
+Los datos personales recolectados (audio, video, transcripciones, respuestas
+del cuestionario) se tratan exclusivamente con fines académicos: el desarrollo
+del Proyecto Fin de Curso de la asignatura Ingeniería de Requisitos (ISR-401),
+UTEQ. No se usan con fines comerciales, de vigilancia laboral, ni se comparten
+con la organización empleadora más allá del reporte agregado y anonimizado.
+
+### 4.3 Plazo de conservación
+
+Los materiales identificables (audio, video, consentimientos sin enmascarar)
+se conservan cifrados en el repositorio complementario de evidencias mientras
+dure el proceso de evaluación académica del curso. [CONFIRMAR CON el equipo:
+¿hay una fecha de destrucción definida, o plazo según la normativa UTEQ?]
+
+### 4.4 Responsable del tratamiento
+
+El responsable del tratamiento de los datos personales es el equipo AHMRV,
+bajo la supervisión académica de PhD. Gleiston Cicerón Guerrero Ulloa, docente
+de la asignatura ISR-401.
+
+---
+
 ## 5. Zonas de evidencia y dónde reside cada una
 
 | Zona | Contenido | Ubicación |
