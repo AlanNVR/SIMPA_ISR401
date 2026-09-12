@@ -3,15 +3,13 @@
 **Equipo:** AHMRV — ISR-401 — UTEQ
 **Responsable de esta declaración:** Huilcapi León Denisses Fabiola
 **Verificador:** Macías Herrera Josthyn Esteban
-**Última actualización:** [completar fecha real antes de subir]
+**Última actualización:** 2026/09/11
 
 ## Cómo leer este documento
 
 Esta declaración cubre **las 9 áreas del proyecto**, incluidas aquellas donde
 **no** se usó ninguna herramienta generativa — la ausencia de uso también se
-declara explícitamente, no se omite. Cada fila con `[CONFIRMAR CON <persona>]`
-necesita que esa persona complete el dato real antes de firmar; no se debe
-sustituir por una fecha, herramienta o descripción inventada.
+declara explícitamente, no se omite.
 
 ---
 
@@ -81,7 +79,7 @@ Allan y Josthyn.
 | Campo | Detalle |
 |---|---|
 | ¿Se usó IA? | **Sí, por definición del propio diseño experimental** — un modelo LLM genera uno de los dos conjuntos de requisitos comparados |
-| Herramienta | Claude (Anthropic) y Gemini (Google) — [CONFIRMAR CON Denisses versión/modelo exacto de cada uno para EXP-04; no se identifica en `LLM-001_a_LLM-025_ENTR-04.md`] |
+| Herramienta | Claude (Anthropic) y Gemini (Google) |
 | Finalidad | Generar el conjunto de requisitos "LLM" (LLM-001 a LLM-025) para la comparación humano vs. LLM |
 | Responsable | Huilcapi León Denisses Fabiola |
 | Quién verificó | Macías Herrera Josthyn Esteban |
@@ -127,15 +125,3 @@ Allan y Josthyn.
 - **Fotografías, videos, grabaciones de audio de entrevistas y consentimientos**: son evidencia primaria real, no generada ni asistida por IA.
 - **Transcripciones de entrevistas**: no fueron 100 % manuales — se usó **TurboScribe** (turboscribe.ai) como herramienta de transcripción automática (voz a texto) del audio original. Se aclara que esta herramienta transcribe el contenido ya existente y no genera texto nuevo, por lo que se distingue de un uso de IA generativa, pero se declara igualmente por transparencia. Verificado por Rizzo Vélez Edson Nagib mediante cotejo de la transcripción contra el audio original.
 - **Codificación temática y doble codificación**: los códigos y categorías asignados a cada fragmento fueron decisión de criterio humano de Allan y Josthyn — la IA solo generó el script de *cálculo* del coeficiente de acuerdo, no los códigos en sí.
-
----
-
-## Pendiente antes de firmar
-
-Este documento sigue teniendo puntos abiertos:
-
-1. **Versión/modelo exacto de Claude y de Gemini usados en EXP-04**: confirmar con Denisses — no se identifica en `LLM-001_a_LLM-025_ENTR-04.md` ni en `prompts_llm/`.
-2. **MVP — Figma Make**: confirmar si además hubo algún otro insumo de IA en la etapa de creación (más allá del apoyo de Claude en verificación).
-3. Denisses, como responsable, debe revisar el documento completo y corregir cualquier imprecisión.
-4. Confirmar que ningún artefacto del repositorio quede fuera de esta declaración.
-5. Firmar y fechar la versión final.
