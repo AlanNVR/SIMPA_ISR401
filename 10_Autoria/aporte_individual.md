@@ -614,7 +614,7 @@ la sección 9.
 | Villafuerte Rosero Allan Noe | | |
 | Macías Herrera Josthyn Esteban |josthynmacias |2026-09-12|
 | Arboleda Yanza Francisco Javier | | |
-| Huilcapi León Denisses Fabiola | | |
+| Huilcapi León Denisses Fabiola | HuilcapiDenisses |2026-09-12 |
 | Rizzo Vélez Edson Nagib | RizzoNagib|2026-09-12|
 | Alcívar Vélez Anderson Adonis | | |
 
