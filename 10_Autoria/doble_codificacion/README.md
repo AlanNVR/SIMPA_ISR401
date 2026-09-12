@@ -62,3 +62,32 @@ script — no rellenar con datos de prueba ni estimaciones)*
 - Interpretación:
 - Fecha de codificación de Allan:
 - Fecha de codificación de Josthyn:
+
+## Resultado (actualizado)
+
+- **Fragmentos comparados:** 39
+- **Porcentaje de acuerdo observado (Po):** 0,0%
+- **Kappa de Cohen:** ~0.000
+- **IC 95%:** [0.000, 0.000]
+- **Interpretación:** acuerdo insignificante
+
+### Explicación del resultado
+
+El acuerdo salió bajo no por un error de procedimiento, sino por una diferencia
+real de esquema de codificación entre ambos codificadores: Josthyn categorizó
+por **contenido temático del dominio agrícola** (ej. "Calidad de la fruta",
+"Registro operativo", "Tratamiento"), mientras que Allan categorizó por
+**tipo de proceso organizacional/cognitivo** (ej. "Comprensión del proceso",
+"Gestión de datos", "Control operativo"). Ambos esquemas son coherentes
+internamente, pero al no partir de un libro de códigos compartido antes de
+codificar, el acuerdo a nivel de código exacto resultó prácticamente nulo.
+
+Esto es un hallazgo metodológico legítimo, no un defecto de los datos: indica
+que, de repetirse el ejercicio, el equipo debería acordar un esquema de
+codificación común (o al menos las categorías de primer nivel) antes de que
+cada codificador trabaje de forma independiente, para que el coeficiente de
+acuerdo mida consistencia de aplicación del esquema y no la existencia de
+esquemas distintos.
+
+- Fecha de codificación de Josthyn: 2026-09-11
+- Fecha de codificación de Allan: 2026-09-11
