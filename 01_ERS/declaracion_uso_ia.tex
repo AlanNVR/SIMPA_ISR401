@@ -10,6 +10,12 @@ Conforme a la Sección 8 de la guía de la Entrega Final, el equipo declara a
 continuación, sección por sección, la herramienta de inteligencia artificial
 empleada, el tipo de asistencia recibida y el método con el que se validó el
 contenido resultante antes de incorporarlo al documento.
+Esta tabla se refiere específicamente al uso de inteligencia artificial como
+apoyo en la elaboración del reporte y del ERS. Otros usos de IA realizados en
+el proyecto ---incluida la generación del conjunto experimental humano--LLM,
+el apoyo en scripts y el apoyo a la preparación del manuscrito científico---
+se documentan de forma complementaria en
+\texttt{10\_Autoria/declaracion\_uso\_ia.md}.
 
 \begin{longtable}{|L{2.6cm}|L{3.0cm}|L{3.6cm}|L{5.8cm}|}
 \hline
@@ -28,7 +34,7 @@ Especificación final y trazabilidad & Claude, claude.ai & Redacción y correcci
 Requisitos de los componentes de IA & Claude, claude.ai & Redacción y corrección de estilo & Contenido contrastado a mano contra las fichas y requisitos reales del proyecto \\ \hline
 Retrospectiva & Claude, claude.ai & Redacción y corrección de estilo & Contenido contrastado a mano contra lo efectivamente ocurrido en el equipo \\ \hline
 Conclusiones & Claude, claude.ai & Redacción y corrección de estilo & Cada conclusión se contrastó a mano contra un dato o resultado real del reporte \\ \hline
-Referencias (formato IEEE) & Claude, claude.ai & Redacción y corrección de estilo (formato) & Cada referencia se verificó a mano contra la fuente original \\ \hline
+Referencias (formato IEEE) & Claude, claude.ai & Redacción y corrección de estilo (formato) & Se revisaron el formato, la consistencia y los metadatos bibliográficos disponibles; queda pendiente el cotejo final de cada referencia contra su fuente original y, cuando corresponda, su DOI o ISBN antes de una eventual presentación externa \\ \hline
 Anexo --- instrumento de auditoría & Claude, claude.ai & Redacción y corrección de estilo & Contenido contrastado a mano contra los conteos reales publicados \\ \hline
 Anexo --- banco de preguntas del tribunal & Claude, claude.ai & Redacción y corrección de estilo & Cada respuesta se contrastó a mano contra el artefacto real que la respalda \\ \hline
 Anexo --- aporte individual con identificadores de commit & Claude, claude.ai & Redacción y corrección de estilo & Cada identificador de commit se verificó a mano contra el historial real de Git \\ \hline
@@ -36,10 +42,16 @@ Anexo --- aporte individual con identificadores de commit & Claude, claude.ai & 
 \end{longtable}
 
 \noindent\textbf{Límites declarados.} El equipo confirma que ninguna sección
-evaluativa (análisis, discusión, conclusiones, justificación de decisiones de
-ingeniería, amenazas a la validez) fue generada sin validación propia, y que
-ningún resultado se redactó antes de ejecutar el análisis correspondiente
-sobre datos primarios reales. El uso de inteligencia artificial en este
-proyecto se limitó a redacción y corrección de estilo; ningún dato, cifra,
-resultado o afirmación sustantiva fue generado por IA sin contraste manual
-contra la evidencia primaria del proyecto.
+evaluativa incorporada al reporte se aceptó sin revisión humana y contraste
+con los artefactos, datos o resultados disponibles en el repositorio. La
+inteligencia artificial se utilizó como apoyo y no sustituyó la ejecución de
+los análisis estadísticos, la obtención de datos primarios ni la responsabilidad
+del equipo sobre las decisiones metodológicas y las afirmaciones finales.
+
+El proyecto también utilizó inteligencia artificial en actividades distintas
+de la redacción del ERS, entre ellas la generación del conjunto de requisitos
+del experimento humano--LLM y el apoyo en determinadas tareas de programación
+y documentación. Estos usos se declaran con mayor detalle en
+\texttt{10\_Autoria/declaracion\_uso\_ia.md}; cuando una interfaz no expuso
+parámetros técnicos de ejecución, dichos valores se registraron como no
+disponibles y no fueron inferidos ni inventados.

@@ -5,7 +5,8 @@ documental:** Denisses Huilcapi · **Verificador:** Allan Villafuerte
 
 **Método:** para cada uno de los 6 aspectos exigidos por la guía se verificó,
 contra archivos reales del repositorio (`01_ERS/seccion9_ia.tex`,
-`04_Trazabilidad/matriz_e2e.xlsx`, `04_Trazabilidad/backlog_export.csv`), la
+`04_Trazabilidad/matriz_e2e.xlsx`, `04_Trazabilidad/backlog_export.csv` y
+`04_Trazabilidad/verificacion_IA01/responsables_asignados_IA.csv`), la
 presencia de: ID propio, métrica, unidad, umbral, método de verificación,
 responsable, frecuencia, vínculo a diseño, caso de prueba.
 
@@ -13,6 +14,12 @@ Convención de esta tabla: **✅** = campo presente y verificado · **⚠️** =
 ausente o parcial (hallazgo real, no inventado) · **—** = no aplica a ese
 aspecto.
 
+**Nota de cierre sobre responsables:** `backlog_export.csv` conserva el estado
+histórico exportado desde Jira y, por tanto, mantiene vacío el campo
+`Persona asignada` de los 18 requisitos de IA. Como Jira no será modificado,
+las responsabilidades finales para el cierre del proyecto se formalizan en
+`responsables_asignados_IA.csv`. No se modificó el CSV histórico para simular
+asignaciones que no existieron en la exportación original.
 ---
 
 ## 1. Predicción (rendimiento del modelo)
@@ -24,12 +31,12 @@ aspecto.
 | Unidad | Adimensional [0,1] | Puntos porcentuales; adimensional |
 | Umbral | Macro-F1 ≥ 0,80 · recall ≥ 0,85 · latencia ≤ 10 s (p95) | MAE ≤ 2 p.p. · exactitud ≥ 0,85 · latencia ≤ 15 s (p95) |
 | Método de verificación | Conjunto de evaluación del Anexo de datos, antes de cada despliegue | Conjunto de evaluación, antes de cada despliegue |
-| Responsable | ⚠️ No consta en el backlog — campo "Persona asignada" vacío en `RNF-IA-01/02/03` | ⚠️ Igual, vacío en `RNF-IA-07/08/09` |
+| Responsable | ✅ Formalizado en `responsables_asignados_IA.csv`; Josthyn Macías para los requisitos de predicción de IA-01 | ✅ Formalizado en `responsables_asignados_IA.csv`; Josthyn Macías para los requisitos de predicción de IA-02 |
 | Frecuencia | Antes de cada despliegue (no periódica) | Antes de cada despliegue (no periódica) |
 | Vínculo a diseño | `RD-05` (latencia) | — |
 | Caso de prueba | ✅ CP-58 a CP-60 (matriz E2E) | ✅ CP-68 a CP-70 (matriz E2E) |
 
-**Estado:** ✅ 8/9 campos completos. ⚠️ Falta responsable individual.
+**Estado:** ✅ 9/9 campos completos. La responsabilidad quedó formalizada en el artefacto de cierre; el backlog histórico se conserva sin alterar.
 
 ---
 
@@ -42,12 +49,12 @@ aspecto.
 | Unidad | Booleano (presente/ausente) | Booleano (presente/ausente) |
 | Umbral | 100% de las clasificaciones deben incluirlo, sin poder omitirse | 100% de las estimaciones deben incluirlo |
 | Método de verificación | Revisión de interfaz — el requisito es de presentación, no numérico | Revisión de interfaz, igual |
-| Responsable | ⚠️ No consta individualmente | ⚠️ No consta individualmente |
+| Responsable | ✅ Josthyn Macías, formalizado en `responsables_asignados_IA.csv` | ✅ Josthyn Macías, formalizado en `responsables_asignados_IA.csv` |
 | Frecuencia | Cada inferencia (no es una medición periódica) | Cada inferencia |
 | Vínculo a diseño | `RNF-19` (equipo de protección/reingreso) | Comparación con calificación histórica del lote |
 | Caso de prueba | ✅ CP-67 | ✅ CP-73 |
 
-**Estado:** ✅ 8/9 campos completos. ⚠️ Falta responsable individual.
+**Estado:** ✅ 9/9 campos completos. La responsabilidad quedó formalizada en el artefacto de cierre.
 
 ---
 
@@ -60,14 +67,15 @@ aspecto.
 | Unidad | Puntos porcentuales | Puntos porcentuales |
 | Umbral | ≤ 5 p.p. (variedad) · ≤ 7 p.p. (dispositivo) | ≤ 1,5 p.p. (cuadrilla) · ≤ 1,5 p.p. (variedad) |
 | Método de verificación | Medición trimestral sobre registro de decisiones (`RF-IA-03`) | Medición trimestral sobre registro de decisiones, cuadrilla excluida de entrada |
-| Responsable | ⚠️ No consta individualmente | ⚠️ No consta individualmente |
+| Responsable | ✅ Denisses Huilcapi, formalizado en `responsables_asignados_IA.csv` | ✅ Denisses Huilcapi, formalizado en `responsables_asignados_IA.csv` |
 | Frecuencia | Trimestral | Trimestral |
 | Vínculo a diseño | `RD-01` (dispositivo propio del personal) | `RF-24` (trazabilidad de penalización a cuadrilla) |
 | Caso de prueba | ✅ CP-65, CP-66 | ✅ CP-71, CP-72 |
 
-**Estado:** ✅ 8/9 campos completos. Es el aspecto con **mayor severidad de
+**Estado:** ✅ 9/9 campos completos. Es el aspecto con **mayor severidad de
 consecuencia** declarada en el ERS (brecha por cuadrilla → única acción de
-suspensión de todo el plan de monitoreo). ⚠️ Falta responsable individual.
+suspensión de todo el plan de monitoreo). La responsabilidad quedó formalizada
+en el artefacto de cierre.
 
 ---
 
@@ -80,12 +88,12 @@ suspensión de todo el plan de monitoreo). ⚠️ Falta responsable individual.
 | Unidad | Porcentaje de despachos |
 | Umbral | Alerta si > 30% de los despachos |
 | Método de verificación | Registro obligatorio de valor humano + valor del modelo + motivo, cuando hay discrepancia |
-| Responsable | ⚠️ No consta individualmente en backlog |
+| Responsable | ✅ Allan Villafuerte, formalizado en `responsables_asignados_IA.csv` |
 | Frecuencia | Mensual (según plan de monitoreo) |
 | Vínculo a diseño | CU-10 (caso de uso de despacho) |
 | Caso de prueba | ✅ CP-61 |
 
-**Estado:** ✅ 8/9 campos completos. ⚠️ Falta responsable individual.
+**Estado:** ✅ 9/9 campos completos. La responsabilidad quedó formalizada en el artefacto de cierre.
 
 **Nota de diseño verificada:** el sistema nunca decide de forma vinculante:
 `RF-IA-06` exige que la persona pueda apartarse de la estimación en cualquier
@@ -135,14 +143,18 @@ reevaluación periódica — si el reglamento cambia o el sistema se extiende
 
 ---
 
-## Resumen de hallazgos (para actuar, no solo para reportar)
+### Hallazgo cerrado durante la auditoría
+
+El campo `Persona asignada` permanece vacío en la exportación histórica de Jira.
+Como esa fuente no será modificada, se formalizó la asignación final de los
+18 requisitos de IA en `responsables_asignados_IA.csv`. El archivo contiene
+18 IDs únicos, sin duplicados, faltantes ni IDs adicionales.
 
 | # | Hallazgo | Aspecto afectado | Acción sugerida |
 |---|---|---|---|
-| 1 | Campo "Persona asignada" vacío para los 18 requisitos de IA en `backlog_export.csv` | Los 6 aspectos | **Propuesta lista** en `responsables_propuestos_IA.csv` (mismo directorio) — mapeo ID por ID, pendiente de confirmación del equipo antes de cargar a Jira |
-| 2 | El plan de monitoreo no tiene ID de requisito propio | Monitoreo posterior | Considerar asignar IDs (ej. `RNF-IA-13` a `RNF-IA-20`) a cada indicador del plan, para que puedan trazarse en la matriz E2E |
-| 3 | El plan de monitoreo no tiene caso de prueba en la matriz | Monitoreo posterior | Si se asignan IDs (hallazgo 2), añadir filas correspondientes a `matriz_e2e.xlsx` y generar `CP-XX` |
-| 4 | La clasificación de riesgo no tiene responsable nombrado ni reevaluación periódica | Clasificación de riesgo | Declarar explícitamente quién audita la clasificación y con qué frecuencia (ej. anual o ante cambio normativo) |
+| 1 | El plan de monitoreo no tiene ID de requisito propio | Monitoreo posterior | Formalizar el monitoreo como requisito trazable sin alterar los indicadores ya definidos |
+| 2 | El plan de monitoreo no tiene caso de prueba en la matriz | Monitoreo posterior | Incorporar el requisito y su caso de prueba correspondiente en la matriz E2E |
+| 3 | La clasificación de riesgo no tiene responsable nombrado ni reevaluación periódica | Clasificación de riesgo | Formalizar responsable y condición/frecuencia de reevaluación |
 
 **Nota sobre monitoreo y clasificación de riesgo (hallazgos 2-4):** al no tener
 ID de requisito propio, no se pueden asignar en el backlog por fila individual
@@ -172,8 +184,7 @@ que el equipo decida si se formalizan con ID propio:
 > "Si falta un campo: actualizar ERS; matriz E2E; backlog; caso de prueba
 > correspondiente. Después volver a ejecutar la verificación ACC-14."
 
-El hallazgo 1 (responsable individual) es el único que bloquea completamente
-los 6 aspectos y es el más rápido de corregir — es una edición de columna en
-Jira/backlog, no un cambio de contenido técnico. Los hallazgos 2-4 son de
-mayor alcance (requieren decisión del equipo sobre si formalizar el plan de
-monitoreo como requisitos trazables).
+La asignación individual de los 18 requisitos de IA quedó cerrada
+documentalmente sin modificar la exportación histórica de Jira. Permanecen
+abiertos los aspectos relativos al monitoreo posterior al despliegue y a la
+clasificación de riesgo.

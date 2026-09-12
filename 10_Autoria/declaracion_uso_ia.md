@@ -3,7 +3,7 @@
 **Equipo:** AHMRV — ISR-401 — UTEQ
 **Responsable de esta declaración:** Huilcapi León Denisses Fabiola
 **Verificador:** Macías Herrera Josthyn Esteban
-**Última actualización:** 2026/09/11
+**Última actualización:** 2026/09/12
 
 ## Cómo leer este documento
 
@@ -78,23 +78,23 @@ Allan y Josthyn.
 
 | Campo | Detalle |
 |---|---|
-| ¿Se usó IA? | **Sí, por definición del propio diseño experimental** — un modelo LLM genera uno de los dos conjuntos de requisitos comparados |
-| Herramienta | Claude (Anthropic) y Gemini (Google) |
-| Finalidad | Generar el conjunto de requisitos "LLM" (LLM-001 a LLM-025) para la comparación humano vs. LLM |
+| ¿Se usó IA? | **Sí, por definición del propio diseño experimental** — un modelo LLM generó uno de los dos conjuntos de requisitos comparados |
+| Herramienta | Claude Sonnet 5 (Anthropic), mediante claude.ai |
+| Finalidad | Generar el conjunto de requisitos `LLM-001` a `LLM-025` a partir del mismo material fuente definido para la comparación humano vs. LLM |
 | Responsable | Huilcapi León Denisses Fabiola |
 | Quién verificó | Macías Herrera Josthyn Esteban |
-| Método de verificación | Registro de la salida cruda sin editar en `06_Experimento/prompts_llm/LLM-001_a_LLM-025_ENTR-04.md`; pendiente completar `registro_ejecucion.md` con prompt y parámetros exactos (modelo, temperatura, top-p, semilla) |
+| Método de verificación | La ejecución se documenta en `06_Experimento/prompts_llm/2026-09-11_1300_claude-sonnet-5.md`, que conserva fecha y hora, persona ejecutora, material fuente y su SHA-256, modelo y versión, parámetros disponibles o no disponibles, consigna literal y respuesta completa. La salida cruda se conserva además en `06_Experimento/prompts_llm/salida_cruda_llm.txt`. Los parámetros no expuestos por la interfaz y la ausencia de semilla reproducible se declaran explícitamente como limitaciones y no se completan con valores inventados. |
 
 ## 7. Manuscrito (publicación)
 
 | Campo | Detalle |
 |---|---|
 | ¿Se usó IA? | **Sí** |
-| Herramienta | Claude (Anthropic), vía claude.ai — del 2026-09-03 al 2026-09-08 (confirmado por `git log` sobre `08_Publicacion`) |
-| Finalidad | Apoyo únicamente en la redacción del texto (no en la generación de datos, resultados ni cifras, que provienen del análisis real del equipo). Se confirma que los cuatro usos aplican: redacción y estructuración de secciones según la plantilla de la revista objetivo; organización del cuadro comparativo de trabajo relacionado; redacción de la sección de metodología en formato PICOC; corrección de estilo y revisión de coherencia. |
+| Herramienta | Claude (Anthropic) y ChatGPT (OpenAI) |
+| Finalidad | Apoyo en redacción, reestructuración, revisión de coherencia y formulación de interpretaciones. Los asistentes no sustituyeron la ejecución del análisis estadístico ni generaron las cifras reportadas; los resultados numéricos proceden de los datos reales y de los scripts versionados del proyecto. |
 | Responsable | Villafuerte Rosero Allan Noe |
 | Quién verificó | Macías Herrera Josthyn Esteban |
-| Método de verificación | Verificación individual de que cada referencia bibliográfica citada existe y respalda lo afirmado; contraste de cada tabla y figura contra los scripts que las generan |
+| Método de verificación | Las cifras, estimadores, intervalos de confianza, valores p y medidas de acuerdo del manuscrito se contrastan con los resultados almacenados en `07_Datos/resultados/` y con la cadena de análisis de `06_Experimento/scripts_analisis/`. Las interpretaciones asistidas por IA permanecen bajo revisión y responsabilidad de las personas autoras. La verificación bibliográfica contra las fuentes originales y sus identificadores persistentes debe completarse antes de una eventual presentación externa. |
 
 ## 8. Scripts (general, fuera de `07_Datos` y trazabilidad)
 
