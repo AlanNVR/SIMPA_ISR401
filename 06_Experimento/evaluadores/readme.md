@@ -12,6 +12,7 @@ independientes exigidos por el protocolo (RQ2, `06_Experimento/protocolo.tex`).
 | `EV-01_hoja_puntuacion.csv` | Puntuación de los 50 requisitos cegados por el evaluador EV-01 |
 | `EV-02_hoja_puntuacion.csv` | Puntuación de los 50 requisitos cegados por el evaluador EV-02 |
 | `EV-03_hoja_puntuacion.csv` | Puntuación de los 50 requisitos cegados por el evaluador EV-03 |
+| `puntuaciones_reales.csv` | Las tres hojas anteriores consolidadas en formato largo (`evaluador,requisito,dimension,puntuacion,orden`), lista para análisis (EXP-07) |
 
 ## Criterio de independencia
 
@@ -67,14 +68,33 @@ humano o del LLM. Esa correspondencia está en `mapa_origen.csv`, generado
 por EXP-05 y custodiado fuera del repositorio (responsable: Edson Rizzo),
 precisamente para que la evaluación se hiciera a ciegas.
 
+## EXP-07 — Consolidado de puntuaciones reales
+
+`puntuaciones_reales.csv` reorganiza las tres hojas de puntuación en
+formato largo, una fila por combinación evaluador-requisito-dimensión (3 ×
+50 × 5 = 750 filas):
+
+| Columna | Contenido |
+|---|---|
+| `evaluador` | `EV-01`, `EV-02` o `EV-03` |
+| `requisito` | `R-001`–`R-050` |
+| `dimension` | `COM`, `AMB`, `VER`, `COR` o `CON` |
+| `puntuacion` | 1–5, copiada tal cual de la hoja de puntuación correspondiente |
+| `orden` | Posición del requisito en `../cegado/requisitos_cegados.csv` (1–50). Es la misma para los tres evaluadores: el cegado de EXP-05 generó un único orden compartido, no uno distinto por persona |
+
+**Custodio de los datos crudos: Anderson Alcívar.** Ninguna puntuación se
+modifica manualmente para mejorar resultados; cualquier corrección debe
+hacerse sobre la hoja de puntuación original y regenerar este archivo desde
+ahí, nunca editando `puntuaciones_reales.csv` directamente.
+
 ## Siguiente paso
 
-Con las tres hojas completas, corresponde:
+Con las tres hojas completas y ya consolidadas, corresponde:
 
 1. Desvelar el cegado con `mapa_origen.csv` para poder analizar por origen.
 2. Calcular el acuerdo entre evaluadoras (RQ2): $\alpha$ de Krippendorff
    ordinal (principal) y $\kappa$ ponderado cuadrático por pares
    (secundario), conforme a `../osf_deviations.md`.
-3. Ejecutar el modelo mixto ordinal (RQ1) sobre las puntuaciones.
+3. Ejecutar el modelo mixto ordinal (RQ1) sobre `puntuaciones_reales.csv`.
 
 Esto todavía no se ha hecho.
