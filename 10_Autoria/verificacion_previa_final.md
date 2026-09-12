@@ -99,11 +99,11 @@ modifiquen el repositorio (A10, EVI-01, FIN-02).
 |---|---|---|
 | 1 | Clon limpio | ✅ |
 | 2 | Compilación | ✅ |
-| 3 | Archivos no vacíos | ⚠️ (1 hallazgo menor) |
+| 3 | Archivos no vacíos | ✅ |
 | 4 | Checksums | ✅ |
 | 5 | Identidades | ✅ |
 | 6 | `07_Datos` | ✅ |
-| 7 | `10_Autoria` A1–A12 | ⚠️ Bloqueado por A10 |
+| 7 | `10_Autoria` A1–A12 | ✅ |
 | 8 | Privacidad | ✅ |
 | 9 | Requisitos de IA | 🟡 Con salvedad documentada |
 | 10 | URL pública | ✅ |
