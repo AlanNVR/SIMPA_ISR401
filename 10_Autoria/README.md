@@ -22,6 +22,7 @@ todavía no hayan sido verificados.**
 | `declaracion_identidades_git.md` | Declaración de identidades Git del equipo, con las correspondencias entre cuentas y personas, y la firma de cada integrante |
 | `2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf` | Copia pública de la declaración firmada, con cédula y firma manuscrita enmascaradas |
 | `registro_reestructuracion_2026-09-03.md` | Resumen y commits de las correcciones realizadas durante la reestructuración del repositorio |
+| `correspondencia/readme.md` | Declaración de que no existe correspondencia escrita del equipo (AUT-08): los acuerdos de coordinación se tomaron de forma verbal |
 
 ## Aporte individual
 
