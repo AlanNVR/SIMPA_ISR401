@@ -56,3 +56,5 @@ recién entonces redactar los resultados del experimento
 El diseño contempla 25 pares de requisitos. Con α = 0,05, potencia objetivo de 0,80 y tamaño de efecto medio (d = 0,5), el tamaño requerido sería de aproximadamente 34 pares. **La potencia alcanzable queda por debajo del objetivo.**
 
 Se declara antes de ejecutar y se reportará como amenaza a la validez de conclusión. No se incrementará artificialmente el tamaño muestral duplicando requisitos.
+
+El mapa de correspondencia R-ID ↔ origen se custodia en un repositorio privado independiente (evidencia_mapa), acceso restringido al custodio designado (Edson Rizzo) y al docente.
