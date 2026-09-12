@@ -109,8 +109,3 @@ modifiquen el repositorio (A10, EVI-01, FIN-02).
 | 10 | URL pública | ✅ |
 | 11 | Baseline | ❌ Pendiente, correcto que así sea |
 
-**Este documento no debe convertirse a PDF ni firmarse como versión final
-todavía.** Faltan A10, EVI-01 y FIN-02 por cerrar, y el archivo `.css` vacío del
-punto 3 por resolver. Cuando esos tres/cuatro puntos cierren, se vuelve a correr
-esta misma verificación desde un clon limpio nuevo y, si todo pasa, ahí sí se
-genera `10_Autoria/verificacion_previa.pdf` y se firma.
