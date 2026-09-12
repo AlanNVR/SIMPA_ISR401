@@ -11,8 +11,27 @@ que los contenedores `.7z`: evitar la dependencia de Git LFS.
 
 | # | Archivo | Tema | Participantes | URL |
 |---|---|---|---|---|
-| 1 | *pendiente* | | | |
+| 1 | `2026-09-12_grabacion01_allan_josthyn_datos_experimento.mp4` | Experimento, datos y análisis | Allan Villafuerte, Josthyn Macías | `https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias/releases/download/v1.0-autoria/2026-09-12_grabacion01_allan_josthyn_datos_experimento.mp4` |
 | 2 | `2026-09-12_Grabacion02_ManuscritoEvidenciasDocumentacion.mp4` | Manuscrito, evidencias y documentación final | Denisses Huilcapi, Edson Rizzo, Francisco Arboleda (apoyo técnico, sin intervención verbal) | `https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias/releases/download/v1.0-autoria/2026-09-12_Grabacion02_ManuscritoEvidenciasDocumentacion.mp4` |
+
+## Contenido verificable de la Grabación 1
+
+En esta sesión, Allan compartió pantalla y se revisó en vivo:
+
+1. Ejecución de `python 07_Datos/scripts/run_all.py` y explicación del
+   arreglo aplicado a la cadena reproducible (regeneración correcta de las
+   tres curvas de saturación por estrato, 16 filas × 11 columnas).
+2. Historial de commits de `curva_saturacion.py` (`git log --follow`) y
+   revisión del commit que corrigió la invocación del script.
+3. Resultados reales de `07_Datos/resultados/acuerdo_krippendorff.csv`,
+   `comparacion_descriptiva.csv` y `resumen_modelos_ordinales.txt`: acuerdo
+   entre evaluadores prácticamente nulo (α de Krippendorff entre -0,015 y
+   0,027 según dimensión) y ausencia de diferencia estadísticamente
+   significativa entre requisitos humanos y generados por LLM en las cinco
+   dimensiones evaluadas (p entre 0,35 y 0,41).
+4. Discusión conjunta sobre los métodos de acuerdo aplicados (α de
+   Krippendorff ordinal como medida principal, kappa de Cohen ponderado
+   cuadrático por pares como medida secundaria).
 
 ## Contenido verificable de la Grabación 2
 
