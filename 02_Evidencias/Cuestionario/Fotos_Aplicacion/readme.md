@@ -10,6 +10,13 @@ cuestionario se aplicó de forma **virtual**, no en una sesión presencial de
 campo, por lo que no hay un momento de aplicación física del que se pudiera
 haber tomado una fotografía.
 
+**Confirmación del equipo (12/09/2026):** consultado directamente el grupo
+sobre si alguien conserva alguna captura o fotografía de la aplicación del
+cuestionario, Villafuerte Rosero Allan Noe confirmó explícitamente que "no
+tenemos ninguna captura de personas aplicando el cuestionario". No se trata
+de una suposición: es la respuesta directa del equipo ante la pregunta
+explícita.
+
 ## Por qué se deja constancia de esto en vez de dejar la carpeta como "pendiente"
 
 El estado anterior de esta carpeta decía "pendiente", dando a entender que
