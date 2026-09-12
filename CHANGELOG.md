@@ -5,6 +5,41 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.2.0] - 2026-09-11 - Cierre de saneamiento, experimento y autoría
+
+### Añadido
+
+- Repositorio complementario de evidencias (`SIMPA_ISR401_Evidencias`) con
+  los contenedores `.7z` publicados como assets de release, eliminando la
+  dependencia de Git LFS del repositorio principal.
+- `10_Autoria/`: bitácora de sesiones reconstruida desde el historial real
+  de Git, declaración de identidades, aporte individual, exif_inventario.csv,
+  inventario de fuentes editables, fotografías reales del equipo,
+  declaración de uso de IA.
+- `06_Experimento/`: desviación metodológica registrada (EXP-01), material
+  fuente y conjunto humano de referencia congelados (EXP-02, EXP-03),
+  ejecución del LLM registrada (EXP-04), conjunto cegado (EXP-05),
+  reclutamiento y puntuación de tres evaluadores independientes (EXP-06),
+  consolidado de puntuaciones reales en formato largo (EXP-07).
+- Publicación del dataset en Zenodo con DOI y evaluación FAIR.
+
+### Corregido
+
+- README.md raíz: instrucciones de clonado actualizadas (ya no depende de
+  Git LFS).
+- Referencias cruzadas de sección en la adenda A.14 tras insertar una
+  sección nueva.
+
+### Nota
+
+- El repositorio original (`Villafuerte_Grupo_AHMRV`) quedó archivado en
+  privado por una limitación de GitHub (`refs/pull/2/head`) que impedía
+  retirar del todo datos identificables del historial pese a la
+  reescritura con `git filter-repo`.
+
+---
+
+---
 ## [4.1.4] - 2026-08-31 - P9: reubicar Palma_Africana.pdf; reconciliar checksums de diagramas traducidos
 
 ### Corregido
