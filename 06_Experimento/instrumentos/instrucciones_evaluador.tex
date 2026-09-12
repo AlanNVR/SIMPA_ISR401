@@ -1,0 +1,133 @@
+% =====================================================================
+%  Instrucciones para evaluadores independientes
+%  Proyecto SIMPA -- Equipo AHMRV -- ISR-401 -- UTEQ -- 2026-2027 PPA
+%  Instrumento del cuasi-experimento del Enfoque 1 -- EXP-06
+%  Compilacion: pdflatex instrucciones_evaluador.tex  (x2)
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{uteqverde}{HTML}{1F6F3C}
+\definecolor{grisclaro}{HTML}{F2F2F2}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\titleformat{\section}{\normalfont\large\bfseries\color{uteqverde}}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{12pt}{5pt}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\lhead{\footnotesize\color{uteqverde}Instrucciones para evaluadores independientes}
+\rhead{\footnotesize SIMPA --- Equipo AHMRV}
+\cfoot{\footnotesize Página \thepage\ de \pageref{LastPage}}
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\footnotesize UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\\
+Facultad de Ciencias de la Computación --- Carrera de Software}\\[10pt]
+{\Large\bfseries\color{uteqverde} INSTRUCCIONES PARA EVALUADORES INDEPENDIENTES}\\[3pt]
+{\large Cuasi-experimento de calidad de requisitos funcionales}\\[2pt]
+{\footnotesize Instrumento del estudio registrado en OSF \texttt{4z35d}}
+\end{center}
+
+\vspace{6pt}
+
+\section{Qué se le pide}
+
+Va a recibir un archivo (\texttt{requisitos\_cegados.csv}) con 50 requisitos
+funcionales, identificados solo con un código \texttt{R-001} a
+\texttt{R-050}, en orden aleatorio. Para cada uno, debe asignar una
+puntuación de 1 a 5 en cada una de las cinco dimensiones de la rúbrica
+adjunta (\texttt{rubrica\_evaluacion.pdf}), registrando el resultado en la
+hoja de puntuación (\texttt{hoja\_puntuacion.pdf}).
+
+\section{Lo que necesita saber antes de empezar}
+
+\begin{tcolorbox}[colback=grisclaro, colframe=uteqverde, boxrule=0.6pt]
+\textbf{Los 50 requisitos provienen de dos orígenes distintos: la mitad
+fueron elaborados por analistas humanos y la otra mitad por un modelo de
+lenguaje.} El archivo que usted recibe \textbf{no indica cuál es cuál}, y
+esa información no debe buscarse ni preguntarse durante la evaluación.
+Evaluar sin saber el origen es la condición que hace válida la
+comparación.
+\end{tcolorbox}
+
+\begin{itemize}[leftmargin=1.1cm]
+  \item No intente adivinar ni comentar con el equipo cuál cree que es el
+        origen de un requisito mientras evalúa.
+  \item Evalúe cada requisito únicamente por su propio contenido: claridad,
+        completitud, verificabilidad y consistencia interna, conforme a la
+        rúbrica.
+  \item Puntúe los 50 requisitos. No omita ninguno ni los evalúe en un
+        orden distinto al que aparecen en el archivo.
+  \item Trabaje de forma individual. No consulte su puntuación con los
+        otros dos evaluadores antes de entregar su hoja de puntuación
+        completa.
+  \item Si algún requisito le resulta ambiguo o incompleto, puntúelo según
+        la rúbrica igualmente y anote la ambigüedad en el campo de
+        observaciones de la hoja de puntuación --- no lo descarte ni lo
+        deje en blanco.
+\end{itemize}
+
+\section{Materiales que debe tener}
+
+\begin{longtable}{|L{5.5cm}|L{9.0cm}|}
+\hline
+\rowcolor{grisclaro}\textbf{Archivo} & \textbf{Para qué} \\ \hline
+\endhead
+\texttt{requisitos\_cegados.csv} & Los 50 requisitos a evaluar, sin pista de origen \\ \hline
+\texttt{rubrica\_evaluacion.pdf} & Los criterios y la escala de 1 a 5 para cada dimensión \\ \hline
+\texttt{hoja\_puntuacion.pdf} & Donde registra su puntuación de cada requisito \\ \hline
+\texttt{consentimiento\_evaluador.pdf} & Debe estar firmado antes de recibir los demás archivos \\ \hline
+\end{longtable}
+
+\section{Procedimiento}
+
+\begin{enumerate}[label=\arabic*.]
+  \item Firma del consentimiento informado.
+  \item Recepción de esta instrucción, la rúbrica y el archivo cegado.
+  \item Lectura de la rúbrica y resolución de dudas sobre los criterios
+        \textbf{antes} de ver los requisitos (las dudas sobre un requisito
+        específico ya no se resuelven una vez iniciada la evaluación, para
+        no introducir sesgo).
+  \item Evaluación individual e independiente de los 50 requisitos.
+  \item Entrega de la hoja de puntuación completa al control documental
+        del experimento.
+\end{enumerate}
+
+\section{Confidencialidad}
+
+Su identidad como evaluador o evaluadora se registra únicamente con un
+código (\texttt{EV-1}, \texttt{EV-2} o \texttt{EV-3}) en los archivos
+públicos del proyecto. El detalle de su identidad y el consentimiento
+firmado se conservan de forma restringida, conforme al mismo protocolo de
+privacidad aplicado al resto de la evidencia del proyecto.
+
+\vfill
+\hrule
+\vspace{0.2cm}
+{\small Cualquier duda sobre este procedimiento, antes de comenzar, debe
+dirigirse al control documental del experimento (Denisses Huilcapi), no a
+la persona que le entregó los materiales.\par}
+
+\end{document}
