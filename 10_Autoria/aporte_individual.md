@@ -139,6 +139,19 @@ Commits representativos:
 
 La referencia al registro OSF se limita a documentar la acción versionada y no implica clasificarla en este documento como prerregistro.
 
+### 3.8 Cierre del experimento y codificación de tercera ronda (7–12 de septiembre)
+
+- `5d8b82a` — congelar el conjunto humano de referencia de `ENTR-04`
+- `c9efaa8` — congelar los requisitos generados por el LLM sobre `ENTR-04`
+- `d40ebca` — congelar el material fuente `ENTR-04` para el experimento
+- `cbcdab5` — codificar entrevistas de la tercera ronda
+- `5337230` — integrar el análisis de saturación de las 16 entrevistas
+- `01639b5` — redactar la primera versión de `aporte_individual.md`
+- `1b0c17d` — actualizar evidencia de autoría del equipo
+- `734a42f` — aclarar el alcance temporal del registro OSF
+- `7c53724` — actualizar README y manifiesto de cierre
+- `2001ace` — agregar datos al CSV de fichas técnicas
+
 ---
 
 # 4. Macías Herrera Josthyn Esteban
@@ -189,6 +202,20 @@ Durante el cierre, Josthyn realizó la revisión cruzada del archivo de codifica
 
 Esta revisión se registra como control colaborativo del cierre y no como autoría original de los 89 fragmentos codificados.
 
+### 4.5 Auditoría de IA, doble codificación y diseño del experimento (7–12 de septiembre)
+
+- `f9b5fa8` — auditoría de los seis aspectos del componente de IA (IA-01)
+- `b6455aa` — congelar el subconjunto de doble codificación (39 fragmentos) y script de cálculo de acuerdo (AUT-07)
+- `011283c` — codificación independiente de Josthyn sobre el subconjunto congelado (AUT-07)
+- `e91287a` — corrección de formato y resultado real del acuerdo, Kappa insignificante explicado (AUT-07)
+- `751f8f7` — capturas de trabajo propio, trazabilidad y scripts (AUT-02)
+- `969929b` — inventario de fuentes editables de diagramas y mockups (AUT-03)
+- `b41c67b`, `82ae999` — verificación de independencia del conjunto humano frente a la salida del LLM, con corrección posterior (EXP-03)
+- `41618dd`, `a1c1c8e`, `8a0a787` — script de cegado y aleatorización, y documentación de la ubicación del mapa confidencial (EXP-05)
+- `d954fbe` — documentar la Grabación 1 (Allan + Josthyn) como release asset (AUT-04)
+- `18fe8a5` — justificación honesta del tamaño muestral, sin cálculo formal de potencia previo (B4)
+- `ad44687`, `43c22fa` — secciones de tratamiento de datos y limpieza de formato en `README_Etica.md`
+
 ---
 
 # 5. Arboleda Yanza Francisco Javier
@@ -229,6 +256,27 @@ Participación en la actualización de material gráfico de casos de uso general
 ### 5.4 Mantenimiento de artefactos de modelado
 
 El historial muestra trabajo de actualización, reemplazo y depuración de versiones de diagramas UML, por lo que su contribución documentada se concentra principalmente en el área de modelado visual y representación de comportamiento del sistema.
+
+### 5.5 Traducción completa de diagramas UML al inglés (7–12 de septiembre)
+
+Traducción de los 13 diagramas UML restantes de `03_Modelado/Diagramas_UML/`
+(fuente `.puml` y exportaciones `.png`/`.svg`), uno por commit:
+
+- `ae524e3` — `.gitkeep` inicial de la carpeta de trabajo
+- `5819219` — `activity_weekly_cycle`
+- `1720d4c` — `classes_refined`
+- `01cf463` — `components`
+- `82fecf8` — `context`
+- `b1346d2` — `deployment`
+- `6b4ac55` — `istar_sd`
+- `153c5b5` — `istar_sr`
+- `c5b05a0` — `sequence_CU01`
+- `5e6440a` — `sequence_CU03`
+- `29b8cb4` — `sequence_CU06`
+- `1d09516` — `states_alert`
+- `daf4d8c` — `states_bunch`
+- `d7b3dce` — `use_cases_general`
+- `e76330a`, `94bffd4`, `43bc339` — limpieza de capturas duplicadas en `10_Autoria/capturas/`
 
 ---
 
@@ -274,6 +322,28 @@ Sus contribuciones verificadas más recientes se concentran en:
 - documentación de reproducibilidad;
 - relación entre el repositorio vivo y el snapshot publicado.
 
+### 6.5 Desviación metodológica, ejecución del LLM y análisis final del experimento (7–12 de septiembre)
+
+- `93d798d` — creación de `osf_deviations.md` (EXP-01)
+- `1849a48` — versión PDF de la desviación metodológica (EXP-01)
+- `003b029` — actualizar `desviaciones.md`
+- `b1d6681`, `f3bdb93` — declaración de uso de IA generativa y su firma
+- `3577cbc`, `9e6c6f8`, `037f995` — registro de ejecución del LLM confirmado (EXP-04)
+- `d7c474a` — preparar el dataset analítico con el origen desvelado
+- `7bbdd58` — calcular el acuerdo entre evaluadoras (kappa ponderado)
+- `9e9a075` — analizar la comparación humano-LLM con modelo ordinal mixto
+- `766a026` — actualizar estado y resultados del experimento en `06_Experimento/readme.md`
+- `5e8bd80` — actualizar el manuscrito con resultados y discusión
+- `23a997c` — agregar referencia OSF en `manuscrito_final.tex`
+- `11ebd7d` — incorporar la retrospectiva formal del proyecto
+- `9903c80` — recompilar el manuscrito y el ERS de cierre
+
+Estas contribuciones incluyen el análisis estadístico completo de RQ1 y RQ2
+del experimento. Revisión cruzada de primer nivel (código fuente y
+consistencia numérica contra el manuscrito) documentada en
+`06_Experimento/revision_cruzada_analisis_experimento.md`; pendiente de
+confirmación por un integrante del equipo distinto de Denisses.
+
 ---
 
 # 7. Rizzo Vélez Edson Nagib
@@ -312,6 +382,25 @@ Participación en la revisión y actualización de la declaración de identidade
 Edson participa además en la resolución documental del caso de tres commits que heredaron su nombre local de Git en otro equipo, pero que fueron ejecutados bajo el correo institucional de Anderson Alcívar.
 
 Su declaración deja explícito que dichos commits no forman parte de su aporte individual.
+
+### 7.5 Bitácora, evidencia de autoría y cierre del experimento humano (7–12 de septiembre)
+
+- Reconstrucción y corrección sucesiva de `10_Autoria/bitacora_sesiones.csv`
+  a partir del historial real de Git (varios commits)
+- `d6222ef` — declaración de ausencia de correspondencia escrita (AUT-08)
+- `b59d4ef`, `48d22f9` — declaración de ausencia de notas de campo físicas (AUT-05)
+- `83fe193`, `f6472c9`, `039b80a` — incorporación de las fotografías reales del equipo (AUT-06)
+- `f5224a3`, `2449907` — creación de `exif_inventario.csv` y su documentación (AUT-11)
+- `fc393be`, `ef3939d`, `520524a` — instrucciones de cegado y registro de evaluadores (EXP-06)
+- `3b7a319`, `c56ac39`, `6c1b597` — incorporación de las tres hojas de puntuación completas (EXP-06)
+- `f27ecdd`, `18fe301` — consolidado de puntuaciones reales en formato largo (EXP-07)
+- `fe2315d` — actualización del `CHANGELOG.md` con el cierre de septiembre
+- Correcciones repetidas de nomenclatura de `readme.md` para asegurar el
+  renderizado automático en GitHub
+
+Es, en volumen de commits, la mayor contribución individual del cierre de
+septiembre (49 commits en este tramo), concentrada en documentación de
+autoría y en la operación del experimento humano-LLM.
 
 ---
 
@@ -365,6 +454,22 @@ Participación directa en la normalización de su identidad.
 ### 8.4 Integridad de evidencias
 
 Su aporte verificable se concentra particularmente en el inventario, control y correspondencia de evidencia restringida y transcripciones con los contenedores externos publicados.
+
+### 8.5 Nota sobre el período del 7 al 12 de septiembre
+
+**No se encontró ningún commit con la identidad de Anderson (`AdonisAlcivar`
+ni el correo `aalcivarv4@uteq.edu.ec`) en este período.** El equipo aclara
+que esto no corresponde a trabajo no versionado ni a coordinación verbal
+pendiente de documentar: **Anderson Alcívar dejó de colaborar con el
+proyecto** durante este tramo. Su aporte verificable queda circunscrito al
+documentado en las secciones 8.1 a 8.4, correspondiente al período en que
+sí participó activamente.
+
+Las tareas que el plan de cierre le había asignado como apoyo (`AUT-06`,
+`EXP-02`, `EXP-06`) y como custodio de datos crudos (`EXP-07`) fueron
+cubiertas por el resto del equipo; queda pendiente que el propio documento
+de reparto de tareas se actualice para reflejar esta reasignación, fuera
+del alcance de este archivo.
 
 ---
 
@@ -494,3 +599,28 @@ Las correspondencias de identidad se respaldan mediante:
 - `10_Autoria/2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf`.
 
 La verificación definitiva puede realizarse directamente sobre el historial Git del repositorio.
+
+---
+
+# 13. Firmas
+
+Cada integrante firma en conformidad con el contenido de su propia
+sección (3 a 8), confirmando que las contribuciones ahí listadas son
+correctas y que no reclama como propio el trabajo colaborativo descrito en
+la sección 9.
+
+| Integrante | Firma | Fecha |
+|---|---|---|
+| Villafuerte Rosero Allan Noe | | |
+| Macías Herrera Josthyn Esteban | | |
+| Arboleda Yanza Francisco Javier | | |
+| Huilcapi León Denisses Fabiola | | |
+| Rizzo Vélez Edson Nagib | | |
+| Alcívar Vélez Anderson Adonis | | |
+
+**Sobre la firma de Anderson Alcívar.** Aunque dejó de colaborar con el
+proyecto (sección 8.5), su firma sigue siendo pertinente: el documento
+declara aporte suyo real y verificable (secciones 8.1 a 8.4) y su firma
+confirma únicamente la exactitud de esa parte, no una reincorporación al
+equipo ni conformidad con el resto del documento.
+
