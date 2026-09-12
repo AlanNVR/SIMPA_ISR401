@@ -1,47 +1,27 @@
 # Tablas del manuscrito
 
-**Estado: pendiente — depende de que el análisis se ejecute.**
+## Estado
 
-Esta carpeta alojará las tablas del manuscrito en formato LaTeX, listas para ser
-incluidas desde el documento principal.
+El análisis experimental humano–LLM fue ejecutado y completado.
 
-## Regla de generación
+Los resultados cuantitativos principales se encuentran en archivos CSV
+regenerables dentro de:
 
-Igual que en `../figuras/`: cada tabla debe ser **regenerable** ejecutando un
-script de `06_Experimento/scripts_analisis/` sobre los datos de
-`06_Experimento/datos_procesados/`. No se escriben tablas a mano con cifras
-transcritas: una cifra copiada manualmente rompe la cadena que va del dato al
-resultado publicado, y es exactamente el punto donde un error deja de ser
-detectable.
+`../../07_Datos/resultados/`
 
-## Contenido previsto
+Entre ellos:
 
-- Descriptivos por condición experimental.
-- Resultados de las pruebas de supuestos aplicadas.
-- Contrastes por pregunta de investigación, con estadístico, grados de libertad,
-  valor *p* con al menos tres decimales, tamaño de efecto e intervalo de
-  confianza del 95 %.
-- Caracterización de la muestra.
+- `comparacion_descriptiva.csv`;
+- `modelo_ordinal_mixto.csv`;
+- `acuerdo_krippendorff.csv`;
+- `acuerdo_kappa_ponderado.csv`.
 
-## Tablas ya existentes en el repositorio
+El manuscrito `../manuscrito_final.tex` presenta las tablas necesarias para RQ1
+y RQ2 utilizando los resultados obtenidos de esos archivos.
 
-Las tablas de requisitos y de trazabilidad se mantienen como datos vivos en
-formato CSV y no se duplican aquí:
+Actualmente no se mantienen archivos `.tex` separados dentro de esta carpeta.
+Si posteriormente se externalizan las tablas, deberán generarse a partir de los
+resultados reproducibles y no mediante cifras simuladas.
 
-| Tabla | Ubicación |
-|---|---|
-| Matriz de trazabilidad | `04_Trazabilidad/matriz_trazabilidad.csv` |
-| Priorización MoSCoW/Kano | `04_Trazabilidad/priorizacion_moscow_kano.csv` |
-| Codificación temática | `07_Datos/datos_crudos/codificacion.csv` |
-
-Su conversión a formato LaTeX se hará cuando el manuscrito las requiera, mediante
-script y no a mano.
-
-## Estado de las dependencias
-
-- Datos procesados del experimento: **pendientes**.
-- Scripts de análisis: **pendientes**.
-- Plantilla de la publicación objetivo: **pendiente de incorporación**.
-
-No se depositan tablas con cifras simuladas ni estructuras vacías rellenas con
-valores de ejemplo.
+Las tablas de requisitos, trazabilidad y codificación temática permanecen en sus
+ubicaciones canónicas y no se duplican aquí.

@@ -45,6 +45,12 @@ exiftool -gps:all -r AHMRV/02_Evidencias/Fotos_Entorno/
 La primera comprueba la nomenclatura; la segunda, la ausencia de geolocalización.
 La integridad de cada archivo consta en `checksums.sha256` de la raíz.
 
-## Pendiente
+## Estado de la tercera ronda
 
-Fotografías de la tercera ronda de trabajo de campo, que aún no se ha ejecutado.
+La tercera ronda de trabajo de campo fue ejecutada y se encuentra documentada
+mediante entrevistas, consentimientos, transcripciones y demás evidencias en sus
+carpetas correspondientes.
+
+Esta carpeta conserva únicamente las fotografías de entorno efectivamente
+depositadas. No se incorporan ni se atribuyen fotografías específicas de la
+tercera ronda cuando no existe evidencia fotográfica disponible para respaldarlas.

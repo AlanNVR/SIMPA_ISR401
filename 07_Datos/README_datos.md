@@ -278,8 +278,16 @@ La verificación automática confirma:
 - SHA-256 del dataset Zenodo:
   `b40ab460fc1d3d931beebaf5dd3037f564db8774559feee1ec1d371fa01b39b9`.
 
-El orquestador ejecuta únicamente análisis respaldados por datos reales y no
-genera resultados del experimento humano–LLM todavía pendiente.
+El orquestador `run_all.py` ejecuta únicamente la cadena reproducible general
+del paquete `07_Datos`: anonimización del cuestionario, reconstrucción del
+dataset agregado de Zenodo y análisis de saturación estratificado.
+
+El experimento comparativo humano–LLM ya fue ejecutado. Su preparación y sus
+análisis estadísticos se reproducen mediante los scripts específicos ubicados
+en `06_Experimento/scripts_analisis/`, mientras que los datasets derivados y
+los resultados se conservan en `07_Datos/datos_procesados/` y
+`07_Datos/resultados/`. Actualmente `run_all.py` no invoca esa cadena
+experimental.
 
 ## 10. Integridad
 

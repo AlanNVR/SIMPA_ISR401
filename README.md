@@ -196,9 +196,15 @@ El protocolo experimental está registrado públicamente en OSF y el material re
 
 El alcance temporal del registro está aclarado de forma explícita: es retrospectivo respecto a la recolección del material fuente de entrevistas, pero anterior a la ejecución del experimento comparativo humano–LLM.
 
-**Estado: protocolo diseñado y registrado públicamente; experimento humano–LLM pendiente.** El cuasi-experimento requiere evaluadores externos y no se ha realizado. En consecuencia, no se presentan resultados experimentales inventados ni se atribuye al registro una condición de prerregistro de las entrevistas ya realizadas.
+**Estado: experimento humano–LLM ejecutado y análisis principal completado.**
 
-Esta limitación se declara de forma transparente en lugar de suplirse con cifras estimadas.
+Se compararon 25 requisitos funcionales elicitados por el equipo humano con 25 requisitos generados por un modelo grande de lenguaje a partir del mismo material fuente. Tres evaluadores independientes puntuaron los 50 requisitos en cinco dimensiones de calidad, para un total de 750 puntuaciones ordinales.
+
+El análisis principal utilizó modelos ordinales mixtos con origen como efecto fijo y evaluador y requisito como interceptos aleatorios. No se encontró evidencia estadísticamente significativa de diferencias entre ambos orígenes después de aplicar la corrección de Holm-Bonferroni. El acuerdo interevaluador fue muy bajo y se conserva como una limitación relevante del estudio.
+
+El registro OSF es retrospectivo respecto a la recolección del material fuente de entrevistas, pero anterior a la ejecución del experimento comparativo humano–LLM. Las desviaciones respecto del plan original se documentan sin modificar retroactivamente el protocolo registrado.
+
+Los resultados, scripts y archivos derivados del experimento se encuentran en `06_Experimento/` y `07_Datos/`; el manuscrito actualizado está disponible en `08_Publicacion/manuscrito_final.pdf`.
 
 ---
 

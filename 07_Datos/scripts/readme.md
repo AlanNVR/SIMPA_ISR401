@@ -62,5 +62,8 @@ La verificación confirmó:
 - 79 códigos únicos agregados;
 - conservación del SHA-256 publicado del dataset Zenodo.
 
-El experimento comparativo humano–LLM permanece pendiente y `run_all.py` no
-genera resultados simulados para ese componente.
+El experimento comparativo humano–LLM fue ejecutado y analizado mediante los
+scripts específicos de `06_Experimento/scripts_analisis/`. El orquestador
+`run_all.py` mantiene un alcance separado y no ejecuta actualmente esa cadena
+experimental. Los resultados experimentales reales se conservan en
+`../resultados/` y el dataset analítico en `../datos_procesados/`.

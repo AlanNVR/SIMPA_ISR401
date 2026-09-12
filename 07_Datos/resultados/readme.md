@@ -63,11 +63,22 @@ diferentes.
 
 ## Experimento humano–LLM
 
-Los archivos de esta carpeta corresponden al análisis cualitativo de
-entrevistas.
+Esta carpeta reúne también los resultados reales del experimento comparativo
+humano–LLM ejecutado con 25 requisitos humanos, 25 requisitos generados por el
+modelo y tres evaluadores independientes.
 
-No corresponden al experimento comparativo humano–LLM descrito en
-`06_Experimento/`, cuya ejecución completa continúa pendiente.
+Los principales artefactos experimentales son:
 
-No se incorporan resultados hipotéticos ni cifras simuladas para completar ese
-experimento.
+- `comparacion_descriptiva.csv`: estadísticos descriptivos por origen y dimensión;
+- `modelo_ordinal_mixto.csv`: resultados de los cinco modelos ordinales mixtos;
+- `metadatos_modelo_ordinal.txt`: información de ejecución y convergencia;
+- `acuerdo_krippendorff.csv`: alfa de Krippendorff ordinal por dimensión;
+- `acuerdo_kappa_ponderado.csv`: kappa de Cohen ponderado por pares de evaluadores;
+- `metadatos_acuerdo.txt`: información del análisis de acuerdo.
+
+Los scripts que generan estos resultados se encuentran en
+`06_Experimento/scripts_analisis/`. Los archivos de curvas y saturación que
+también residen en esta carpeta pertenecen al componente cualitativo de
+entrevistas y se mantienen diferenciados de los resultados experimentales.
+
+No se incorporan resultados hipotéticos ni cifras simuladas.

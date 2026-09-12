@@ -2,7 +2,7 @@
 
 Proyecto SIMPA — Sistema Inteligente de Mantenimiento de Palma Africana
 Equipo AHMRV
-Fecha de actualización: 2026-09-07
+Fecha de actualización: 2026-09-12
 
 Este documento registra únicamente desviaciones, limitaciones y estados
 verificados del trabajo realizado. No contiene resultados simulados ni
@@ -10,55 +10,70 @@ evidencia fabricada.
 
 ---
 
-## D-01 — Potencia experimental prevista inferior al objetivo
+## D-01 — Potencia experimental inferior al objetivo convencional
 
-**Estado:** abierta / declarada antes de la ejecución.
+**Estado:** limitación documentada y reportada en el análisis final.
 
-El diseño experimental contempla 25 pares de requisitos.
+El diseño originalmente registrado contemplaba una comparación apareada. Antes
+de recolectar las puntuaciones experimentales se documentó la imposibilidad de
+sostener un emparejamiento uno a uno válido entre requisitos humanos y
+requisitos generados por el modelo, por lo que el análisis ejecutado trató los
+dos orígenes como grupos independientes.
 
-La documentación del experimento establece como referencia:
+El experimento utilizó:
 
-- α = 0,05
-- potencia objetivo = 0,80
-- tamaño de efecto medio esperado = d = 0,5
-- tamaño aproximado requerido = 34 pares
+- 25 requisitos de origen humano;
+- 25 requisitos generados por el LLM;
+- 3 evaluadores independientes;
+- 750 puntuaciones ordinales en total.
 
-Por tanto, los 25 pares previstos se encuentran por debajo del tamaño requerido
-para alcanzar la potencia objetivo bajo esos supuestos.
+Como análisis de sensibilidad, bajo una aproximación convencional para dos
+grupos independientes con α = 0,05 bilateral y un tamaño de efecto medio
+d = 0,5, la potencia aproximada con 25 observaciones por grupo es 0,41. Para
+alcanzar una potencia cercana a 0,80 bajo esos mismos supuestos serían
+necesarias aproximadamente 64 observaciones por grupo.
 
-No se incrementará artificialmente el tamaño muestral mediante duplicación de
-requisitos u observaciones.
-
-Esta condición deberá reportarse como amenaza a la validez de conclusión cuando
-se ejecute el experimento.
+No se incrementó el tamaño muestral después de observar los resultados ni se
+duplicaron requisitos u observaciones. La potencia limitada se conserva como
+amenaza a la validez de conclusión y la ausencia de significación estadística
+no se interpreta como demostración de equivalencia.
 
 **Fuente documental:**
-`06_Experimento/readme.md` y protocolo experimental.
+`06_Experimento/osf_deviations.md`, `06_Experimento/readme.md` y
+`08_Publicacion/manuscrito_final.tex`.
 
 ---
 
-## D-02 — Experimento comparativo humano–LLM todavía no ejecutado
+## D-02 — Ejecución del experimento comparativo humano–LLM
 
-**Estado:** abierta.
+**Estado:** cerrada el 2026-09-12.
 
-El protocolo experimental y el registro público en OSF existen, pero el
-experimento comparativo entre requisitos generados por el equipo humano y por
-el modelo de lenguaje todavía no ha sido ejecutado completamente.
+El experimento comparativo fue ejecutado con 25 requisitos humanos y 25
+requisitos generados por el modelo de lenguaje. Tres evaluadores independientes
+puntuaron los 50 requisitos en cinco dimensiones de calidad, generando 750
+puntuaciones ordinales.
 
-En consecuencia, actualmente no se presentan como resultados reales:
+El análisis principal de RQ1 se realizó mediante modelos ordinales mixtos con
+origen como efecto fijo y evaluador y requisito como interceptos aleatorios.
+Los cinco modelos convergieron sin advertencias. Después de la corrección de
+Holm-Bonferroni no se encontró evidencia estadísticamente significativa de
+diferencias entre los dos orígenes.
 
-- evaluación a ciegas completa;
-- comprobación de ceguera;
-- kappa con intervalo de confianza;
-- tamaño del efecto con IC del 95 %;
-- análisis estadístico final del experimento;
-- conclusiones derivadas de dicho experimento.
+Para RQ2 se calculó como medida principal el alfa de Krippendorff ordinal y,
+como análisis secundario, el kappa de Cohen ponderado cuadráticamente. El
+acuerdo interevaluador observado fue muy bajo y se mantiene como una limitación
+del estudio.
 
-Los resultados existentes dentro de `07_Datos/resultados/` pertenecen al
-análisis de codificación temática y saturación de entrevistas y no deben
-confundirse con los resultados del experimento humano–LLM.
+Los datos y resultados verificables se conservan en:
 
-No se incorporarán cifras hipotéticas para completar los entregables.
+- `06_Experimento/evaluadores/puntuaciones_reales.csv`;
+- `07_Datos/datos_procesados/puntuaciones_experimento_con_origen.csv`;
+- `07_Datos/resultados/modelo_ordinal_mixto.csv`;
+- `07_Datos/resultados/comparacion_descriptiva.csv`;
+- `07_Datos/resultados/acuerdo_krippendorff.csv`;
+- `07_Datos/resultados/acuerdo_kappa_ponderado.csv`.
+
+No se incorporaron resultados hipotéticos ni observaciones fabricadas.
 
 ---
 

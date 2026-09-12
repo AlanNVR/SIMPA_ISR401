@@ -1,37 +1,28 @@
 # Figuras del manuscrito
 
-**Estado: pendiente — depende de que el análisis se ejecute.**
+## Estado
 
-Esta carpeta alojará las figuras del manuscrito, en el formato vectorial que
-exija la plantilla de la revista o conferencia objetivo.
+El análisis experimental humano–LLM fue ejecutado y completado.
 
-## Regla de generación
+Actualmente el manuscrito no requiere figuras experimentales independientes para
+presentar los resultados principales. Los resultados cuantitativos de RQ1 y RQ2
+se presentan mediante tablas y texto dentro de `../manuscrito_final.tex`.
 
-Cada figura de esta carpeta debe ser **regenerable** ejecutando un script de
-`06_Experimento/scripts_analisis/` sobre los datos de
-`06_Experimento/datos_procesados/`. No se depositan imágenes construidas a mano,
-exportadas de una hoja de cálculo o editadas después de generarse: una figura que
-no puede reproducirse desde los datos no es verificable.
+Las figuras de saturación temática del componente cualitativo permanecen en:
 
-Cada archivo llevará junto a sí la indicación del script que lo produce, en el
-`readme` que se añada cuando la carpeta se pueble.
+`../../07_Datos/resultados/`
 
-## Figuras ya existentes en el repositorio
+y son generadas mediante:
 
-| Figura | Ubicación | Script que la genera |
-|---|---|---|
-| Curva de saturación temática | `07_Datos/resultados/curva_saturacion.png` | `07_Datos/scripts/curva_saturacion.py` |
+`../../07_Datos/scripts/curva_saturacion.py`
 
-Se mantiene en su carpeta de evidencia. Se incorporará al manuscrito cuando la
-curva se recalcule sobre el conjunto completo de entrevistas; la versión actual
-corresponde únicamente a las entrevistas realizadas hasta la fecha y no debe
-presentarse como definitiva.
+Archivos disponibles:
 
-## Estado de las dependencias
+- `curva_saturacion_dominio.png` / `.pdf`;
+- `curva_saturacion_contraste.png` / `.pdf`;
+- `curva_saturacion_agregada.png` / `.pdf`.
 
-- Datos procesados del experimento: **pendientes**.
-- Scripts de análisis: **pendientes**.
-- Plantilla de la publicación objetivo: **pendiente de incorporación**.
+Esta carpeta se mantiene disponible para futuras figuras específicas de
+publicación si fueran requeridas por la revista o conferencia objetivo.
 
-No se depositan figuras con datos simulados ni marcadores de posición con aspecto
-de resultado.
+No se depositan figuras construidas manualmente con resultados simulados.

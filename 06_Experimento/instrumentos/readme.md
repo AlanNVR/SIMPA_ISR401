@@ -1,42 +1,47 @@
-# Instrumentos de recolección
+# Instrumentos del experimento
 
-**Estado: parcial — algunos instrumentos existen en otras carpetas del
-repositorio; los de la tercera ronda están pendientes de depósito.**
+Esta carpeta reúne los instrumentos utilizados para la ejecución del experimento
+comparativo humano–LLM.
 
-Esta carpeta reúne los instrumentos aplicados o previstos en el componente
-empírico: guiones de entrevista, cuestionario, guion de walkthrough y rúbricas
-de evaluación.
+## Instrumentos disponibles
 
-## Instrumentos que ya existen en el repositorio
-
-No se duplican aquí; se indica su ubicación real para evitar copias divergentes.
-
-| Instrumento | Ubicación actual | Estado |
+| Instrumento | Fuente editable | PDF |
 |---|---|---|
-| Instrumentos de recolección del paquete ético | `08_Etica/A02_Instrumentos_Recoleccion.pdf` | Aplicado |
-| Cuestionario aplicado a trabajadores | `02_Evidencias/Cuestionario/cuestionario_aplicado_a_encuestas.md` | Aplicado (62 respuestas) |
-| Plantilla de registro de consignas al modelo de lenguaje | `06_Experimento/prompts_llm/PLANTILLA_registro_consigna.md` | Disponible, sin ejecuciones registradas |
-| Protocolo experimental | `06_Experimento/protocolo.pdf` y `protocolo.tex` | Disponible |
+| Consentimiento del evaluador | `consentimiento_evaluador.tex` | `consentimiento_evaluador.pdf` |
+| Instrucciones para el evaluador | `instrucciones_evaluador.tex` | `instrucciones_evaluador.pdf` |
+| Rúbrica de evaluación | `rubrica_evaluacion.tex` | `rubrica_evaluacion.pdf` |
+| Hoja de puntuación | `hoja_puntuacion.tex` | `hoja_puntuacion.pdf` |
 
-## Instrumentos pendientes de depósito
+Estos instrumentos corresponden al experimento ejecutado con 50 requisitos
+cegados y tres evaluadores independientes.
 
-Corresponden a la tercera ronda de trabajo de campo, que aún no se ha ejecutado:
+## Otros instrumentos del proyecto
 
-- Guion de entrevista semiestructurada, perfil profesional/docente.
-- Guion de entrevista semiestructurada, perfil estudiantil.
-- Guion de sesión de walkthrough con los escenarios seleccionados.
-- Plantilla de acta de walkthrough.
-- Checklist de campo por participante.
-- Plantilla de acta de miembro-verificación.
+Los instrumentos generales de recolección utilizados durante la elicitación y
+el trabajo de campo se documentan en:
 
-Se depositarán en esta carpeta, en formato `.tex` y `.pdf`, cuando queden
-cerrados. Mientras tanto no se publica una versión provisional que pudiera
-divergir de la efectivamente aplicada.
+`09_Etica/A02_Instrumentos_Recoleccion.pdf`
 
-## Nota sobre la trazabilidad
+El cuestionario aplicado se conserva en:
 
-`README.md` de la raíz declara esta carpeta como *no disponible en esta versión*
-dentro de las instrucciones de reproducción del análisis. Esa declaración se
-mantiene deliberadamente hasta que los instrumentos de la tercera ronda estén
-depositados: es preferible un pendiente declarado a una referencia que apunte a
-un archivo inexistente.
+`02_Evidencias/Cuestionario/cuestionario_aplicado_a_encuestas.md`
+
+El protocolo del experimento se encuentra en:
+
+- `06_Experimento/protocolo.tex`
+- `06_Experimento/protocolo.pdf`
+
+Los registros de consignas del modelo se conservan en:
+
+`06_Experimento/prompts_llm/`
+
+## Estado
+
+El experimento humano–LLM fue ejecutado y su análisis principal fue completado.
+Esta carpeta no declara como disponibles instrumentos o evidencias que no estén
+realmente depositados en el repositorio.
+
+El protocolo registrado se conserva como documento histórico y las desviaciones
+respecto del diseño original se documentan en:
+
+`06_Experimento/osf_deviations.md`
