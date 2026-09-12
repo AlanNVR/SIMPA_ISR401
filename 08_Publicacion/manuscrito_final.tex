@@ -2,8 +2,8 @@
 %  manuscrito_final.tex -- ARTEFACTO AUTONOMO (version interna no anonima)
 %  Proyecto SIMPA -- Equipo AHMRV -- ISR-401 -- UTEQ
 %
-%  Genero: Research Preview prerregistrado. El estudio NO se ha ejecutado:
-%  el documento no contiene resultados ni discusion.
+%  Genero: articulo empirico derivado de un estudio experimental registrado.
+%  El documento incorpora resultados y discusion de la ejecucion real.
 %
 %  Este archivo es autocontenido: no depende de preambulo.tex ni de
 %  cuerpo_manuscrito.tex. Solo requiere referencias.bib y la clase llncs.
@@ -14,12 +14,10 @@
 %    pdflatex manuscrito_final
 %    pdflatex manuscrito_final
 %
-%  [DECISION DE AUTORIA PENDIENTE]
-%  Los metadatos del proyecto y el deposito declaran seis autores estudiantes.
-%  La eventual coautoria del docente supervisor NO esta decidida y por eso no
-%  figura. Si se resuelve afirmativamente, hay que anadir la persona al bloque
-%  \author y actualizar a la vez manuscrito, repositorio y deposito.
-%  Esta nota vive en el fuente y no aparece en el PDF.
+%  DECISION DE AUTORIA RESUELTA:
+%  Los seis integrantes estudiantes se mantienen como autores del manuscrito.
+%  El docente participa como supervisor academico y se reconoce en la seccion
+%  de agradecimientos, sin incorporarlo como coautor.
 % =====================================================================
 \documentclass[runningheads]{llncs}
 \usepackage[utf8]{inputenc}
@@ -34,7 +32,7 @@
 \begin{document}
 
 \title{Calidad de requisitos funcionales: humanos frente a un modelo grande
-de lenguaje. Estudio prerregistrado}
+de lenguaje. Estudio comparativo registrado}
 \titlerunning{Calidad de requisitos: humanos frente a modelo de lenguaje}
 
 % Sin ORCID: no se declara ninguno hasta disponer de los reales.
@@ -59,33 +57,37 @@ Facultad de Ciencias de la Computaci\'on, Quevedo, Ecuador}
 % ---------------------------------------------------------------------
 \begin{abstract}
 \textbf{Contexto y motivaci\'on.} Los modelos grandes de lenguaje se incorporan
-con rapidez a la elicitación de requisitos, pero la evidencia emp\'irica sobre la
-calidad de los requisitos que producen sigue siendo escasa, y pr\'acticamente
-inexistente en dominios agroindustriales y en contextos latinoamericanos.
+con rapidez a la elicitaci\'on de requisitos, pero la evidencia emp\'irica sobre la
+calidad de los requisitos que producen sigue siendo limitada, especialmente en
+dominios agroindustriales y en contextos latinoamericanos.
 
 \textbf{Pregunta o problema.} ?`Difiere la calidad de los requisitos funcionales
 elicitados por un equipo humano de la de los generados por un modelo grande de
 lenguaje a partir del mismo material fuente, y con qu\'e grado de acuerdo la
 valoran personas evaluadoras que desconocen su procedencia?
 
-\textbf{Ideas principales.} Se especifica un estudio comparativo con evaluaci\'on a
-ciegas sobre un caso real de ingenier\'ia de requisitos en una unidad productiva de
-palma africana. Dos conjuntos de al menos veinticinco requisitos, uno humano y otro
-generado por el modelo desde una transcripci\'on de entrevista anonimizada, se
-normalizan con identificadores neutros y se punt\'uan de uno a cinco en cinco
-dimensiones de calidad por tres personas evaluadoras independientes. El an\'alisis
-trata las puntuaciones como ordinales y modela evaluador y requisito como factores
-aleatorios cruzados.
+\textbf{M\'etodo y resultados.} Se ejecut\'o un estudio comparativo con evaluaci\'on
+a ciegas sobre un caso real de ingenier\'ia de requisitos en una unidad productiva
+de palma africana. Se evaluaron 25 requisitos humanos y 25 generados por un modelo
+de lenguaje, puntuados por tres personas evaluadoras en cinco dimensiones de
+calidad, para un total de 750 puntuaciones ordinales. El an\'alisis principal
+emple\'o modelos ordinales mixtos con origen como efecto fijo y evaluador y
+requisito como interceptos aleatorios. No se encontraron diferencias
+estad\'isticamente significativas entre los requisitos humanos y los generados por
+el modelo en ninguna dimensi\'on despu\'es de aplicar la correcci\'on de Holm. Los
+odds ratios para LLM frente a Humano se situaron entre 0,739 y 0,766. El acuerdo
+interevaluador fue muy bajo: el $\alpha$ de Krippendorff ordinal oscil\'o entre
+$-0,015$ y $0,027$.
 
-\textbf{Contribuci\'on y limitaciones.} La contribuci\'on de esta vista previa es
-el dise\~no y su prerregistro p\'ublico, junto con una r\'ubrica operacionalizada
-de cinco dimensiones dise\~nada para ser adaptable a otros contextos. El estudio \textbf{a\'un no se
-ha ejecutado}: este manuscrito no presenta resultados. Las limitaciones conocidas
-son un \'unico material fuente, un \'unico modelo, personas evaluadoras del
-entorno acad\'emico y un tama\~no muestral que sit\'ua la potencia por debajo del
-objetivo convencional.
+\textbf{Contribuci\'on y limitaciones.} Los resultados aportan evidencia emp\'irica
+sobre el uso de modelos de lenguaje en elicitaci\'on de requisitos en un dominio
+agroindustrial. La ausencia de diferencias significativas no se interpreta como
+equivalencia entre ambos or\'igenes, debido al tama\~no muestral, la potencia
+limitada, el bajo acuerdo entre evaluadores y el uso de un \'unico material fuente
+y un \'unico modelo.
+
 \keywords{Ingenier\'ia de requisitos \and Modelos grandes de lenguaje \and
-Calidad de requisitos \and Estudio prerregistrado \and Evaluaci\'on a ciegas.}
+Calidad de requisitos \and Estudio comparativo registrado \and Evaluaci\'on a ciegas.}
 \end{abstract}
 
 % =====================================================================
@@ -101,10 +103,12 @@ artefacto generado exige un procedimiento de evaluaci\'on controlado
 \cite{arora2024}, y las pr\'acticas de uso propuestas a\'un no han sido validadas
 de forma independiente \cite{vogelsang2025}.
 
-Esta vista previa presenta el dise\~no de un estudio comparativo con evaluaci\'on a
-ciegas, prerregistrado antes de recoger puntuaciones, en un contexto poco
-representado: un proyecto de ingenier\'ia de requisitos sobre una unidad productiva
-agroindustrial real en Ecuador.
+Este trabajo presenta los resultados de un estudio comparativo con evaluaci\'on a
+ciegas, registrado antes de recoger las puntuaciones experimentales, en un contexto
+poco representado: un proyecto de ingenier\'ia de requisitos sobre una unidad
+productiva agroindustrial real en Ecuador. El estudio compara requisitos
+funcionales elicitados por el equipo humano con requisitos generados por un modelo
+grande de lenguaje a partir del mismo material fuente.
 
 % =====================================================================
 \section{Trabajo relacionado}
@@ -203,11 +207,13 @@ de presentaci\'on, aleatorizado con semilla registrada.
 
 \subsection{Materiales y participantes}
 
-Ambos conjuntos comprenden al menos veinticinco requisitos; el humano se extrae del
+Ambos conjuntos comprendieron veinticinco requisitos; el humano se extrajo del
 cat\'alogo seleccionando los trazados a la evidencia de la entrevista fuente.
-Se prev\'en tres personas evaluadoras independientes, estudiantes de otro paralelo
-de la misma asignatura sin participaci\'on en el proyecto. Se reportar\'a el
-n\'umero efectivo, y ese n\'umero constituye una limitaci\'on del estudio.
+Participaron tres personas evaluadoras independientes, estudiantes de otro paralelo
+de la misma asignatura sin participaci\'on en el proyecto. Las tres evaluaron los
+50 requisitos en las cinco dimensiones previstas, generando 750 puntuaciones
+ordinales. El n\'umero reducido de evaluadores constituye una limitaci\'on del
+estudio.
 
 \subsection{Procedimiento}
 
@@ -226,80 +232,202 @@ recolecci\'on.
 \label{sec:analisis}
 % =====================================================================
 
-\textbf{Alcance de este manuscrito.} El plan que sigue describe an\'alisis
-\emph{previstos}: el experimento no se ha ejecutado y el documento no contiene
-puntuaciones, resultados ni discusi\'on. Ninguna de las decisiones descritas en
-esta secci\'on se ha tomado a la vista de datos observados. El registro p\'ublico
-del protocolo tampoco equivale a un \emph{Registered Report} con aceptaci\'on en
-fase~1, pues no hubo revisi\'on previa del dise\~no por parte de una revista; se
-trata de una vista previa de investigaci\'on prerregistrada. El estado del estudio
-y los compromisos de reporte se detallan en la secci\'on~\ref{sec:estado}.
+\textbf{Ejecuci\'on del an\'alisis.} El an\'alisis se ejecut\'o despu\'es de
+completar la recolecci\'on de las puntuaciones. Las decisiones metodol\'ogicas
+principales utilizadas en esta etapa fueron fijadas antes de observar dichas
+puntuaciones y quedaron documentadas en el repositorio. El protocolo p\'ublico
+original no se modific\'o retroactivamente; las diferencias respecto de aquel
+protocolo se conservan como desviaciones declaradas.
 
+\subsection{Desviaci\'on respecto del plan original}
 
-\subsection{Desviaci\'on declarada respecto del prerregistro}
+El protocolo original preve\'ia contrastes \textbf{apareados} sobre unos
+veinticinco pares. Antes de recoger las puntuaciones se constat\'o que no exist\'ia
+una correspondencia uno a uno metodol\'ogicamente justificable entre cada
+requisito humano y uno generado por el modelo: ambos conjuntos proceden del mismo
+material fuente, pero no describen necesariamente las mismas funciones. Por ello,
+un contraste apareado habr\'ia impuesto una estructura inexistente.
 
-El protocolo prerregistrado prev\'e contrastes \textbf{apareados} sobre unos
-veinticinco pares. Al revisar el dise\~no antes de recoger puntuaci\'on alguna se
-detect\'o que \textbf{no existe correspondencia uno a uno} entre cada requisito
-humano y uno generado: ambos conjuntos proceden del mismo material pero no
-describen necesariamente las mismas funciones, de modo que el emparejamiento carece
-de fundamento y el contraste apareado ser\'ia inv\'alido.
-
-Se declara por tanto la siguiente desviaci\'on, que se someter\'a como
-\textbf{adenda prospectiva al registro} \emph{antes} de recoger ninguna
-puntuaci\'on:
+La desviaci\'on qued\'o documentada en el repositorio antes de recoger las
+puntuaciones experimentales y consisti\'o en:
 
 \begin{enumerate}
-\item Los conjuntos se tratan como \textbf{grupos independientes}, no apareados.
-\item El an\'alisis principal emplea un \textbf{modelo mixto de v\'inculo
-acumulativo} para respuesta ordinal \cite{agresti2010}, que respeta la naturaleza
-ordinal de la escala y la estructura de evaluaciones repetidas, que un contraste
-sobre medias no captura. Se ajustar\'a \textbf{un modelo por cada una de las cinco
-dimensiones}, con la especificaci\'on
-$\text{puntuaci\'on}_{1\text{--}5} \sim \text{origen} + (1 \mid \text{evaluador}) + (1 \mid \text{requisito})$,
-donde el origen es efecto fijo y evaluador y requisito son interceptos aleatorios
-cruzados. Se emplear\'a enlace log\'istico de probabilidades proporcionales, salvo
-que antes de ejecutar exista una raz\'on metodol\'ogica preespecificada para otro
-enlace. La implementaci\'on prevista es el paquete \texttt{ordinal} de R, cuya
-versi\'on exacta se registrar\'a en el momento de la ejecuci\'on.
-\item Si el modelo no converge, el an\'alisis de reserva es la prueba
-\textbf{U de Mann--Whitney} sobre la mediana por requisito entre evaluadoras, con
-$\delta$ de Cliff \cite{cliff1993} e intervalo de confianza al 95\,\% como tama\~no
-del efecto.
+\item tratar los dos conjuntos como \textbf{grupos independientes}, no apareados;
+\item utilizar como an\'alisis principal un \textbf{modelo mixto de v\'inculo
+acumulativo} para respuesta ordinal \cite{agresti2010}, con un modelo independiente
+para cada una de las cinco dimensiones y la especificaci\'on
+\[
+\text{puntuaci\'on}_{1\text{--}5}
+\sim
+\text{origen}
++
+(1 \mid \text{evaluador})
++
+(1 \mid \text{requisito});
+\]
+\item utilizar origen como efecto fijo y evaluador y requisito como interceptos
+aleatorios cruzados, con enlace log\'istico de probabilidades proporcionales;
+\item reservar la prueba U de Mann--Whitney sobre la mediana por requisito,
+acompa\~nada de $\delta$ de Cliff e intervalo de confianza al 95\,\%
+\cite{cliff1993}, exclusivamente para el caso de que el modelo principal no
+convergiera.
 \end{enumerate}
 
-Ninguna de estas decisiones se tomar\'a en funci\'on de los datos observados.
+Los cinco modelos principales convergieron sin advertencias, por lo que no fue
+necesario ejecutar el an\'alisis de reserva. La implementaci\'on se realiz\'o con
+el paquete \texttt{ordinal} de R, versi\'on 2026.7.26.
 
-\subsection{Contrastes y acuerdo entre evaluadoras}
+\subsection{Contrastes y acuerdo entre evaluadores}
 
-Se contrastan cinco dimensiones sobre el mismo conjunto de datos; la
-correcci\'on secuencial de Holm \cite{holm1979} se aplica a los \textbf{cinco
-contrastes del efecto de origen, uno por dimensi\'on}, y se reportan los valores
-$p$ crudos y corregidos, con $\alpha = 0{,}05$. Ninguna de estas decisiones se
-revisar\'a tras observar las puntuaciones.
+Se aplic\'o la correcci\'on secuencial de Holm \cite{holm1979} sobre los cinco
+contrastes del efecto de origen, uno por dimensi\'on, con $\alpha=0{,}05$. Se
+reportan tanto los valores $p$ crudos como los corregidos.
 
-Para RQ2, el acuerdo se estima con el \textbf{$\alpha$ de Krippendorff con
-m\'etrica ordinal} \cite{hayes2007} como medida principal, y con \textbf{$\kappa$
-ponderado cuadr\'atico} \cite{cohen1968} por pares como medida secundaria. Se
-descarta el $\kappa$ nominal de Cohen o de Fleiss previsto en el registro
-original: sobre una escala ordinal de 1 a 5 penaliza por igual un desacuerdo de un
-punto y uno de cuatro. Este cambio forma parte de la adenda descrita arriba.
+Para RQ2 se utiliz\'o el $\alpha$ de Krippendorff con m\'etrica ordinal
+\cite{hayes2007} como medida principal de acuerdo y el $\kappa$ de Cohen ponderado
+cuadr\'aticamente \cite{cohen1968} por pares como medida secundaria.
 
 \subsection{Potencia}
 
-Como \textbf{aproximaci\'on de sensibilidad}, y no como potencia del modelo
-ordinal, se calcul\'o la potencia de un contraste convencional de dos grupos
-independientes con $\alpha = 0{,}05$ bilateral y $d = 0{,}5$: veinticinco
-requisitos por grupo rinden aproximadamente \textbf{0,41}, y alcanzar 0,80
-requerir\'ia unos 64 por grupo. Una evaluaci\'on de potencia espec\'ifica para el
-modelo mixto ordinal exigir\'ia simulaci\'on, una vez preespecificadas las
-distribuciones y las componentes de varianza necesarias. La limitaci\'on se declara
-antes de ejecutar y no se corregir\'a ampliando la muestra a posteriori: la
-interpretaci\'on primar\'a el tama\~no del efecto con su intervalo de confianza
-sobre la significaci\'on estad\'istica.
+Como aproximaci\'on de sensibilidad, y no como potencia espec\'ifica del modelo
+ordinal, se hab\'ia calculado previamente la potencia de un contraste convencional
+de dos grupos independientes con $\alpha=0{,}05$ bilateral y $d=0{,}5$.
+Veinticinco requisitos por grupo proporcionan una potencia aproximada de
+\textbf{0,41}; alcanzar 0,80 requerir\'ia aproximadamente 64 requisitos por grupo.
 
-Todas las tablas y figuras del futuro reporte se producir\'an mediante
-\emph{scripts} versionados; no se admitir\'an cifras calculadas manualmente.
+Esta limitaci\'on se mantuvo durante la ejecuci\'on y la muestra no se ampli\'o
+despu\'es de observar los resultados. Por ello, la interpretaci\'on considera
+conjuntamente los estimadores, sus intervalos de confianza y los valores $p$, sin
+equiparar ausencia de significaci\'on con equivalencia.
+
+Todas las cifras que se presentan a continuaci\'on proceden de scripts
+versionados en el repositorio.
+
+% =====================================================================
+\section{Resultados}
+\label{sec:resultados}
+% =====================================================================
+
+El experimento incluy\'o 25 requisitos del conjunto humano y 25 requisitos
+generados por el modelo. Tres evaluadores puntuaron los 50 requisitos en cinco
+dimensiones, produciendo un total de 750 puntuaciones ordinales.
+
+\subsection{RQ1: comparaci\'on entre requisitos humanos y generados por LLM}
+
+Descriptivamente, las medias del conjunto humano fueron ligeramente superiores en
+las cinco dimensiones. Para completitud y ausencia de ambig\"uedad la media fue
+4,36 en humanos frente a 4,25 en LLM; para verificabilidad, 4,35 frente a 4,24;
+para correcci\'on, 4,37 frente a 4,25; y para consistencia, 4,36 frente a 4,25.
+La mediana fue 4 y el rango intercuart\'il 1 en ambos or\'igenes y en todas las
+dimensiones.
+
+La Tabla~\ref{tab:rq1} presenta el efecto de origen estimado por los modelos
+ordinales mixtos. Humano se utiliz\'o como categor\'ia de referencia; por tanto,
+un \emph{odds ratio} menor que 1 representa un desplazamiento estimado hacia
+puntuaciones menores para LLM.
+
+\begin{table}[ht]
+\centering
+\caption{Efecto de origen LLM frente a Humano en los modelos ordinales mixtos.}
+\label{tab:rq1}
+\small
+\begin{tabular}{lrrrrr}
+\hline
+Dim. & $\beta$ & OR & IC 95\,\% OR & $p$ & $p_{\mathrm{Holm}}$ \\
+\hline
+COM & -0,267 & 0,766 & [0,416; 1,411] & 0,392 & 1,000 \\
+AMB & -0,283 & 0,754 & [0,394; 1,442] & 0,393 & 1,000 \\
+VER & -0,281 & 0,755 & [0,385; 1,481] & 0,414 & 1,000 \\
+COR & -0,303 & 0,739 & [0,393; 1,390] & 0,348 & 1,000 \\
+CON & -0,267 & 0,766 & [0,416; 1,411] & 0,392 & 1,000 \\
+\hline
+\end{tabular}
+\end{table}
+
+Los cinco coeficientes fueron negativos y los cinco \emph{odds ratios} inferiores
+a 1. Sin embargo, todos los intervalos de confianza incluyeron 1 y ninguno de los
+contrastes alcanz\'o significaci\'on estad\'istica. Tras la correcci\'on de Holm,
+los cinco valores $p$ ajustados fueron 1,000.
+
+Por tanto, en esta muestra \textbf{no se encontr\'o evidencia estad\'isticamente
+significativa de diferencias de calidad entre los requisitos humanos y los
+generados por el LLM en ninguna de las cinco dimensiones}. Este resultado no
+demuestra equivalencia entre ambos or\'igenes.
+
+Completitud y consistencia produjeron estimaciones id\'enticas porque las
+puntuaciones observadas para ambas dimensiones fueron id\'enticas en el conjunto
+analizado.
+
+\subsection{RQ2: acuerdo entre evaluadores}
+
+El acuerdo entre los tres evaluadores fue bajo en todas las dimensiones. La
+Tabla~\ref{tab:rq2} muestra el $\alpha$ de Krippendorff con m\'etrica ordinal.
+
+\begin{table}[ht]
+\centering
+\caption{Acuerdo interevaluador mediante $\alpha$ de Krippendorff ordinal.}
+\label{tab:rq2}
+\begin{tabular}{lr}
+\hline
+Dimensi\'on & $\alpha$ de Krippendorff \\
+\hline
+COM & -0,015 \\
+AMB & -0,003 \\
+VER & 0,027 \\
+COR & -0,003 \\
+CON & -0,015 \\
+\hline
+\end{tabular}
+\end{table}
+
+Los valores se situaron aproximadamente entre $-0,015$ y 0,027, es decir, muy
+pr\'oximos a cero. Como medida secundaria, los valores de $\kappa$ ponderado
+cuadr\'atico por pares oscilaron entre aproximadamente $-0,044$ y 0,297.
+
+En conjunto, RQ2 muestra que las personas evaluadoras presentaron un
+\textbf{grado de acuerdo muy bajo} al aplicar la r\'ubrica a los requisitos
+cegados.
+
+% =====================================================================
+\section{Discusi\'on}
+\label{sec:discusion}
+% =====================================================================
+
+Los resultados de RQ1 muestran una direcci\'on consistente: las puntuaciones
+estimadas favorecieron ligeramente al conjunto humano en las cinco dimensiones.
+No obstante, la magnitud de la incertidumbre es suficiente para que todos los
+intervalos de confianza de los \emph{odds ratios} incluyan 1. Con la muestra
+disponible no es posible sostener que exista una diferencia estad\'isticamente
+detectable entre los dos or\'igenes.
+
+Este resultado debe distinguirse de una demostraci\'on de igualdad o equivalencia.
+El estudio posee potencia limitada y fue dise\~nado como una comparaci\'on
+exploratoria en un \'unico caso. La ausencia de significaci\'on puede ser
+compatible tanto con diferencias peque\~nas como con una muestra insuficiente para
+detectarlas con precisi\'on.
+
+Desde una perspectiva aplicada, los requisitos producidos por el modelo obtuvieron
+puntuaciones descriptivas cercanas a las del conjunto humano. Esto sugiere que un
+modelo grande de lenguaje puede producir artefactos que, bajo determinadas
+condiciones, reciban valoraciones de calidad similares. Sin embargo, los datos no
+respaldan afirmar que el modelo pueda sustituir al proceso humano de elicitaci\'on:
+el estudio eval\'ua un \'unico material fuente, un \'unico modelo y un \'unico
+dominio.
+
+El resultado de RQ2 es especialmente importante para interpretar RQ1. El acuerdo
+interevaluador fue muy bajo en todas las dimensiones, lo que indica una variabilidad
+considerable en la aplicaci\'on de la r\'ubrica. Aunque los modelos mixtos
+incorporaron al evaluador como efecto aleatorio, esta falta de concordancia reduce
+la precisi\'on con la que puede caracterizarse la calidad de cada requisito y debe
+considerarse una amenaza a la validez de medici\'on y de conclusi\'on.
+
+En consecuencia, la principal aportaci\'on emp\'irica del estudio no es demostrar
+superioridad de uno de los dos or\'igenes, sino documentar que, bajo este dise\~no,
+no se detectaron diferencias significativas y que la variabilidad entre
+evaluadores constituye un componente relevante del problema de medici\'on.
+Estudios posteriores deber\'ian ampliar el n\'umero de materiales fuente, modelos,
+dominios y evaluadores, adem\'as de estudiar estrategias para aumentar la
+consistencia en la aplicaci\'on de la r\'ubrica.
 
 % =====================================================================
 \section{Amenazas a la validez}
@@ -348,91 +476,96 @@ sin que exista evidencia documental independiente que permita adjudicar entre am
 lecturas. La interpretaci\'on se conserv\'o por contar con el respaldo de dos de tres
 fuentes y la divergencia se reporta sin conciliar, lo que limita la confianza en la
 parte del material derivada de ese enunciado.
-
 % =====================================================================
-\section{Estado y contribuci\'on esperada}
+\section{Estado y contribuci\'on}
 \label{sec:estado}
 % =====================================================================
 
-El protocolo est\'a \textbf{dise\~nado y prerregistrado p\'ublicamente}, con marca
-temporal anterior a la ejecuci\'on del experimento y a la recolecci\'on de
-puntuaciones. El material fuente procede de trabajo de campo previo, ya existente
-en el momento del registro; el prerregistro no lo antecede ni lo pretende.
-\textbf{La ejecuci\'on est\'a pendiente}, y por ello este manuscrito no contiene
-resultados ni discusi\'on. Un registro p\'ublico no equivale a un \emph{Registered
-Report} con aceptaci\'on en fase~1: este trabajo es una vista previa de
-investigaci\'on prerregistrada, sin revisi\'on previa del dise\~no.
+El protocolo experimental fue registrado p\'ublicamente antes de la ejecuci\'on
+del experimento humano--LLM y antes de recoger sus puntuaciones. El material
+fuente de entrevistas, en cambio, ya exist\'ia en ese momento; por ello, el
+registro no se presenta como prerregistro del trabajo de campo previo ni del
+proyecto completo.
 
-El equipo se compromete a reportar el resultado con independencia de si confirma o
-refuta la hip\'otesis nula, a no modificar el plan seg\'un los datos observados y a
-declarar el n\'umero efectivo de evaluadoras y de requisitos. La contribuci\'on
-esperada es doble: evidencia emp\'irica en un dominio agroindustrial poco
-representado, y una r\'ubrica operacionalizada de cinco dimensiones con sus
-descriptores.
+El experimento comparativo se encuentra \textbf{ejecutado y analizado}. Se
+evaluaron 25 requisitos humanos y 25 requisitos generados por el modelo mediante
+tres evaluadores independientes y una r\'ubrica de cinco dimensiones. Los
+resultados se reportan con independencia de que los contrastes hayan resultado
+significativos.
 
+La contribuci\'on es doble: por una parte, aporta evidencia emp\'irica sobre la
+calidad percibida de requisitos funcionales humanos y generados por un modelo
+grande de lenguaje en un dominio agroindustrial; por otra, documenta un
+procedimiento reproducible de cegado, evaluaci\'on ordinal y an\'alisis del acuerdo
+entre evaluadores.
+
+El registro p\'ublico no equivale a un \emph{Registered Report} con aceptaci\'on
+en fase~1, puesto que el dise\~no no fue sometido a revisi\'on editorial previa.
+Las desviaciones respecto del plan original se documentan expl\'icitamente y el
+protocolo registrado no se modifica retroactivamente.
 % =====================================================================
 \section*{Declaraci\'on de disponibilidad de datos}
 % =====================================================================
 
+El registro del protocolo est\'a disponible en Open Science Framework
+(\url{https://osf.io/4z35d/}). El repositorio p\'ublico del proyecto se encuentra
+en \url{https://github.com/AlanNVR/SIMPA_ISR401}.
 
-El prerregistro del protocolo est\'a disponible en Open Science Framework
-(\url{https://osf.io/4z35d/}). El repositorio del proyecto, con la especificaci\'on
-de requisitos y la matriz de trazabilidad, es p\'ublico
-(\url{https://github.com/AlanNVR/SIMPA_ISR401}).
-
-Como material de apoyo se ha depositado un conjunto con estad\'istica descriptiva
-agregada del cuestionario aplicado al personal operativo
+Como material complementario del proyecto se mantiene un dep\'osito con
+estad\'istica descriptiva agregada del cuestionario aplicado al personal operativo
 (\href{https://doi.org/10.5281/zenodo.22236500}{10.5281/zenodo.22236500}).
-\textbf{Ese dep\'osito no contiene los datos del experimento aqu\'i descrito}, que
-todav\'ia no se ha ejecutado.
+Dicho dep\'osito corresponde a un componente previo del proyecto y no constituye
+el dep\'osito de los datos experimentales humano--LLM.
 
+El repositorio del proyecto contiene los artefactos versionados utilizados para
+el experimento, incluidos los conjuntos cegados y procesados, los scripts de
+preparaci\'on y an\'alisis y los resultados estad\'isticos reportados en este
+manuscrito. La correspondencia confidencial utilizada durante el cegado se
+mantuvo separada del repositorio p\'ublico durante la evaluaci\'on.
 
-Se publicar\'an \textbf{cuando se ejecute el estudio}: la consigna literal y los
-par\'ametros de generaci\'on, los dos conjuntos normalizados, la r\'ubrica completa
-con sus descriptores y los \emph{scripts} de an\'alisis. A la fecha de este
-manuscrito el repositorio contiene la plantilla de registro de consignas, sin
-ejecuciones registradas, y los instrumentos de forma parcial. El \emph{commit} de
-ejecuci\'on se fijar\'a y declarar\'a en su momento: ninguna etiqueta actual
-identifica una versi\'on evaluada del experimento.
-
-Las puntuaciones individuales de cada evaluadora \textbf{solo se publicar\'an si su
-consentimiento espec\'ifico autoriza ese nivel de detalle}; en caso contrario, solo
-datos agregados que no permitan atribuir juicios a personas concretas. El dise\~no
-de publicaci\'on sigue los principios FAIR \cite{wilkinson2016}.
+Las personas evaluadoras se identifican mediante c\'odigos y no por sus nombres
+en los datos anal\'iticos. La gesti\'on y publicaci\'on de sus datos debe mantenerse
+de acuerdo con el consentimiento aplicable y con las medidas de privacidad
+documentadas en el proyecto. La organizaci\'on de los artefactos sigue los
+principios FAIR \cite{wilkinson2016}.
 
 % =====================================================================
 \section*{Uso de tecnolog\'ias asistidas por inteligencia artificial}
 % =====================================================================
 
-\textbf{Como objeto de estudio.} La generaci\'on de uno de los conjuntos mediante un
-modelo grande de lenguaje es la intervenci\'on experimental; el modelo y su
-versi\'on, los par\'ametros, la consigna literal y la respuesta sin editar se
-registrar\'an y publicar\'an.
+\textbf{Como objeto de estudio.} Uno de los conjuntos experimentales fue generado
+mediante un modelo grande de lenguaje a partir del material fuente definido para
+el experimento. La consigna, los par\'ametros disponibles de ejecuci\'on y los
+artefactos resultantes se documentaron dentro del flujo experimental.
 
-\textbf{Como apoyo a la redacci\'on.} Las personas autoras emplearon el asistente
-Claude (Anthropic) en la redacci\'on y reestructuraci\'on de este manuscrito, en la
-revisi\'on de coherencia interna del texto y en la elaboraci\'on de un borrador de
-la lista de referencias, incluida la sugerencia de obras metodol\'ogicas
-can\'onicas. \textbf{Antes del env\'io, las referencias citadas ser\'an contrastadas contra sus
-fuentes bibliogr\'aficas o editoriales originales y sus identificadores
-persistentes cuando est\'en disponibles.} El asistente no se emple\'o para
-generar resultados ni para redactar interpretaciones de datos, que no existen. La
-responsabilidad sobre el contenido, las decisiones metodol\'ogicas y las
-afirmaciones sostenidas es \'integramente de las personas autoras.
+\textbf{Como apoyo al trabajo acad\'emico.} Durante la preparaci\'on y revisi\'on
+del manuscrito se utilizaron asistentes de inteligencia artificial, incluidos
+Claude (Anthropic) y ChatGPT (OpenAI), como apoyo para redacci\'on,
+reestructuraci\'on, revisi\'on de coherencia y formulaci\'on de interpretaciones.
 
+Los asistentes no sustituyeron la ejecuci\'on del an\'alisis estad\'istico. Las
+cifras, estimadores, intervalos de confianza, valores $p$ y medidas de acuerdo
+reportados proceden de los datos reales y de los scripts versionados del proyecto.
+Las personas autoras revisaron las interpretaciones propuestas y mantienen la
+responsabilidad sobre las decisiones metodol\'ogicas, la verificaci\'on de los
+resultados y las afirmaciones finales del manuscrito.
+
+Las referencias bibliogr\'aficas deben ser contrastadas con sus fuentes
+bibliogr\'aficas o editoriales originales y con sus identificadores persistentes
+cuando est\'en disponibles antes de una eventual presentaci\'on externa.
 
 % =====================================================================
 \section*{Agradecimientos y conflicto de intereses}
 % =====================================================================
 
 Las personas autoras agradecen a la unidad productiva participante y a su personal
-el tiempo dedicado a las entrevistas y el acceso a la documentaci\'on operativa. Una
-de las personas autoras mantiene una relaci\'on de parentesco con el representante de
-la organizaci\'on participante; la circunstancia se declar\'o ante la instancia
+el tiempo dedicado a las entrevistas y el acceso a la documentaci\'on operativa. Agradecemos
+asimismo al docente supervisor del proyecto por la orientaci\'on acad\'emica y metodol\'ogica durante
+el desarrollo del estudio. Una de las personas autoras mantiene una relaci\'on de parentesco con el representante de la organizaci\'on participante; la circunstancia se declar\'o ante la instancia
 acad\'emica antes del trabajo de campo y se adoptaron medidas de mitigaci\'on
 documentadas. No se declaran otros conflictos de intereses.
 
-
+\enlargethispage{3\baselineskip}
 \bibliographystyle{splncs04}
 \bibliography{referencias}
 
