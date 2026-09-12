@@ -206,8 +206,17 @@ con la organización empleadora más allá del reporte agregado y anonimizado.
 
 Los materiales identificables (audio, video, consentimientos sin enmascarar)
 se conservan cifrados en el repositorio complementario de evidencias mientras
-dure el proceso de evaluación académica del curso. [CONFIRMAR CON el equipo:
-¿hay una fecha de destrucción definida, o plazo según la normativa UTEQ?]
+dure el proceso de evaluación académica del curso. Conforme a la política de
+retención declarada en `09_Etica/A04_Plan_Gestion_Datos.pdf` (punto 9): los
+datos crudos con personas identificables se conservan **24 meses contados
+desde la finalización del proyecto**, tras lo cual se realiza eliminación
+segura (`shred` en Linux / `sdelete` en Windows, tanto en la copia local como
+en la copia de nube) y se levanta un acta de destrucción firmada por el líder
+del equipo y el docente responsable, archivada en `09_Etica/`. Los datos
+agregados, disociados y los artefactos publicables (transcripciones
+seudonimizadas, estadística descriptiva, fotografías sin personas
+identificables, artefactos UML y matriz de trazabilidad) no tienen límite de
+retención, por no ser datos personales.
 
 ### 4.4 Responsable del tratamiento
 
