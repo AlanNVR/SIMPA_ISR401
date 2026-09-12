@@ -615,7 +615,7 @@ la sección 9.
 | Macías Herrera Josthyn Esteban |josthynmacias | 12/09/2026 |
 | Arboleda Yanza Francisco Javier | | |
 | Huilcapi León Denisses Fabiola | | |
-| Rizzo Vélez Edson Nagib | | |
+| Rizzo Vélez Edson Nagib | RizzoNagib|2026-09-12|
 | Alcívar Vélez Anderson Adonis | | |
 
 **Sobre la firma de Anderson Alcívar.** Aunque dejó de colaborar con el
