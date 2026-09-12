@@ -1,0 +1,11 @@
+Análisis de acuerdo entre evaluadores
+------------------------------------
+Python: 3.14.3
+numpy: 2.5.1
+krippendorff: 0.8.2
+scikit-learn: 1.9.1
+Medida principal: alpha de Krippendorff ordinal
+Medida secundaria: kappa de Cohen ponderado cuadratico por pares
+Escala: 1-5 ordinal
+Evaluadores: EV-01, EV-02, EV-03
+Requisitos por dimension: 50
