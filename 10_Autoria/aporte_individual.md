@@ -208,6 +208,7 @@ Esta revisión se registra como control colaborativo del cierre y no como autor�
 - `b6455aa` — congelar el subconjunto de doble codificación (39 fragmentos) y script de cálculo de acuerdo (AUT-07)
 - `011283c` — codificación independiente de Josthyn sobre el subconjunto congelado (AUT-07)
 - `e91287a` — corrección de formato y resultado real del acuerdo, Kappa insignificante explicado (AUT-07)
+- Nota (12/09/2026): el resultado citado arriba (Kappa insignificante, commit e91287a) fue superado por una recodificación posterior con catálogo oficial compartido (commit a0dbabb), Kappa=0,397 (aceptable)
 - `751f8f7` — capturas de trabajo propio, trazabilidad y scripts (AUT-02)
 - `969929b` — inventario de fuentes editables de diagramas y mockups (AUT-03)
 - `b41c67b`, `82ae999` — verificación de independencia del conjunto humano frente a la salida del LLM, con corrección posterior (EXP-03)
