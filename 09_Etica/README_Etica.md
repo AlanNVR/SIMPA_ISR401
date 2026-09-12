@@ -194,8 +194,6 @@ exigible: un trabajador no puede negarse a participar en igualdad de condiciones
 frente a quien le emplea. La tabla `tab:lopdp-ia` del ERS detalla, para cada
 dato tratado, la base legal invocada y la medida aplicada.
 
----
-
 ### 4.2 Finalidad del tratamiento
 
 Los datos personales recolectados (audio, video, transcripciones, respuestas
