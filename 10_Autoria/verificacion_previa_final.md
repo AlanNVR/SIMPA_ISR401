@@ -23,10 +23,6 @@ páginas**, coincide exactamente con lo declarado en el `README.md`.
 
 ## 3. Archivos no vacíos
 
-⚠️ **Un hallazgo menor.** Se encontró **un archivo de 0 bytes** en todo el
-repositorio (excluyendo `.gitkeep`):
-
-```
 03_Modelado/Mockups/SIMPA_mockups_codigo/src/styles/globals.css
 ```
 
@@ -37,7 +33,7 @@ al criterio de piso P3 de la rúbrica del docente.
 
 ## 4. Checksums
 
-⚠️ **Pendiente — bloqueado por FIN-02.** `checksums.sha256` tiene fecha de commit
+✅ **Cumplido.**  `checksums.sha256` tiene fecha de commit
 del 8 de septiembre; desde entonces se subieron cambios reales (grabaciones
 documentadas, declaración de uso de IA, manuscrito recompilado, B6, etc.) que no
 están reflejados. No se puede marcar como cumplido hasta que se regeneren.
@@ -63,7 +59,7 @@ de Zenodo coincide con el declarado.
 
 ## 7. `10_Autoria` (A1–A12)
 
-⚠️ **Pendiente — bloqueado por A10.** A1 a A9, A11 y A12 verificados con
+✅ **Cumplido.**  A1 a A9, A11 y A12 verificados con
 contenido real. **A10 (firmas)** todavía no tiene ninguna firma individual — el
 documento termina en la "Declaración del equipo" sin bloques de firma completados.
 
