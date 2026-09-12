@@ -611,7 +611,7 @@ la sección 9.
 
 | Integrante | Firma | Fecha |
 |---|---|---|
-| Villafuerte Rosero Allan Noe | | |
+| Villafuerte Rosero Allan Noe | AllanVillafuerte | 2026-09-12 |
 | Macías Herrera Josthyn Esteban |josthynmacias |2026-09-12|
 | Arboleda Yanza Francisco Javier | | |
 | Huilcapi León Denisses Fabiola | HuilcapiDenisses |2026-09-12 |
