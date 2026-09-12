@@ -83,14 +83,6 @@ propuesta ya redactada y a la espera de confirmación del equipo.
 ✅ **Cumplido.** `https://github.com/AlanNVR/SIMPA_ISR401` responde 200, accesible
 sin autenticación.
 
-## 11. Baseline
-
-❌ **No cumplido — es la última tarea (FIN-05), correcto que aún no exista.** El
-tag más reciente (`baseline-v3.1`) apunta a un commit anterior (`7c53724`), no al
-commit actual de `main` (`89c49ac`). No se crea todavía porque, según la regla del
-propio plan, no debe fijarse baseline final mientras existan tareas pendientes que
-modifiquen el repositorio (A10, EVI-01, FIN-02).
-
 ---
 
 ## Resumen
@@ -107,5 +99,4 @@ modifiquen el repositorio (A10, EVI-01, FIN-02).
 | 8 | Privacidad | ✅ |
 | 9 | Requisitos de IA | 🟡 Con salvedad documentada |
 | 10 | URL pública | ✅ |
-| 11 | Baseline | ❌ Pendiente, correcto que así sea |
 
