@@ -1,40 +1,40 @@
-ID_fragmento;Fragmento;ID_evidencia;Codigo;Categoria
-DC-001;El umbral de madurez es de 3 frutos desprendidos en guineensis y 5 en hibrido;EV-04;A01_PERCEPCION_PROCESO;Comprensión del proceso
-DC-002;Se emiten criterios de calidad establecidos por la empresa para recibir la fruta;EV-04;A02_IDENTIFICACION_NECESIDAD;Necesidades de información
-DC-003;El pedunculo por encima de 5 cm absorbe aceite durante la extraccion;EV-04;A03_VALORACION_DATOS;Gestión de datos
-DC-004;La malformacion por encima del 30 por ciento provoca rechazo del racimo;EV-04;A04_CONTROL_OPERATIVO;Control operativo
-DC-005;El principal problema es que la fruta llega verde, sin desprendimiento;EV-04;A05_DETECCION_ANOMALIA;Detección de problemas
-DC-006;En temporada baja se corta fruta verde porque el pago es por tonelada;EV-04;A06_TOMA_DECISION;Decisiones productivas
-DC-007;La fruta no conforme se devuelve al productor en el mismo vehiculo;EV-04;A07_SEGUIMIENTO_PRODUCCION;Seguimiento
-DC-008;Se recomienda entregar dentro de 24 horas, aunque se llega a 48;EV-04;A08_VALIDACION_RESULTADOS;Validación
-DC-009;El material hibrido tolera mas tiempo en campo por su contenido de antioxidantes;EV-04;A09_GESTION_RECURSOS;Administración de recursos
-DC-010;El ticket de pesaje registra peso bruto, tara y neto;EV-04;A10_APOYO_TECNOLOGICO;Tecnología aplicada
-DC-011;El ticket incluye la calificacion: tamano, verde, sobremadura, malformada y pedunculo;EV-04;A11_CONFIANZA_SISTEMA;Confianza tecnológica
-DC-012;La guia de remision es exigida por la normativa y muchos productores no la manejan;EV-04;A12_ACCESIBILIDAD_INFORMACION;Acceso a información
-DC-013;La extractora tambien proyecta cuantas toneladas puede recibir y procesar;EV-04;A13_CLARIDAD_REGISTRO;Calidad del registro
-DC-014;Hay informacion sensible del productor que no puede compartirse;EV-04;A14_REDUCCION_ERRORES;Prevención de errores
-DC-015;Interesa recibir el conteo de racimos y el peso promedio estimado;EV-04;A15_OPTIMIZACION_TIEMPO;Eficiencia temporal
-DC-016;La formacion de un polinizador toma dos o tres meses;EV-04;A16_ALERTA_PREVENTIVA;Prevención de riesgos
-DC-017;El amarillamiento de hojas bajeras sugiere deficiencia de magnesio o bloqueo en suelo;EV-04;A17_INTERPRETACION_RESULTADOS;Análisis de resultados
-DC-018;Se revisa todo lo que llega, y por muestra si el proveedor maneja bien la fruta;EV-04;A18_PLANIFICACION_ACTIVIDAD;Planificación
-DC-019;El grupo de seleccionadores califica el fruto tras el pesaje;EV-04;A19_CONTROL_CALIDAD;Aseguramiento de calidad
-DC-020;La sobremaduracion eleva la acidez del aceite;EV-04;A20_TRAZABILIDAD_PROCESO;Trazabilidad
-DC-021;Se realizan visitas tecnicas al productor antes de aplicar el castigo;EV-04;A21_COMUNICACION_USUARIO;Comunicación
-DC-022;El error mas frecuente del cosechador es la mala seleccion del fruto;EV-04;A22_ADOPCION_HERRAMIENTA;Adopción tecnológica
-DC-023;Se hace una proyeccion de toneladas a recibir y procesar;EV-04;A23_FACILIDAD_APRENDIZAJE;Aprendizaje
-DC-024;Interesa llevar un historico de como mejora la produccion de la finca;EV-04;A24_PERSONALIZACION_SISTEMA;Configuración del sistema
-DC-025;El ticket se envia por correo al productor registrado;EV-04;A25_AUTOMATIZACION_TAREA;Automatización
-DC-026;Es util que la finca comparta su estimacion de cosecha;EV-04;A26_RESPALDO_DECISION;Apoyo a decisiones
-DC-027;La asignacion del trabajo cambia segun el tamaño de la finca, pero responde a una estructura de responsables;ENTR-13;A27_CONSULTA_HISTORICA;Historial de información
-DC-028;En fincas pequeñas las labores se registran en libreta o agenda;ENTR-13;A28_ORGANIZACION_INFORMACION;Organización
-DC-029;En fincas grandes las labores agricolas se registran diariamente en un sistema;ENTR-13;A29_MONITOREO_CONTINUO;Monitoreo
-DC-030;La cosecha se programa cuando se observa desprendimiento de frutos;ENTR-13;A30_RESPUESTA_INCIDENTE;Atención de incidentes
-DC-031;Las condiciones climaticas pueden obligar a reprogramar fertilizacion o control de malezas;ENTR-13;A31_PRIORIZACION_TAREAS;Priorización
-DC-032;Los reportes meteorologicos complementan la observacion directa del clima para programar actividades;ENTR-13;A32_PLAN_MEJORA;Mejora continua
-DC-033;En fincas grandes los formatos de campo se ingresan al sistema y permiten obtener un informe semanal;ENTR-13;A33_USO_INTELIGENTE_DATOS;Análisis inteligente
-DC-034;La resistencia al cambio puede hacer que el personal abandone una herramienta nueva;ENTR-13;A34_COORDINACION_ACTIVIDADES;Coordinación
-DC-035;Una interfaz con graficos y manejo sencillo facilita la adopcion;ENTR-13;A35_EVALUACION_DESEMPENO;Evaluación
-DC-036;El diagnostico por inteligencia artificial se considera un apoyo util para el trabajo agricola;ENTR-13;A36_SOPORTE_USUARIO;Soporte
-DC-037;Para administrar se requiere conocer labores pendientes, realizadas y calendarios de trabajo;ENTR-13;A37_ADAPTACION_CAMBIO;Adaptabilidad
-DC-038;Para personal con poca escolaridad el registro debe resolverse con pocos pasos;ENTR-13;A38_EFICIENCIA_OPERATIVA;Rendimiento
-DC-039;La dificultad principal puede ser lograr que las personas adopten el sistema;ENTR-13;A39_GENERACION_CONOCIMIENTO;Generación de conocimiento
+﻿ID_fragmento;Fragmento;ID_evidencia;Codigo;Categoria
+DC-001;El umbral de madurez es de 3 frutos desprendidos en guineensis y 5 en hibrido;EV-04;UMBRAL_POR_VARIEDAD;Calidad de la fruta
+DC-002;Se emiten criterios de calidad establecidos por la empresa para recibir la fruta;EV-04;CALIDAD_COMO_INDICADOR;Polinización
+DC-003;El pedunculo por encima de 5 cm absorbe aceite durante la extraccion;EV-04;DEFECTO_PEDUNCULO;Calidad de la fruta
+DC-004;La malformacion por encima del 30 por ciento provoca rechazo del racimo;EV-04;RECHAZO_LOTE;Calidad de la fruta
+DC-005;El principal problema es que la fruta llega verde, sin desprendimiento;EV-04;PROBLEMA_FRUTA_VERDE;Calidad de la fruta
+DC-006;En temporada baja se corta fruta verde porque el pago es por tonelada;EV-04;PROBLEMA_FRUTA_VERDE;Calidad de la fruta
+DC-007;La fruta no conforme se devuelve al productor en el mismo vehiculo;EV-04;CRITERIO_RECEPCION;Calidad de la fruta
+DC-008;Se recomienda entregar dentro de 24 horas, aunque se llega a 48;EV-04;VENTANA_CORTE_ENTREGA;Calidad de la fruta
+DC-009;El material hibrido tolera mas tiempo en campo por su contenido de antioxidantes;EV-04;TOLERANCIA_HIBRIDO;Calidad de la fruta
+DC-010;El ticket de pesaje registra peso bruto, tara y neto;EV-04;TICKET_PESAJE;Trazabilidad
+DC-011;El ticket incluye la calificacion: tamano, verde, sobremadura, malformada y pedunculo;EV-04;CRITERIO_RECEPCION;Calidad de la fruta
+DC-012;La guia de remision es exigida por la normativa y muchos productores no la manejan;EV-04;GUIA_REMISION;Cumplimiento normativo
+DC-013;La extractora tambien proyecta cuantas toneladas puede recibir y procesar;EV-04;PROYECCION_CAPACIDAD;Estimación
+DC-014;Hay informacion sensible del productor que no puede compartirse;EV-04;MINIMIZACION_DATOS;Protección de datos
+DC-015;Interesa recibir el conteo de racimos y el peso promedio estimado;EV-04;PROYECCION_CAPACIDAD;Estimación
+DC-016;La formacion de un polinizador toma dos o tres meses;EV-04;CURVA_APRENDIZAJE;Organización del trabajo
+DC-017;El amarillamiento de hojas bajeras sugiere deficiencia de magnesio o bloqueo en suelo;EV-04;PROBLEMA_NUTRICIONAL;Nutrición
+DC-018;Se revisa todo lo que llega, y por muestra si el proveedor maneja bien la fruta;EV-04;VERIFICACION_VISUAL;Polinización
+DC-019;El grupo de seleccionadores califica el fruto tras el pesaje;EV-04;CALIDAD_COMO_INDICADOR;Polinización
+DC-020;La sobremaduracion eleva la acidez del aceite;EV-04;UMBRAL_POR_VARIEDAD;Calidad de la fruta
+DC-021;Se realizan visitas tecnicas al productor antes de aplicar el castigo;EV-04;LATENCIA_VERIFICACION;Detección de afectaciones
+DC-022;El error mas frecuente del cosechador es la mala seleccion del fruto;EV-04;CURVA_APRENDIZAJE;Organización del trabajo
+DC-023;Se hace una proyeccion de toneladas a recibir y procesar;EV-04;META_RENDIMIENTO;Estimación
+DC-024;Interesa llevar un historico de como mejora la produccion de la finca;EV-04;HISTORIAL_LOTE;Reportes
+DC-025;El ticket se envia por correo al productor registrado;EV-04;DATO_COMPARTIBLE;Estimación
+DC-026;Es util que la finca comparta su estimacion de cosecha;EV-04;RENDIMIENTO_POR_VARIEDAD;Estimación
+DC-027;La asignacion del trabajo cambia segun el tamaño de la finca, pero responde a una estructura de responsables;ENTR-13;EQUIPOS_TRABAJO;Organización del trabajo
+DC-028;En fincas pequeñas las labores se registran en libreta o agenda;ENTR-13;REGISTRO_PAPEL;Registro operativo
+DC-029;En fincas grandes las labores agricolas se registran diariamente en un sistema;ENTR-13;APP_OFFLINE_EXISTENTE;Tecnología
+DC-030;La cosecha se programa cuando se observa desprendimiento de frutos;ENTR-13;ESTADO_ANTESIS;Polinización
+DC-031;Las condiciones climaticas pueden obligar a reprogramar fertilizacion o control de malezas;ENTR-13;REGISTRO_CLIMA;Clima
+DC-032;Los reportes meteorologicos complementan la observacion directa del clima para programar actividades;ENTR-13;HORAS_LUZ;Clima
+DC-033;En fincas grandes los formatos de campo se ingresan al sistema y permiten obtener un informe semanal;ENTR-13;CONSOLIDADO_SEMANAL;Reportes
+DC-034;La resistencia al cambio puede hacer que el personal abandone una herramienta nueva;ENTR-13;USUARIO_NO_EXPERTO;Tecnología
+DC-035;Una interfaz con graficos y manejo sencillo facilita la adopcion;ENTR-13;RECOMENDACION_ACCIONABLE;Tecnología
+DC-036;El diagnostico por inteligencia artificial se considera un apoyo util para el trabajo agricola;ENTR-13;DIAGNOSTICO_POR_IMAGEN;Tecnología
+DC-037;Para administrar se requiere conocer labores pendientes, realizadas y calendarios de trabajo;ENTR-13;LISTA_PENDIENTES;Detección de afectaciones
+DC-038;Para personal con poca escolaridad el registro debe resolverse con pocos pasos;ENTR-13;USUARIO_NO_EXPERTO;Tecnología
+DC-039;La dificultad principal puede ser lograr que las personas adopten el sistema;ENTR-13;CURVA_APRENDIZAJE;Organización del trabajo
