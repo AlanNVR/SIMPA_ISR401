@@ -1,0 +1,23 @@
+Metadatos del analisis ordinal mixto
+-----------------------------------
+R: R version 4.6.1 (2026-06-24 ucrt)
+ordinal: 2026.7.26
+Sistema: Windows | 10 x64 | x86-64
+Fecha de ejecucion: 2026-09-12 04:32:22 -0500
+
+Modelo principal:
+puntuacion ~ origen + (1 | evaluador) + (1 | requisito)
+
+Respuesta: ordinal
+Escala original: 1-5
+Efecto fijo: origen
+Referencia: Humano
+Interceptos aleatorios: evaluador y requisito
+Enlace: logit
+nAGQ: 1
+Correccion multiple: Holm
+alpha: 0.05
+
+Nota:
+Un odds ratio > 1 indica desplazamiento estimado hacia
+puntuaciones ordinales mayores para LLM respecto a Humano.

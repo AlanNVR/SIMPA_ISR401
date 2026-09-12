@@ -1,0 +1,142 @@
+MODELOS ORDINALES MIXTOS — RQ1
+
+Formula: puntuacion ~ origen + (1 | evaluador) + (1 | requisito)
+Enlace: logit acumulativo / probabilidades proporcionales
+Referencia de origen: Humano
+Contraste: LLM vs Humano
+Correccion multiple: Holm-Bonferroni sobre cinco efectos de origen
+
+============================================================
+DIMENSION: COM
+============================================================
+
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: puntuacion_ord ~ origen + (1 | evaluador) + (1 | requisito)
+data:    sub
+
+ link  threshold nobs logLik  AIC    niter    max.grad cond.H 
+ logit flexible  150  -147.28 304.57 177(375) 5.23e-05 7.8e+00
+
+Random effects:
+ Groups    Name        Variance  Std.Dev. 
+ requisito (Intercept) 1.512e-09 3.889e-05
+ evaluador (Intercept) 3.748e-02 1.936e-01
+Number of groups:  requisito 50,  evaluador 3 
+
+Coefficients:
+          Estimate Std. Error z value Pr(>|z|)
+origenLLM  -0.2669     0.3119  -0.856    0.392
+
+Threshold coefficients:
+    Estimate Std. Error z value
+3|4  -2.0753     0.3170  -6.546
+4|5   0.1481     0.2509   0.590
+
+============================================================
+DIMENSION: AMB
+============================================================
+
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: puntuacion_ord ~ origen + (1 | evaluador) + (1 | requisito)
+data:    sub
+
+ link  threshold nobs logLik  AIC    niter    max.grad cond.H 
+ logit flexible  150  -146.96 303.91 189(399) 2.69e-05 1.3e+01
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ requisito (Intercept) 0.11146  0.3339  
+ evaluador (Intercept) 0.08491  0.2914  
+Number of groups:  requisito 50,  evaluador 3 
+
+Coefficients:
+          Estimate Std. Error z value Pr(>|z|)
+origenLLM  -0.2827     0.3309  -0.854    0.393
+
+Threshold coefficients:
+    Estimate Std. Error z value
+3|4  -2.1249     0.3737  -5.686
+4|5   0.1659     0.2945   0.563
+
+============================================================
+DIMENSION: VER
+============================================================
+
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: puntuacion_ord ~ origen + (1 | evaluador) + (1 | requisito)
+data:    sub
+
+ link  threshold nobs logLik  AIC    niter    max.grad cond.H 
+ logit flexible  150  -148.14 306.29 206(433) 7.16e-06 9.8e+00
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ requisito (Intercept) 0.21000  0.4583  
+ evaluador (Intercept) 0.08448  0.2906  
+Number of groups:  requisito 50,  evaluador 3 
+
+Coefficients:
+          Estimate Std. Error z value Pr(>|z|)
+origenLLM  -0.2806     0.3435  -0.817    0.414
+
+Threshold coefficients:
+    Estimate Std. Error z value
+3|4  -2.0907     0.3761  -5.560
+4|5   0.2101     0.3006   0.699
+
+============================================================
+DIMENSION: COR
+============================================================
+
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: puntuacion_ord ~ origen + (1 | evaluador) + (1 | requisito)
+data:    sub
+
+ link  threshold nobs logLik  AIC    niter    max.grad cond.H 
+ logit flexible  150  -145.95 301.89 221(463) 1.84e-04 3.5e+01
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ requisito (Intercept) 0.03764  0.1940  
+ evaluador (Intercept) 0.03720  0.1929  
+Number of groups:  requisito 50,  evaluador 3 
+
+Coefficients:
+          Estimate Std. Error z value Pr(>|z|)
+origenLLM  -0.3027     0.3224  -0.939    0.348
+
+Threshold coefficients:
+    Estimate Std. Error z value
+3|4  -2.1666     0.3519  -6.156
+4|5   0.1372     0.2567   0.534
+
+============================================================
+DIMENSION: CON
+============================================================
+
+Cumulative Link Mixed Model fitted with the Laplace approximation
+
+formula: puntuacion_ord ~ origen + (1 | evaluador) + (1 | requisito)
+data:    sub
+
+ link  threshold nobs logLik  AIC    niter    max.grad cond.H 
+ logit flexible  150  -147.28 304.57 177(375) 5.23e-05 7.8e+00
+
+Random effects:
+ Groups    Name        Variance  Std.Dev. 
+ requisito (Intercept) 1.512e-09 3.889e-05
+ evaluador (Intercept) 3.748e-02 1.936e-01
+Number of groups:  requisito 50,  evaluador 3 
+
+Coefficients:
+          Estimate Std. Error z value Pr(>|z|)
+origenLLM  -0.2669     0.3119  -0.856    0.392
+
+Threshold coefficients:
+    Estimate Std. Error z value
+3|4  -2.0753     0.3170  -6.546
+4|5   0.1481     0.2509   0.590
