@@ -28,8 +28,8 @@ python 10_Autoria/grabaciones/verificar_grabaciones.py
 El script hace una petición HTTP HEAD contra cada URL (sin descargar el
 video completo) y confirma respuesta 200 OK — el mismo método ya usado en
 `02_Evidencias/00_Restringido/verificacion_fichas.md` para las entrevistas.
-Verificado el [completar fecha real]: ambas grabaciones responden
-correctamente, 0 fallos.
+Verificado el 12 de septiembre de 2026, 22:55 (-05:00): ambas grabaciones
+responden correctamente con HTTP 200, 0 fallos.
 
 ## Contenido verificable de la Grabación 1
 
