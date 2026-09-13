@@ -617,7 +617,7 @@ la sección 9.
 | Arboleda Yanza Francisco Javier | | |
 | Huilcapi León Denisses Fabiola | HuilcapiDenisses |2026-09-12 |
 | Rizzo Vélez Edson Nagib | RizzoNagib|2026-09-12|
-| Alcívar Vélez Anderson Adonis | | |
+| Alcívar Vélez Anderson Adonis | AlcivarAdonis|2026-09-12|
 
 **Sobre la firma de Anderson Alcívar.** Aunque dejó de colaborar con el
 proyecto (sección 8.5), su firma sigue siendo pertinente: el documento
