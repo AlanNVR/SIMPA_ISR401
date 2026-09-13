@@ -23,7 +23,7 @@ todavía no hayan sido verificados.**
 | `2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf` | Copia pública de la declaración firmada, con cédula y firma manuscrita enmascaradas |
 | `registro_reestructuracion_2026-09-03.md` | Resumen y commits de las correcciones realizadas durante la reestructuración del repositorio |
 | `correspondencia/readme.md` | Declaración de que no existe correspondencia escrita del equipo (AUT-08): los acuerdos de coordinación se tomaron de forma verbal |
-| `notas_campo/readme.md` | Declaración de que no existen notas de campo manuscritas (AUT-05): el registro de las entrevistas fue digital desde el inicio |
+| `notas_campo/readme.md` | Índice de las 16 notas de campo reales (`NC-01` a `NC-16`, una por entrevista ENTR-01 a ENTR-16), con su relación al resto de la evidencia de cada sesión (AUT-05) |
 
 ## Aporte individual
 
