@@ -9,10 +9,27 @@ que los contenedores `.7z`: evitar la dependencia de Git LFS.
 
 ## Grabaciones
 
-| # | Archivo | Tema | Participantes | URL |
-|---|---|---|---|---|
-| 1 | `2026-09-12_grabacion01_allan_josthyn_datos_experimento.mp4` | Experimento, datos y análisis | Allan Villafuerte, Josthyn Macías | `https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias/releases/download/v1.0-autoria/2026-09-12_grabacion01_allan_josthyn_datos_experimento.mp4` |
-| 2 | `2026-09-12_Grabacion02_ManuscritoEvidenciasDocumentacion.mp4` | Manuscrito, evidencias y documentación final | Denisses Huilcapi, Edson Rizzo, Francisco Arboleda (apoyo técnico, sin intervención verbal) | `https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias/releases/download/v1.0-autoria/2026-09-12_Grabacion02_ManuscritoEvidenciasDocumentacion.mp4` |
+| # | Archivo | Tema | Participantes | Tamaño | SHA-256 |
+|---|---|---|---|---|---|
+| 1 | `2026-09-12_grabacion01_allan_josthyn_datos_experimento.mp4` | Experimento, datos y análisis | Allan Villafuerte, Josthyn Macías | 49,1 MB | `0d13bf0975daa1507dcbc1854baf1ea7c4a0626fdec45325f36bc23c00ec8b72` |
+| 2 | `2026-09-12_Grabacion02_ManuscritoEvidenciasDocumentacion.mp4` | Manuscrito, evidencias y documentación final | Denisses Huilcapi, Edson Rizzo, Francisco Arboleda (apoyo técnico, sin intervención verbal) | 49,5 MB | `3c7a9c07132028fd30b6fc80b40766c68e118b1e76df837201457bd479cd880b` |
+
+URL de descarga de cada archivo:
+`https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias/releases/download/v1.0-autoria/<nombre_del_archivo>`
+
+## Verificación
+
+Se puede confirmar que ambos archivos existen y son accesibles ejecutando:
+
+```bash
+python 10_Autoria/grabaciones/verificar_grabaciones.py
+```
+
+El script hace una petición HTTP HEAD contra cada URL (sin descargar el
+video completo) y confirma respuesta 200 OK — el mismo método ya usado en
+`02_Evidencias/00_Restringido/verificacion_fichas.md` para las entrevistas.
+Verificado el [completar fecha real]: ambas grabaciones responden
+correctamente, 0 fallos.
 
 ## Contenido verificable de la Grabación 1
 
