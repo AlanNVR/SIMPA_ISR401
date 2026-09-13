@@ -7,8 +7,8 @@ dispositivo y SHA-256.
 ### Alcance
 
 Se incluyeron únicamente fotografías de cámara: `02_Evidencias/Fotos_Entorno/`,
-`02_Evidencias/Documentos_Organizacion/`, `02_Evidencias/Consentimientos/` y
-`10_Autoria/fotos_equipo/`.
+`02_Evidencias/Documentos_Organizacion/`, `02_Evidencias/Consentimientos/`,
+`10_Autoria/fotos_equipo/` y `02_Evidencias/Cuestionario/Fotos_Aplicacion/`.
 
 No se incluyeron diagramas UML, mockups, gráficas generadas ni capturas de
 pantalla (por ejemplo `03_Modelado/Diagramas_UML/png/`,
@@ -21,11 +21,13 @@ informativo.
 
 ### Hallazgo
 
-De 43 fotografías inventariadas, **solo 2 conservan metadato de fecha y
-dispositivo embebido** en el propio archivo (`fotos_equipo/observacion_proceso_trabajo.png`
-y `fotos_equipo/planificacion_entrevistas_organizacion.png`). Las 41
-restantes —prácticamente todo `Fotos_Entorno/` y la totalidad de
-`Consentimientos/`— no tienen ningún metadato de captura recuperable.
+De 58 imágenes inventariadas, **solo 2 conservan metadato de fecha y
+dispositivo embebido** en el propio archivo
+(`fotos_equipo/observacion_proceso_trabajo.png` y
+`fotos_equipo/planificacion_entrevistas_organizacion.png`). Las 56
+restantes —la totalidad de `Fotos_Entorno/`, `Consentimientos/` y
+`Cuestionario/Fotos_Aplicacion/`— no tienen ningún metadato de captura
+recuperable.
 
 La causa más probable es el propio historial de edición de estas imágenes:
 enmascarado de rostros y de cédula/firma, recortes por peso de archivo y
@@ -50,8 +52,9 @@ Se documenta así, en vez de presentar como verificado algo que no lo está.
 sha256sum 02_Evidencias/Fotos_Entorno/*.jpeg 02_Evidencias/Fotos_Entorno/*.png \
           02_Evidencias/Documentos_Organizacion/*.png \
           02_Evidencias/Consentimientos/*.png \
+          02_Evidencias/Cuestionario/Fotos_Aplicacion/*.png \
           10_Autoria/fotos_equipo/*.png
 ```
-
+ 
 Los valores deben coincidir con la columna `sha256` de
 `exif_inventario.csv`.
