@@ -16,7 +16,7 @@ conserva una captura:
 
 | Archivo | Contenido |
 |---|---|
-| `2026-09-XX_WhatsApp_ContactoPalmicultoraM_coordinacion-entrevista.png` | Intercambio con el contacto de la Palmicultora M coordinando la fecha y la logística de la visita para aplicar las entrevistas. Nombre y foto de perfil del contacto ocultos; fecha y contenido del intercambio visibles. |
+| `2026-07-27_WhatsApp_ContactoPalmicultoraM_coordinacion-entrevista.png` | Intercambio con el contacto de la Palmicultora M coordinando la fecha y la logística de la visita para aplicar las entrevistas. Nombre y foto de perfil del contacto ocultos; fecha y contenido del intercambio visibles. |
 
 ## Por qué se deja constancia de esto en vez de dejar la carpeta vacía sin explicación
 
