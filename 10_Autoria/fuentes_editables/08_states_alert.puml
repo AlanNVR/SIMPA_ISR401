@@ -1,0 +1,35 @@
+@startuml states_alert
+' SIMPA - States: Alert lifecycle (RF-12, RF-31)
+skinparam shadowing false
+skinparam StateBorderColor #006633
+
+[*] --> Open : positive diagnosis\nor incident reported
+
+Open : visible to the responsible role
+Open --> InProgress : the responsible person\ntakes it on [RF-31]
+Open --> Escalated : exceeds the deadline\nwithout action
+
+Escalated : notifies general administration
+Escalated --> InProgress : a responsible person is assigned
+
+InProgress : pending field verification
+InProgress --> Verified : on-site verification\n(up to 2 visits/week, EV-07)
+InProgress --> Discarded : model false positive
+
+Verified --> InTreatment : corrective action applied
+Verified --> Closed : no action required
+
+InTreatment --> Closed : issue resolved
+InTreatment --> Reopened : persists after treatment
+
+Reopened --> InProgress
+
+Closed --> [*]
+Discarded --> [*]
+
+note right of Discarded
+  False positives feed the
+  model's retraining process
+  (RNF-15, RNF-17).
+end note
+@enduml

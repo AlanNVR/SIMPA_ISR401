@@ -1,0 +1,56 @@
+@startuml sequence_CU06
+' SIMPA - Sequence CU-06: Classify bunch maturity (RF-21, RF-22)
+skinparam shadowing false
+skinparam ParticipantBorderColor #006633
+autonumber
+
+actor "Harvester /\nTechnician" as C
+participant "Mobile app" as APP
+participant "REST API" as API
+participant "AI service" as IA
+participant "Explanation\nengine" as EXP
+database "Central DB" as BD
+
+C -> APP : selects block and "Classify bunch"
+APP -> API : GET /block/{id}/variety
+API --> APP : {variety, detachmentThreshold}
+
+note right of APP
+  RD-08: the threshold depends on the variety.
+  guineensis = 3 fruits, hybrid = 5 (EV-04).
+end note
+
+C -> APP : captures photo of the basal part
+APP -> API : POST /classification/maturity {image, threshold}
+API -> IA : countDetachedFruits(image)
+note right of IA
+  RD-07: using color as a criterion
+  is forbidden; color is misleading (EV-08).
+end note
+IA --> API : {detachedFruits, confidenceLevel}
+
+API -> API : status = (fruits >= threshold) ? RIPE : GREEN
+API -> EXP : generateExplanation(status, fruits, threshold)
+note right of EXP
+  "Contrastive" explanation:
+  why ripe and not green,
+  with reference to the threshold.
+end note
+EXP --> API : Explanation
+API -> BD : persist MaturityClassification
+API --> APP : {status, explanation}
+APP --> C : shows status and explanation
+
+C -> APP : requests block estimate before dispatch
+APP -> API : GET /block/{id}/green-percentage
+API -> BD : aggregate block classifications
+BD --> API : greenPercentage
+
+alt greenPercentage >= penalty threshold (RF-22)
+  API -> BD : create preventive Alert
+  API --> APP : alert {percentage, threshold}
+  APP --> C : "penalty risk: do not dispatch yet"
+else greenPercentage below threshold
+  API --> APP : block fit for dispatch
+end
+@enduml

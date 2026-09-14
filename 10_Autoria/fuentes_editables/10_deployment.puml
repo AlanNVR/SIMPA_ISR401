@@ -1,0 +1,55 @@
+@startuml deployment
+' SIMPA - Deployment diagram
+skinparam shadowing false
+left to right direction
+skinparam NodeBorderColor #006633
+
+node "Mobile device\n<<Android 9.0+>>" as MOVIL {
+  artifact "simpa-app.apk" as APK
+  database "Local SQLite\n(encrypted)" as SQLITE
+}
+
+node "Desktop computer\n<<field office>>" as PC {
+  artifact "Web browser" as NAV
+}
+
+cloud "Cloud provider" {
+  node "Application server\n<<container>>" as APPSRV {
+    artifact "simpa-api" as APIART
+    artifact "simpa-web" as WEBART
+  }
+  node "Inference server\n<<GPU>>" as GPUSRV {
+    artifact "ai-models" as MODELS
+  }
+  node "Data server" as DBSRV {
+    database "PostgreSQL" as PG
+    database "Object store" as S3
+  }
+}
+
+cloud "Third-party services" {
+  node "Weather service" as CLIMASRV
+}
+
+node "Mill\n<<external organization>>" as EXTRACTORA {
+  artifact "Internal\nweighing system" as TICKET
+}
+
+MOVIL -- APPSRV : HTTPS/TLS 1.2+\n(intermittent, RNF-11)
+PC -- APPSRV : HTTPS/TLS 1.2+
+APPSRV -- GPUSRV : internal gRPC
+APPSRV -- DBSRV : encrypted connection
+APPSRV -- CLIMASRV : HTTPS
+APPSRV ..> EXTRACTORA : CSV/JSON export\n(RF-32, no personal data)
+
+note bottom of MOVIL
+  RNF-11: operates offline.
+  RNF-14: geolocation encrypted
+  at rest on the client as well.
+end note
+
+note bottom of EXTRACTORA
+  No direct integration in v1.
+  Exchange is by file (EV-04).
+end note
+@enduml

@@ -1,0 +1,58 @@
+@startuml sequence_CU03
+' SIMPA - Sequence CU-03: Record pollination and GPS count (RF-13, RF-14)
+skinparam shadowing false
+skinparam ParticipantBorderColor #006633
+autonumber
+
+actor "Pollinator" as P
+participant "Mobile app" as APP
+participant "GPS receiver" as GPS
+database "Local storage" as LOC
+participant "REST API" as API
+database "Central DB" as BD
+
+P -> APP : starts pollination shift on block
+APP -> API : verify active GPS consent
+API --> APP : consent active
+
+alt Consent revoked (RL-03)
+  APP --> P : manual flower recording, no tracking
+else Consent active
+  APP -> GPS : startTracking(samplingPeriod = 30 s)
+
+  loop during the shift
+    GPS --> APP : GpsMark {lat, lon, accuracy, timestamp}
+    alt accuracy <= 10 m
+      APP -> LOC : store mark
+    else accuracy > 10 m (RNF-12)
+      APP -> LOC : store marked as degraded
+      APP --> P : weak signal warning
+    end
+  end
+
+  P -> APP : records anthesis status and visual verification
+  APP -> LOC : store PollinationRecord
+
+  P -> APP : closes the shift
+  APP -> GPS : stopTracking()
+  APP -> APP : calculateCountFromGps(marks)
+  note right of APP
+    RF-14: the count is derived from the
+    GPS marks. Manual plant-by-plant entry
+    is not requested so as not to affect
+    throughput (EV-03).
+  end note
+  APP --> P : shows total flowers pollinated
+
+  alt With connectivity
+    APP -> API : POST /pollination {record, marks, count}
+    API -> BD : persist
+    API --> APP : confirmation
+  else No connectivity
+    APP -> LOC : mark pending sync
+    ... on reconnection ...
+    APP -> API : sync record batch
+    API --> APP : confirmation
+  end
+end
+@enduml

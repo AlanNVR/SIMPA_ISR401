@@ -1,0 +1,64 @@
+@startuml context
+' SIMPA - Context diagram (system boundary)
+skinparam shadowing false
+skinparam componentStyle rectangle
+skinparam ActorBorderColor #006633
+skinparam RectangleBorderColor #006633
+left to right direction
+
+skinparam rectangle {
+  BackgroundColor<<sistema>> #006633
+  FontColor<<sistema>> #FFFFFF
+  BackgroundColor<<externo>> #FFF3D6
+  BorderColor<<externo>> #B8860B
+  BackgroundColor<<actor>> #E8F4EC
+}
+
+actor "General\nadministrator" as ADM
+actor "Administrator /\nTechnical advisor" as AST
+actor "Administrative\nassistant" as ASI
+actor "Pollination\nsupervisor" as JPO
+actor "Farm\nworker" as TRA
+actor "Mill\ntechnician" as EXT
+
+rectangle "**SIMPA**\nIntelligent System for\nAfrican Palm Maintenance" <<sistema>> as SIMPA
+
+rectangle "Mobile device\n(camera + GPS)" <<externo>> as DISP
+rectangle "AI analysis\nservice" <<externo>> as IA
+rectangle "Weather data\nservice" <<externo>> as CLIMA
+rectangle "Pest and disease\nknowledge base" <<externo>> as KB
+rectangle "Mill R\nweighing system" <<externo>> as EXTSYS
+
+ADM --> SIMPA : weekly plan,\nblocks, staff
+SIMPA --> ADM : reports, alerts,\ncompliance
+AST --> SIMPA : soil analysis,\nleaf photo
+SIMPA --> AST : nutritional diagnosis\nwith explanation
+ASI --> SIMPA : incident with photo\nand coordinates
+SIMPA --> ASI : list of pending\nverifications
+JPO --> SIMPA : anthesis status,\nvisual verification
+SIMPA --> JPO : flower count\nper worker
+TRA --> SIMPA : progress per\ntask unit
+SIMPA --> TRA : assigned tasks,\naccumulated progress
+EXT --> SIMPA : weighing ticket\ngrading
+SIMPA --> EXT : harvest estimate\n(minimized data)
+
+SIMPA <--> DISP : images,\nGPS marks
+SIMPA --> IA : image + variety\nthresholds
+IA --> SIMPA : class, confidence,\nvisual feature
+CLIMA --> SIMPA : rainfall,\nsunlight hours
+KB --> SIMPA : species, cycle,\nrecommendation
+SIMPA ..> EXTSYS : CSV/JSON file\n(no personal data)
+
+note bottom of EXTSYS
+  RD-09 / RF-32: no direct
+  integration in v1. Exchange by
+  file, with prior filtering of
+  personal and financial data.
+end note
+
+note bottom of DISP
+  RD-02: the application operates
+  offline. 74.2% of staff do not
+  have permanent signal (EV-12).
+end note
+@enduml

@@ -1,0 +1,56 @@
+@startuml states_bunch
+' SIMPA - States: Bunch lifecycle (RF-21 to RF-25)
+skinparam shadowing false
+skinparam StateBorderColor #006633
+
+[*] --> Inflorescence
+
+Inflorescence : developing female entity
+Inflorescence --> Anthesis : reaches receptivity\n(yellow or black coloring)
+
+Anthesis : pollination window (EV-03)
+Anthesis --> Pollinated : pollinator is applied\n[RF-13]
+Anthesis --> Aborted : window missed
+
+Pollinated : bunch development
+Pollinated --> Developing : fruit formation
+
+Developing : ~6 months from anthesis (EV-02)
+Developing --> Green : detached fruits < threshold
+Developing --> Affected : pest or disease detected
+
+Green : not fit for cutting [RD-07: do not classify by color]
+Green --> Ripe : detached fruits >= variety threshold\n[RF-21]
+
+Ripe : fit for cutting
+Ripe --> Overripe : remains uncut
+Ripe --> Harvested : cutting is performed\n[records cutDate]
+
+Overripe : raises oil acidity (EV-08)
+Overripe --> Harvested : late cutting
+
+Affected --> Discarded : irreversible damage
+Affected --> Developing : effective treatment
+
+Harvested : awaiting dispatch
+Harvested --> Dispatched : leaves for the mill\n[RF-25 starts window count]
+Harvested --> Degraded : exceeds recommended window\n[24 h hybrid / shorter for guineensis]
+
+Degraded --> Dispatched : dispatched with warning
+
+Dispatched --> Accepted : grading compliant\n[RF-23]
+Dispatched --> Penalized : green/overripe > threshold\n[RF-22, RF-24]
+Dispatched --> Rejected : non-compliant load\n[returned to grower]
+
+Accepted --> [*]
+Penalized --> [*]
+Rejected --> [*]
+Aborted --> [*]
+Discarded --> [*]
+
+note right of Penalized
+  RF-24: the penalty is traced back
+  to the block, the cut date, and
+  the responsible crew (EV-04).
+end note
+@enduml

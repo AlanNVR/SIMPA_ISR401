@@ -1,0 +1,268 @@
+@startuml classes_refined
+' SIMPA - Refined class diagram (attributes AND operations)
+skinparam classAttributeIconSize 0
+left to right direction
+skinparam linetype ortho
+skinparam shadowing false
+skinparam ClassBorderColor #006633
+hide circle
+
+class Plantation {
+  - code : String
+  - name : String
+  - hectares : Decimal
+  + addBlock(Block) : void
+  + calculateTotalArea() : Decimal
+}
+
+class Block {
+  - code : String
+  - area : Decimal
+  - palmCount : Integer
+  - plantingDate : Date
+  - currentStage : CropStage
+  + recordTask(Task) : void
+  + getHistory(Range) : List<Event>
+  + estimateProduction() : Estimate
+  + greenFruitPercentage() : Decimal
+}
+
+class Variety {
+  - name : String
+  - detachmentThreshold : Integer
+  - requiresAssistedPollination : Boolean
+  - cutToDeliveryWindowHours : Integer
+  + maturityThreshold() : Integer
+}
+
+class Palm {
+  - code : String
+  - status : PalmStatus
+  + markAffected(Diagnosis) : void
+}
+
+class Person {
+  - code : String
+  - role : Role
+  - team : Team
+  - hasDevice : Boolean
+  + canSelfRecord() : Boolean
+}
+
+class User {
+  - identifier : String
+  - gpsConsent : Consent
+  + authenticate(Credential) : Session
+  + revokeGpsConsent() : void
+}
+
+class Consent {
+  - type : ConsentType
+  - grantDate : DateTime
+  - revocationDate : DateTime
+  - active : Boolean
+  + isActive() : Boolean
+  + revoke() : void
+}
+
+class WeeklyPlan {
+  - weekNumber : Integer
+  - startDate : Date
+  - endDate : Date
+  + addGoal(TaskGoal) : void
+  + completionPercentage() : Decimal
+  + generateCarryover() : WeeklyPlan
+}
+
+class TaskGoal {
+  - taskType : TaskType
+  - targetQuantity : Decimal
+  - unit : ProgressUnit
+  - completedQuantity : Decimal
+  + remaining() : Decimal
+  + isMet() : Boolean
+}
+
+class Task {
+  - date : Date
+  - type : TaskType
+  - delegatedRecord : Boolean
+  + validate() : Boolean
+}
+
+class ProgressRecord {
+  - quantity : Decimal
+  - unit : ProgressUnit
+  - recordDate : DateTime
+  + accumulateInPeriod(Period) : Decimal
+}
+
+class PollinationRecord {
+  - anthesisStatus : AnthesisStatus
+  - visualVerification : Boolean
+  - flowersCounted : Integer
+  + calculateCountFromGps(List<GpsMark>) : Integer
+}
+
+class GpsMark {
+  - latitude : Decimal
+  - longitude : Decimal
+  - accuracyMeters : Decimal
+  - timestamp : DateTime
+  + isAccurate() : Boolean
+}
+
+class Route {
+  - date : Date
+  - distanceMeters : Decimal
+  + coverage(Block) : Decimal
+}
+
+abstract class Diagnosis {
+  - date : DateTime
+  - image : Image
+  - confidenceLevel : ConfidenceLevel
+  + generateExplanation() : Explanation
+}
+
+class PestDiagnosis {
+  - species : String
+  - pestCycleStage : PestStage
+  + recommendControl() : Recommendation
+}
+
+class NutritionalDiagnosis {
+  - deficientElement : String
+  + recommendFertilization() : Recommendation
+}
+
+class MaturityClassification {
+  - detachedFruits : Integer
+  - maturityStatus : MaturityStatus
+  + classify(Variety) : MaturityStatus
+}
+
+class Explanation {
+  - visualFeature : String
+  - explanationType : ExplanationType
+  - shortText : String
+  + wordLength() : Integer
+}
+
+class Alert {
+  - type : AlertType
+  - severity : Severity
+  - status : AlertStatus
+  + handle(User) : void
+}
+
+class Incident {
+  - description : String
+  - verified : Boolean
+  + markVerified() : void
+}
+
+class Bunch {
+  - code : String
+  - weightKg : Decimal
+  - status : BunchStatus
+  + isReadyForCutting(Variety) : Boolean
+}
+
+class Harvest {
+  - cutDate : DateTime
+  - tonnes : Decimal
+  - bunchCount : Integer
+  + hoursUntilDelivery(Dispatch) : Decimal
+}
+
+class Dispatch {
+  - deliveryDate : DateTime
+  - waybill : String
+  + hasWaybill() : Boolean
+}
+
+class MillGrading {
+  - grossWeight : Decimal
+  - tareWeight : Decimal
+  - netWeight : Decimal
+  - greenPercentage : Decimal
+  - overripePercentage : Decimal
+  - longStalk : Boolean
+  + wasPenalized(Decimal) : Boolean
+}
+
+class SoilLeafAnalysis {
+  - date : Date
+  - nitrogen : Decimal
+  - phosphorus : Decimal
+  - potassium : Decimal
+  + compareWith(SoilLeafAnalysis) : Variation
+}
+
+class WeatherRecord {
+  - date : Date
+  - rainfallMm : Decimal
+  - sunlightHours : Decimal
+  + accumulatedInPeriod(Period) : Decimal
+}
+
+class Report {
+  - type : ReportType
+  - period : Period
+  + generate() : Document
+  + export(Format) : File
+}
+
+' --- Inheritance
+Person <|-- User
+Diagnosis <|-- PestDiagnosis
+Diagnosis <|-- NutritionalDiagnosis
+Diagnosis <|-- MaturityClassification
+
+' --- Composition
+Plantation "1" *-- "1..*" Block
+Block "1" *-- "1..*" Palm
+WeeklyPlan "1" *-- "1..*" TaskGoal
+Harvest "1" *-- "1..*" Bunch
+
+' --- Aggregation and association
+Block "1..*" -- "1" Variety : belongs to >
+Plantation "1" o-- "1..*" WeeklyPlan
+Block "1" -- "0..*" Task : records >
+Task "1" -- "1..*" ProgressRecord
+Person "1" -- "0..*" ProgressRecord : performs >
+User "1" -- "0..*" Consent
+Task "0..1" -- "0..1" PollinationRecord
+PollinationRecord "1" -- "0..*" GpsMark
+Person "1" -- "0..*" Route
+Route "1" -- "1..*" GpsMark
+Block "1" -- "0..*" Diagnosis
+Palm "0..1" -- "0..*" Diagnosis : is diagnosed >
+Diagnosis "1" -- "1" Explanation : produces >
+Diagnosis "0..*" -- "0..1" Alert : triggers >
+Incident "0..*" -- "0..1" Alert
+Block "1" -- "0..*" Incident
+Person "1" -- "0..*" Incident : reports >
+Bunch "0..*" -- "0..1" MaturityClassification
+Block "1" -- "0..*" Harvest
+Harvest "1..*" -- "0..1" Dispatch
+Dispatch "1" -- "0..1" MillGrading
+Block "1" -- "0..*" SoilLeafAnalysis
+Plantation "1" -- "0..*" WeatherRecord
+User "1" -- "0..*" Report : generates >
+
+note right of Consent
+  RL-03: geolocation consent is
+  revocable with no employment
+  consequence. Route is only
+  visible if isActive() == true.
+end note
+
+note right of Variety
+  RD-08: thresholds are
+  parameterized by variety.
+  guineensis = 3 fruits
+  hybrid     = 5 fruits
+end note
+@enduml
