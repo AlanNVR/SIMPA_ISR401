@@ -61,3 +61,5 @@ generadas por script (reproducibles desde `07_Datos/`, no desde una fuente
 
 Su reproducibilidad se acredita por la cadena de scripts de `07_Datos/`, no
 por este inventario.
+
+**Nota de reproducibilidad:** al clonar el repositorio principal, el contenido de este submódulo no se descarga automáticamente. Requiere ejecutar `git submodule update --init --recursive` para materializarse localmente.
