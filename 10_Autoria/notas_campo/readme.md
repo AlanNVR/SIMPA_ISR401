@@ -39,3 +39,21 @@ la sesión).
 - Registro de la sesión en la bitácora del equipo: `10_Autoria/bitacora_sesiones.csv`
 - Versión transcrita y analizada de estas mismas notas (para lectura, no
   sustituye al escaneo original): `Notas_de_Campo_SIMPA_16_Entrevistas.md`
+
+## Por qué la bitácora tiene 30 filas y aquí solo hay 16 notas
+
+`10_Autoria/bitacora_sesiones.csv` registra **todas** las sesiones de
+trabajo del equipo, no solo las de campo: incluye 26 sesiones virtuales de
+desarrollo, documentación y análisis (`SES-01` a `SES-26`), y 4 sesiones
+presenciales de elicitación (`SES-27` a `SES-30`), una por cada jornada de
+entrevistas (2026-05-23, 2026-07-28, 2026-08-31 y 2026-09-01).
+
+Solo las sesiones de elicitación (`SES-27` a `SES-30`) pueden producir una
+nota de campo — una sesión de desarrollo en la que el equipo edita el ERS o
+corre un script no genera ninguna nota manuscrita, porque no hay nada que
+observar en el terreno. Por eso la columna `evidencia_nota_campo` de la
+bitácora marca `NO_APLICA` en las 26 filas de desarrollo, y solo declara
+los 16 archivos de nota real en las 4 filas de campo — una por cada
+entrevista realizada esa jornada. No falta ninguna nota: las 16 entrevistas
+tienen su nota, y las 26 sesiones restantes correctamente no tienen
+ninguna, porque nunca correspondió que la tuvieran.
