@@ -117,7 +117,11 @@ Los contenedores `.7z` llevan **la cabecera cifrada**: sin la contraseña no pue
 | [`02_Evidencias/00_Restringido/verificacion_fichas.md`](02_Evidencias/00_Restringido/verificacion_fichas.md) | Reporte generado por script que comprueba **por petición HTTP** que cada contenedor declarado existe con ese nombre exacto |
 | `checksums_evidencias.sha256` | Sumas del contenido interno de los contenedores, calculadas antes de cifrar |
 
-El inventario usa delimitador `;` y cubre las dos series de códigos: `ENTR-01` a `ENTR-16` para las entrevistas semiestructuradas y `WT-01` a `WT-06` para las sesiones de validación por walkthrough. Las series son independientes y no se cruzan.
+El inventario usa delimitador `;` y cubre tres series de códigos: `ENTR-01`
+a `ENTR-16` para las entrevistas semiestructuradas, `WT-01` a `WT-06` para
+las sesiones de validación por walkthrough, y `CUEST-01` a `CUEST-05` para
+los consentimientos complementarios del cuestionario. Las series son
+independientes y no se cruzan.
 
 ---
 
