@@ -182,13 +182,13 @@ codificacion.csv + codificacion_tercera_ronda.csv
 
 **Resultado esperado:** 62 × 34 en respuestas anonimizadas, 64 × 7 en el dataset agregado para Zenodo y 16 × 11 en la tabla de saturación. El análisis integra 16 entrevistas y cierra con 79 códigos únicos en la vista agregada.
 
-Verificar la integridad de lo regenerado:
+Verificar la integridad del paquete publicado, antes de regenerar artefactos:
 
 ```bash
 cd 07_Datos && sha256sum -c checksums_datos.sha256
 ```
 
-> Los tres CSV son idénticos bit a bit entre entornos. Las figuras pueden diferir en bytes según la versión de Matplotlib y de las fuentes del sistema, sin que cambie su contenido.
+> La cadena `run_all.py` verifica dimensiones, estructura y resultados analíticos. Los CSV deben ser reproducibles bit a bit entre entornos; las figuras pueden diferir en bytes según la versión de Matplotlib y de las fuentes del sistema, sin que cambien los resultados representados. El manifiesto SHA-256 corresponde a los archivos versionados publicados.
 
 Cada columna de cada conjunto está documentada en [`07_Datos/diccionario_datos.csv`](07_Datos/diccionario_datos.csv). Las limitaciones conocidas están registradas en [`07_Datos/desviaciones.md`](07_Datos/desviaciones.md).
 
