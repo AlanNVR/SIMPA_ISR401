@@ -5,6 +5,32 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [Sin publicar] - 2026-09-16 - Correcciones para examen suspenso
+
+### Añadido
+
+- Documentación de las actas individuales de `Member_Checking/Actas/`, sustituyendo el marcador vacío por un índice verificable de ENTR-01, ENTR-02 y ENTR-13.
+- Documentación de las seis actas y los seis consentimientos de `Validacion_Walkthrough/`, sustituyendo los dos marcadores vacíos señalados durante la revisión.
+- Cinco fotografías JPG de una sesión complementaria real del cuestionario realizada el 15/09/2026, con metadatos EXIF verificables.
+- `02_Evidencias/Cuestionario/Fotos_Aplicacion/readme.md`, que diferencia las cinco fotografías reales de las 15 capturas PNG del instrumento y evita presentarlas como evidencia de la aplicación original de 62 respuestas.
+- Consentimiento informado complementario para cinco trabajadores localizables, mantenido separado de las 62 respuestas originales y sin relación uno-a-uno con estas.
+- Verificaciones de cierre para evidencia de autoría, metadatos EXIF y resultados estadísticos canónicos.
+
+### Cambiado
+
+- `10_Autoria/correspondencia/readme.md` delimita ahora la captura de WhatsApp como evidencia de coordinación logística de entrevistas y no como evidencia de aplicación del cuestionario original.
+- `10_Autoria/README.md` fue actualizado para reflejar la bitácora de 30 sesiones, capturas, notas de campo y documentos de verificación actualmente existentes.
+- La documentación de las 62 respuestas originales declara su procedencia vía Google Forms, la presencia de columnas identificativas en la exportación cruda y el uso exclusivo del conjunto anonimizado para análisis.
+- El manuscrito final incorpora resultados de saturación temática, alpha de Krippendorff, kappa ponderado y el modelo ordinal, además de la amenaza derivada del consentimiento retrospectivo.
+
+### Estado de cierre
+
+- En la evidencia de autoría (§15), las capturas individuales, la bitácora y las notas de campo están verificadas; permanece pendiente el acta firmada o correspondencia formal equivalente de Palmicultora M.
+- La regeneración definitiva de los manifiestos SHA-256 se realizará únicamente después de congelar todos los cambios de contenido.
+- La etiqueta anotada de cierre no se crea todavía; deberá apuntar al commit final exacto después de completar y verificar los manifiestos.
+
+---
+
 ## [4.2.0] - 2026-09-11 - Cierre de saneamiento, experimento y autoría
 
 ### Añadido
