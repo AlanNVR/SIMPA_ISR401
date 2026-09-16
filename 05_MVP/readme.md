@@ -110,10 +110,6 @@ Vite mostrará en la terminal la URL local, normalmente `http://localhost:5173`.
 
 Abre `Prototipo/SIMPA_COMPLETO.html` directamente en un navegador moderno. El archivo contiene HTML, CSS y JavaScript en un solo documento y guarda los registros de demostración en `localStorage`. Nota: este archivo corresponde al árbol V1 del prototipo; el árbol V2 evaluado no incluye una versión HTML independiente equivalente.
 
-## Video demostrativo
-
-https://github.com/gleiston-guerrero/SIMPA_ISR401/releases/download/v1.0-mvp-demo/video_demo.mp4
-
 ## Trabajo pendiente para una versión productiva
 
 - Integrar backend y base de datos.
