@@ -25,7 +25,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ### Estado de cierre
 
-- En la evidencia de autoría (§15), las capturas individuales, la bitácora y las notas de campo están verificadas; permanece pendiente el acta firmada o correspondencia formal equivalente de Palmicultora M.
+- La evidencia de autoría (§15) quedó cerrada: las capturas individuales, la bitácora, las notas de campo y el acta firmada enmascarada de Palmicultora M fueron incorporadas y verificadas.
 - La regeneración definitiva de los manifiestos SHA-256 se realizará únicamente después de congelar todos los cambios de contenido.
 - La etiqueta anotada de cierre no se crea todavía; deberá apuntar al commit final exacto después de completar y verificar los manifiestos.
 
