@@ -25,7 +25,7 @@ Sustituye un proceso que hoy se registra en libretas de papel y se comunica por 
 
 | Repositorio | Qué contiene | Enlace |
 |---|---|---|
-| **Principal** | Documentación, ERS, modelado, trazabilidad, datos, publicación, ética y defensa. Es este repositorio | <https://github.com/AlanNVR/SIMPA_ISR401> |
+| **Principal** | Documentación, ERS, modelado, trazabilidad, datos, publicación, ética y defensa. Es este repositorio | <https://github.com/gleiston-guerrero/SIMPA_ISR401> |
 | **Prototipo** | Código fuente del MVP (V1 y V2) | <https://github.com/jmaciasherr4/Prottotipo_Simpa> |
 | **Evidencias** | Audio, video y consentimientos originales, en contenedores cifrados publicados como assets de release | <https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias> |
 
@@ -58,7 +58,7 @@ SIMPA_ISR401/
 ## Obtener el repositorio
 
 ```bash
-git clone https://github.com/AlanNVR/SIMPA_ISR401.git
+git clone https://github.com/gleiston-guerrero/SIMPA_ISR401.git
 cd SIMPA_ISR401
 ```
 
