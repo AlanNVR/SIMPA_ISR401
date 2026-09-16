@@ -84,11 +84,15 @@ razonamiento incompleto; se corrige aquí en cuanto se dispuso de la hora
 real de la consulta al modelo (EXP-04) y de la confirmación directa del
 equipo.
 
-## 5. Pendiente que esto NO resuelve
+## 5. Estado de EXP-04
 
-`EXP-04` exige además `06_Experimento/prompts_llm/registro_ejecucion.md` y
-`06_Experimento/prompts_llm/salida_cruda_llm.txt`, con los parámetros de
-ejecución del modelo (versión, temperatura, top-p, top-k, semilla, consigna
-literal). El archivo `salidas_llm/requisitos_LLM_ENTR-04.md` que ya está
-congelado contiene la salida en sí, pero no esos parámetros. Esa parte de
-`EXP-04` sigue pendiente.
+`EXP-04` se encuentra cerrado. El registro vigente de la ejecución es
+`06_Experimento/prompts_llm/2026-09-11_1300_claude-sonnet-5.md`, que documenta
+fecha y hora, persona ejecutora, material fuente y su SHA-256, modelo utilizado,
+parámetros disponibles o no expuestos por la interfaz, consigna literal y
+respuesta completa.
+
+La salida cruda se conserva adicionalmente en
+`06_Experimento/prompts_llm/salida_cruda_llm.txt`. Los parámetros que la
+interfaz utilizada no expone se declaran expresamente como no disponibles y no
+se completan con valores inventados.
