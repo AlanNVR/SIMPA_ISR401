@@ -5,6 +5,57 @@
 **Fecha de esta verificación:** 2026-09-12
 **Método:** verificación sobre la última actualización disponible del repositorio `AlanNVR/SIMPA_ISR401` en `main`, complementada con la comprobación local de checksums proporcionada para esta revisión.
 
+## Actualización de cierre — 2026-09-16
+
+Esta actualización complementa la verificación realizada el 12/09/2026.
+Los hallazgos originales se conservan como registro histórico, pero los
+siguientes puntos cambiaron durante las correcciones del examen suspenso.
+
+### Archivos no vacíos
+
+✅ **Cerrado.** La comprobación actual del árbol de trabajo no devuelve
+archivos de menos de 2 bytes fuera de `.git` y `.gitkeep`.
+
+El archivo
+`03_Modelado/Mockups/SIMPA_mockups_codigo/src/styles/globals.css`, señalado
+como vacío en la revisión del 12/09/2026, contiene actualmente una
+declaración explícita de que no existen estilos globales adicionales.
+
+### Manifiestos SHA-256
+
+⚠️ **Pendiente de cierre final.** Los manifiestos no deben considerarse
+cerrados todavía. Desde su última regeneración se han incorporado cambios
+documentales y de evidencia.
+
+La regeneración definitiva se realizará únicamente después de congelar
+todos los cambios de contenido y antes de crear la etiqueta anotada final.
+
+Por tanto, el símbolo ✅ que aparece en el punto 4 de la verificación
+original no representa el estado vigente.
+
+### Declaración de identidades Git
+
+✅ **Cerrado.** La declaración de identidades dispone de una copia pública
+escaneada y firmada por los seis integrantes.
+
+Las líneas de firma de `declaracion_identidades_git.md` permanecen vacías
+deliberadamente porque la evidencia probatoria es el PDF escaneado
+`2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf`.
+
+Este cierre de identidades es independiente del acta o correspondencia
+formal de Palmicultora M requerida por la verificación actual de §15,
+que permanece pendiente.
+
+### Verificaciones posteriores
+
+Para el estado vigente del cierre deben consultarse también:
+
+- `verificacion_seccion15.md`;
+- `verificacion_exif_aplicacion.md`;
+- `verificacion_resultados_canonicos.md`.
+
+---
+
 Cada punto se marca ✅ (cumplido y comprobado), ⚠️ (pendiente, bloqueado por otra tarea) o
 ❌ (no cumplido). No se marca ✅ nada que no se haya ejecutado y observado directamente.
 
