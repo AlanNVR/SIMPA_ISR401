@@ -4,7 +4,7 @@ Repositorio complementario de evidencias audiovisuales del **Proyecto Fin de Cur
 (equipo AHMRV, Ingeniería de Requerimientos ISR-401, UTEQ, Período 2026-2027 PPA).
 
 > **Repositorio principal (documentación, ERS, manuscrito, código):**
-> https://github.com/AlanNVR/SIMPA_ISR401
+> https://github.com/gleiston-guerrero/SIMPA_ISR401
 >
 > **Repositorio de evidencias (este material vive allí):**
 > https://github.com/erizzov-boop/SIMPA_ISR401_Evidencias
@@ -68,9 +68,9 @@ entrevistas, numerados de `_01` a `_05`.
 
 El inventario detallado por archivo individual (nombre, tipo, fecha, código
 de participante, duración/tamaño, SHA-256 y contenedor de origen) está en
-[`fichas_tecnicas.csv`](https://github.com/AlanNVR/SIMPA_ISR401/blob/main/02_Evidencias/00_Restringido/fichas_tecnicas.csv),
+[`fichas_tecnicas.csv`](https://github.com/gleiston-guerrero/SIMPA_ISR401/blob/main/02_Evidencias/00_Restringido/fichas_tecnicas.csv),
 en esta misma carpeta, con **71 filas** — no se duplica aquí. El reporte
-[`verificacion_fichas.md`](https://github.com/AlanNVR/SIMPA_ISR401/blob/main/02_Evidencias/00_Restringido/verificacion_fichas.md)
+[`verificacion_fichas.md`](https://github.com/gleiston-guerrero/SIMPA_ISR401/blob/main/02_Evidencias/00_Restringido/verificacion_fichas.md)
 comprueba por petición HTTP que cada contenedor declarado existe con ese nombre
 exacto.
 
