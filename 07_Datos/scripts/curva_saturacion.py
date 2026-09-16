@@ -236,7 +236,7 @@ def escribir_tabla(filas: list[dict[str, object]]) -> Path:
     ]
 
     with path.open("w", encoding="utf-8", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=campos, delimiter=";")
+        writer = csv.DictWriter(f, fieldnames=campos, delimiter=";", lineterminator="\n")
         writer.writeheader()
         writer.writerows(filas)
 

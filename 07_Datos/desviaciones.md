@@ -196,8 +196,10 @@ La ejecución verificada sobre datos reales reproduce y comprueba:
   `b40ab460fc1d3d931beebaf5dd3037f564db8774559feee1ec1d371fa01b39b9`.
 
 La ampliación de la cadena incorpora la codificación real de la tercera ronda y
-las tres vistas de saturación sin extender el alcance al experimento humano–LLM
-todavía pendiente.
+las tres vistas de saturación. El experimento humano–LLM, que todavía se
+encontraba pendiente durante esta verificación del 7 de septiembre de 2026,
+fue ejecutado posteriormente y su estado final se documenta en D-02 y en
+`06_Experimento/`.
 
 ---
 

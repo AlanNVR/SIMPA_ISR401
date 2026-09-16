@@ -15,7 +15,7 @@ Se eligió por estratificación deliberada (una entrevista de cada ronda), no
 al azar sobre fragmentos sueltos, para que cada codificador tenga contexto
 completo de la entrevista al codificar, no fragmentos descontextualizados.
 
-**El subconjunto quedó congelado el [completar fecha real] con el script
+**El subconjunto quedó congelado el 11 de septiembre de 2026 con el script
 `00_extraer_subconjunto.py`.** No debe volver a ejecutarse: generaría un
 nuevo orden de `ID_fragmento` y rompería la comparabilidad.
 
@@ -24,70 +24,57 @@ nuevo orden de `ID_fragmento` y rompería la comparabilidad.
 | Archivo | Qué es | Estado |
 |---|---|---|
 | `subconjunto_fragmentos.csv` | Los 39 fragmentos, SOLO texto + ID de evidencia, sin código | ✅ Generado |
-| `codificacion_allan.csv` | Plantilla para que Allan codifique de forma independiente | ⏳ Vacía — pendiente que Allan la complete |
-| `codificacion_josthyn.csv` | Plantilla para que Josthyn codifique de forma independiente | ⏳ Vacía — pendiente que Josthyn la complete |
+| `codificacion_allan.csv` | Codificación de los 39 fragmentos realizada por Allan | ✅ Completa |
+| `codificacion_josthyn.csv` | Codificación de los 39 fragmentos realizada por Josthyn | ✅ Completa |
 | `calcular_acuerdo.py` | Calcula Kappa de Cohen + IC 95% por bootstrap | ✅ Probado y funcional |
-| `resultado_acuerdo.csv` | Salida del script anterior | ⏳ Se genera al correr el script |
+| `resultado_acuerdo.csv` | Resultado canónico del cálculo de acuerdo | ✅ Generado |
 
-## Procedimiento (en este orden, sin saltarse pasos)
+## Procedimiento ejecutado
 
-1. **Congelar el subconjunto** — ya hecho, no repetir.
-2. **Codificación independiente.** Allan y Josthyn completan cada uno su
-   propia copia (`codificacion_allan.csv` / `codificacion_josthyn.csv`),
-   llenando las columnas `Codigo` y `Categoria` para los 39 fragmentos.
-   **Sin verse las hojas entre sí ni consultar la codificación original**
-   del corpus completo (`07_Datos/.../codificacion.csv`), para que el
-   ejercicio mida acuerdo real, no memoria del esquema ya usado.
-3. **Conservar ambas hojas originales** tal como quedaron, sin editarlas
-   después de calcular el acuerdo.
-4. **Correr el script de cálculo:**
-   ```bash
-   cd 10_Autoria/doble_codificacion
-   pip install scikit-learn numpy --break-system-packages
-   python3 calcular_acuerdo.py
-   ```
-5. **Documentar el resultado** en este README (sección de abajo) y en la
-   retrospectiva si el acuerdo resulta bajo — un Kappa bajo no se oculta,
-   se declara y se explica (ej. diferencias en el nivel de granularidad del
-   esquema de códigos).
+1. **Congelación del subconjunto.** El 11 de septiembre de 2026 se fijaron 39
+   fragmentos provenientes de `EV-04` y `ENTR-13`.
+2. **Primera codificación.** Allan y Josthyn realizaron la clasificación de los
+   fragmentos y conservaron sus archivos de trabajo.
+3. **Normalización metodológica.** La primera comparación evidenció que se
+   estaban utilizando esquemas de códigos diferentes. Para que el coeficiente
+   midiera la consistencia de aplicación de un mismo esquema y no la diferencia
+   entre taxonomías incompatibles, el 12 de septiembre de 2026 se realizó una
+   recodificación de los 39 fragmentos utilizando un catálogo compartido.
+4. **Cálculo reproducible.** El script `calcular_acuerdo.py` se ejecutó sobre
+   las dos codificaciones finales y generó `resultado_acuerdo.csv`.
+5. **Conservación del resultado.** El resultado canónico se mantiene en el CSV
+   y se resume a continuación.
 
-## Resultado
+La recodificación con catálogo compartido debe tenerse en cuenta al interpretar
+el coeficiente: el resultado final evalúa la consistencia con que ambos
+codificadores aplicaron un esquema común.
 
-*(completar después de que ambas hojas estén codificadas y se corra el
-script — no rellenar con datos de prueba ni estimaciones)*
+## Resultado final
 
-- Porcentaje de acuerdo observado (Po):
-- Kappa de Cohen:
-- IC 95%:
-- Interpretación:
-- Fecha de codificación de Allan:
-- Fecha de codificación de Josthyn:
-
-## Resultado (actualizado)
+Los valores canónicos se toman de `resultado_acuerdo.csv`:
 
 - **Fragmentos comparados:** 39
-- **Porcentaje de acuerdo observado (Po):** 0,0%
-- **Kappa de Cohen:** ~0.000
-- **IC 95%:** [0.000, 0.000]
-- **Interpretación:** acuerdo insignificante
+- **Porcentaje de acuerdo observado (Po):** 41,03%
+- **Kappa de Cohen:** 0,3972
+- **IC 95%:** [0,2358, 0,5484]
+- **Interpretación registrada:** acuerdo aceptable/débil
 
-### Explicación del resultado
+### Trazabilidad temporal
 
-El acuerdo salió bajo no por un error de procedimiento, sino por una diferencia
-real de esquema de codificación entre ambos codificadores: Josthyn categorizó
-por **contenido temático del dominio agrícola** (ej. "Calidad de la fruta",
-"Registro operativo", "Tratamiento"), mientras que Allan categorizó por
-**tipo de proceso organizacional/cognitivo** (ej. "Comprensión del proceso",
-"Gestión de datos", "Control operativo"). Ambos esquemas son coherentes
-internamente, pero al no partir de un libro de códigos compartido antes de
-codificar, el acuerdo a nivel de código exacto resultó prácticamente nulo.
+- **Congelación del subconjunto:** 2026-09-11
+- **Codificación inicial:** 2026-09-11
+- **Recodificación con catálogo compartido:** 2026-09-12
+- **Resultado canónico vigente:** `resultado_acuerdo.csv`
 
-Esto es un hallazgo metodológico legítimo, no un defecto de los datos: indica
-que, de repetirse el ejercicio, el equipo debería acordar un esquema de
-codificación común (o al menos las categorías de primer nivel) antes de que
-cada codificador trabaje de forma independiente, para que el coeficiente de
-acuerdo mida consistencia de aplicación del esquema y no la existencia de
-esquemas distintos.
+### Interpretación
 
-- Fecha de codificación de Josthyn: 2026-09-11
-- Fecha de codificación de Allan: 2026-09-11
+El valor final no corresponde al resultado preliminar obtenido cuando los dos
+codificadores aplicaban esquemas de códigos distintos.
+
+El resultado vigente procede de la recodificación de los mismos 39 fragmentos
+con un catálogo compartido. Por ello, el Kappa de Cohen de 0,3972 debe
+interpretarse como una medida de consistencia en la aplicación de ese esquema
+común.
+
+El acuerdo no se presenta como alto. Se conserva el valor observado y su
+intervalo de confianza sin sustituirlo por estimaciones ni resultados de prueba.

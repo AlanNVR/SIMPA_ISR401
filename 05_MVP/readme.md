@@ -6,7 +6,7 @@ Prototipo funcional de interfaz desarrollado para el proyecto grupal de Ingenier
 
 ## Repositorios
 
-- Repositorio grupal y documentación: https://github.com/AlanNVR/SIMPA_ISR401
+- Repositorio grupal y documentación: https://github.com/gleiston-guerrero/SIMPA_ISR401
 - Repositorio del código del prototipo: https://github.com/jmaciasherr4/Prottotipo_Simpa
 - Commit evaluado del prototipo: `ba33002dcf680f8b39d42df04553733bd5389f6d` (2026-08-31)
 - Árbol canónico evaluado de la V2: `prototipo_v2/Prottotipo_Simpa-main/Prototipo/`. La carpeta `Prototipo/` ubicada en la raíz del repositorio externo no corresponde al árbol utilizado para la evaluación de la V2.
@@ -16,7 +16,7 @@ Prototipo funcional de interfaz desarrollado para el proyecto grupal de Ingenier
 El código del prototipo está integrado como **submódulo git** en `05_MVP/prototipo/`. Al clonar este repositorio, esa carpeta aparece vacía hasta inicializar el submódulo:
 
 ```bash
-git clone --recurse-submodules https://github.com/AlanNVR/SIMPA_ISR401
+git clone --recurse-submodules https://github.com/gleiston-guerrero/SIMPA_ISR401
 # o, si ya clonaste sin esa opción:
 git submodule update --init --recursive
 ```
@@ -109,10 +109,6 @@ Vite mostrará en la terminal la URL local, normalmente `http://localhost:5173`.
 ## Ejecución del HTML independiente (árbol V1)
 
 Abre `Prototipo/SIMPA_COMPLETO.html` directamente en un navegador moderno. El archivo contiene HTML, CSS y JavaScript en un solo documento y guarda los registros de demostración en `localStorage`. Nota: este archivo corresponde al árbol V1 del prototipo; el árbol V2 evaluado no incluye una versión HTML independiente equivalente.
-
-## Video demostrativo
-
-https://github.com/AlanNVR/SIMPA_ISR401/releases/download/v1.0-mvp-demo/video_demo.mp4
 
 ## Trabajo pendiente para una versión productiva
 

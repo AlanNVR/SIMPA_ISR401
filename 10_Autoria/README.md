@@ -22,8 +22,14 @@ todavía no hayan sido verificados.**
 | `declaracion_identidades_git.md` | Declaración de identidades Git del equipo, con las correspondencias entre cuentas y personas, y la firma de cada integrante |
 | `2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf` | Copia pública de la declaración firmada, con cédula y firma manuscrita enmascaradas |
 | `registro_reestructuracion_2026-09-03.md` | Resumen y commits de las correcciones realizadas durante la reestructuración del repositorio |
-| `correspondencia/readme.md` | Declaración de que no existe correspondencia escrita del equipo (AUT-08): los acuerdos de coordinación se tomaron de forma verbal |
+| `correspondencia/readme.md` | Registro y delimitación de la correspondencia escrita verificable; incluye la coordinación de entrevistas y el acta formal firmada de Palmicultora M |
+| `bitacora_sesiones.csv` | Registro consolidado de 30 sesiones: 26 jornadas sin nota de campo aplicable y 4 jornadas de elicitación con notas reales asociadas |
+| `capturas/` | Evidencia visual de trabajo y contribución individual conservada para la verificación de autoría |
 | `notas_campo/readme.md` | Índice de las 16 notas de campo reales (`NC-01` a `NC-16`, una por entrevista ENTR-01 a ENTR-16), con su relación al resto de la evidencia de cada sesión (AUT-05) |
+| `verificacion_seccion15.md` | Auditoría de cierre de §15: constancia formal, capturas, bitácora y notas de campo verificadas; sección cerrada |
+| `verificacion_exif_aplicacion.md` | Verificación técnica de `DateTimeOriginal` y modelo de cámara de las cinco fotografías de la sesión complementaria del cuestionario |
+| `verificacion_resultados_canonicos.md` | Cruce de resultados estadísticos canónicos contra el manuscrito final: kappa ponderado, Krippendorff, saturación y modelo ordinal |
+| `exif_inventario.csv` | Inventario consolidado de metadatos EXIF de la evidencia fotográfica |
 
 ## Aporte individual
 
@@ -106,14 +112,23 @@ git log --all --author="aalcivarv4@uteq.edu.ec" --oneline
 Para una explicación de las identidades alternativas y casos históricos debe
 consultarse `declaracion_identidades_git.md`.
 
-## Evidencia todavía no incorporada
+## Estado de cierre de la evidencia de autoría
 
-La existencia de esta carpeta no implica que todos los posibles tipos de
-evidencia de autoría estén disponibles.
+La evidencia de autoría actualmente disponible incluye la bitácora consolidada
+de sesiones, capturas individuales, notas de campo reales, correspondencia
+escrita existente, declaración de identidades Git y documentación del aporte
+individual.
 
-Si existen bitácoras de sesiones, capturas, grabaciones o notas de campo
-producidas durante el desarrollo, podrán incorporarse únicamente cuando puedan
-identificarse y verificarse de forma legítima.
+La auditoría vigente se encuentra en `verificacion_seccion15.md`.
 
-No se recrearán retroactivamente estas evidencias a partir del historial de Git
-para simular que fueron producidas en su momento.
+En esa verificación se encuentran cerradas las capturas individuales, las 30
+sesiones de bitácora, las notas de campo y la constancia formal de Palmicultora
+M.
+
+El **16 de septiembre de 2026** se incorporó una copia pública enmascarada del
+acta firmada por el responsable de la unidad productiva. Con esta incorporación,
+**§15 queda cerrado en su totalidad**.
+
+El acta conserva su fecha real de firma y se presenta como una constancia
+emitida durante el cierre del proyecto sobre actividades previamente realizadas.
+No se utiliza para reconstruir retrospectivamente evidencia inexistente.
