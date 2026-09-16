@@ -54,7 +54,7 @@ Dejar preparado, cargado y probado:
 | Recurso | Dónde |
 |---|---|
 | Prototipo V2 | `https://simpav2-prototipo.netlify.app/` |
-| Repositorio principal | `https://github.com/AlanNVR/SIMPA_ISR401` |
+| Repositorio principal | `https://github.com/gleiston-guerrero/SIMPA_ISR401` |
 | ERS v2.0 en PDF | `01_ERS/ERS_SRS_2B_v2.0.pdf` |
 | Depósito Zenodo | `https://zenodo.org/records/22236500` |
 | Reporte FAIR | `08_Publicacion/fair_assessment.pdf` |
