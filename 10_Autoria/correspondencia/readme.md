@@ -1,9 +1,9 @@
-# Correspondencia del equipo
+# Correspondencia y constancias de Palmicultora M
 
 ## Estado
 
-Esta carpeta conserva la correspondencia escrita verificable disponible para
-el proyecto SIMPA.
+Esta carpeta conserva la correspondencia escrita verificable y las constancias
+formales disponibles para el proyecto SIMPA.
 
 La mayor parte de los acuerdos y decisiones internas del equipo AHMRV se
 realizaron de forma verbal, ya sea durante sesiones presenciales o mediante
@@ -12,33 +12,68 @@ llamadas. Estas jornadas se encuentran registradas en
 
 No se reconstruye ni se simula correspondencia que no haya existido.
 
-## Correspondencia conservada
-
-Actualmente se conserva una captura de WhatsApp relacionada con la coordinación
-de una visita a la Palmicultora M:
+## Evidencia conservada
 
 | Archivo | Contenido |
 |---|---|
 | `2026-07-27_WhatsApp_ContactoPalmicultoraM_coordinacion-entrevista.png` | Intercambio utilizado para coordinar la fecha y logística de una visita destinada a realizar entrevistas. El nombre y la fotografía del contacto se encuentran ocultos; la fecha y el contenido relevante permanecen visibles. |
-| `2026-09-16_Acta_Constancia_Actividades_Campo_Enmascarada.png` | Acta de constancia de actividades de campo, firmada y fechada por el responsable de la Palmicultora M, que declara las sesiones de trabajo de campo realizadas con el equipo AHMRV. Firmada el 16/09/2026, durante el cierre del proyecto, en confirmación retrospectiva de sesiones ya ejecutadas. Datos personales innecesarios enmascarados. |
+| `2026-09-16_Acta_Constancia_Actividades_Campo_Enmascarada.png` | Copia pública enmascarada del acta firmada por el responsable de Palmicultora M. Deja constancia de la colaboración de la unidad productiva y de la autorización de actividades de entrevista y elicitación realizadas durante el proyecto. |
 
-Esta captura acredita únicamente la **coordinación logística de la visita para
-entrevistas**.
+La captura de WhatsApp acredita únicamente la **coordinación logística de una
+visita para entrevistas**.
 
-No debe interpretarse como evidencia de aplicación del cuestionario original,
-como consentimiento informado de sus participantes ni como sustituto de un
-acta formal de la organización.
+El acta firmada constituye la **constancia formal de la organización** requerida
+para el cierre de la evidencia de autoría.
 
-## Cierre de este componente
+## Acta firmada
 
-El 16 de septiembre de 2026 se incorporó el acta de constancia de actividades
-de campo, firmada por el responsable de la Palmicultora M. Con este documento,
-el componente de correspondencia de la sección de evidencia de autoría (ver
-`../verificacion_seccion15.md`) queda cerrado.
+El acta fue firmada el **16 de septiembre de 2026**, utilizando la fecha real de
+emisión del documento.
 
-El acta se firmó durante el cierre del proyecto y confirma retrospectivamente
-sesiones de campo ya ejecutadas; no se presenta como un documento contemporáneo
-a esas sesiones.
+La constancia reconoce las jornadas de entrevistas y actividades de elicitación
+realizadas en las siguientes fechas:
+
+- 23 de mayo de 2026;
+- 28 de julio de 2026;
+- 2 de agosto de 2026.
+
+También deja constancia de la colaboración de la unidad productiva en la
+distribución del cuestionario y documenta separadamente la actividad
+complementaria realizada el 15 de septiembre de 2026.
+
+La fecha de firma del acta no se presenta como contemporánea a las jornadas de
+campo anteriores. El documento formaliza durante el cierre del proyecto una
+colaboración y unas autorizaciones correspondientes a actividades efectivamente
+realizadas.
+
+## Protección de datos
+
+La copia publicada en este repositorio se encuentra **enmascarada**.
+
+Se ocultan los datos personales que no son necesarios para la verificación
+pública, incluyendo:
+
+- nombre identificativo del responsable;
+- firma manuscrita;
+- número de identificación.
+
+El cargo y la información necesaria para comprender el carácter de la
+constancia permanecen visibles.
+
+La versión original firmada no se publica en el repositorio abierto debido a que
+contiene información identificativa.
+
+## Cierre de §15
+
+La incorporación del acta resuelve el elemento de correspondencia/constancia
+formal que permanecía abierto en la auditoría de autoría.
+
+El estado consolidado se documenta en:
+
+`../verificacion_seccion15.md`
+
+Las demás evidencias de §15 —capturas individuales, bitácora de sesiones y notas
+de campo— ya habían sido verificadas previamente.
 
 ## Distinción respecto del cuestionario
 
@@ -54,8 +89,6 @@ documenta por separado mediante:
 - `../../02_Evidencias/Cuestionario/Fotos_Aplicacion/`
 - `../verificacion_exif_aplicacion.md`
 
-Las fotografías complementarias conservan metadatos EXIF verificables.
-
 Los cinco consentimientos y fotografías de la sesión complementaria no se
 vinculan con ninguna respuesta específica de las 62 respuestas originales.
 
@@ -63,7 +96,7 @@ vinculan con ninguna respuesta específica de las 62 respuestas originales.
 
 - `../bitacora_sesiones.csv` — registro de sesiones y jornadas del proyecto.
 - `../aporte_individual.md` — aporte verificable de los integrantes.
-- `../verificacion_seccion15.md` — estado de cierre de la evidencia de autoría.
+- `../verificacion_seccion15.md` — auditoría consolidada de §15.
 - `../verificacion_exif_aplicacion.md` — verificación técnica de las fotografías
   de la sesión complementaria.
 - `../../02_Evidencias/Transcripciones/` — transcripciones de entrevistas.
