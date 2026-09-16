@@ -22,11 +22,11 @@ todavía no hayan sido verificados.**
 | `declaracion_identidades_git.md` | Declaración de identidades Git del equipo, con las correspondencias entre cuentas y personas, y la firma de cada integrante |
 | `2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf` | Copia pública de la declaración firmada, con cédula y firma manuscrita enmascaradas |
 | `registro_reestructuracion_2026-09-03.md` | Resumen y commits de las correcciones realizadas durante la reestructuración del repositorio |
-| `correspondencia/readme.md` | Registro y delimitación de la correspondencia escrita verificable; distingue la coordinación de entrevistas, la sesión complementaria del cuestionario y el acta formal todavía pendiente |
+| `correspondencia/readme.md` | Registro y delimitación de la correspondencia escrita verificable; incluye la coordinación de entrevistas y el acta formal firmada de Palmicultora M |
 | `bitacora_sesiones.csv` | Registro consolidado de 30 sesiones: 26 jornadas sin nota de campo aplicable y 4 jornadas de elicitación con notas reales asociadas |
 | `capturas/` | Evidencia visual de trabajo y contribución individual conservada para la verificación de autoría |
 | `notas_campo/readme.md` | Índice de las 16 notas de campo reales (`NC-01` a `NC-16`, una por entrevista ENTR-01 a ENTR-16), con su relación al resto de la evidencia de cada sesión (AUT-05) |
-| `verificacion_seccion15.md` | Auditoría de cierre de §15: capturas, bitácora y notas verificadas; permanece pendiente únicamente el acta o correspondencia formal de Palmicultora M |
+| `verificacion_seccion15.md` | Auditoría de cierre de §15: constancia formal, capturas, bitácora y notas de campo verificadas; sección cerrada |
 | `verificacion_exif_aplicacion.md` | Verificación técnica de `DateTimeOriginal` y modelo de cámara de las cinco fotografías de la sesión complementaria del cuestionario |
 | `verificacion_resultados_canonicos.md` | Cruce de resultados estadísticos canónicos contra el manuscrito final: kappa ponderado, Krippendorff, saturación y modelo ordinal |
 | `exif_inventario.csv` | Inventario consolidado de metadatos EXIF de la evidencia fotográfica |
@@ -121,13 +121,14 @@ individual.
 
 La auditoría vigente se encuentra en `verificacion_seccion15.md`.
 
-En esa verificación, las capturas individuales, las 30 sesiones de bitácora y
-las notas de campo se encuentran cerradas. El único elemento todavía abierto
-es la incorporación de un **acta firmada por el responsable de la Palmicultora
-M o correspondencia formal equivalente**.
+En esa verificación se encuentran cerradas las capturas individuales, las 30
+sesiones de bitácora, las notas de campo y la constancia formal de Palmicultora
+M.
 
-Mientras dicha evidencia auténtica no exista, no se declarará ese elemento como
-cumplido.
+El **16 de septiembre de 2026** se incorporó una copia pública enmascarada del
+acta firmada por el responsable de la unidad productiva. Con esta incorporación,
+**§15 queda cerrado en su totalidad**.
 
-No se crearán retrospectivamente actas, firmas, correspondencia, capturas ni
-notas de campo para aparentar evidencia que no fue producida realmente.
+El acta conserva su fecha real de firma y se presenta como una constancia
+emitida durante el cierre del proyecto sobre actividades previamente realizadas.
+No se utiliza para reconstruir retrospectivamente evidencia inexistente.
