@@ -23,15 +23,18 @@ declaración explícita de que no existen estilos globales adicionales.
 
 ### Manifiestos SHA-256
 
-⚠️ **Pendiente de cierre final.** Los manifiestos no deben considerarse
-cerrados todavía. Desde su última regeneración se han incorporado cambios
-documentales y de evidencia.
+✅ **Cerrado.** Los manifiestos se regeneraron después de congelar los
+cambios de contenido y fueron comprobados desde un segundo clon limpio del
+repositorio canónico.
 
-La regeneración definitiva se realizará únicamente después de congelar
-todos los cambios de contenido y antes de crear la etiqueta anotada final.
+En el commit `c74c3ee32d997ec73d3c2a7b041b062ab0655382`,
+`checksums.sha256` verifica **567 de 567 archivos** y
+`07_Datos/checksums_datos.sha256` verifica **37 de 37 archivos**, ambos con
+código de salida 0 y sin `FAILED`, advertencias ni rutas inexistentes.
 
-Por tanto, el símbolo ✅ que aparece en el punto 4 de la verificación
-original no representa el estado vigente.
+El gitlink `05_MVP/prototipo` se verifica como submódulo y queda fijado en
+`deefe3d9da405ba8961a5d0d52936a85c7c5f428`; por ello no se trata como un
+archivo regular dentro de `checksums.sha256`.
 
 ### Declaración de identidades Git
 
@@ -42,9 +45,35 @@ Las líneas de firma de `declaracion_identidades_git.md` permanecen vacías
 deliberadamente porque la evidencia probatoria es el PDF escaneado
 `2026-09-06_DeclaracionIdentidadesGit_Enmascarado.pdf`.
 
-Este cierre de identidades es independiente del acta o correspondencia
-formal de Palmicultora M requerida por la verificación actual de §15,
-que permanece pendiente.
+La evidencia complementaria de §15 también quedó cerrada: el acta firmada
+enmascarada de Palmicultora M, las capturas individuales, la bitácora de
+sesiones y las notas de campo fueron incorporadas y verificadas.
+
+### Clon limpio y reproducibilidad
+
+✅ **Cerrado.** Se realizó un segundo clon limpio desde
+`https://github.com/gleiston-guerrero/SIMPA_ISR401` y se comprobó el commit
+`c74c3ee32d997ec73d3c2a7b041b062ab0655382`.
+
+El submódulo `05_MVP/prototipo` se inicializó correctamente. La ejecución de
+
+`python 07_Datos/scripts/run_all.py`
+
+terminó con `OK: cadena reproducible completada correctamente.` y reprodujo:
+
+- `respuestas_anonimizadas.csv`: 62 filas × 34 columnas;
+- `respuestas_zenodo_agregadas.csv`: 64 filas × 7 columnas;
+- `tabla_saturacion.csv`: 16 filas × 11 columnas;
+- 8 entrevistas de dominio y 8 de contraste;
+- 79 códigos acumulados al cierre;
+- SHA-256 Zenodo:
+  `b40ab460fc1d3d931beebaf5dd3037f564db8774559feee1ec1d371fa01b39b9`.
+
+Tras fijar explícitamente `lineterminator="\n"` en el generador de saturación,
+los CSV se reproducen sin diferencias de contenido ni de finales de línea entre
+Windows y el artefacto versionado. Las seis figuras PNG/PDF pueden diferir en
+bytes por la versión de Matplotlib y las fuentes instaladas, sin alterar los
+resultados representados.
 
 ### Verificaciones posteriores
 
