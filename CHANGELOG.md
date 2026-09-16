@@ -22,6 +22,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 - `10_Autoria/README.md` fue actualizado para reflejar la bitácora de 30 sesiones, capturas, notas de campo y documentos de verificación actualmente existentes.
 - La documentación de las 62 respuestas originales declara su procedencia vía Google Forms, la presencia de columnas identificativas en la exportación cruda y el uso exclusivo del conjunto anonimizado para análisis.
 - El manuscrito final incorpora resultados de saturación temática, alpha de Krippendorff, kappa ponderado y el modelo ordinal, además de la amenaza derivada del consentimiento retrospectivo.
+- El repositorio principal fue transferido a `https://github.com/gleiston-guerrero/SIMPA_ISR401`; se actualizaron las referencias canónicas vigentes y se recompilaron la ERS y el manuscrito final con la nueva URL.
 
 ### Estado de cierre
 
