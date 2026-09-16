@@ -3,7 +3,7 @@
 **Proyecto:** Sistema Inteligente de Mantenimiento de Palma Africana (SIMPA)
 **Equipo:** AHMRV — ISR-401 — UTEQ
 **Período:** 2026–2027 PPA
-**Fecha de consolidación:** 15 de septiembre de 2026
+**Fecha de consolidación:** 16 de septiembre de 2026
 
 ## Propósito
 
@@ -37,3 +37,53 @@ No se reconstruyen actividades inexistentes ni se incorporan evidencias retrospe
 Las siete situaciones anteriores cuentan con una acción correctiva aplicada y con evidencia verificable en el repositorio.
 
 La retrospectiva no implica que todo posible trabajo futuro del proyecto esté cerrado; documenta únicamente los problemas de cierre aquí enumerados y las medidas que efectivamente fueron ejecutadas.
+
+
+## Cierre del examen suspenso — síntesis final
+
+**Fecha de esta síntesis:** 16 de septiembre de 2026
+
+Esta sección resume las correcciones realizadas en respuesta a la revisión
+del docente del 15 de septiembre de 2026, posteriores a las entradas
+individuales registradas arriba.
+
+**Qué se corrigió y quién:**
+
+- Villafuerte Rosero Allan Noé: documentó los tres marcadores de evidencia
+  vacíos (Member_Checking/Actas, Validacion_Walkthrough/Acta y
+  Consentimientos), registró la entrada del CHANGELOG del examen suspenso,
+  incorporó el acta firmada enmascarada de Palmicultora M, y actualizó
+  README y CITATION.cff tras la transferencia del repositorio a
+  `gleiston-guerrero/SIMPA_ISR401`.
+- Huilcapi León Denisses Fabiola: formulario de consentimiento
+  complementario del cuestionario, documentación de procedencia y
+  limitaciones de las 62 respuestas, y las secciones de saturación
+  temática, kappa ponderado y amenaza de consentimiento retrospectivo en
+  el manuscrito.
+- Macías Herrera Josthyn Esteban: auditoría de fichas técnicas y EXIF,
+  auditoría de cierre de §15 (correspondencia, capturas y bitácora), y
+  verificación de que los resultados del manuscrito coinciden con los
+  archivos canónicos de `07_Datos/resultados`.
+- Arboleda Yanza Francisco Javier: fotografías reales de la aplicación
+  complementaria del cuestionario con metadatos EXIF, y capturas propias
+  de autoría.
+
+**Qué aprendió el equipo:**
+
+Varios de estos hallazgos (marcadores vacíos, discrepancia entre lo
+declarado como anónimo y lo efectivamente capturado por los formularios,
+notas de campo mal comparadas contra la bitácora) no eran evidentes
+revisando el repositorio de forma superficial; solo aparecieron al correr
+las mismas verificaciones exactas que usa el docente. El equipo confirma
+que "parece completo" y "está verificado con el mismo método de auditoría
+del docente" no son equivalentes.
+
+**Qué controles se aplicarán para no repetirlas:**
+
+- Ningún archivo de evidencia se deja como marcador vacío; se documenta el
+  contenido o se retira la carpeta en el mismo commit que la crea.
+- Toda limitación metodológica se declara explícitamente en el momento en
+  que se detecta, en vez de esperar a una auditoría externa.
+- Antes de declarar cerrado cualquier punto de la rúbrica, se ejecuta el
+  comando de verificación exacto que especifica el docente para ese
+  punto, no una revisión visual.
