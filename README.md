@@ -229,14 +229,17 @@ Los resultados, scripts y archivos derivados del experimento se encuentran en `0
 
 ## Equipo AHMRV
 
-| Integrante | Rol |
-|---|---|
-| Villafuerte Rosero Allan Noé | Analista líder |
-| Huilcapi León Denisses Fabiola | Documentadora |
-| Rizzo Vélez Edson Nagib | Verificador y gestor de evidencias |
-| Macías Herrera Josthyn Esteban | Modelador |
-| Arboleda Yanza Francisco Javier | Apoyo modelado y repositorio |
-| Alcívar Vélez Anderson Adonis | Apoyo repositorio |
+| Integrante | Rol | Estado (examen suspenso) |
+|---|---|---|
+| Villafuerte Rosero Allan Noé | Analista líder | Activo — evaluado |
+| Huilcapi León Denisses Fabiola | Documentadora | Activo — evaluado |
+| Rizzo Vélez Edson Nagib | Verificador y gestor de evidencias | Aprobó la asignatura — apoyo voluntario, no evaluado |
+| Macías Herrera Josthyn Esteban | Modelador | Activo — evaluado |
+| Arboleda Yanza Francisco Javier | Apoyo modelado y repositorio | Activo — evaluado |
+| Alcívar Vélez Anderson Adonis | Apoyo repositorio | Reprobó la asignatura — retirado del equipo evaluado |
+
+Composición vigente para el examen suspenso de ISR-401 (corte 18 de
+septiembre de 2026) — ver `09_Etica/solicitud_cambio_composicion.md`.
 
 **Docente responsable:** Ing. Gleiston Cicerón Guerrero Ulloa, PhD
 

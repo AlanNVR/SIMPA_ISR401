@@ -403,6 +403,14 @@ Es, en volumen de commits, la mayor contribución individual del cierre de
 septiembre (49 commits en este tramo), concentrada en documentación de
 autoría y en la operación del experimento humano-LLM.
 
+
+### 7.6 Nota sobre el examen suspenso
+
+Edson Rizzo Vélez aprobó la asignatura y no forma parte de la evaluación
+de este examen suspenso. Puede continuar aportando de forma voluntaria;
+todo commit posterior a esta fecha queda firmado con su propia identidad
+de Git y no se atribuye a los integrantes evaluados.
+
 ---
 
 # 8. Alcívar Vélez Anderson Adonis
@@ -471,6 +479,21 @@ Las tareas que el plan de cierre le había asignado como apoyo (`AUT-06`,
 cubiertas por el resto del equipo; queda pendiente que el propio documento
 de reparto de tareas se actualice para reflejar esta reasignación, fuera
 del alcance de este archivo.
+
+
+### 8.6 Nota sobre el examen suspenso y la reprobación de la asignatura
+
+Anderson Alcívar reprobó la asignatura. Su aporte evaluable al proyecto se
+concentra hasta el 6 de septiembre de 2026, documentado en las secciones
+8.1 a 8.4.
+
+Registra dos commits adicionales posteriores a la reprobación: `7301a59`
+(13 de septiembre, actualización de este mismo documento) y `219fb9a`
+(15 de septiembre, evidencia fotográfica de la aplicación del cuestionario
+más tres capturas de autoría propias). Ambos se realizaron a solicitud
+puntual del equipo activo para completar evidencia necesaria del proyecto.
+Se declaran aquí, atribuidos a él, y no se cuentan como aporte de los
+integrantes evaluados en el examen suspenso.
 
 ---
 
