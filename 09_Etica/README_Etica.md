@@ -139,7 +139,7 @@ la A.14 y con la reorganización posterior del repositorio:
 
 | Referencia histórica | Referencia vigente | Tratamiento |
 |---|---|---|
-| `https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV/tree/main/AHMRV` | `https://github.com/AlanNVR/SIMPA_ISR401` | El repositorio anterior quedó archivado en privado; el repositorio vigente es `SIMPA_ISR401` |
+| `https://github.com/AlanNVR/Villafuerte_Grupo_AHMRV/tree/main/AHMRV` | `https://github.com/gleiston-guerrero/SIMPA_ISR401` | El repositorio anterior quedó archivado en privado; `SIMPA_ISR401` fue posteriormente transferido al docente y esta es su URL canónica vigente |
 | `AHMRV/06_Etica/` · `AHMRV/08_Etica/` | `09_Etica/` | Doble cambio de ubicación: primero dentro de la estructura consolidada, después por la renumeración descrita abajo |
 | `AHMRV/evidencias/` · `AHMRV/02_Evidencias/` | `02_Evidencias/` | Reorganización de las evidencias dentro del árbol vigente y saneado |
 | `AHMRV/07_Publicacion/` | `08_Publicacion/` | Renumeración |
