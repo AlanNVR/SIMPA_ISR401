@@ -7,7 +7,7 @@ Responsable: Jhostyn Macías
 
 | Elemento | Estado |
 |---|---|
-| Correspondencia/acta firmada | ABIERTO — solo existe captura de WhatsApp, falta acta firmada por responsable de Palmicultora M |
+| Correspondencia/acta firmada | OK — acta firmada por responsable de Palmicultora M incorporada 2026-09-16 |
 | Capturas Allan | OK (3) |
 | Capturas Denisses | OK (5) |
 | Capturas Edson | OK (4) |
@@ -19,6 +19,6 @@ Responsable: Jhostyn Macías
 
 ## Conclusión
 
-§15 queda pendiente de un solo elemento: el acta o correspondencia formal firmada
-por el responsable de la Palmicultora M (pasos 2.1/2.2 del plan). El resto de los
-elementos de autoría está cerrado y verificado.
+§15 queda cerrado en su totalidad. El acta firmada por el responsable de la
+Palmicultora M se incorporó el 2026-09-16, completando el último elemento
+pendiente.

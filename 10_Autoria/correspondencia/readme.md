@@ -20,6 +20,7 @@ de una visita a la Palmicultora M:
 | Archivo | Contenido |
 |---|---|
 | `2026-07-27_WhatsApp_ContactoPalmicultoraM_coordinacion-entrevista.png` | Intercambio utilizado para coordinar la fecha y logística de una visita destinada a realizar entrevistas. El nombre y la fotografía del contacto se encuentran ocultos; la fecha y el contenido relevante permanecen visibles. |
+| `2026-09-16_Acta_Constancia_Actividades_Campo_Enmascarada.png` | Acta de constancia de actividades de campo, firmada y fechada por el responsable de la Palmicultora M, que declara las sesiones de trabajo de campo realizadas con el equipo AHMRV. Firmada el 16/09/2026, durante el cierre del proyecto, en confirmación retrospectiva de sesiones ya ejecutadas. Datos personales innecesarios enmascarados. |
 
 Esta captura acredita únicamente la **coordinación logística de la visita para
 entrevistas**.
@@ -28,25 +29,16 @@ No debe interpretarse como evidencia de aplicación del cuestionario original,
 como consentimiento informado de sus participantes ni como sustituto de un
 acta formal de la organización.
 
-## Elemento pendiente de cierre
+## Cierre de este componente
 
-La verificación de la sección de autoría se encuentra documentada en:
+El 16 de septiembre de 2026 se incorporó el acta de constancia de actividades
+de campo, firmada por el responsable de la Palmicultora M. Con este documento,
+el componente de correspondencia de la sección de evidencia de autoría (ver
+`../verificacion_seccion15.md`) queda cerrado.
 
-`../verificacion_seccion15.md`
-
-En esa revisión se establece que el componente de correspondencia continúa
-abierto hasta disponer de una de las siguientes evidencias auténticas:
-
-- un acta firmada por el responsable de la Palmicultora M; o
-- correspondencia formal equivalente que permita acreditar las sesiones
-  realizadas.
-
-Mientras ese documento no exista, este README mantiene el estado pendiente y
-no declara dicho requisito como cumplido.
-
-Si posteriormente se incorpora un acta, deberá conservar su fecha real de firma
-y no presentarse como un documento contemporáneo a las sesiones anteriores si
-fue emitida durante el cierre del proyecto.
+El acta se firmó durante el cierre del proyecto y confirma retrospectivamente
+sesiones de campo ya ejecutadas; no se presenta como un documento contemporáneo
+a esas sesiones.
 
 ## Distinción respecto del cuestionario
 
