@@ -62,7 +62,7 @@ git clone https://github.com/gleiston-guerrero/SIMPA_ISR401.git
 cd SIMPA_ISR401
 ```
 
-> **Línea base evaluada oficialmente:** `baseline-v5.0`, correspondiente al estado revisado por el docente el 17/09/2026. Las etiquetas anteriores se conservan como líneas base históricas y no se mueven ni reutilizan.
+> **Líneas base de cierre:** `baseline-v5.0` corresponde al estado evaluado oficialmente por el docente el 17/09/2026. `baseline-v6.0` identifica el cierre post-evaluación y solo se crea como etiqueta anotada después de regenerar los manifiestos de integridad y superar la validación desde un clon limpio. Las etiquetas anteriores se conservan como líneas base históricas y no se mueven ni reutilizan.
 
 ### Historial de líneas base
 
@@ -75,6 +75,7 @@ cd SIMPA_ISR401
 | `baseline-v4.1` | `8b609aef8e40b4e43349df70018fac99c5a1ac83` | Histórica |
 | `baseline-v4.2` | `831b83341ee39732d2a5722e53e26e44dc8c9cfd` | Histórica |
 | `baseline-v5.0` | `e63c9b3343ef9c56df8fa07ada1868bd4c171caf` | Evaluada oficialmente |
+| `baseline-v6.0` | Etiqueta anotada sobre el commit final validado | Cierre post-evaluación |
 
 Una nueva línea base solo se crea después de completar las correcciones, regenerar los manifiestos de integridad y verificar el repositorio desde un clon limpio.
 

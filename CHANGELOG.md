@@ -27,10 +27,11 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ### Estado de cierre
 
-- La evaluación oficial dejó §15 por modificar debido a las capturas de Alcívar que no mostraban artefactos propios. Después del corte evaluado se sustituyeron por evidencia de artefactos propios; su aceptación final queda sujeta a la nueva verificación.
-- `07_Datos/checksums_datos.sha256` verificaba 37/37 archivos en `baseline-v5.0`. Los resultados incorporados posteriormente para los intervalos de confianza modificaron `07_Datos/`, por lo que el manifiesto debe regenerarse antes de la siguiente linea base.
+- §15 fue corregida después de la evaluación oficial: las tres capturas de Alcívar fueron sustituidas por evidencia de artefactos propios y verificadas visualmente por Josthyn Macías. La aceptación definitiva corresponde al docente.
+- §16 fue verificada reproduciblemente: los intervalos de confianza al 95 % se regeneran sin producir diferencias en los CSV versionados, las curvas de saturación están incorporadas al manuscrito y la compilación completa finaliza sin errores graves, citas ni referencias indefinidas.
+- `07_Datos/checksums_datos.sha256` fue regenerado después de §16 y verifica 38/38 archivos con código de salida 0.
 - La composición formal se mantiene trazable con seis integrantes; la solicitud de cambio de composición no sustituye las firmas o aceptaciones requeridas para excluir integrantes.
-- `baseline-v5.0` ya fue creada y fue la linea base evaluada oficialmente. El cierre post-evaluacion requiere verificar las correcciones de §15 y §16, regenerar los manifiestos afectados, validar desde un clon limpio y congelar el nuevo estado en una etiqueta anotada posterior a `baseline-v5.0`.
+- `baseline-v5.0` se conserva como línea base oficialmente evaluada. El estado de cierre post-evaluación se congelará como `baseline-v6.0` únicamente después de regenerar y verificar el manifiesto raíz y superar la validación desde un clon limpio.
 
 ---
 
