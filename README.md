@@ -62,7 +62,21 @@ git clone https://github.com/gleiston-guerrero/SIMPA_ISR401.git
 cd SIMPA_ISR401
 ```
 
-> **Línea base vigente para la evaluación:** `baseline-v5.0`, etiqueta anotada que identifica el cierre final verificable del repositorio.
+> **Línea base evaluada oficialmente:** `baseline-v5.0`, correspondiente al estado revisado por el docente el 17/09/2026. Las etiquetas anteriores se conservan como líneas base históricas y no se mueven ni reutilizan.
+
+### Historial de líneas base
+
+| Etiqueta | Commit congelado | Estado |
+|---|---|---|
+| `baseline-v2.0` | `3486021da5469a92833bbbffb37455933acd1d2f` | Histórica |
+| `baseline-v3.0` | `734a42f0dd6228b8229745752d96bc6f234766d9` | Histórica |
+| `baseline-v3.1` | `7c537240c32984c17a689dcb1e775968c90d3cd4` | Histórica |
+| `baseline-v4.0` | `d79a39b75617dc4f4743770319866415afdca5a2` | Histórica |
+| `baseline-v4.1` | `8b609aef8e40b4e43349df70018fac99c5a1ac83` | Histórica |
+| `baseline-v4.2` | `831b83341ee39732d2a5722e53e26e44dc8c9cfd` | Histórica |
+| `baseline-v5.0` | `e63c9b3343ef9c56df8fa07ada1868bd4c171caf` | Evaluada oficialmente |
+
+Una nueva línea base solo se crea después de completar las correcciones, regenerar los manifiestos de integridad y verificar el repositorio desde un clon limpio.
 
 Eso es todo. **No se requiere Git LFS**: se evaluó su uso para la evidencia audiovisual y se descartó al agotarse la cuota de almacenamiento. No queda ninguna regla `filter=lfs` ni ningún puntero en el árbol. La evidencia pesada se obtiene desde el repositorio complementario, como se explica más abajo.
 
