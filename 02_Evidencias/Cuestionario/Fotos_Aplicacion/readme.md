@@ -8,11 +8,11 @@ por separado.
 Los siguientes archivos corresponden a una **sesión complementaria real**
 realizada el **15 de septiembre de 2026** con trabajadores de Palmicultora M:
 
-- `2026-09-15_AplicacionCuestionario_Foto-01.jpg`
-- `2026-09-15_AplicacionCuestionario_Foto-02.jpg`
-- `2026-09-15_AplicacionCuestionario_Foto-03.jpg`
-- `2026-09-15_AplicacionCuestionario_Foto-04.jpg`
-- `2026-09-15_AplicacionCuestionario_Foto-05.jpg`
+- `2026-09-15_ConsentimientoComplementario_Foto-01.jpg`
+- `2026-09-15_ConsentimientoComplementario_Foto-02.jpg`
+- `2026-09-15_ConsentimientoComplementario_Foto-03.jpg`
+- `2026-09-15_ConsentimientoComplementario_Foto-04.jpg`
+- `2026-09-15_ConsentimientoComplementario_Foto-05.jpg`
 
 Estas cinco fotografías conservan metadatos EXIF verificables.
 
