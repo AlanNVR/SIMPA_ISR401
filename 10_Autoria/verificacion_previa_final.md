@@ -92,7 +92,7 @@ Cada punto se marca ✅ (cumplido y comprobado), ⚠️ (pendiente, bloqueado po
 
 ## 1. Clon limpio
 
-✅ **Cumplido.** `git clone https://github.com/AlanNVR/SIMPA_ISR401.git` funciona sin
+✅ **Cumplido.** `git clone https://github.com/gleiston-guerrero/SIMPA_ISR401.git` funciona sin
 errores, sin submódulos rotos, 11 carpetas de primer nivel presentes.
 
 ## 2. Compilación
@@ -160,7 +160,7 @@ propuesta ya redactada y a la espera de confirmación del equipo.
 
 ## 10. URL pública
 
-✅ **Cumplido.** `https://github.com/AlanNVR/SIMPA_ISR401` responde 200, accesible
+✅ **Cumplido.** `https://github.com/gleiston-guerrero/SIMPA_ISR401` responde 200, accesible
 sin autenticación.
 
 ---

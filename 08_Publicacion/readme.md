@@ -28,6 +28,8 @@ La evaluación comprendió 17 métricas. Los resultados completos se conservan e
 
 La carpeta `dataset_zenodo/` se conserva sin modificaciones como instantánea exacta de los seis archivos depositados en la versión 2.0. Por trazabilidad, sus archivos `readme.md` y `zenodo_metadata.md` mantienen el estado de predepósito que tenían al momento de la carga. Esto preserva la correspondencia con `checksums_zenodo.sha256` y con los archivos publicados en Zenodo.
 
+La URL histórica que aparece dentro de `dataset_zenodo/zenodo_metadata.md` se conserva igualmente como referencia del snapshot depositado. La URL canónica vigente del repositorio es `https://github.com/gleiston-guerrero/SIMPA_ISR401`.
+
 El manuscrito científico incorpora la ejecución real del experimento comparativo humano–LLM, sus resultados, discusión, amenazas a la validez, limitaciones y conclusiones. El registro OSF se presenta de forma transparente como retrospectivo respecto al material fuente de entrevistas y anterior a la ejecución del experimento.
 
 La fuente `manuscrito_final.tex` es autónoma y compila junto con `referencias.bib`. La versión interna no anónima actual genera un PDF de 11 páginas y conserva 23 referencias bibliográficas citadas.

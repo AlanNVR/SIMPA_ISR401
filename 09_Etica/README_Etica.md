@@ -113,9 +113,9 @@ referencia de un Pull Request (`refs/pull/2/head`) abierto en algún momento des
 esa rama, la cual seguía sirviendo el contenido original sin anonimizar y no
 puede eliminarse mediante `git push --force` ni ninguna operación estándar de
 Git. Por esta limitación, ajena al equipo, el proyecto se migró a un repositorio
-nuevo — `https://github.com/AlanNVR/SIMPA_ISR401` — que no hereda referencias de
+nuevo bajo la cuenta `AlanNVR`, denominado `SIMPA_ISR401`, que no heredó referencias de
 Pull Requests ni historial previo. El repositorio original quedó archivado en
-modo privado. Se verificó de forma independiente que el repositorio nuevo no
+modo privado. Posteriormente, `SIMPA_ISR401` fue transferido al docente; su URL canónica vigente es `https://github.com/gleiston-guerrero/SIMPA_ISR401`. Se verificó de forma independiente que el repositorio nuevo no
 contiene ninguna referencia adicional (`refs/pull/*` ni de otro tipo) ni ningún
 dato identificable en su historial completo.
 
