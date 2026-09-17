@@ -180,3 +180,44 @@ sin autenticación.
 | 9 | Requisitos de IA | 🟡 Con salvedad documentada |
 | 10 | URL pública | ✅ |
 
+
+---
+
+## Actualización final — 2026-09-17
+
+Verificación realizada por Macías Herrera Josthyn Esteban tras la evaluación
+oficial del docente del 17/09/2026 y las correcciones subsiguientes de §15,
+§16 y las observaciones 1 a 6.
+
+### Manifiestos SHA-256
+
+✅ **Confirmado limpio.** `sha256sum -c checksums.sha256 --quiet` y
+`(cd 07_Datos && sha256sum -c checksums_datos.sha256 --quiet)` no imprimen
+ninguna línea — ambos manifiestos verifican correctamente contra el estado
+actual del árbol de trabajo.
+
+### Reproducibilidad de los intervalos de confianza (§16)
+
+✅ **Confirmado.** `python 06_Experimento/scripts_analisis/calcular_ic_acuerdo.py`,
+ejecutado desde la raíz del repositorio, reproduce exactamente los mismos
+valores de α de Krippendorff y kappa ponderado (con sus IC 95%) ya presentes
+en `07_Datos/resultados/acuerdo_krippendorff.csv` y
+`acuerdo_kappa_ponderado_promedio.csv`. `git diff` sobre `07_Datos/resultados/`
+tras la ejecución no muestra ninguna diferencia.
+
+### Recompilación del manuscrito (§16)
+
+✅ **Confirmado.** La secuencia `pdflatex → bibtex → pdflatex → pdflatex`
+sobre `08_Publicacion/manuscrito_final.tex`, ejecutada desde cero, termina
+sin citas ni referencias indefinidas en la pasada final. El PDF resultante
+coincide en tamaño (571 672 bytes) y difiere del ya versionado únicamente en
+64 bytes, consistentes con metadatos de fecha de generación embebidos por
+pdfTeX; el contenido textual, las tablas y las figuras son idénticos.
+
+### Estado de la etiqueta de cierre
+
+`baseline-v5.0` permanece como la línea base evaluada oficialmente por el
+docente el 17/09/2026, sin moverse. `baseline-v6.0` (línea base de cierre
+posterior a las correcciones) **aún no ha sido creada** a la fecha de esta
+verificación, a la espera de confirmación del equipo de que no se incorporará
+contenido adicional.
