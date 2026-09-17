@@ -35,7 +35,7 @@ de Git (`git log`) de un archivo real escrito por Alcívar antes de su
 retiro del proyecto activo: `11_Defensa/guion_defensa.md`,
 `11_Defensa/guion_demostracion.md`, y el script de verificación de fichas
 técnicas. Verificadas visualmente el 17/09/2026 por Josthyn Macías,
-cumpliendo terminal, archivo real, usuario y reloj del sistema visibles.
+cumpliendo terminal, archivo real, usuario del sistema visibles.
 
 Su aceptación final queda sujeta a la revisión del docente en la próxima
 evaluación del repositorio.
