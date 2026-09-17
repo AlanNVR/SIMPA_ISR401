@@ -26,6 +26,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
 \renewcommand{\keywordname}{\bfseries Palabras clave}
 \renewcommand{\refname}{Referencias}
 
@@ -195,13 +196,29 @@ de saturaci\'on tem\'atica dentro de cada uno. De los c\'odigos identificados,
 estrato de contraste, para un total de 79 c\'odigos \'unicos en la vista
 agregada de las 16 entrevistas.
 
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\linewidth]{../07_Datos/resultados/curva_saturacion_dominio.png}
+\caption{Curva de saturaci\'on tem\'atica, estrato de dominio (\texttt{ENTR-01} a \texttt{ENTR-08}).}
+\label{fig:saturacion-dominio}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.85\linewidth]{../07_Datos/resultados/curva_saturacion_contraste.png}
+\caption{Curva de saturaci\'on tem\'atica, estrato de contraste (\texttt{ENTR-09} a \texttt{ENTR-16}).}
+\label{fig:saturacion-contraste}
+\end{figure}
+
 Esta vista agregada se conserva \'unicamente como descripci\'on del conjunto
 completo de entrevistas y \textbf{no debe interpretarse como evidencia de
 saturaci\'on homog\'enea entre las dos poblaciones}, dado que dominio y
 contraste corresponden a perfiles con distinta relaci\'on con el objeto de
-estudio. Las curvas de saturaci\'on por estrato y la vista agregada, junto con
-la tabla completa de las 16 entrevistas, est\'an disponibles en
-\texttt{07\_Datos/resultados/}.
+estudio. Las curvas de saturaci\'on por estrato se muestran en las
+Figuras~\ref{fig:saturacion-dominio} y~\ref{fig:saturacion-contraste}; la
+vista agregada, junto con la tabla completa de las 16 entrevistas, est\'a
+disponible en \texttt{07\_Datos/resultados/}.
 
 % =====================================================================
 \section{Preguntas de investigaci\'on}
@@ -409,15 +426,15 @@ Tabla~\ref{tab:rq2} muestra el $\alpha$ de Krippendorff con m\'etrica ordinal.
 \centering
 \caption{Acuerdo interevaluador mediante $\alpha$ de Krippendorff ordinal.}
 \label{tab:rq2}
-\begin{tabular}{lr}
+\begin{tabular}{lrr}
 \hline
-Dimensi\'on & $\alpha$ de Krippendorff \\
+Dimensi\'on & $\alpha$ de Krippendorff & IC 95\,\% \\
 \hline
-COM & -0,015 \\
-AMB & -0,003 \\
-VER & 0,027 \\
-COR & -0,003 \\
-CON & -0,015 \\
+COM & -0,015 & [-0,192; 0,135] \\
+AMB & -0,003 & [-0,181; 0,163] \\
+VER & 0,027 & [-0,142; 0,168] \\
+COR & -0,003 & [-0,174; 0,153] \\
+CON & -0,015 & [-0,183; 0,135] \\
 \hline
 \end{tabular}
 \end{table}
@@ -433,15 +450,15 @@ por dimensi\'on, calculado sobre los tres pares de evaluadoras.
 \centering
 \caption{Promedio de $\kappa$ ponderado cuadr\'atico por dimensi\'on (tres pares de evaluadoras, $n=50$ por par).}
 \label{tab:kappa}
-\begin{tabular}{lr}
+\begin{tabular}{lrr}
 \hline
-Dimensi\'on & $\kappa$ ponderado (promedio) \\
+Dimensi\'on & $\kappa$ ponderado (promedio) & IC 95\,\% \\
 \hline
-COM & 0,073 \\
-AMB & 0,095 \\
-VER & 0,105 \\
-COR & 0,083 \\
-CON & 0,073 \\
+COM & 0,073 & [-0,095; 0,213] \\
+AMB & 0,095 & [-0,078; 0,241] \\
+VER & 0,105 & [-0,056; 0,234] \\
+COR & 0,083 & [-0,086; 0,223] \\
+CON & 0,073 & [-0,086; 0,206] \\
 \hline
 \end{tabular}
 \end{table}
