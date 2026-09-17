@@ -1,0 +1,6 @@
+dimension,kappa_ponderado_promedio,ic95_inferior,ic95_superior,metodo_ic
+COM,0.072671,-0.095386,0.213041,"bootstrap percentil sobre el promedio de 3 pares, B=2000, semilla=20260916"
+AMB,0.095058,-0.077596,0.241069,"bootstrap percentil sobre el promedio de 3 pares, B=2000, semilla=20260916"
+VER,0.105447,-0.055910,0.233562,"bootstrap percentil sobre el promedio de 3 pares, B=2000, semilla=20260916"
+COR,0.082518,-0.086077,0.223122,"bootstrap percentil sobre el promedio de 3 pares, B=2000, semilla=20260916"
+CON,0.072671,-0.085769,0.206383,"bootstrap percentil sobre el promedio de 3 pares, B=2000, semilla=20260916"
