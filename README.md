@@ -62,6 +62,8 @@ git clone https://github.com/gleiston-guerrero/SIMPA_ISR401.git
 cd SIMPA_ISR401
 ```
 
+> **Línea base vigente para la evaluación:** `baseline-v5.0`, etiqueta anotada que identifica el cierre final verificable del repositorio.
+
 Eso es todo. **No se requiere Git LFS**: se evaluó su uso para la evidencia audiovisual y se descartó al agotarse la cuota de almacenamiento. No queda ninguna regla `filter=lfs` ni ningún puntero en el árbol. La evidencia pesada se obtiene desde el repositorio complementario, como se explica más abajo.
 
 ---

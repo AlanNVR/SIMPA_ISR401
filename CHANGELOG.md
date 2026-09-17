@@ -23,12 +23,14 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 - La documentación de las 62 respuestas originales declara su procedencia vía Google Forms, la presencia de columnas identificativas en la exportación cruda y el uso exclusivo del conjunto anonimizado para análisis.
 - El manuscrito final incorpora resultados de saturación temática, alpha de Krippendorff, kappa ponderado y el modelo ordinal, además de la amenaza derivada del consentimiento retrospectivo.
 - El repositorio principal fue transferido a `https://github.com/gleiston-guerrero/SIMPA_ISR401`; se actualizaron las referencias canónicas vigentes y se recompilaron la ERS y el manuscrito final con la nueva URL.
+- Se formalizó la composición vigente del equipo para el examen suspenso en `09_Etica/solicitud_cambio_composicion.md`: Allan Villafuerte, Denisses Huilcapi, Josthyn Macías y Francisco Arboleda como integrantes evaluados.
 
 ### Estado de cierre
 
 - La evidencia de autoría (§15) quedó cerrada: las capturas individuales, la bitácora, las notas de campo y el acta firmada enmascarada de Palmicultora M fueron incorporadas y verificadas.
-- La regeneración definitiva de los manifiestos SHA-256 se realizará únicamente después de congelar todos los cambios de contenido.
-- La etiqueta anotada de cierre no se crea todavía; deberá apuntar al commit final exacto después de completar y verificar los manifiestos.
+- `07_Datos/checksums_datos.sha256` permanece verificado con 37/37 archivos después de los cambios finales de composición y documentación.
+- La composición vigente para la evaluación del examen suspenso quedó formalizada en cuatro integrantes.
+- El cierre restante se limita a regenerar y verificar el manifiesto raíz `checksums.sha256` sobre el estado final del repositorio y crear la etiqueta anotada `baseline-v5.0` sobre el commit final exacto.
 
 ---
 
