@@ -97,12 +97,17 @@ el rol o el perfil del participante.
 2. Verificar la suma del contenedor descargado contra el SHA-256 que GitHub
    publica junto a cada asset en la página del Release.
 3. Descifrar con la contraseña entregada por el canal académico.
-4. Verificar la integridad del contenido extraído contra
-   `checksums_evidencias.sha256`, en la raíz del repositorio principal:
+4. Verificar la integridad desde la raíz común del contenido extraído.
+   El manifiesto permanece en la raíz del repositorio principal y sus rutas
+   se resuelven respecto del directorio de trabajo:
 
 ```bash
-sha256sum -c checksums_evidencias.sha256
+cd /ruta/al/contenido_extraido
+sha256sum -c /ruta/al/SIMPA_ISR401/checksums_evidencias.sha256
 ```
+
+   Si solo se descargó una parte de los contenedores, puede verificarse lo
+   disponible con `--ignore-missing`.
 
 5. Contrastar cada archivo contra su fila correspondiente en
    `fichas_tecnicas.csv` para confirmar el código de participante y la técnica

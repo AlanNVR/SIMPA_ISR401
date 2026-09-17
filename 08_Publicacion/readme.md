@@ -83,7 +83,10 @@ con hash distinto: la congelada en `dataset_zenodo/` (`edb58364…`) y la viva e
 `07_Datos/scripts/` (`72995db5…`). La divergencia es deliberada: la primera
 documenta cómo se generó el depósito, la segunda es la que ejecuta `run_all.py`.
 
-Se retiraron de esta carpeta tres archivos que duplicaban o contradecían a
-`07_Datos/`: `respuestas_anonimizadas.csv`, `diccionario_datos.md` y
-`checksums_paquete.sha256`. El motivo se registra en
-`../07_Datos/desviaciones.md`.
+Los datos operativos fueron trasladados a `07_Datos/`. El archivo
+`checksums_paquete.sha256` se conserva únicamente como manifiesto verificable
+del subconjunto de publicación y utiliza rutas relativas a la raíz del
+repositorio. El manifiesto completo y canónico de datos es
+`../07_Datos/checksums_datos.sha256`. `diccionario_datos.md` se conserva como
+documentación de publicación; el diccionario de datos canónico vigente es
+`../07_Datos/diccionario_datos.csv`.

@@ -136,7 +136,7 @@ parecen corrupción y no lo son.
 | Manifiesto | Ubicación | Qué comprueba | Cómo se usa |
 |---|---|---|---|
 | `checksums.sha256` | Raíz del repositorio | Los archivos versionados en este repositorio | `sha256sum -c checksums.sha256` desde la raíz |
-| `checksums_evidencias.sha256` | Raíz del repositorio | El **contenido interno** de los contenedores `.7z` | Desde la carpeta donde se extrajo el contenedor |
+| `checksums_evidencias.sha256` | Raíz del repositorio | El **contenido interno** de los contenedores `.7z` | Desde la raíz común del contenido extraído, indicando la ruta del manifiesto |
 
 El segundo no puede ejecutarse contra el repositorio: sus rutas
 (`audios/…`, `videos/…`, `Walkthrough_Tecnico/…`) son internas al contenedor. Su

@@ -9,16 +9,19 @@
 #
 # Las rutas son relativas a la raiz de cada contenedor, tal como
 # figuran en la columna ruta_en_contenedor de
-#   AHMRV/02_Evidencias/00_Restringido/fichas_tecnicas.csv
+#   02_Evidencias/00_Restringido/fichas_tecnicas.csv
 #
 # PROCEDIMIENTO DE VERIFICACION
 #   1. Descargar el contenedor indicado en la columna url_release
 #      de fichas_tecnicas.csv.
 #   2. Descomprimirlo con la contrasena entregada por el SGA:
 #        7z x evidencias_entrevistas_audios_01.7z -o./verificacion
-#   3. Situarse en la carpeta resultante y ejecutar:
-#        sha256sum -c checksums_evidencias.sha256
-#      (ignorando las lineas de contenedores no descargados)
+#   3. Situarse en la raiz comun del contenido extraido.
+#      Las rutas de este manifiesto se resuelven desde ese directorio.
+#      Para verificar todos los contenedores extraidos:
+#        sha256sum -c /ruta/al/SIMPA_ISR401/checksums_evidencias.sha256
+#      Para verificar solo los archivos descargados:
+#        sha256sum -c --ignore-missing /ruta/al/SIMPA_ISR401/checksums_evidencias.sha256
 #
 # Para verificar los archivos de ESTE repositorio, use checksums.sha256
 # desde la raiz del repositorio.

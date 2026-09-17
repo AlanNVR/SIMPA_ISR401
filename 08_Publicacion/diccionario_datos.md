@@ -80,8 +80,12 @@ Las columnas pares 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32 y 34 son
 
 ## 5. Integridad
 
-El hash SHA-256 de este archivo y de los demás componentes del paquete consta en `07_Publicacion/checksums_paquete.sha256`. Verificación desde `07_Publicacion/`:
+Este archivo forma parte del subconjunto documental de publicación registrado en `08_Publicacion/checksums_paquete.sha256`.
+
+El manifiesto se verifica desde la raíz del repositorio:
 
 ```bash
-sha256sum -c checksums_paquete.sha256
+sha256sum -c 08_Publicacion/checksums_paquete.sha256
 ```
+
+El manifiesto completo y canónico de los datos vigentes continúa siendo `07_Datos/checksums_datos.sha256`.
