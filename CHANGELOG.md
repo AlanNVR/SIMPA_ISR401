@@ -31,7 +31,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 - §16 fue verificada reproduciblemente: los intervalos de confianza al 95 % se regeneran sin producir diferencias en los CSV versionados, las curvas de saturación están incorporadas al manuscrito y la compilación completa finaliza sin errores graves, citas ni referencias indefinidas.
 - `07_Datos/checksums_datos.sha256` fue regenerado después de §16 y verifica 38/38 archivos con código de salida 0.
 - La composición formal se mantiene trazable con seis integrantes; la solicitud de cambio de composición no sustituye las firmas o aceptaciones requeridas para excluir integrantes.
-- `baseline-v5.0` se conserva como línea base oficialmente evaluada. El estado de cierre post-evaluación se congelará como `baseline-v6.0` únicamente después de regenerar y verificar el manifiesto raíz y superar la validación desde un clon limpio.
+- `baseline-v5.0` se conserva como línea base oficialmente evaluada. `baseline-v6.0`, `baseline-v6.1` y `baseline-v6.2` se mantienen como líneas base históricas del proceso de cierre. `baseline-v6.3` identifica la línea base final vigente, creada como etiqueta anotada sobre el commit final validado después de regenerar los manifiestos y superar la validación desde un clon limpio; ninguna etiqueta histórica se mueve ni reutiliza.
 
 ---
 
