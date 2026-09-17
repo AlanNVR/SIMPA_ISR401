@@ -5,7 +5,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
-## [Sin publicar] - 2026-09-16 - Correcciones para examen suspenso
+## [4.3.0] - 2026-09-17 - Correcciones post-evaluacion oficial
 
 ### Añadido
 
@@ -23,14 +23,14 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 - La documentación de las 62 respuestas originales declara su procedencia vía Google Forms, la presencia de columnas identificativas en la exportación cruda y el uso exclusivo del conjunto anonimizado para análisis.
 - El manuscrito final incorpora resultados de saturación temática, alpha de Krippendorff, kappa ponderado y el modelo ordinal, además de la amenaza derivada del consentimiento retrospectivo.
 - El repositorio principal fue transferido a `https://github.com/gleiston-guerrero/SIMPA_ISR401`; se actualizaron las referencias canónicas vigentes y se recompilaron la ERS y el manuscrito final con la nueva URL.
-- Se formalizó la composición vigente del equipo para el examen suspenso en `09_Etica/solicitud_cambio_composicion.md`: Allan Villafuerte, Denisses Huilcapi, Josthyn Macías y Francisco Arboleda como integrantes evaluados.
+- Se documentó en `09_Etica/solicitud_cambio_composicion.md` una solicitud de cambio de composición del equipo. La evaluación oficial posterior mantiene la trazabilidad de los seis integrantes y no considera esa solicitud, por sí sola, como exclusión formal de los miembros afectados.
 
 ### Estado de cierre
 
-- La evidencia de autoría (§15) quedó cerrada: las capturas individuales, la bitácora, las notas de campo y el acta firmada enmascarada de Palmicultora M fueron incorporadas y verificadas.
-- `07_Datos/checksums_datos.sha256` permanece verificado con 37/37 archivos después de los cambios finales de composición y documentación.
-- La composición vigente para la evaluación del examen suspenso quedó formalizada en cuatro integrantes.
-- El cierre restante se limita a regenerar y verificar el manifiesto raíz `checksums.sha256` sobre el estado final del repositorio y crear la etiqueta anotada `baseline-v5.0` sobre el commit final exacto.
+- La evaluación oficial dejó §15 por modificar debido a las capturas de Alcívar que no mostraban artefactos propios. Después del corte evaluado se sustituyeron por evidencia de artefactos propios; su aceptación final queda sujeta a la nueva verificación.
+- `07_Datos/checksums_datos.sha256` verificaba 37/37 archivos en `baseline-v5.0`. Los resultados incorporados posteriormente para los intervalos de confianza modificaron `07_Datos/`, por lo que el manifiesto debe regenerarse antes de la siguiente linea base.
+- La composición formal se mantiene trazable con seis integrantes; la solicitud de cambio de composición no sustituye las firmas o aceptaciones requeridas para excluir integrantes.
+- `baseline-v5.0` ya fue creada y fue la linea base evaluada oficialmente. El cierre post-evaluacion requiere verificar las correcciones de §15 y §16, regenerar los manifiestos afectados, validar desde un clon limpio y congelar el nuevo estado en una etiqueta anotada posterior a `baseline-v5.0`.
 
 ---
 
