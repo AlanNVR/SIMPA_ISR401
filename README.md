@@ -62,7 +62,7 @@ git clone https://github.com/gleiston-guerrero/SIMPA_ISR401.git
 cd SIMPA_ISR401
 ```
 
-> **Líneas base de cierre:** `baseline-v5.0` corresponde al estado evaluado oficialmente por el docente el 17/09/2026. `baseline-v6.0` identifica el cierre post-evaluación; es la línea base vigente, creada como etiqueta anotada tras regenerar los manifiestos de integridad y superar la validación desde un clon limpio. Las etiquetas anteriores se conservan como líneas base históricas y no se mueven ni reutilizan.
+> **Líneas base de cierre:** `baseline-v5.0` corresponde al estado evaluado oficialmente por el docente el 17/09/2026. `baseline-v6.0` identifica el cierre post-evaluación tras las correcciones de §15/§16/§3. `baseline-v6.1` incorpora la corrección final del README y es la línea base vigente, creada como etiqueta anotada tras regenerar los manifiestos de integridad y superar la validación desde un clon limpio. Las etiquetas anteriores se conservan como líneas base históricas y no se mueven ni reutilizan.
 
 ### Historial de líneas base
 
@@ -75,7 +75,8 @@ cd SIMPA_ISR401
 | `baseline-v4.1` | `8b609aef8e40b4e43349df70018fac99c5a1ac83` | Histórica |
 | `baseline-v4.2` | `831b83341ee39732d2a5722e53e26e44dc8c9cfd` | Histórica |
 | `baseline-v5.0` | `e63c9b3343ef9c56df8fa07ada1868bd4c171caf` | Evaluada oficialmente |
-| `baseline-v6.0` | `32c248351b2d3cefbebc0086c16c5d1cdd261b55` | Vigente — cierre post-evaluación |
+| `baseline-v6.0` | `32c248351b2d3cefbebc0086c16c5d1cdd261b55` | Histórica — cierre post-evaluación |
+| `baseline-v6.1` | `26c3561f10679dbdf61c60fcfcd806506b8a1dbd` | Vigente — cierre post-evaluación |
 
 Una nueva línea base solo se crea después de completar las correcciones, regenerar los manifiestos de integridad y verificar el repositorio desde un clon limpio.
 
