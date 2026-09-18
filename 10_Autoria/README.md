@@ -126,8 +126,10 @@ sesiones de bitácora, las notas de campo y la constancia formal de Palmicultora
 M.
 
 El **16 de septiembre de 2026** se incorporó una copia pública enmascarada del
-acta firmada por el responsable de la unidad productiva. Con esta incorporación,
-**§15 queda cerrado en su totalidad**.
+acta firmada por el responsable de la unidad productiva. Con esa incorporación
+quedó completo el último elemento pendiente de §15 según la verificación interna
+del 16/09. El estado oficial del ítem lo determina el docente; ver
+`verificacion_seccion15.md` para las correcciones posteriores.
 
 El acta conserva su fecha real de firma y se presenta como una constancia
 emitida durante el cierre del proyecto sobre actividades previamente realizadas.
