@@ -62,7 +62,20 @@ git clone https://github.com/gleiston-guerrero/SIMPA_ISR401.git
 cd SIMPA_ISR401
 ```
 
-> **Líneas base de cierre:** `baseline-v5.0` corresponde al estado evaluado oficialmente por el docente el 17/09/2026. `baseline-v6.0`, `baseline-v6.1` y `baseline-v6.2` se conservan como instantáneas históricas del cierre post-evaluación. `baseline-v6.3` identifica la línea base final vigente, creada como etiqueta anotada sobre el commit final validado después de regenerar los manifiestos de integridad y superar la validación desde un clon limpio. Ninguna etiqueta histórica se mueve ni reutiliza.
+> **Líneas base de cierre:** `baseline-v5.0` corresponde a una evaluación
+> oficial anterior del docente del 17/09/2026. `baseline-v6.0`,
+> `baseline-v6.1` y `baseline-v6.2` se conservan como instantáneas históricas
+> de las correcciones posteriores.
+>
+> `baseline-v6.3` congela el commit
+> `1424f05038cbb6718c9dee3d360f7d9ff6307299`, evaluado oficialmente por el
+> docente el 17/09/2026 a las 17:50. Se conserva intacta como registro de esa
+> evaluación y no se mueve.
+>
+> El cierre posterior a esa evaluación se identifica como `baseline-v6.4`.
+> Su etiqueta anotada se publica únicamente después de que el commit final
+> supere la verificación desde un clon limpio. Ninguna etiqueta histórica se
+> mueve, elimina ni reutiliza.
 
 ### Historial de líneas base
 
@@ -78,9 +91,16 @@ cd SIMPA_ISR401
 | `baseline-v6.0` | `32c248351b2d3cefbebc0086c16c5d1cdd261b55` | Histórica — cierre post-evaluación |
 | `baseline-v6.1` | `26c3561f10679dbdf61c60fcfcd806506b8a1dbd` | Histórica — ajuste documental |
 | `baseline-v6.2` | `dafaf0c86563ce63fc95d90432f67b8dafb165ec` | Histórica — ajuste de vigencia y manifiesto |
-| `baseline-v6.3` | `commit final validado` | Vigente — cierre definitivo post-evaluación |
+| `baseline-v6.3` | `1424f05038cbb6718c9dee3d360f7d9ff6307299` | Evaluada oficialmente — revisión del 17/09/2026, 17:50 |
+| `baseline-v6.4` | Ver objeto de etiqueta anotada | Cierre posterior a esa evaluación; publicación condicionada a verificación desde clon limpio |
 
-Una nueva línea base solo se crea después de completar las correcciones, regenerar los manifiestos de integridad y verificar el repositorio desde un clon limpio.
+`baseline-v6.4` no incluye su propio hash en esta tabla porque un commit no
+puede contener su propio identificador. El commit congelado se consulta en
+el objeto de la etiqueta anotada (`git show baseline-v6.4`) una vez publicada.
+
+Una nueva línea base solo se crea después de completar las correcciones,
+regenerar los manifiestos de integridad y verificar el repositorio desde un
+clon limpio.
 
 Eso es todo. **No se requiere Git LFS**: se evaluó su uso para la evidencia audiovisual y se descartó al agotarse la cuota de almacenamiento. No queda ninguna regla `filter=lfs` ni ningún puntero en el árbol. La evidencia pesada se obtiene desde el repositorio complementario, como se explica más abajo.
 

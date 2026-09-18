@@ -5,6 +5,61 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
 
 ---
 
+## [4.3.1] - 2026-09-18 - Segunda ronda de correcciones post-evaluacion
+
+### Cambiado
+
+- La tercera captura de autoría de Alcívar pasa a
+  `10_Autoria/capturas/2026-09-17_AdonisAlcivar_gitlog_verificar_fichas.png`.
+  El nombre anterior reutilizaba la ruta histórica de la captura cuestionada
+  por autoría; el nombre definitivo evita esa colisión y describe el contenido
+  real mostrado (`git log` sobre `verificar_fichas.py`).
+- `10_Autoria/verificacion_seccion15.md` documenta que la primera verificación
+  visual no detectó que una de las capturas se había tomado en el equipo de
+  Macías Herrera y registra la secuencia posterior de sustitución, retirada y
+  renombrado de esa evidencia.
+- `10_Autoria/retrospectiva_equipo.md` incorpora una segunda ronda de cierre
+  fechada el 18/09/2026, corrige la atribución de las cinco fotografías de la
+  sesión complementaria y documenta la autoría real de las etiquetas anotadas.
+  Las fotografías fueron incorporadas por Macías Herrera (`e4bab0c`,
+  `71e67c0`, `1a20cbe`, `57a3086`, `24a81c2`) y renombradas posteriormente
+  por Huilcapi León (`ac5820c`).
+- `10_Autoria/aporte_individual.md` corrige la fecha de `7301a59`, describe
+  según el historial los tres archivos incorporados en `219fb9a`, registra su
+  retirada en `a2480c6` e incorpora los commits posteriores `32a8e7f` y
+  `d0b32f2`.
+- `README.md` registra el identificador completo del commit congelado por
+  `baseline-v6.3` y documenta por separado las dos evaluaciones oficiales
+  conservadas en el historial.
+- El cierre incorpora la regeneración final de `checksums.sha256` después de
+  completar todas las ediciones documentales y antes del commit de cierre.
+
+### Corregido
+
+- La evaluación oficial del 17/09/2026 a las 17:50 determinó que §15 y §16
+  permanecían en `Por modificar`. Esta entrada registra las correcciones
+  posteriores sin reescribir la entrada histórica `[4.3.0]`.
+- `checksums.sha256` verificaba correctamente en `baseline-v6.3`
+  (`1424f05038cbb6718c9dee3d360f7d9ff6307299`). La regresión apareció después,
+  al sustituir y renombrar la captura de autoría: primero como archivo ausente
+  y posteriormente como hash no coincidente. No se atribuye esa regresión a
+  `baseline-v6.3`.
+
+### Estado de cierre
+
+- `baseline-v5.0` y `baseline-v6.3` se conservan intactas como registros de
+  evaluaciones oficiales distintas.
+- El mensaje histórico de `baseline-v6.3` afirma que §15, §16 y §3 quedaron
+  corregidas; la evaluación posterior no confirmó §15 ni §16. La etiqueta no
+  se modifica ni se reutiliza; la discrepancia queda documentada.
+- Estas modificaciones se incorporan para atender las observaciones de §15 y
+  §16. La determinación de su estado final y cualquier calificación
+  corresponden al docente.
+- La nueva línea base de cierre se creará únicamente después de verificar el
+  commit final desde un clon limpio.
+
+---
+
 ## [4.3.0] - 2026-09-17 - Correcciones post-evaluacion oficial
 
 ### Añadido

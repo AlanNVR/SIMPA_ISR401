@@ -3,7 +3,7 @@
 **Proyecto:** Sistema Inteligente de Mantenimiento de Palma Africana (SIMPA)
 **Equipo:** AHMRV — ISR-401 — UTEQ
 **Período:** 2026–2027 PPA
-**Fecha de consolidación:** 16 de septiembre de 2026
+**Fecha de consolidación:** 18 de septiembre de 2026
 
 ## Propósito
 
@@ -57,16 +57,19 @@ individuales registradas arriba.
   `gleiston-guerrero/SIMPA_ISR401`.
 - Huilcapi León Denisses Fabiola: formulario de consentimiento
   complementario del cuestionario, documentación de procedencia y
-  limitaciones de las 62 respuestas, y las secciones de saturación
+  limitaciones de las 62 respuestas, las secciones de saturación
   temática, kappa ponderado y amenaza de consentimiento retrospectivo en
-  el manuscrito.
+  el manuscrito, y el renombrado de las cinco fotografías de la sesión
+  complementaria en `ac5820c` (17/09 12:53).
 - Macías Herrera Josthyn Esteban: auditoría de fichas técnicas y EXIF,
-  auditoría de cierre de §15 (correspondencia, capturas y bitácora), y
+  auditoría de cierre de §15 (correspondencia, capturas y bitácora),
   verificación de que los resultados del manuscrito coinciden con los
-  archivos canónicos de `07_Datos/resultados`.
-- Arboleda Yanza Francisco Javier: fotografías reales de la aplicación
-  complementaria del cuestionario con metadatos EXIF, y capturas propias
-  de autoría.
+  archivos canónicos de `07_Datos/resultados`, e incorporación original
+  de las cinco fotografías reales de la sesión complementaria
+  (`e4bab0c`, `71e67c0`, `1a20cbe`, `57a3086`, `24a81c2`).
+- Arboleda Yanza Francisco Javier: sus tres capturas propias de autoría,
+  regeneración de manifiestos de integridad y corrección de rutas y
+  órdenes de verificación.
 
 **Qué aprendió el equipo:**
 
@@ -87,3 +90,59 @@ del docente" no son equivalentes.
 - Antes de declarar cerrado cualquier punto de la rúbrica, se ejecuta el
   comando de verificación exacto que especifica el docente para ese
   punto, no una revisión visual.
+
+
+---
+
+## Segunda ronda de cierre — 18 de septiembre de 2026
+
+**Fecha de esta sección:** 18 de septiembre de 2026
+
+Esta sección documenta las correcciones posteriores a la evaluación oficial
+del 17/09/2026 a las 17:50. Las atribuciones que siguen fueron contrastadas
+contra el historial Git mediante `git log --follow` y `git for-each-ref`
+antes de este cierre documental.
+
+### Trabajo y atribuciones verificadas
+
+| Corrección o evidencia | Responsable verificado | Evidencia |
+|---|---|---|
+| Intervalos de confianza al 95 % de Krippendorff y kappa ponderado, figuras de saturación por estrato y recompilación del manuscrito | Huilcapi León Denisses Fabiola | Manuscrito compilado el 17/09 después de la última regeneración de resultados |
+| Renombrado de las cinco fotografías de la sesión complementaria | Huilcapi León Denisses Fabiola | `ac5820c`, 17/09 12:53 |
+| Incorporación original de las cinco fotografías reales de la sesión complementaria | Macías Herrera Josthyn Esteban | `e4bab0c`, `71e67c0`, `1a20cbe`, `57a3086`, `24a81c2`, 15/09 |
+| Regeneración de manifiestos y corrección de rutas y órdenes de verificación | Arboleda Yanza Francisco Javier | Historial de cierre y manifiestos versionados |
+| Renombrado de la retrospectiva al nombre exigido por la guía | Arboleda Yanza Francisco Javier | `6026853`, 17/09 |
+| Etiquetas anotadas `baseline-v6.0`, `baseline-v6.1` y `baseline-v6.2` | Macías Herrera Josthyn Esteban | Etiquetas creadas el 17/09 a las 16:15, 16:19 y 16:30 |
+| Etiqueta anotada `baseline-v6.3` | Huilcapi León Denisses Fabiola | Etiqueta creada el 17/09 a las 17:17 sobre `1424f05` |
+| Depósito de la tercera captura propia de autoría de Alcívar | Alcívar Vélez Anderson Adonis | `32a8e7f`, 17/09 18:13; equipo `Usuario@DESKTOP-4PFJJQ5` |
+| Retirada de la captura tomada en equipo ajeno | Macías Herrera Josthyn Esteban | `5a787f2`, 17/09 18:14 |
+| Renombrado posterior de la captura válida y corrección final de su nombre para evitar colisión histórica | Alcívar Vélez Anderson Adonis (`d0b32f2`) y Huilcapi León Denisses Fabiola (renombrado final del 18/09) | `d0b32f2` y renombrado final a `..._gitlog_verificar_fichas.png` |
+
+### Problemas detectados en esta ronda
+
+| Problema | Causa | Impacto | Acción correctiva incorporada | Responsable | Estado |
+|---|---|---|---|---|---|
+| Una de las tres capturas de autoría de Alcívar se tomó en el equipo de Macías Herrera y se depositó como evidencia propia. | Se documentó el trabajo de un integrante desde el equipo de otro sin advertir que el ítem exigía evidencia propia. | La evidencia acreditaba revisión por un tercero, no una captura propia del integrante; §15 permaneció en `Por modificar` en la evaluación del 17/09. | Alcívar depositó desde su equipo una captura del historial de un archivo escrito por él; la captura ajena se retiró y la evidencia válida quedó con un nombre distinto al archivo cuestionado. | Alcívar Vélez Anderson Adonis; retirada por Macías Herrera Josthyn Esteban. | Corrección incorporada; pendiente validación del docente |
+| La síntesis del 16/09 atribuía a Arboleda Yanza las cinco fotografías de la sesión complementaria. | La atribución se redactó sin contrastarla con el historial antes de consolidar el documento. | La retrospectiva declaraba una autoría que el historial Git desmentía. | Se corrigió la atribución: Macías Herrera incorporó las cinco fotografías y Huilcapi León realizó su renombrado posterior; Arboleda conserva únicamente las contribuciones que el historial y la evaluación le atribuyen. | Equipo de cierre. | Corrección incorporada; pendiente validación del docente |
+| Se crearon cuatro líneas base durante la misma jornada (`baseline-v6.0` a `baseline-v6.3`). | Se etiquetó después de varios ajustes documentales sucesivos en lugar de esperar al cierre completamente verificado. | La secuencia dificulta distinguir una instantánea intermedia de una línea base realmente cerrada. | Las etiquetas históricas se preservan intactas y se documenta su autoría real. La siguiente línea base solo se creará después de verificar el estado final desde clon limpio. | Equipo de cierre. | Control incorporado |
+| El manifiesto raíz quedó desfasado después de sustituir y renombrar la captura de autoría. | Los cambios posteriores a `baseline-v6.3` modificaron la ruta y posteriormente los bytes asociados a la evidencia sin regenerar `checksums.sha256`. | El manifiesto que verificaba correctamente en `baseline-v6.3` dejó de corresponder con `main` después de esos commits. | Se estableció como regla regenerar `checksums.sha256` únicamente después de terminar todas las ediciones del cierre y comprobarlo antes de crear la nueva línea base. | Equipo de cierre. | Pendiente de la verificación final de integridad |
+
+### Lecciones añadidas
+
+7. Una captura de autoría solo acredita adecuadamente esa evidencia cuando corresponde al propio integrante y su procedencia puede verificarse; documentar el trabajo desde el equipo de un compañero acredita revisión, no sustituye la evidencia propia.
+8. Toda atribución nominal debe contrastarse contra el historial Git antes de consolidarse, no contra el reparto de tareas planificado.
+9. La autoría de etiquetas anotadas se comprueba con `git for-each-ref`, no se infiere por rol dentro del equipo.
+10. El manifiesto raíz se regenera como último cambio antes del commit de cierre; cualquier modificación posterior vuelve a invalidarlo.
+11. Una línea base se crea después de que el estado a congelar haya superado la verificación de cierre, no después de cada ajuste documental.
+12. Un archivo de evidencia retirado no debe reutilizarse como nombre de su sustituto cuando eso vuelve ambigua la trazabilidad histórica.
+
+### Estado de esta segunda ronda
+
+Las correcciones documentales descritas se incorporan para atender las
+observaciones de §15 y §16 formuladas en la evaluación del 17/09/2026.
+La determinación del estado final de esos ítems y cualquier calificación
+corresponden al docente.
+
+La verificación de integridad del árbol y la creación de una nueva línea
+base se realizan después de terminar las ediciones documentales; esta
+retrospectiva no las sustituye.

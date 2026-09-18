@@ -487,13 +487,24 @@ Anderson Alcívar reprobó la asignatura. Su aporte evaluable al proyecto se
 concentra hasta el 6 de septiembre de 2026, documentado en las secciones
 8.1 a 8.4.
 
-Registra dos commits adicionales posteriores a la reprobación: `7301a59`
-(13 de septiembre, actualización de este mismo documento) y `219fb9a`
-(15 de septiembre, evidencia fotográfica de la aplicación del cuestionario
-más tres capturas de autoría propias). Ambos se realizaron a solicitud
-puntual del equipo activo para completar evidencia necesaria del proyecto.
-Se declaran aquí, atribuidos a él, y no se cuentan como aporte de los
-integrantes evaluados en el examen suspenso.
+Registra commits adicionales posteriores a la reprobación: `7301a59`
+(12 de septiembre, actualización de este mismo documento); `219fb9a`
+(15 de septiembre, incorporación de tres imágenes de evidencia: inventario
+EXIF, evidencia de aplicación del cuestionario y notas de campo), cuyos tres
+archivos fueron retirados el 17/09 en `a2480c6` durante la corrección de §15;
+`32a8e7f` (17 de septiembre, depósito desde su propio equipo de una nueva
+captura de `git log` sobre `07_Datos/scripts/verificar_fichas.py`, archivo
+creado por él en `25635ac`); y `d0b32f2` (17 de septiembre, renombrado de
+esa captura).
+
+Durante el cierre del 18/09, la misma captura se renombró nuevamente a
+`2026-09-17_AdonisAlcivar_gitlog_verificar_fichas.png` para evitar que
+reutilizara el nombre histórico de la captura cuestionada y para describir
+con precisión el contenido mostrado.
+
+Estas contribuciones se dejan registradas como trabajo verificable posterior.
+Su efecto sobre cualquier calificación individual corresponde exclusivamente
+al docente.
 
 ---
 
