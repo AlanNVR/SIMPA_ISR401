@@ -33,6 +33,15 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/).
   conservadas en el historial.
 - El cierre incorpora la regeneración final de `checksums.sha256` después de
   completar todas las ediciones documentales y antes del commit de cierre.
+- `10_Autoria/verificacion_seccion15.md` y `10_Autoria/README.md` acotan a la
+  verificación interna del 16/09 dos afirmaciones que declaraban §15 cerrado
+  por cuenta del equipo, y remiten al docente la determinación del estado
+  oficial del ítem.
+- `checksums.sha256` se regeneró nuevamente tras esa edición; verifica 570
+  entradas sobre el árbol versionado.
+- Esta entrada se consolida en el commit de congelación documental de la ronda
+  del 18/09, que no introduce cambios de contenido distintos de los descritos
+  aquí. Su identificador se publica en el mensaje de `baseline-v6.4`.
 
 ### Corregido
 

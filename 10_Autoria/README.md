@@ -26,7 +26,7 @@ todavía no hayan sido verificados.**
 | `bitacora_sesiones.csv` | Registro consolidado de 30 sesiones: 26 jornadas sin nota de campo aplicable y 4 jornadas de elicitación con notas reales asociadas |
 | `capturas/` | Evidencia visual de trabajo y contribución individual conservada para la verificación de autoría |
 | `notas_campo/readme.md` | Índice de las 16 notas de campo reales (`NC-01` a `NC-16`, una por entrevista ENTR-01 a ENTR-16), con su relación al resto de la evidencia de cada sesión (AUT-05) |
-| `verificacion_seccion15.md` | Auditoría de cierre de §15: constancia formal, capturas, bitácora y notas de campo verificadas; sección cerrada |
+| `verificacion_seccion15.md` | Auditoría de cierre de §15: constancia formal, capturas, bitácora y notas de campo verificadas; incluye las correcciones posteriores a la evaluación del 17/09 |
 | `verificacion_exif_aplicacion.md` | Verificación técnica de `DateTimeOriginal` y modelo de cámara de las cinco fotografías de la sesión complementaria del cuestionario |
 | `verificacion_resultados_canonicos.md` | Cruce de resultados estadísticos canónicos contra el manuscrito final: kappa ponderado, Krippendorff, saturación y modelo ordinal |
 | `exif_inventario.csv` | Inventario consolidado de metadatos EXIF de la evidencia fotográfica |

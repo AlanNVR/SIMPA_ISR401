@@ -125,7 +125,7 @@ antes de este cierre documental.
 | Una de las tres capturas de autoría de Alcívar se tomó en el equipo de Macías Herrera y se depositó como evidencia propia. | Se documentó el trabajo de un integrante desde el equipo de otro sin advertir que el ítem exigía evidencia propia. | La evidencia acreditaba revisión por un tercero, no una captura propia del integrante; §15 permaneció en `Por modificar` en la evaluación del 17/09. | Alcívar depositó desde su equipo una captura del historial de un archivo escrito por él; la captura ajena se retiró y la evidencia válida quedó con un nombre distinto al archivo cuestionado. | Alcívar Vélez Anderson Adonis; retirada por Macías Herrera Josthyn Esteban. | Corrección incorporada; pendiente validación del docente |
 | La síntesis del 16/09 atribuía a Arboleda Yanza las cinco fotografías de la sesión complementaria. | La atribución se redactó sin contrastarla con el historial antes de consolidar el documento. | La retrospectiva declaraba una autoría que el historial Git desmentía. | Se corrigió la atribución: Macías Herrera incorporó las cinco fotografías y Huilcapi León realizó su renombrado posterior; Arboleda conserva únicamente las contribuciones que el historial y la evaluación le atribuyen. | Equipo de cierre. | Corrección incorporada; pendiente validación del docente |
 | Se crearon cuatro líneas base durante la misma jornada (`baseline-v6.0` a `baseline-v6.3`). | Se etiquetó después de varios ajustes documentales sucesivos en lugar de esperar al cierre completamente verificado. | La secuencia dificulta distinguir una instantánea intermedia de una línea base realmente cerrada. | Las etiquetas históricas se preservan intactas y se documenta su autoría real. La siguiente línea base solo se creará después de verificar el estado final desde clon limpio. | Equipo de cierre. | Control incorporado |
-| El manifiesto raíz quedó desfasado después de sustituir y renombrar la captura de autoría. | Los cambios posteriores a `baseline-v6.3` modificaron la ruta y posteriormente los bytes asociados a la evidencia sin regenerar `checksums.sha256`. | El manifiesto que verificaba correctamente en `baseline-v6.3` dejó de corresponder con `main` después de esos commits. | Se estableció como regla regenerar `checksums.sha256` únicamente después de terminar todas las ediciones del cierre y comprobarlo antes de crear la nueva línea base. | Equipo de cierre. | Pendiente de la verificación final de integridad |
+| El manifiesto raíz quedó desfasado después de sustituir y renombrar la captura de autoría. | Los cambios posteriores a `baseline-v6.3` modificaron la ruta y posteriormente los bytes asociados a la evidencia sin regenerar `checksums.sha256`. | El manifiesto que verificaba correctamente en `baseline-v6.3` dejó de corresponder con `main` después de esos commits. | Se estableció como regla regenerar `checksums.sha256` únicamente después de terminar todas las ediciones del cierre y comprobarlo antes de crear la nueva línea base. | Equipo de cierre. | Cerrado — el manifiesto raíz se regenera como último cambio de esta ronda |
 
 ### Lecciones añadidas
 
@@ -135,6 +135,23 @@ antes de este cierre documental.
 10. El manifiesto raíz se regenera como último cambio antes del commit de cierre; cualquier modificación posterior vuelve a invalidarlo.
 11. Una línea base se crea después de que el estado a congelar haya superado la verificación de cierre, no después de cada ajuste documental.
 12. Un archivo de evidencia retirado no debe reutilizarse como nombre de su sustituto cuando eso vuelve ambigua la trazabilidad histórica.
+
+### Corrección posterior dentro de la misma ronda
+
+Tras consolidar esta ronda se detectó que `10_Autoria/verificacion_seccion15.md`
+y `10_Autoria/README.md` conservaban dos afirmaciones —anteriores a la
+evaluación oficial— que declaraban §15 cerrado por cuenta del equipo, en
+contradicción con el propio apéndice de este cierre, que remite al docente la
+determinación del estado del ítem. Ambas se reformularon para acotarlas a la
+verificación interna del 16/09, sin borrar la conclusión histórica ni alterar
+su fecha. El manifiesto raíz se regeneró tras esa edición.
+
+| Corrección | Responsable verificado | Evidencia |
+|---|---|---|
+| Contextualización de las dos afirmaciones de cierre de §15 y regeneración del manifiesto | Huilcapi León Denisses Fabiola | `1550947`, 18/09 09:18 |
+
+**Lección 13.** Un documento de auditoría no declara cerrado el ítem que audita:
+describe lo verificado y deja la calificación al evaluador.
 
 ### Estado de esta segunda ronda
 
@@ -146,3 +163,10 @@ corresponden al docente.
 La verificación de integridad del árbol y la creación de una nueva línea
 base se realizan después de terminar las ediciones documentales; esta
 retrospectiva no las sustituye.
+
+Esta sección se consolida en el commit de congelación documental que la
+incorpora, junto con la ampliación correspondiente del CHANGELOG y la
+regeneración del manifiesto raíz. Ese commit no introduce cambios de contenido
+adicionales a los aquí descritos; su identificador se publica en el mensaje de
+la etiqueta anotada `baseline-v6.4`, porque un commit no puede contener su
+propio hash. La ronda de cierre termina ahí.
