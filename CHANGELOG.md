@@ -324,7 +324,7 @@ la corrección.
 - Se realizó una segunda reescritura del historial, independiente del saneamiento de privacidad anterior, para retirar material ajeno al PFC que permanecía únicamente en commits históricos.
 - Se eliminaron del historial las rutas `Tareas_Villafuerte/`, `Grupo_C/`, `MRV_Equipo_B/` y `cambios_fase0_v2.patch`.
 - El historial pasó de 281 a 241 commits tras retirar 40 commits asociados exclusivamente a dicho material.
-- Se verificó nuevamente que `Hacienda La Manuela` no aparece en los commits alcanzables y que el seudónimo `Palmicultora M` permanece correctamente aplicado.
+Se verificó nuevamente que el nombre real de la organización no aparece en los commits alcanzables y que el seudónimo `Palmicultora M` permanece correctamente aplicado.
 - El tag `v1.0-mvp-demo` fue reescrito durante el saneamiento y quedó asociado al commit limpio equivalente.
 - Se añadió `.gitattributes` en la raíz con la regla `* -text` para impedir conversiones automáticas LF/CRLF entre plataformas.
 - `checksums.sha256` fue regenerado para incorporar `.gitattributes` y permitir su verificación directa mediante `sha256sum -c checksums.sha256` también en Windows.
